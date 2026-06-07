@@ -58,3 +58,7 @@ Desktop.ini
 
 # Production builds
 deploy.zip
+
+# Test results
+test-results/
+test/test-results/
