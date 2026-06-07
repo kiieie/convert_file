@@ -70,6 +70,8 @@
   npx http-server -p 8080 -c-1
   
   # E2E 테스트 러너 기동
+  cd test
+  npm install
   npm run test:e2e
   ```
 

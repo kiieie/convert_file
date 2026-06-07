@@ -55,3 +55,6 @@ Desktop.ini
 .opencode/
 .windsurf/
 .cursor/
+
+# Production builds
+deploy.zip
