@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Auto Language Detector Redirector -->
+    <script src="/js/core/lang-detector.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Hojas de estilo modernas -->
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .modern-tool-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .modern-tool-card:hover {
+            border-color: var(--blue-500);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            transform: translateY(-1px);
+        }
+        .modern-tool-card__icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        .modern-tool-card__title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin: 0;
+        }
+        .modern-tool-card__desc {
+            font-size: 12px;
+            color: var(--slate-500);
+            margin: 0;
+            line-height: 1.4;
+        }
+    </style>
+
+    <title>ConvertFile - Editor y Convertidor de Imágenes y GIF/PDF Gratis en Línea</title>
+    <meta name="description" content="Herramientas gratuitas y seguras de edición y conversión de imágenes en línea que se ejecutan al 100% en su navegador sin subir archivos al servidor. Ofrece redimensionamiento, recorte, conversión de formato, combinación de PDF y eliminación de EXIF.">
+    <meta name="keywords" content="convertir imagen, creador gif, combinar pdf, borrar exif, editor imagenes, herramientas gratis online">
+    <link rel="canonical" href="https://convertfile.pages.dev/es/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://convertfile.pages.dev/es/">
+    <meta property="og:title" content="ConvertFile - Editor y Convertidor de Imágenes y GIF/PDF Gratis en Línea">
+    <meta property="og:description" content="Herramientas gratuitas y seguras de edición y conversión de imágenes en línea que se ejecutan al 100% en su navegador sin subir archivos al servidor. Ofrece redimensionamiento, recorte, conversión de formato, combinación de PDF y eliminación de EXIF.">
+    <meta property="og:image" content="https://convertfile.pages.dev/assets/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://convertfile.pages.dev/es/">
+    <meta property="twitter:title" content="ConvertFile - Editor y Convertidor de Imágenes y GIF/PDF Gratis en Línea">
+    <meta property="twitter:description" content="Herramientas gratuitas y seguras de edición y conversión de imágenes en línea que se ejecutan al 100% en su navegador sin subir archivos al servidor. Ofrece redimensionamiento, recorte, conversión de formato, combinación de PDF y eliminación de EXIF.">
+    <meta property="twitter:image" content="https://convertfile.pages.dev/assets/og-image.png">
+
+    <!-- Datos estructurados -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ConvertFile - Editor y Convertidor de Imágenes y GIF/PDF Gratis en Línea",
+      "url": "https://convertfile.pages.dev/es/",
+      "description": "Herramientas gratuitas y seguras de edición y conversión de imágenes en línea que se ejecutan al 100% en su navegador sin subir archivos al servidor. Ofrece redimensionamiento, recorte, conversión de formato, combinación de PDF y eliminación de EXIF.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. Navegación lateral fija izquierda -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. Contenido principal derecho -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Herramientas de Imagen y GIF en Línea</h1>
+                <p class="modern-content__desc">Realice conversiones de imágenes a alta velocidad, sin pérdida de calidad y con total privacidad 100% en su navegador.</p>
+            </header>
+
+            <!-- Cuadrícula de herramientas -->
+            <div class="modern-dashboard-grid">
+                <a href="/es/tools/resize.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📐</div>
+                    <h3 class="modern-tool-card__title">Redimensionar Imagen</h3>
+                    <p class="modern-tool-card__desc">Ajustar la resolución de píxeles o cambiar tamaño manteniendo la proporción.</p>
+                </a>
+                <a href="/es/tools/crop.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">✂️</div>
+                    <h3 class="modern-tool-card__title">Recortar Imagen</h3>
+                    <p class="modern-tool-card__desc">Recortar fotos para avatares de perfil o en proporciones libres.</p>
+                </a>
+                <a href="/es/tools/rotate.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🔄</div>
+                    <h3 class="modern-tool-card__title">Rotar y Voltear</h3>
+                    <p class="modern-tool-card__desc">Rotar 90 grados, ajustar ángulos pequeños o voltear horizontal/verticalmente.</p>
+                </a>
+                <a href="/es/tools/jpg-png.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🔁</div>
+                    <h3 class="modern-tool-card__title">Convertir Formato</h3>
+                    <p class="modern-tool-card__desc">Conversión sin pérdida de calidad entre formatos JPG, PNG y WebP.</p>
+                </a>
+                <a href="/es/tools/gif-maker.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🎞️</div>
+                    <h3 class="modern-tool-card__title">Creador de GIF</h3>
+                    <p class="modern-tool-card__desc">Combinar múltiples imágenes para crear un GIF animado.</p>
+                </a>
+                <a href="/es/tools/gif-splitter.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">✂️</div>
+                    <h3 class="modern-tool-card__title">Dividir fotogramas GIF</h3>
+                    <p class="modern-tool-card__desc">Extraer fotogramas individuales de una animación GIF.</p>
+                </a>
+                <a href="/es/tools/gif-optimize.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📉</div>
+                    <h3 class="modern-tool-card__title">Optimizar GIF</h3>
+                    <p class="modern-tool-card__desc">Reducir el tamaño mediante transparencia y reducción de colores.</p>
+                </a>
+                <a href="/es/tools/gif-speed.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">⏳</div>
+                    <h3 class="modern-tool-card__title">Velocidad de GIF</h3>
+                    <p class="modern-tool-card__desc">Acelerar, ralentizar o reproducir al revés animaciones GIF.</p>
+                </a>
+                <a href="/es/tools/gif-effects.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🎨</div>
+                    <h3 class="modern-tool-card__title">Efectos y Subtítulos</h3>
+                    <p class="modern-tool-card__desc">Aplicar filtros de color o superponer texto sobre GIFs.</p>
+                </a>
+                <a href="/es/tools/video-gif.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🎬</div>
+                    <h3 class="modern-tool-card__title">Video a GIF</h3>
+                    <p class="modern-tool-card__desc">Recortar un fragmento de video y codificarlo como GIF.</p>
+                </a>
+                <a href="/es/tools/pdf.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📄</div>
+                    <h3 class="modern-tool-card__title">Herramientas PDF ↔ Imagen</h3>
+                    <p class="modern-tool-card__desc">Combinar imágenes en un PDF o extraer páginas de PDF a JPG.</p>
+                </a>
+                <a href="/es/tools/barcode.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📊</div>
+                    <h3 class="modern-tool-card__title">Escáner/Gen de QR y Barras</h3>
+                    <p class="modern-tool-card__desc">Generar códigos de barras 1D/2D en tiempo real o escanear archivos.</p>
+                </a>
+                <a href="/es/tools/metadata.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🛡️</div>
+                    <h3 class="modern-tool-card__title">Eliminador de EXIF</h3>
+                    <p class="modern-tool-card__desc">Eliminar metadatos por completo para proteger la privacidad de sus fotos.</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Cargador dinámico del menú lateral -->
+    <script src="/js/core/sidebar.js?v=3"></script>
+</body>
+</html>

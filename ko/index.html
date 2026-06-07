@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Auto Language Detector Redirector -->
+    <script src="/js/core/lang-detector.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <!-- 모던 미니멀 스타일시트 바인딩 -->
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .modern-tool-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .modern-tool-card:hover {
+            border-color: var(--blue-500);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            transform: translateY(-1px);
+        }
+        .modern-tool-card__icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        .modern-tool-card__title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin: 0;
+        }
+        .modern-tool-card__desc {
+            font-size: 12px;
+            color: var(--slate-500);
+            margin: 0;
+            line-height: 1.4;
+        }
+    </style>
+
+    <title>ConvertFile - 온라인 무료 이미지 & GIF/PDF 변환/편집기</title>
+    <meta name="description" content="서버 전송 없이 브라우저 내에서 100% 실행되는 안전한 무료 이미지 변환 및 편집 도구 모음. 이미지 크기 조절, 자르기, 포맷 변환, PDF 병합, EXIF 제거 제공.">
+    <meta name="keywords" content="이미지 변환, GIF 메이커, PDF 병합, EXIF 지우기, 이미지 편집기, 무료 온라인 도구">
+    <link rel="canonical" href="https://convertfile.pages.dev/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://convertfile.pages.dev/">
+    <meta property="og:title" content="ConvertFile - 온라인 무료 이미지 & GIF/PDF 변환/편집기">
+    <meta property="og:description" content="서버 전송 없이 브라우저 내에서 100% 실행되는 안전한 무료 이미지 변환 및 편집 도구 모음. 이미지 크기 조절, 자르기, 포맷 변환, PDF 병합, EXIF 제거 제공.">
+    <meta property="og:image" content="https://convertfile.pages.dev/assets/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://convertfile.pages.dev/">
+    <meta property="twitter:title" content="ConvertFile - 온라인 무료 이미지 & GIF/PDF 변환/편집기">
+    <meta property="twitter:description" content="서버 전송 없이 브라우저 내에서 100% 실행되는 안전한 무료 이미지 변환 및 편집 도구 모음. 이미지 크기 조절, 자르기, 포맷 변환, PDF 병합, EXIF 제거 제공.">
+    <meta property="twitter:image" content="https://convertfile.pages.dev/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ConvertFile - 온라인 무료 이미지 & GIF/PDF 변환/편집기",
+  "url": "https://convertfile.pages.dev/",
+  "description": "서버 전송 없이 브라우저 내에서 100% 실행되는 안전한 무료 이미지 변환 및 편집 도구 모음. 이미지 크기 조절, 자르기, 포맷 변환, PDF 병합, EXIF 제거 제공.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 내비게이션 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 대시보드 뷰포트 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">온라인 이미지 및 GIF 도구 툴킷</h1>
+                <p class="modern-content__desc">설치 없이 브라우저 내에서 100% 무손실 고속 개인정보 보호 이미지 변환을 수행하십시오.</p>
+            </header>
+
+            <!-- 툴 리스트 카드 대시보드 -->
+            <div class="modern-dashboard-grid">
+                <a href="/tools/resize.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📐</div>
+                    <h3 class="modern-tool-card__title">이미지 크기 조절</h3>
+                    <p class="modern-tool-card__desc">사진 해상도 픽셀 또는 가변 비율 크기 조절</p>
+                </a>
+                <a href="/tools/crop.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">✂️</div>
+                    <h3 class="modern-tool-card__title">이미지 자르기</h3>
+                    <p class="modern-tool-card__desc">정방형 프로필 및 임의 영역 비율 자르기</p>
+                </a>
+                <a href="/tools/rotate.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🔄</div>
+                    <h3 class="modern-tool-card__title">회전 및 반전</h3>
+                    <p class="modern-tool-card__desc">직각 회전, 미세 수평 각도 조정 및 대칭 반전</p>
+                </a>
+                <a href="/tools/jpg-png.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🔁</div>
+                    <h3 class="modern-tool-card__title">이미지 포맷 변환</h3>
+                    <p class="modern-tool-card__desc">JPG, PNG, WebP 간의 무손실 포맷 변환</p>
+                </a>
+                <a href="/tools/gif-maker.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🎞️</div>
+                    <h3 class="modern-tool-card__title">GIF 메이커</h3>
+                    <p class="modern-tool-card__desc">복수의 이미지를 병합해 움직이는 움짤 GIF 생성</p>
+                </a>
+                <a href="/tools/gif-splitter.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">✂️</div>
+                    <h3 class="modern-tool-card__title">GIF 프레임 분할</h3>
+                    <p class="modern-tool-card__desc">움짤 GIF의 프레임을 개별 이미지로 분리 추출</p>
+                </a>
+                <a href="/tools/gif-optimize.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📉</div>
+                    <h3 class="modern-tool-card__title">GIF 최적화</h3>
+                    <p class="modern-tool-card__desc">중복 픽셀 투명화 및 팔레트 감축으로 용량 최적화</p>
+                </a>
+                <a href="/tools/gif-speed.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">⏳</div>
+                    <h3 class="modern-tool-card__title">GIF 속도 조절</h3>
+                    <p class="modern-tool-card__desc">GIF 애니메이션 재생 속도 조절 및 역재생 생성</p>
+                </a>
+                <a href="/tools/gif-effects.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🎨</div>
+                    <h3 class="modern-tool-card__title">GIF 효과 및 자막</h3>
+                    <p class="modern-tool-card__desc">GIF 움짤에 색상 필터링 및 텍스트 캡션 오버레이</p>
+                </a>
+                <a href="/tools/video-gif.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🎬</div>
+                    <h3 class="modern-tool-card__title">비디오 to GIF 변환</h3>
+                    <p class="modern-tool-card__desc">동영상의 특정 타임라인 영역을 잘라내어 GIF로 인코딩</p>
+                </a>
+                <a href="/tools/pdf.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📄</div>
+                    <h3 class="modern-tool-card__title">PDF ↔ 이미지 변환</h3>
+                    <p class="modern-tool-card__desc">다수 이미지의 PDF 병합 및 PDF의 각 페이지 이미지화</p>
+                </a>
+                <a href="/tools/barcode.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">📊</div>
+                    <h3 class="modern-tool-card__title">QR코드 & 바코드 스캐너/생성</h3>
+                    <p class="modern-tool-card__desc">1D/2D 바코드 실시간 렌더링 생성 및 업로드 스캔</p>
+                </a>
+                <a href="/tools/metadata.html" class="modern-tool-card">
+                    <div class="modern-tool-card__icon">🛡️</div>
+                    <h3 class="modern-tool-card__title">사진 EXIF 지우개</h3>
+                    <p class="modern-tool-card__desc">사생활 침해 방지를 위한 메타데이터 무손실 제거</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- 사이드바 동적 로더 연동 -->
+    <script src="/js/core/sidebar.js?v=3"></script>
+</body>
+</html>

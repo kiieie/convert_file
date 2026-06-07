@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <!-- Auto Language Detector Redirector -->
     <script src="/js/core/lang-detector.js"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
@@ -73,293 +73,294 @@
         }
     </style>
 
-    <title>Online PDF ↔ Image Converter (PDF Tools) - ConvertFile</title>
-    <meta name="description" content="Merge multiple photos into a single PDF document, or extract each page of a PDF document to high-quality images packaged in a ZIP file.">
-    <meta name="keywords" content="image to pdf, pdf to image, jpg to pdf, pdf to jpg, pdf merger, pdf editor">
+    <title>온라인 PDF ↔ 이미지 상호 변환기 (PDF Tools) - ConvertFile</title>
+    <meta name="description" content="여러 장의 사진을 모아 단일 PDF 파일로 병합하거나, PDF 문서의 각 페이지를 고화질 이미지로 추출하여 ZIP 압축본으로 받아보세요.">
+    <meta name="keywords" content="이미지 PDF 변환, PDF 이미지 추출, JPG to PDF, PDF JPG 변환">
     <link rel="canonical" href="https://convertfile.pages.dev/tools/pdf.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://convertfile.pages.dev/tools/pdf.html">
-    <meta property="og:title" content="Online PDF ↔ Image Converter (PDF Tools) - ConvertFile">
-    <meta property="og:description" content="Merge multiple photos into a single PDF document, or extract each page of a PDF document to high-quality images packaged in a ZIP file.">
+    <meta property="og:title" content="온라인 PDF ↔ 이미지 상호 변환기 (PDF Tools) - ConvertFile">
+    <meta property="og:description" content="여러 장의 사진을 모아 단일 PDF 파일로 병합하거나, PDF 문서의 각 페이지를 고화질 이미지로 추출하여 ZIP 압축본으로 받아보세요.">
     <meta property="og:image" content="https://convertfile.pages.dev/assets/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://convertfile.pages.dev/tools/pdf.html">
-    <meta property="twitter:title" content="Online PDF ↔ Image Converter (PDF Tools) - ConvertFile">
-    <meta property="twitter:description" content="Merge multiple photos into a single PDF document, or extract each page of a PDF document to high-quality images packaged in a ZIP file.">
+    <meta property="twitter:title" content="온라인 PDF ↔ 이미지 상호 변환기 (PDF Tools) - ConvertFile">
+    <meta property="twitter:description" content="여러 장의 사진을 모아 단일 PDF 파일로 병합하거나, PDF 문서의 각 페이지를 고화질 이미지로 추출하여 ZIP 압축본으로 받아보세요.">
     <meta property="twitter:image" content="https://convertfile.pages.dev/assets/og-image.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Online PDF ↔ Image Converter (PDF Tools) - ConvertFile",
-      "url": "https://convertfile.pages.dev/tools/pdf.html",
-      "description": "Merge multiple photos into a single PDF document, or extract each page of a PDF document to high-quality images packaged in a ZIP file.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-    }
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "온라인 PDF ↔ 이미지 상호 변환기 (PDF Tools) - ConvertFile",
+  "url": "https://convertfile.pages.dev/tools/pdf.html",
+  "description": "여러 장의 사진을 모아 단일 PDF 파일로 병합하거나, PDF 문서의 각 페이지를 고화질 이미지로 추출하여 ZIP 압축본으로 받아보세요.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
     </script>
 </head>
 <body>
 
     <div class="modern-layout">
-        <!-- 1. Left Sidebar Fixed Navigation -->
+        <!-- 1. 좌측 공통 고정 사이드바 -->
         <aside class="modern-sidebar"></aside>
 
-        <!-- 2. Right Main Workspace -->
+        <!-- 2. 우측 메인 워크스페이스 -->
         <main class="modern-content">
             <header class="modern-content__header">
-                <h1 class="modern-content__title">PDF ↔ Image Tools</h1>
-                <p class="modern-content__desc">Merge multiple images into a single PDF file, or extract all pages of a PDF document to JPG images.</p>
+                <h1 class="modern-content__title">PDF ↔ 이미지 상호 변환기 (PDF Tools)</h1>
+                <p class="modern-content__desc">여러 이미지를 모아 단일 PDF 문서 파일로 묶거나, 반대로 PDF 문서의 모든 페이지를 JPG 이미지 묶음 파일로 추출해 다운로드합니다.</p>
             </header>
 
-            <!-- Google AdSense Zone -->
+            <!-- 애드센스 슬롯 -->
             <div class="modern-ad-zone">
-                <span>[AD Zone] Google AdSense Banner (728x90)</span>
+                <span>[광고 영역] Google AdSense Banner (728x90)</span>
             </div>
 
-            <!-- Modern Tabs -->
+            <!-- 모던 탭 구조 -->
             <div class="modern-tabs" style="display:flex; flex-wrap:wrap; gap:4px; border-bottom: 1px solid var(--slate-200); margin-bottom:15px;">
-                <div class="modern-tab modern-tab--active" id="tab-img-to-pdf" onclick="switchPdfMode('img-to-pdf')" style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:13px; color:var(--blue-600); border-bottom:2px solid var(--blue-600);">Images → PDF</div>
-                <div class="modern-tab" id="tab-pdf-to-img" onclick="switchPdfMode('pdf-to-img')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF → Images</div>
-                <div class="modern-tab" id="tab-pdf-merge" onclick="switchPdfMode('pdf-merge')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF Merge</div>
-                <div class="modern-tab" id="tab-pdf-split" onclick="switchPdfMode('pdf-split')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF Split</div>
-                <div class="modern-tab" id="tab-pdf-edit" onclick="switchPdfMode('pdf-edit')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF Edit</div>
+                <div class="modern-tab modern-tab--active" id="tab-img-to-pdf" onclick="switchPdfMode('img-to-pdf')" style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:13px; color:var(--blue-600); border-bottom:2px solid var(--blue-600);">이미지 → PDF 병합</div>
+                <div class="modern-tab" id="tab-pdf-to-img" onclick="switchPdfMode('pdf-to-img')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF → 이미지 추출</div>
+                <div class="modern-tab" id="tab-pdf-merge" onclick="switchPdfMode('pdf-merge')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF 끼리 병합</div>
+                <div class="modern-tab" id="tab-pdf-split" onclick="switchPdfMode('pdf-split')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF 페이지 분할</div>
+                <div class="modern-tab" id="tab-pdf-edit" onclick="switchPdfMode('pdf-edit')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF 편집 (삭제/회전/압축)</div>
             </div>
 
             <div class="modern-tool-grid">
-                <!-- Col 1: Dropzones -->
+                <!-- 1열: 업로드 드롭존 및 관리자 -->
                 <div style="display:flex; flex-direction:column; gap:12px;">
-                    <!-- Image to PDF Dropzone -->
+                    <!-- 이미지 to PDF 패널 -->
                     <div id="panel-img-to-pdf">
                         <div class="modern-upload-zone" id="img-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
                             <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z&quot;/></svg>');"></div>
-                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">Drop image files here to merge into a PDF.</div>
-                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PNG, JPG, WebP multi-selection supported (Max 50MB in total)</div>
-                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-images" style="cursor: pointer; pointer-events: auto;">📂 Select Images</button>
+                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">PDF로 묶을 이미지 파일들을 드롭하십시오.</div>
+                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PNG, JPG, WebP 이미지 다중 선택 가능 (총합 최대 50MB)</div>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-images" style="cursor: pointer; pointer-events: auto;">📂 이미지 파일 선택</button>
                             <input type="file" id="img-file-input" style="display:none;" accept="image/*" multiple>
                         </div>
                         
-                        <!-- Added images thumbnail grid -->
+                        <!-- 추가된 이미지 썸네일 그리드 -->
                         <div class="modern-card" style="margin-top:12px; display:none;" id="added-images-card">
-                            <h3 class="modern-card__title">Selected Images List & Order</h3>
+                            <h3 class="modern-card__title">선택된 이미지 순서 및 리스트</h3>
                             <div class="image-file-list" id="added-images-list"></div>
                         </div>
                     </div>
 
-                    <!-- Single PDF Dropzone (Extract/Split/Edit) -->
+                    <!-- PDF to 이미지/분할/편집 공용 단일 PDF 패널 -->
                     <div id="panel-pdf-to-img" style="display:none;">
                         <div class="modern-upload-zone" id="pdf-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
                             <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z&quot;/></svg>');"></div>
-                            <div class="modern-upload-zone__title" id="pdf-drop-zone-title" style="font-size: 15px; color: var(--slate-800);">Drop PDF document here to process.</div>
-                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PDF format support (Max 50MB)</div>
-                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-pdf" style="cursor: pointer; pointer-events: auto;">📂 Select PDF File</button>
+                            <div class="modern-upload-zone__title" id="pdf-drop-zone-title" style="font-size: 15px; color: var(--slate-800);">변환할 PDF 문서 파일을 여기에 올려놓으십시오.</div>
+                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PDF 문서 확장자 규격 지원 (최대 50MB)</div>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-pdf" style="cursor: pointer; pointer-events: auto;">📂 PDF 문서 선택</button>
                             <input type="file" id="pdf-file-input" style="display:none;" accept="application/pdf">
                         </div>
 
-                        <!-- PDF Info card -->
+                        <!-- PDF 업로드 후 요약 정보 노출 -->
                         <div class="modern-card" style="margin-top:12px; display:none;" id="pdf-info-card">
-                            <h3 class="modern-card__title">PDF Document Details</h3>
+                            <h3 class="modern-card__title">PDF 문서 세부 정보</h3>
                             <div class="modern-form-group">
-                                <span class="modern-label">File Summary</span>
+                                <span class="modern-label">파일 정보</span>
                                 <div id="pdf-file-summary" style="font-size:13px; color:var(--slate-700); font-weight:500;"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- PDF Merge Dropzone -->
+                    <!-- PDF 끼리 병합 패널 (다중 PDF 업로드) -->
                     <div id="panel-pdf-merge" style="display:none;">
                         <div class="modern-upload-zone" id="pdf-merge-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
                             <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M12 4.5v15m7.5-7.5h-15&quot;/></svg>');"></div>
-                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">Drop multiple PDF files to merge here.</div>
-                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PDF multi-selection supported (Max 100MB in total)</div>
-                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-merge-pdfs" style="cursor: pointer; pointer-events: auto;">📂 Select PDF Files</button>
+                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">병합할 PDF 파일들을 여기에 올려놓으십시오.</div>
+                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PDF 문서 다중 선택 지원 (총합 최대 100MB)</div>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-merge-pdfs" style="cursor: pointer; pointer-events: auto;">📂 PDF 파일 선택</button>
                             <input type="file" id="pdf-merge-file-input" style="display:none;" accept="application/pdf" multiple>
                         </div>
 
-                        <!-- Added PDFs List -->
+                        <!-- 추가된 PDF 목록 -->
                         <div class="modern-card" style="margin-top:12px; display:none;" id="added-pdfs-card">
-                            <h3 class="modern-card__title">Selected PDF Files Order</h3>
+                            <h3 class="modern-card__title">선택된 PDF 파일 목록</h3>
                             <div class="image-file-list" id="added-pdfs-list" style="display:flex; flex-direction:column; gap:6px;"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Col 2: Settings Panel -->
+                <!-- 2열: 제어 카드 -->
                 <div style="display:flex; flex-direction:column; gap:12px;">
                     <div class="modern-card">
-                        <h3 class="modern-card__title">Conversion Settings</h3>
+                        <h3 class="modern-card__title">변환 설정 제어</h3>
                         
-                        <!-- Settings for Image to PDF -->
+                        <!-- Image to PDF 용 설정 -->
                         <div id="settings-img-to-pdf">
                             <div class="modern-form-group">
-                                <span class="modern-label">Page Layout Size</span>
+                                <span class="modern-label">페이지 레이아웃 크기</span>
                                 <select class="modern-select" id="pdf-page-size">
-                                    <option value="A4" selected>A4 Standard Size (210 x 297 mm)</option>
-                                    <option value="FIT">Fit to Original Image Resolution (Auto Fit)</option>
+                                    <option value="A4" selected>A4 규격 크기 (210 x 297 mm)</option>
+                                    <option value="FIT">이미지 원본 크기에 맞춤 (Auto Fit)</option>
                                 </select>
                             </div>
                             <div class="modern-form-group">
-                                <span class="modern-label">Page Orientation (For A4)</span>
+                                <span class="modern-label">페이지 방향 (A4 설정 시)</span>
                                 <select class="modern-select" id="pdf-page-orientation">
-                                    <option value="portrait" selected>Portrait</option>
-                                    <option value="landscape">Landscape</option>
+                                    <option value="portrait" selected>세로 방향 (Portrait)</option>
+                                    <option value="landscape">가로 방향 (Landscape)</option>
                                 </select>
                             </div>
                             <div class="modern-form-group">
-                                <span class="modern-label">Page Margin (Margin)</span>
+                                <span class="modern-label">여백 설정 (Margin)</span>
                                 <select class="modern-select" id="pdf-page-margin">
-                                    <option value="0" selected>No Margin (0px)</option>
-                                    <option value="20">Normal Margin (20px)</option>
-                                    <option value="40">Wide Margin (40px)</option>
+                                    <option value="0" selected>여백 없음 (0px)</option>
+                                    <option value="20">보통 여백 (20px)</option>
+                                    <option value="40">넓은 여백 (40px)</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Settings for PDF to Image -->
+                        <!-- PDF to Image 용 설정 -->
                         <div id="settings-pdf-to-img" style="display:none;">
                             <div class="modern-form-group">
-                                <span class="modern-label">Target Image Format</span>
+                                <span class="modern-label">추출 대상 이미지 포맷</span>
                                 <select class="modern-select" id="pdf-out-format">
-                                    <option value="image/png" selected>PNG Lossless High Quality</option>
-                                    <option value="image/jpeg">JPEG Standard Compression</option>
+                                    <option value="image/png" selected>PNG 무손실 고화질</option>
+                                    <option value="image/jpeg">JPEG 일반 압축 사진</option>
                                 </select>
                             </div>
                             <div class="modern-form-group">
-                                <span class="modern-label">Resolution Scale (Scale)</span>
+                                <span class="modern-label">출력 품질 해상도 배율 (Scale)</span>
                                 <select class="modern-select" id="pdf-out-scale">
-                                    <option value="1">1.0x (Standard Resolution)</option>
-                                    <option value="1.5" selected>1.5x (Medium Quality)</option>
-                                    <option value="2">2.0x (High Resolution Print Quality)</option>
+                                    <option value="1">1.0x (표준 선명도)</option>
+                                    <option value="1.5" selected>1.5x (중간 선명도)</option>
+                                    <option value="2">2.0x (고해상도 프린팅급)</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Settings for PDF Merge -->
+                        <!-- PDF 끼리 병합 설정 -->
                         <div id="settings-pdf-merge" style="display:none;">
                             <p style="font-size:12px; color:var(--slate-500); line-height:1.5;">
-                                Multiple PDF documents will be joined into a single PDF in the order of upload. Click the 'X' button on the right of any file to exclude it.
+                                여러 개의 PDF 파일들이 업로드된 순서에 맞춰 하나의 큰 PDF 파일로 병합됩니다. 개별 항목의 'X' 버튼을 클릭해 리스트에서 제외할 수 있습니다.
                             </p>
                         </div>
 
-                        <!-- Settings for PDF Split -->
+                        <!-- PDF 분할 설정 -->
                         <div id="settings-pdf-split" style="display:none;">
                             <div class="modern-form-group">
-                                <span class="modern-label">Split Method</span>
+                                <span class="modern-label">분할 방식 선택</span>
                                 <div style="display:flex; flex-direction:column; gap:6px; font-size:12px; margin-top:4px;">
                                     <label style="cursor:pointer; display:flex; align-items:center; gap:6px;">
-                                        <input type="radio" name="pdf-split-mode" value="each" checked> Split each page into individual PDFs (ZIP download)
+                                        <input type="radio" name="pdf-split-mode" value="each" checked> 각 페이지별 개별 PDF로 분할 (ZIP 저장)
                                     </label>
                                     <label style="cursor:pointer; display:flex; align-items:center; gap:6px;">
-                                        <input type="radio" name="pdf-split-mode" value="range"> Extract specific page ranges
+                                        <input type="radio" name="pdf-split-mode" value="range"> 특정 페이지 범위 추출
                                     </label>
                                 </div>
                             </div>
                             <div class="modern-form-group" id="split-range-group" style="display:none; margin-top:10px;">
-                                <span class="modern-label">Target Page Ranges</span>
-                                <input type="text" class="modern-input" id="split-range-input" placeholder="e.g., 1, 3-5, 7" style="width:100%;">
-                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">Enter using comma(,) and hyphen(-) (e.g. 2, 4-6)</span>
+                                <span class="modern-label">추출할 페이지 범위</span>
+                                <input type="text" class="modern-input" id="split-range-input" placeholder="예: 1, 3-5, 7" style="width:100%;">
+                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">콤마(,)와 하이픈(-)으로 입력 (예: 2, 4-6)</span>
                             </div>
                         </div>
 
-                        <!-- Settings for PDF Edit -->
+                        <!-- PDF 편집 설정 -->
                         <div id="settings-pdf-edit" style="display:none;">
                             <div class="modern-form-group" style="margin-bottom:12px; border-bottom:1px solid var(--slate-100); padding-bottom:8px;">
                                 <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-weight:600; font-size:12px;">
-                                    <input type="checkbox" id="edit-compress" checked> Optimize PDF Size (Compress)
+                                    <input type="checkbox" id="edit-compress" checked> PDF 용량 최적화 (압축)
                                 </label>
-                                <span style="font-size:11px; color:var(--slate-400); display:block; margin-left:20px; margin-top:2px;">Compress streams and discard redundant metadata</span>
+                                <span style="font-size:11px; color:var(--slate-400); display:block; margin-left:20px; margin-top:2px;">불필요 메타데이터 및 객체 최적화 압축 저장</span>
                             </div>
                             
                             <div class="modern-form-group" style="margin-bottom:12px;">
-                                <span class="modern-label" style="font-weight:600;">Delete Pages</span>
-                                <input type="text" class="modern-input" id="edit-delete-range" placeholder="e.g. 2, 4-5" style="width:100%;">
-                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">Enter page ranges to completely exclude/delete</span>
+                                <span class="modern-label" style="font-weight:600;">페이지 삭제</span>
+                                <input type="text" class="modern-input" id="edit-delete-range" placeholder="예: 2, 4-5" style="width:100%;">
+                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">삭제하여 제외할 페이지 범위 입력</span>
                             </div>
                             
                             <div class="modern-form-group" style="margin-bottom:12px;">
-                                <span class="modern-label" style="font-weight:600;">Rotate Pages</span>
-                                <input type="text" class="modern-input" id="edit-rotate-range" placeholder="e.g. 1, 3-5" style="width:100%; margin-bottom:6px;">
+                                <span class="modern-label" style="font-weight:600;">페이지 회전</span>
+                                <input type="text" class="modern-input" id="edit-rotate-range" placeholder="예: 1, 3-5" style="width:100%; margin-bottom:6px;">
                                 <select class="modern-select" id="edit-rotate-angle">
-                                    <option value="0" selected>Do Not Rotate (0°)</option>
-                                    <option value="90">90° Clockwise</option>
-                                    <option value="180">180° Rotate</option>
-                                    <option value="270">90° Counter-Clockwise (270°)</option>
+                                    <option value="0" selected>회전 안 함 (0°)</option>
+                                    <option value="90">시계방향 90도 회전 (90°)</option>
+                                    <option value="180">180도 회전 (180°)</option>
+                                    <option value="270">반시계방향 90도 회전 (270°)</option>
                                 </select>
-                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">Select angles and page ranges to apply rotation</span>
+                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">회전을 적용할 페이지 범위와 각도 선택</span>
                             </div>
 
                             <div class="modern-form-group" style="margin-bottom:12px; border-top:1px solid var(--slate-100); padding-top:8px;">
-                                <span class="modern-label" style="font-weight:600;">Add Text Watermark</span>
-                                <input type="text" class="modern-input" id="edit-watermark-text" placeholder="e.g. CONFIDENTIAL" style="width:100%; margin-bottom:6px;">
+                                <span class="modern-label" style="font-weight:600;">텍스트 워터마크 추가</span>
+                                <input type="text" class="modern-input" id="edit-watermark-text" placeholder="예: CONFIDENTIAL" style="width:100%; margin-bottom:6px;">
                                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
                                     <div>
-                                        <span class="modern-label" style="font-size:11px;">Font Size</span>
+                                        <span class="modern-label" style="font-size:11px;">폰트 크기</span>
                                         <input type="number" class="modern-input" id="edit-watermark-size" value="50" min="10" max="150" style="width:100%;">
                                     </div>
                                     <div>
-                                        <span class="modern-label" style="font-size:11px;">Opacity (0.1 ~ 1.0)</span>
+                                        <span class="modern-label" style="font-size:11px;">투명도 (0.1 ~ 1.0)</span>
                                         <input type="number" class="modern-input" id="edit-watermark-opacity" value="0.3" min="0.1" max="1.0" step="0.1" style="width:100%;">
                                     </div>
                                 </div>
-                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">Draws diagonal text on all page centers</span>
+                                <span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">모든 페이지 중앙에 지정한 영문/숫자 텍스트를 사선으로 배치</span>
                             </div>
 
                             <div class="modern-form-group" style="margin-bottom:8px; border-top:1px solid var(--slate-100); padding-top:8px;">
                                 <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-weight:600; font-size:12px;">
-                                    <input type="checkbox" id="edit-page-number" checked> Add Page Numbers
+                                    <input type="checkbox" id="edit-page-number" checked> 페이지 번호 일괄 추가
                                 </label>
-                                <span style="font-size:11px; color:var(--slate-400); display:block; margin-left:20px; margin-top:2px;">Insert "current / total" page numbers at bottom center of all pages</span>
+                                <span style="font-size:11px; color:var(--slate-400); display:block; margin-left:20px; margin-top:2px;">모든 페이지 하단 중앙에 "페이지 번호 (현재페이지 / 전체페이지)" 삽입</span>
                             </div>
                         </div>
                     </div>
 
                     <button class="modern-btn modern-btn--primary" id="btn-run-pdf" disabled style="height:38px; font-size:14px; font-weight:600;">
-                        🔄 Run Conversion & Download
+                        🔄 변환 실행 및 다이렉트 다운로드
                     </button>
                 </div>
             </div>
 
-            <!-- Footer Guideline Box -->
+            <!-- 하단 안내 정보 가이드 -->
             <div class="modern-instructions-box">
-                <h3>💡 PDF Tools Guideline</h3>
+                <h3>💡 PDF 변환기 가이드</h3>
                 <p>
-                    This is a **client-side secure utility** that processes documents 100% locally in your browser memory without uploading anything to servers.
+                    인터넷 중계 및 전송 없이 브라우저 메모리 자원으로만 100% 무손실 처리되는 <b>클라이언트 사이드 전용 보안 변환 툴</b>입니다.
                 </p>
                 <ul>
-                    <li><b>Images → PDF:</b> Generates PDF pages in the order of uploaded images. Remove any unwanted pages using the 'X' button.</li>
-                    <li><b>PDF → Images:</b> Converts all pages of a PDF document into high-quality image assets bundled in a single ZIP download.</li>
-                    <li><b>PDF Merge:</b> Combines two or more uploaded PDF documents sequentially into one combined PDF.</li>
-                    <li><b>PDF Split:</b> Split all pages into individual 1-page PDFs (ZIP) or extract specific range using `2,4-6` notation.</li>
-                    <li><b>PDF Edit:</b> Combine compression, page deletions, rotations, watermarking, and page numbering into a single edit execution.</li>
+                    <li><b>이미지 병합:</b> 업로드 순서대로 PDF 페이지가 생성되며, 필요시 우상단 'X' 버튼을 눌러 목록에서 지울 수 있습니다.</li>
+                    <li><b>PDF 추출:</b> 다량의 페이지를 가진 PDF 문서는 각 페이지를 고화질 이미지화하여 단일 ZIP 압축파일로 번들링 제공합니다.</li>
+                    <li><b>PDF 끼리 병합:</b> 업로드한 순서에 맞춰 두 개 이상의 PDF 문서들을 순차 결합하여 하나의 PDF 파일로 합칩니다.</li>
+                    <li><b>PDF 페이지 분할:</b> 전체 페이지를 1장짜리 개별 파일들로 한 번에 분할(ZIP)하거나, `2,4-6` 형태로 원하는 범위만 골라 새 PDF로 추출합니다.</li>
+                    <li><b>PDF 편집:</b> 불필요한 메타데이터 제거 압축, 지정 페이지 완전 삭제 및 시계방향 회전, 워터마크 추가, 페이지 번호 매기기를 결합 수행합니다.</li>
                 </ul>
-            </main>
+            </div>
+        </main>
     </div>
 
-    <!-- pdf-lib & pdf.js & JSZip Load -->
+    <!-- pdf-lib & pdf.js & JSZip 로드용 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 
-    <!-- Core & Tool scripts -->
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
     <script src="/js/core/sidebar.js?v=3"></script>
     <script src="/js/core/file-utils.js?v=3"></script>
     <script src="/js/core/ui-components.js?v=3"></script>
     <script src="/js/tools/pdf.js?v=3"></script>
 
     <script>
-        // Set pdf.js Global worker URL
+        // pdf.js Global worker 주소 설정
         if (window['pdfjs-dist/build/pdf']) {
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
         }
 
-        // URL Query parameter parsing for tab auto-selection
+        // 페이지 로드 시 URL 쿼리 파라미터를 파싱하여 해당 탭을 자동 활성화
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
             const tab = params.get('tab');
@@ -371,7 +372,7 @@
             }
         });
 
-        // Tab Switching UI Logic
+        // 탭 스타일 및 컴포넌트 스위칭 로직
         function switchPdfMode(mode) {
             const panelImg = document.getElementById('panel-img-to-pdf');
             const panelPdf = document.getElementById('panel-pdf-to-img');
@@ -389,7 +390,7 @@
             const tabPdfSplit = document.getElementById('tab-pdf-split');
             const tabPdfEdit = document.getElementById('tab-pdf-edit');
             
-            // Hide all panels
+            // 모든 세그먼트 가림
             [panelImg, panelPdf, panelPdfMerge].forEach(p => {
                 if (p) p.style.display = 'none';
             });
@@ -397,7 +398,7 @@
                 if (s) s.style.display = 'none';
             });
             
-            // Reset tab styles
+            // 스타일 초기화
             [tabImg, tabPdf, tabPdfMerge, tabPdfSplit, tabPdfEdit].forEach(t => {
                 if(t) {
                     t.style.borderBottom = 'none';
@@ -413,30 +414,30 @@
                 activeTab.style.fontWeight = '600';
             }
 
-            // Sync global mode state
+            // 전역 스크립트 모드 갱신용 호출
             if (window.setPdfMode) {
                 window.setPdfMode(mode);
             }
 
-            // Show selected panels
+            // 모드별 레이아웃 제어
             if (mode === 'img-to-pdf') {
                 panelImg.style.display = 'block';
                 settingsImg.style.display = 'block';
             } else if (mode === 'pdf-to-img') {
                 panelPdf.style.display = 'block';
                 settingsPdf.style.display = 'block';
-                document.getElementById('pdf-drop-zone-title').textContent = "Drop PDF file here to extract images.";
+                document.getElementById('pdf-drop-zone-title').textContent = "변환할 PDF 문서 파일을 여기에 올려놓으십시오.";
             } else if (mode === 'pdf-merge') {
                 panelPdfMerge.style.display = 'block';
                 settingsPdfMerge.style.display = 'block';
             } else if (mode === 'pdf-split') {
                 panelPdf.style.display = 'block';
                 settingsPdfSplit.style.display = 'block';
-                document.getElementById('pdf-drop-zone-title').textContent = "Drop PDF file here to split pages.";
+                document.getElementById('pdf-drop-zone-title').textContent = "분할할 PDF 문서 파일을 여기에 올려놓으십시오.";
             } else if (mode === 'pdf-edit') {
                 panelPdf.style.display = 'block';
                 settingsPdfEdit.style.display = 'block';
-                document.getElementById('pdf-drop-zone-title').textContent = "Drop PDF file here to edit.";
+                document.getElementById('pdf-drop-zone-title').textContent = "편집할 PDF 문서 파일을 여기에 올려놓으십시오.";
             }
         }
     </script>
