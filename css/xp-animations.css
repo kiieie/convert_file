@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Windows XP Theme Animations
+   ========================================================================== */
+
+/* 1. 에러창/경고창 팝업 등장 애니메이션 (Zoom In) */
+@keyframes xp-zoom-in {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.xp-animate-zoom {
+    animation: xp-zoom-in 0.15s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+/* 2. 에러 발생 시 창 흔들림 효과 (Shake) */
+@keyframes xp-shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+.xp-animate-shake {
+    animation: xp-shake 0.3s ease-in-out;
+}
+
+/* 3. XP 진행바 연두색 블록 흘러가는 애니메이션 (Marquee) */
+@keyframes xp-progress-marquee {
+    0% {
+        background-position: 0px 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+.xp-progress-bar__fill--animate {
+    animation: xp-progress-marquee 1s linear infinite;
+}
+
+/* 4. 말풍선 서서히 나타남 (Fade In) */
+@keyframes xp-fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.xp-animate-fade {
+    animation: xp-fade-in 0.2s ease-out forwards;
+}

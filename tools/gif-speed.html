@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF 속도 조절 및 역재생 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">GIF 속도 조절 및 역재생 (GIF Speed & Reverse)</h1>
+                <p class="modern-content__desc">움직이는 애니메이션 GIF의 재생 속도를 배속 조절하거나 방향을 뒤집어 역재생 움짤로 리마스터링합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M12 6v6m0 0v6m0-6h6m-6 0H6&quot;/></svg>');"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">속도를 바꾸거나 거꾸로 뒤집을 GIF 파일을 업로드하십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">오직 .gif 포맷만 가공 가능 (최대 30MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 컴퓨터에서 GIF 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/gif">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <img id="preview-gif" style="max-width: 100%; max-height: 250px; border-radius: var(--radius-sm); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" alt="Speed Modified GIF Preview">
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">속도 및 방향 제어</h3>
+                        
+                        <div class="modern-form-group" style="margin-bottom:12px;">
+                            <span class="modern-label">재생 배속 설정: <strong id="speed-val" style="color:var(--blue-600);">1.0</strong>배속</span>
+                            <input type="range" min="0.25" max="4.0" step="0.25" value="1.0" style="width:100%; cursor:pointer;" id="gif-speed" disabled>
+                            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--slate-400); margin-top:2px;">
+                                <span>느리게 (0.25x)</span>
+                                <span>빠르게 (4.0x)</span>
+                            </div>
+                        </div>
+
+                        <div class="modern-form-group">
+                            <label style="cursor:pointer; font-size:13px; display:flex; align-items:center; gap:6px;">
+                                <input type="checkbox" id="gif-reverse" disabled> 🔄 역재생 (Reverse) 활성화
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-apply" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        ⏳ 움짤 속도/역재생 가공 완료
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 GIF 속도 및 방향 가이드</h3>
+                <p>
+                    GIF 애니메이션의 프레임을 개별 디코딩하여, 각 장면 프레임의 딜레이 ms 값을 가변 조정하거나 정렬 인덱스를 완전 거꾸로 뒤집어 재결합시킵니다.
+                </p>
+                <ul>
+                    <li><b>역재생 효과:</b> 재생 시퀀스를 마지막 프레임부터 첫 프레임 방향으로 역순 배치하므로, 리와인드(되감기) 특이한 움짤을 제작하는 데 매우 유용합니다.</li>
+                    <li><b>배속 연산:</b> 배속을 2배로 올리면 프레임 딜레이 간격이 50%로 좁아지며, 0.5배로 내리면 프레임 간격이 2배로 늘어나 슬로우 모션이 연출됩니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 외부 디코더 및 gifshot 라이브러리 연동 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gifshot@0.3.7/dist/gifshot.min.js"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/gif-speed.js?v=3"></script>
+</body>
+</html>

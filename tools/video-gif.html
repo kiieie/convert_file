@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비디오 to GIF 변환기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-video-player {
+            max-width: 100%;
+            max-height: 350px;
+            background-color: #000000;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">비디오 to GIF 변환기 (Video to GIF)</h1>
+                <p class="modern-content__desc">MP4 또는 WebM 동영상 파일을 업로드하여 원하는 구간만 움짤 GIF 애니메이션으로 고속 변환합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 미디어 플레이어 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a2.25 2.25 0 01-2.25-2.25V6a2.25 2.25 0 012.25-2.25h10.5A2.25 2.25 0 0119.5 6v11.25a2.25 2.25 0 01-2.25 2.25H6.75z&quot;/></svg>');"></div>
+                        <div class="modern-upload-zone__title">변환할 MP4 또는 WebM 비디오 파일을 드롭하십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">HTML5 코덱 지원 비디오 지원 (최대 50MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 비디오 파일 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="video/mp4, video/webm">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; flex-direction:column; gap:16px;">
+                        <!-- 가상 비디오 소스 재생 컨트롤 플레이어 -->
+                        <video class="modern-video-player" id="source-video" controls muted></video>
+                        
+                        <!-- 결과 움짤 이미지 출력 -->
+                        <img id="preview-gif" style="max-width: 100%; max-height: 250px; display:none; border-radius: var(--radius-sm); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" alt="Video to GIF Result">
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">변환 구간 및 크기 설정</h3>
+                        
+                        <div style="display:flex; gap:10px; margin-bottom:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">시작 시간(초)</span>
+                                <input type="number" class="modern-input" id="start-time" value="0" min="0" step="0.5" disabled>
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">종료 시간(초)</span>
+                                <input type="number" class="modern-input" id="end-time" value="5" min="0" step="0.5" disabled>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; gap:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">출력 너비 (Width)</span>
+                                <input type="number" class="modern-input" id="gif-width" value="320" disabled>
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">프레임률 (FPS)</span>
+                                <select class="modern-select" id="gif-fps" disabled>
+                                    <option value="5">5 FPS (낮은 사양)</option>
+                                    <option value="10" selected>10 FPS (표준 재생)</option>
+                                    <option value="15">15 FPS (부드러운 재생)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-convert" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🎞️ 비디오 to GIF 변환 시작
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 비디오 to GIF 가이드</h3>
+                <p>
+                    HTML5 비디오 디코딩 메커니즘을 사용해 재생 프레임을 가상 캔버스로 실시간 추출하는 <b>클라이언트 사이드 고속 캡처 기술</b>을 적용하여 보안 유실 위험이 없습니다.
+                </p>
+                <ul>
+                    <li><b>추출 구간:</b> 시작 시간과 종료 시간을 초 단위로 지정하여 원하는 하이라이트 구간만 GIF 움짤로 정교하게 클리핑합니다.</li>
+                    <li><b>FPS의 영향:</b> 초당 캡처할 장면 개수(FPS)를 높이면 재생 속도가 매끄러워지나, 캡처되는 프레임 자원이 늘어나는 만큼 최종 GIF 파일 크기가 무거워질 수 있습니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- gifshot 외부 라이브러리 로컬 연동 -->
+    <script src="/js/vendors/gifshot.min.js?v=3"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/video-gif.js?v=3"></script>
+</body>
+</html>

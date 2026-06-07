@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF 최적화 및 용량 압축 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">GIF 최적화 및 압축 (GIF Optimizer)</h1>
+                <p class="modern-content__desc">애니메이션 GIF 움짤 파일의 프레임 생략 및 품질 조정을 통해 화질 저하를 최소화하면서 파일 크기를 줄입니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7C4.98 9.548 4.93 10.768 4.93 12s.05 2.452.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.092-1.209.138-2.43.138-3.662z&quot/><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M9 12.75l3 3m0 0l3-3m-3 3v-7.5&quot/></svg>');"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">최적화 압축할 GIF 애니메이션 파일을 여기에 올려놓으십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">오직 .gif 형식 파일만 지원 (최대 30MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 컴퓨터에서 GIF 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/gif">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <img id="preview-gif" style="max-width: 100%; max-height: 250px; border-radius: var(--radius-sm); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" alt="Optimized GIF Preview">
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">압축 최적화 방식</h3>
+                        
+                        <div class="modern-form-group">
+                            <span class="modern-label">최적화 옵션 기법</span>
+                            <select class="modern-select" id="optimize-mode" disabled>
+                                <option value="drop2">프레임 드롭 (2프레임마다 1개 삭제 - 50% 용량 감축)</option>
+                                <option value="scale80">해상도 축소 (가로세로 80% 비율 스케일링)</option>
+                                <option value="scale60">해상도 축소 (가로세로 60% 비율 스케일링)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-optimize" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        📉 GIF 압축 최적화 실행
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 GIF 최적화 상세 가이드</h3>
+                <p>
+                    GIF 이미지는 무손실 LZW 인코딩 방식의 제약상 프레임 수와 화면 크기에 따라 용량이 비약적으로 증가합니다. 
+                </p>
+                <ul>
+                    <li><b>프레임 드롭(Drop Frames):</b> 짝수 혹은 홀수 번째 시퀀스 프레임을 골라내서 삭제 처리함으로써 재생 딜레이를 2배로 계산해 움짤 재생 속도는 원래대로 지키며 프레임 자원을 50% 제거하여 확실한 용량 감축을 유도합니다.</li>
+                    <li><b>해상도 스케일링:</b> GIF 가로세로 픽셀을 축소하여 총체적인 픽셀 개수를 30~50% 이상 절감하는 방식으로 용량을 제어합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 외부 디코더 및 gifshot 라이브러리 연동 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gifshot@0.3.7/dist/gifshot.min.js"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/gif-optimize.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF ↔ 이미지 변환기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .image-file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .image-file-item {
+            border: 1px solid var(--slate-200);
+            background-color: #FFFFFF;
+            border-radius: var(--radius-md);
+            padding: 8px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .image-file-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--slate-100);
+        }
+        .image-file-item__name {
+            font-size: 11px;
+            color: var(--slate-600);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }
+        .image-file-item__remove {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--error);
+            color: #FFFFFF;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">PDF ↔ 이미지 상호 변환기 (PDF Tools)</h1>
+                <p class="modern-content__desc">여러 이미지를 모아 단일 PDF 문서 파일로 묶거나, 반대로 PDF 문서의 모든 페이지를 JPG 이미지 묶음 파일로 추출해 다운로드합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <!-- 모던 탭 구조 -->
+            <div class="modern-tabs" style="display:flex; gap:4px; border-bottom: 1px solid var(--slate-200); margin-bottom:15px;">
+                <div class="modern-tab modern-tab--active" id="tab-img-to-pdf" onclick="switchPdfMode('img-to-pdf')" style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:13px; color:var(--blue-600); border-bottom:2px solid var(--blue-600);">이미지 → PDF 병합</div>
+                <div class="modern-tab" id="tab-pdf-to-img" onclick="switchPdfMode('pdf-to-img')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF → 이미지 추출</div>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드 드롭존 및 관리자 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 이미지 to PDF 패널 -->
+                    <div id="panel-img-to-pdf">
+                        <div class="modern-upload-zone" id="img-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                            <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z&quot;/></svg>');"></div>
+                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">PDF로 묶을 이미지 파일들을 드롭하십시오.</div>
+                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PNG, JPG, WebP 이미지 다중 선택 가능 (총합 최대 50MB)</div>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-images" style="cursor: pointer; pointer-events: auto;">📂 이미지 파일 선택</button>
+                            <input type="file" id="img-file-input" style="display:none;" accept="image/*" multiple>
+                        </div>
+                        
+                        <!-- 추가된 이미지 썸네일 그리드 -->
+                        <div class="modern-card" style="margin-top:12px; display:none;" id="added-images-card">
+                            <h3 class="modern-card__title">선택된 이미지 순서 및 리스트</h3>
+                            <div class="image-file-list" id="added-images-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- PDF to 이미지 패널 -->
+                    <div id="panel-pdf-to-img" style="display:none;">
+                        <div class="modern-upload-zone" id="pdf-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                            <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z&quot;/></svg>');"></div>
+                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">변환할 PDF 문서 파일을 여기에 올려놓으십시오.</div>
+                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PDF 문서 확장자 규격 지원 (최대 50MB)</div>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-pdf" style="cursor: pointer; pointer-events: auto;">📂 PDF 문서 선택</button>
+                            <input type="file" id="pdf-file-input" style="display:none;" accept="application/pdf">
+                        </div>
+
+                        <!-- PDF 업로드 후 요약 정보 노출 -->
+                        <div class="modern-card" style="margin-top:12px; display:none;" id="pdf-info-card">
+                            <h3 class="modern-card__title">PDF 문서 세부 정보</h3>
+                            <div class="modern-form-group">
+                                <span class="modern-label">파일 정보</span>
+                                <div id="pdf-file-summary" style="font-size:13px; color:var(--slate-700); font-weight:500;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2열: 제어 카드 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">변환 설정 제어</h3>
+                        
+                        <!-- Image to PDF 용 설정 -->
+                        <div id="settings-img-to-pdf">
+                            <div class="modern-form-group">
+                                <span class="modern-label">페이지 레이아웃 크기</span>
+                                <select class="modern-select" id="pdf-page-size">
+                                    <option value="A4" selected>A4 규격 크기 (210 x 297 mm)</option>
+                                    <option value="FIT">이미지 원본 크기에 맞춤 (Auto Fit)</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group">
+                                <span class="modern-label">페이지 방향 (A4 설정 시)</span>
+                                <select class="modern-select" id="pdf-page-orientation">
+                                    <option value="portrait" selected>세로 방향 (Portrait)</option>
+                                    <option value="landscape">가로 방향 (Landscape)</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group">
+                                <span class="modern-label">여백 설정 (Margin)</span>
+                                <select class="modern-select" id="pdf-page-margin">
+                                    <option value="0" selected>여백 없음 (0px)</option>
+                                    <option value="20">보통 여백 (20px)</option>
+                                    <option value="40">넓은 여백 (40px)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- PDF to Image 용 설정 -->
+                        <div id="settings-pdf-to-img" style="display:none;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">추출 대상 이미지 포맷</span>
+                                <select class="modern-select" id="pdf-out-format">
+                                    <option value="image/png" selected>PNG 무손실 고화질</option>
+                                    <option value="image/jpeg">JPEG 일반 압축 사진</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group">
+                                <span class="modern-label">출력 품질 해상도 배율 (Scale)</span>
+                                <select class="modern-select" id="pdf-out-scale">
+                                    <option value="1">1.0x (표준 선명도)</option>
+                                    <option value="1.5" selected>1.5x (중간 선명도)</option>
+                                    <option value="2">2.0x (고해상도 프린팅급)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-run-pdf" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🔄 변환 실행 및 다이렉트 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 PDF 변환기 가이드</h3>
+                <p>
+                    인터넷 중계 및 전송 없이 브라우저 메모리 자원으로만 100% 무손실 처리되는 <b>클라이언트 사이드 전용 보안 변환 툴</b>입니다.
+                </p>
+                <ul>
+                    <li><b>이미지 병합:</b> 업로드 순서대로 PDF 페이지가 생성되며, 필요시 우상단 'X' 버튼을 눌러 목록에서 지울 수 있습니다.</li>
+                    <li><b>PDF 추출:</b> 다량의 페이지를 가진 PDF 문서는 각 페이지를 고화질 이미지화하여 단일 ZIP 압축파일로 번들링 제공합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- pdf-lib & pdf.js & JSZip 로드용 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/tools/pdf.js?v=3"></script>
+
+    <script>
+        // pdf.js Global worker 주소 설정
+        if (window['pdfjs-dist/build/pdf']) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+        }
+
+        // 탭 스타일 및 컴포넌트 스위칭 로직
+        function switchPdfMode(mode) {
+            const panelImg = document.getElementById('panel-img-to-pdf');
+            const panelPdf = document.getElementById('panel-pdf-to-img');
+            const settingsImg = document.getElementById('settings-img-to-pdf');
+            const settingsPdf = document.getElementById('settings-pdf-to-img');
+            
+            const tabImg = document.getElementById('tab-img-to-pdf');
+            const tabPdf = document.getElementById('tab-pdf-to-img');
+            
+            // 모든 세그먼트 가림
+            panelImg.style.display = 'none';
+            panelPdf.style.display = 'none';
+            settingsImg.style.display = 'none';
+            settingsPdf.style.display = 'none';
+            
+            // 스타일 초기화
+            [tabImg, tabPdf].forEach(t => {
+                if(t) {
+                    t.style.borderBottom = 'none';
+                    t.style.color = 'var(--slate-500)';
+                    t.style.fontWeight = '500';
+                }
+            });
+            
+            const activeTab = document.getElementById('tab-' + mode);
+            if (activeTab) {
+                activeTab.style.borderBottom = '2px solid var(--blue-600)';
+                activeTab.style.color = 'var(--blue-600)';
+                activeTab.style.fontWeight = '600';
+            }
+
+            // 전역 스크립트 모드 갱신용 호출
+            if (window.setPdfMode) {
+                window.setPdfMode(mode);
+            }
+
+            if (mode === 'img-to-pdf') {
+                panelImg.style.display = 'block';
+                settingsImg.style.display = 'block';
+            } else {
+                panelPdf.style.display = 'block';
+                settingsPdf.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

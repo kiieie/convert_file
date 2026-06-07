@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF 효과 및 캡션 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">GIF 효과 및 캡션 추가 (GIF Effects & Text)</h1>
+                <p class="modern-content__desc">움직이는 애니메이션 GIF 파일에 텍스트 문구(Meme 스타일), 필터 색상 효과 또는 워터마크 이미지를 100% 로컬 합성 처리합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M9.813 15.904L9 21m0 0l-.813-5.096L9 21zm0 0h12m-6-10H3.75a1.5 1.5 0 00-1.5 1.5V18a1.5 1.5 0 001.5 1.5h6.187m9.063-14.25L18.75 3m0 0l-1.313 3.375M18.75 3h.008v.008h-.008V3zm-2.25 10.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z&quot;/></svg>');"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">가공할 애니메이션 GIF 파일을 끌어놓으십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">움짤 GIF 전용 (최대 30MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 GIF 파일 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/gif">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; flex-direction:column; gap:12px;">
+                        <img id="source-gif-img" style="max-width: 100%; max-height: 320px; border-radius: var(--radius-sm);" alt="Uploaded GIF">
+                        <img id="result-gif-img" style="max-width: 100%; max-height: 320px; display:none; border-radius: var(--radius-sm); border: 2px solid var(--success);" alt="Result GIF">
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 1. 캡션/텍스트 오버레이 -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">텍스트 문구 오버레이</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">노출할 자막 텍스트</span>
+                            <input type="text" class="modern-input" id="caption-text" placeholder="여기에 글자를 적으세요..." disabled>
+                        </div>
+                        <div style="display:flex; gap:10px; margin-bottom:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">글자 크기 (px)</span>
+                                <input type="number" class="modern-input" id="caption-size" value="24" min="10" max="72" disabled>
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">글자 색상</span>
+                                <input type="color" class="modern-input" id="caption-color" value="#FFFFFF" style="padding: 2px 6px; height: 32px;" disabled>
+                            </div>
+                        </div>
+                        <div class="modern-form-group">
+                            <span class="modern-label">텍스트 노출 위치</span>
+                            <select class="modern-select" id="caption-position" disabled>
+                                <option value="bottom" selected>하단 중앙 (Meme 스타일)</option>
+                                <option value="top">상단 중앙</option>
+                                <option value="center">화면 정중앙</option>
+                            </select>
+                        </div>
+                        <div class="modern-form-group">
+                            <label style="cursor:pointer; font-size:12px; display:flex; align-items:center; gap:6px;">
+                                <input type="checkbox" id="caption-outline" checked disabled> 글자 검은색 테두리선 두르기 (가독성 향상)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. 컬러 필터 효과 -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">색상 필터 효과</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">적용할 필터 형식</span>
+                            <select class="modern-select" id="filter-type" disabled>
+                                <option value="none" selected>필터 없음 (원본 화질)</option>
+                                <option value="grayscale">그레이스케일 (흑백)</option>
+                                <option value="sepia">세피아 (갈색조 레트로)</option>
+                                <option value="invert">색상 반전 (네거티브)</option>
+                                <option value="blur">미세 흐림 효과 (Blur)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 3. 워터마크 이미지 추가 -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">워터마크 이미지 합성</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">오버레이할 이미지 선택</span>
+                            <input type="file" id="watermark-input" accept="image/*" disabled style="font-size: 11px;">
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">투명도 (Opacity)</span>
+                                <select class="modern-select" id="watermark-opacity" disabled>
+                                    <option value="0.3" selected>흐릿함 (30%)</option>
+                                    <option value="0.6">적당함 (60%)</option>
+                                    <option value="1.0">불투명 (100%)</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">워터마크 위치</span>
+                                <select class="modern-select" id="watermark-position" disabled>
+                                    <option value="bottom-right" selected>우측 하단</option>
+                                    <option value="top-left">좌측 상단</option>
+                                    <option value="center">가운데 정렬</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-run-effects" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🎨 GIF 효과 일괄 합성 및 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 GIF 효과 및 캡션 가이드</h3>
+                <p>
+                    GIF 바이너리를 픽셀 단위 프레임 디코딩한 후 Canvas 레벨에서 가공하여 재합성하는 <b>웹 표준 무설치 에디터</b>입니다.
+                </p>
+                <ul>
+                    <li><b>가독성 아웃라인:</b> 자막 텍스트 입력 시 바깥쪽 테두리선을 켜두면, 배경이 흰색인 구간에서도 자막이 묻히지 않고 또렷하게 보입니다.</li>
+                    <li><b>워터마크 규격:</b> 투명 배경을 가진 PNG 이미지를 오버레이 워터마크로 사용하시면 가장 높은 수준의 브랜딩이 완성됩니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- gifshot & gifuct-js 라이브러리 연동 -->
+    <script src="/js/vendors/gifshot.min.js?v=3"></script>
+    <script src="/js/vendors/gifuct-js.min.js?v=3"></script>
+
+    <!-- 코어 및 툴 스크립트 바인딩 -->
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/tools/gif-effects.js?v=3"></script>
+</body>
+</html>

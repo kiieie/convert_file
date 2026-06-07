@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 메타데이터(EXIF) 지우개 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        
+        /* 모던 테이블 스타일 */
+        .modern-metadata-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        .modern-metadata-table th, .modern-metadata-table td {
+            border: 1px solid var(--slate-200);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .modern-metadata-table th {
+            background-color: var(--slate-50);
+            font-weight: 600;
+            color: var(--slate-800);
+        }
+        .modern-metadata-table tr:nth-child(even) td {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">사진 EXIF 메타데이터 제거기 (EXIF Remover)</h1>
+                <p class="modern-content__desc">JPEG 디지털 사진 내부에 은밀히 기록된 카메라 기종, 촬영 일시, 위치 GPS 좌표 정보를 영구 파괴합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 원본 이미지 정보 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">메타데이터를 확인하고 파괴할 JPG 사진을 드래그하십시오.</div>
+                        <div class="modern-upload-zone__desc">클릭하여 로컬 폴더에서 선택할 수도 있습니다. (최대 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg, image/jpg">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 메타데이터 정보 리스트 및 작동 버튼 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card" style="max-height: 350px; overflow-y: auto; display:flex; flex-direction:column;">
+                        <h3 class="modern-card__title">분석된 메타데이터 항목</h3>
+                        <div id="no-tags-msg" style="font-size:13px; color:var(--slate-400); padding: 8px 0;">사진을 업로드하면 촬영 메타데이터(EXIF) 세그먼트 분석 결과가 이곳에 표출됩니다.</div>
+                        
+                        <table class="modern-metadata-table" id="metadata-table" style="display:none;">
+                            <thead>
+                                <tr>
+                                    <th>태그 분류</th>
+                                    <th>기록 수치</th>
+                                </tr>
+                            </thead>
+                            <tbody id="metadata-tbody">
+                                <!-- JS 동적 주입 -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" style="background-color: var(--blue-600); height:38px; font-size:14px; font-weight:600;" id="btn-strip" disabled>
+                        🛡️ EXIF 메타데이터 영구 제거
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 사진 메타데이터와 개인정보보호</h3>
+                <p>
+                    모바일 스마트폰이나 디지털 카메라로 야외에서 인물, 주택 등을 촬영하면 위성 GPS 정보와 세부 위도/경도가 사진 파일 헤더에 담기게 되어 신상 유출 위험이 존재합니다.
+                </p>
+                <ul>
+                    <li><b>무손실 바이너리 슬라이싱:</b> 본 서비스는 사진 픽셀 디코딩 연산을 거치지 않고, <b>오류 없이 EXIF APP1 바이트 블록만 2진수 레벨에서 고속 슬라이싱</b>하므로 사진 화질 유실이 0.00%도 존재하지 않는 원본 보존 기술을 적용합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 스크립트 바인딩 -->
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/tools/metadata.js?v=3"></script>
+</body>
+</html>

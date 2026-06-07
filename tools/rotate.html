@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 회전 및 반전 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-rotate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">이미지 회전 및 대칭 반전 (Image Rotator)</h1>
+                <p class="modern-content__desc">사진을 직각으로 회전시키거나 거울처럼 좌우/상하 뒤집고, 삐뚤어진 각도를 미세 조정합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner Zone (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">회전시킬 이미지 파일을 드래그 앤 드롭 하십시오.</div>
+                        <div class="modern-upload-zone__desc">클릭하여 PC 로컬 파일을 가져올 수도 있습니다. (최대 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">빠른 각도 회전</h3>
+                        <div class="modern-rotate-grid">
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-90cw" disabled>↩️ 시계방향 90°</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-90ccw" disabled>↪️ 반시계 90°</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-180" disabled>🔄 180° 회전</button>
+                            <button class="modern-btn modern-btn--outline" style="border-color:var(--error); color:var(--error);" id="btn-reset-rot" disabled>❌ 초기화</button>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">대칭 뒤집기 (Flip)</h3>
+                        <div class="modern-rotate-grid">
+                            <button class="modern-btn modern-btn--outline" id="btn-flip-h" disabled>↔️ 좌우 대칭</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-flip-v" disabled>↕️ 상하 대칭</button>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">미세 수평 교정</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">회전 각도: <strong id="angle-val" style="color:var(--blue-600);">0</strong>°</span>
+                            <input type="range" min="-180" max="180" value="0" style="width:100%; cursor:pointer;" id="rot-angle" disabled>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-download" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        💾 회전 결과 이미지 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 회전 및 대칭 반전 가이드</h3>
+                <p>
+                    업로드하는 이미지는 외부 서버를 경유하지 않고 브라우저 캔버스의 translate/rotate API 행렬 가속을 이용해 무손실로 렌더링 및 다운로드됩니다.
+                </p>
+                <ul>
+                    <li><b>미세 조작:</b> 회전 각도를 미세 조절하여 촬영 시 비뚤어진 풍경이나 건물 수평을 정확히 1도 단위로 정밀 조작 가능합니다.</li>
+                    <li><b>종횡비 감지:</b> 직각 90도 회전 시 브라우저가 원본 사진의 너비와 높이를 인지해 비트맵 해상도 짝을 맞춰 크래시 현상을 방지합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/rotate.js?v=3"></script>
+</body>
+</html>

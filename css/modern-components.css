@@ -1,0 +1,292 @@
+/* ==========================================================================
+   ConvertFile Modern Component Styles (modern-components.css)
+   ========================================================================== */
+
+/* 1. 기본 레이아웃 구성 요소 */
+.modern-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+/* 2. 현대적 사이드바 (Modern Sidebar) */
+.modern-sidebar {
+    background-color: var(--slate-900);
+    color: #FFFFFF;
+    padding: 24px 16px;
+    border-right: 1px solid var(--slate-800);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modern-sidebar__logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 8px;
+}
+
+.modern-sidebar__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modern-sidebar__group-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--slate-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    padding-left: 8px;
+}
+
+.modern-sidebar__item {
+    font-size: 13px;
+    padding: 8px 12px;
+    color: var(--slate-300);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.modern-sidebar__item:hover {
+    background-color: var(--slate-800);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.modern-sidebar__item--active {
+    background-color: var(--blue-600);
+    color: #FFFFFF;
+}
+
+.modern-sidebar__item--active:hover {
+    background-color: var(--blue-700);
+}
+
+/* 3. 콘텐츠 영역 (Workspace Content) */
+.modern-content {
+    padding: 32px 40px;
+    background-color: var(--slate-50);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modern-content__header {
+    border-bottom: 1px solid var(--slate-200);
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+}
+
+.modern-content__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--slate-900);
+    margin: 0 0 6px 0;
+}
+
+.modern-content__desc {
+    font-size: 13px;
+    color: var(--slate-500);
+    margin: 0;
+}
+
+/* 4. 카드 컨테이너 (Workspace Cards) */
+.modern-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.modern-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--slate-100);
+    padding-bottom: 6px;
+}
+
+/* 5. 플랫 인풋 및 셀렉트 */
+.modern-input {
+    width: 100%;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 13px;
+    outline: none;
+    color: var(--slate-900);
+    background-color: #FFFFFF;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.modern-input:focus {
+    border-color: var(--blue-600);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.modern-select {
+    width: 100%;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 13px;
+    outline: none;
+    color: var(--slate-900);
+    background-color: #FFFFFF;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.modern-select:focus {
+    border-color: var(--blue-600);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* 6. 모던 플랫 버튼 (Modern Flat Button) */
+.modern-btn {
+    background-color: var(--slate-900);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+.modern-btn:hover {
+    background-color: var(--slate-800);
+}
+
+.modern-btn:active {
+    transform: scale(0.98);
+}
+
+.modern-btn--primary {
+    background-color: var(--blue-600);
+}
+
+.modern-btn--primary:hover {
+    background-color: var(--blue-700);
+}
+
+.modern-btn--outline {
+    background-color: transparent;
+    color: var(--slate-700);
+    border: 1px solid var(--slate-200);
+}
+
+.modern-btn--outline:hover {
+    background-color: var(--slate-100);
+    color: var(--slate-900);
+}
+
+.modern-btn:disabled {
+    background-color: var(--slate-100);
+    color: var(--slate-400);
+    border: 1px solid var(--slate-200);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 7. 모던 폼 그룹 */
+.modern-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.modern-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--slate-600);
+}
+
+/* 8. 모던 모달/다이얼로그 팝업 */
+.modern-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.4); /* 백드롭 흐림 */
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modern-modal {
+    background-color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--slate-200);
+    width: 90%;
+    max-width: 400px;
+    overflow: hidden;
+    animation: modern-slide-up 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modern-modal__header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--slate-100);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--slate-900);
+}
+
+.modern-modal__body {
+    padding: 20px;
+    font-size: 13px;
+    color: var(--slate-600);
+    line-height: 1.5;
+}
+
+.modern-modal__footer {
+    padding: 12px 20px;
+    background-color: var(--slate-50);
+    border-top: 1px solid var(--slate-100);
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+@keyframes modern-slide-up {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 모바일 사이드바 토글 억제 */
+@media (max-width: 768px) {
+    .modern-layout {
+        grid-template-columns: 1fr;
+    }
+    .modern-sidebar {
+        display: none; /* 모바일 대응 간소화 */
+    }
+    .modern-content {
+        padding: 20px;
+    }
+}

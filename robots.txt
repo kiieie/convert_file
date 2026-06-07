@@ -1,0 +1,10 @@
+# robots.txt for ConvertFile
+# 모든 크롤러에게 사이트 크롤링 허용
+User-agent: *
+Allow: /
+
+# 비공개 처리 또는 제외할 디렉토리 (현재 없음)
+Disallow: /js/vendors/
+
+# 사이트맵 연결 (본인의 도메인 명칭으로 배포 시 도메인을 대체하십시오)
+Sitemap: https://convertfile.pages.dev/sitemap.xml

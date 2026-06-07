@@ -1,0 +1,5 @@
+# 구글 애드센스 퍼블리셔 식별을 위한 ads.txt 파일
+# 배포 후 본인의 Google AdSense 웹 사이트 관리 페이지에 적혀있는 코드로 수정해 주십시오.
+# 예시 포맷: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

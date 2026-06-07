@@ -1,0 +1,4 @@
+# URL 리다이렉트 및 폴백 규칙 정의
+# 예: /old-path /new-path 301
+# SPA가 아님으로 기본 정적 폴백만 지정 (필요 시)
+# /tools/resize /tools/resize.html 301

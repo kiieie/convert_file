@@ -1,0 +1,38 @@
+/* Tahoma 폰트 및 웹 세이프 대체 폰트 패밀리 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body, input, button, select, textarea {
+    font-family: "Tahoma", "MS Sans Serif", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+}
+
+body {
+    background-color: #3A6EA5; /* Bliss 배경 느낌의 파란색 */
+    color: #000000;
+    overflow: hidden; /* XP 바탕화면 고정 */
+    height: 100vh;
+    width: 100vw;
+    user-select: none; /* 바탕화면 텍스트 선택 방지 */
+}
+
+a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ff0000;
+}
+
+/* 포커스 아웃라인 제거하되 키보드 포커스는 살림 */
+*:focus-visible {
+    outline: 1px dotted #000000;
+}

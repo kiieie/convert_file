@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF 프레임 분할기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-frames-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            gap: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+            border: 1px solid var(--slate-200);
+            padding: 12px;
+            background-color: #FFFFFF;
+            border-radius: var(--radius-md);
+        }
+        .modern-frame-thumb {
+            border: 1px solid var(--slate-200);
+            background-color: var(--slate-50);
+            padding: 4px;
+            text-align: center;
+            border-radius: var(--radius-sm);
+        }
+        .modern-frame-thumb img {
+            width: 100%;
+            height: 50px;
+            object-fit: cover;
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+        }
+        .modern-frame-thumb__label {
+            font-size: 9px;
+            color: var(--slate-500);
+            margin-top: 2px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">GIF 프레임 분할기 (GIF Splitter)</h1>
+                <p class="modern-content__desc">움직이는 애니메이션 GIF 이미지를 개별 이미지 프레임(PNG) 단위로 슬라이싱하여 ZIP 압축 파일로 일괄 저장합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a2.25 2.25 0 01-2.25-2.25V6a2.25 2.25 0 012.25-2.25h10.5A2.25 2.25 0 0119.5 6v11.25a2.25 2.25 0 01-2.25 2.25H6.75z&quot;/></svg>');"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">분할할 GIF 애니메이션 파일을 여기에 올려놓으십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">오직 .gif 형식만 인코딩 분석 가능 (최대 30MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 컴퓨터에서 GIF 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/gif">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas" style="display:none;"></canvas>
+                        <!-- 분할된 프레임 그리드 출력부 -->
+                        <div style="width:100%;">
+                            <span class="modern-label" style="display:block; margin-bottom:8px;">분해 완료된 프레임 슬라이스</span>
+                            <div class="modern-frames-grid" id="frames-grid">
+                                <!-- JS 동적 주입 -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">분석 결과 요약</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">식별된 프레임 수</span>
+                            <div style="font-size:16px; font-weight:700; color:var(--blue-600);" id="frame-count-val">0 Frames</div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-split" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        ✂️ 프레임 일괄 분할 및 ZIP 저장
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 GIF 분할기 가이드</h3>
+                <p>
+                    애니메이션 GIF의 LZW 압축 맵 구조를 브라우저 자바스크립트로 직접 스캔해 각 장면을 온전한 개별 비트맵(PNG)으로 디코딩합니다.
+                </p>
+                <ul>
+                    <li><b>ZIP 패키지 다운로드:</b> 분할된 모든 프레임을 JSZip 라이브러리를 이용해 로컬에서 하나의 ZIP 압축 파일로 패키징하므로 클릭 한 번으로 모든 프레임 획득이 가능합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 외부 디코더 및 ZIP 압축 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/gif-splitter.js?v=3"></script>
+</body>
+</html>

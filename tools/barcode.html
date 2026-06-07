@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR코드 & 바코드 생성기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">QR코드 & 바코드 생성기 (QR & Barcode Generator)</h1>
+                <p class="modern-content__desc">사용 목적에 맞는 웹 링크용 QR코드나 물류 관리용 EAN-13, Code 128 바코드를 실시간 렌더링합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <!-- 모던 탭 구조 -->
+            <div class="modern-tabs" style="display:flex; gap:4px; border-bottom: 1px solid var(--slate-200); margin-bottom:15px;">
+                <div class="modern-tab modern-tab--active" id="tab-qrcode" onclick="switchMode('qrcode')" style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:13px; color:var(--blue-600); border-bottom:2px solid var(--blue-600);">QR코드 생성</div>
+                <div class="modern-tab" id="tab-barcode" onclick="switchMode('barcode')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">1D 바코드 생성</div>
+                <div class="modern-tab" id="tab-scan" onclick="switchMode('scan')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">QR/바코드 스캔 (인식)</div>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 입력 폼 제어판 / 업로드존 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- QR 모드 전용 입력 -->
+                    <div id="panel-qrcode">
+                        <div class="modern-card">
+                            <h3 class="modern-card__title">QR 인코딩 데이터</h3>
+                            <div class="modern-form-group">
+                                <span class="modern-label">링크 주소(URL) 또는 일반 메세지</span>
+                                <textarea class="modern-input" id="qr-text" rows="4" style="resize:vertical;" placeholder="https://example.com"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modern-card" style="margin-top:12px;">
+                            <h3 class="modern-card__title">QR 렌더 규격</h3>
+                            <div class="modern-form-group" style="margin-bottom:10px;">
+                                <span class="modern-label">출력 해상도 크기</span>
+                                <select class="modern-select" id="qr-size">
+                                    <option value="128">128 x 128 px</option>
+                                    <option value="200" selected>200 x 200 px</option>
+                                    <option value="300">300 x 300 px</option>
+                                    <option value="400">400 x 400 px</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group">
+                                <span class="modern-label">에러 정정 복구율(Error Correction)</span>
+                                <select class="modern-select" id="qr-correct">
+                                    <option value="L">L (7% 훼손 복구 가능)</option>
+                                    <option value="M" selected>M (15% 훼손 복구 가능)</option>
+                                    <option value="Q">Q (25% 훼손 복구 가능)</option>
+                                    <option value="H">H (30% 훼손 복구 가능)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="modern-btn modern-btn--primary" id="btn-generate" style="height:38px; font-size:14px; font-weight:600; margin-top:12px; width:100%;">
+                            ⚡ 코드 그래픽 생성
+                        </button>
+                    </div>
+
+                    <!-- 바코드 모드 전용 입력 -->
+                    <div id="panel-barcode" style="display:none;">
+                        <div class="modern-card">
+                            <h3 class="modern-card__title">바코드 인코딩 규격</h3>
+                            <div class="modern-form-group" style="margin-bottom:10px;">
+                                <span class="modern-label">바코드 인코딩 표준</span>
+                                <select class="modern-select" id="barcode-format">
+                                    <option value="CODE128">Code 128 (영대소문자 + 숫자 자유 조합)</option>
+                                    <option value="EAN13">EAN-13 (13자리 글로벌 상품 식별 번호)</option>
+                                    <option value="UPC">UPC-A (12자리 북미 상품 식별 번호)</option>
+                                    <option value="CODE39">Code 39 (영대문자 + 숫자 고전 바코드)</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group">
+                                <span class="modern-label">데이터 번호/문자 입력</span>
+                                <input type="text" class="modern-input" id="barcode-text" placeholder="123456789012">
+                                <span style="font-size:11px; color:var(--slate-400); margin-top:4px;" id="barcode-hint">EAN-13 포맷은 반드시 12자리 혹은 13자리 숫자를 기입해 주십시오.</span>
+                            </div>
+                        </div>
+                        <button class="modern-btn modern-btn--primary" id="btn-generate-barcode" style="height:38px; font-size:14px; font-weight:600; margin-top:12px; width:100%;">
+                            ⚡ 코드 그래픽 생성
+                        </button>
+                    </div>
+
+                    <!-- 스캔 모드 전용 파일 드롭존 (요구사항 반영) -->
+                    <div id="panel-scan" style="display:none; flex-direction:column; gap:12px;">
+                        <div class="modern-upload-zone" id="scan-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                            <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316A2.192 2.192 0 0015.18 3h-6.36a2.192 2.192 0 00-1.816.977l-.822 1.316z&quot;/><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z&quot;/></svg>');"></div>
+                            <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">스캔할 QR/바코드 이미지를 올려놓으십시오.</div>
+                            <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">QR코드, Code128, EAN-13 이미지 업로드 (최대 10MB)</div>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-select-scan-file" style="cursor: pointer; pointer-events: auto;">📂 컴퓨터에서 이미지 선택</button>
+                            <input type="file" id="scan-file-input" style="display:none;" accept="image/*">
+                        </div>
+
+                        <!-- 스캔 결과 출력 뷰 -->
+                        <div class="modern-card" id="scan-result-card" style="display:none;">
+                            <h3 class="modern-card__title" style="color: var(--blue-600);">🔍 스캔 디코딩 결과</h3>
+                            <div class="modern-form-group">
+                                <span class="modern-label">식별된 바코드 원문 데이터</span>
+                                <textarea class="modern-input" id="scan-result-text" rows="3" readonly style="background-color: var(--slate-50); font-family: monospace;"></textarea>
+                            </div>
+                            <button class="modern-btn modern-btn--outline" id="btn-copy-scan" style="width: 100%;">📋 데이터 클립보드 복사</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2열: 생성 결과 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;" id="preview-column">
+                    <div class="modern-card" style="height:100%; display:flex; flex-direction:column;">
+                        <h3 class="modern-card__title">코드 미리보기 및 다운로드</h3>
+                        <div class="modern-preview-container" style="background-color:#FFFFFF; flex-grow:1; min-height: 220px; display: flex; justify-content: center; align-items: center;">
+                            <!-- 동적 QR/바코드 드로잉 타겟 -->
+                            <div id="qrcode-render-target"></div>
+                            <canvas id="barcode-render-target" style="display:none; max-width:100%;"></canvas>
+                            <!-- 스캔 이미지 미리보기 -->
+                            <img id="scan-preview-img" style="display:none; max-width:100%; max-height:200px; border-radius: var(--radius-sm);" alt="Uploaded Code">
+                        </div>
+                        
+                        <div class="modern-result-panel">
+                            <button class="modern-btn modern-btn--outline" id="btn-download" disabled style="width:100%; font-weight:600;">
+                                💾 코드 이미지(.png) 파일로 다운로드
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 QR & 바코드 도구 안내</h3>
+                <p>
+                    모든 인코딩 및 스캔 해독 루틴은 외부 서버 데이터 전송 없이 100% 로컬 웹 브라우저 상에서 독립 동작하므로 유출 사고 우려가 없는 안심 서비스입니다.
+                </p>
+                <ul>
+                    <li><b>체크디지트 자동 계산:</b> EAN-13 표준 바코드의 경우 마지막 1자리의 검증수가 규격 공식에 따라 실시간 갱신될 수 있습니다.</li>
+                    <li><b>코드 인식 실패 시:</b> 업로드하는 이미지의 코드가 너무 찌그러졌거나 명암 대비가 낮을 경우 인식이 어려울 수 있으니 깨끗한 캡처본을 사용해 주십시오.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 외부 스캔 및 렌더러 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <!-- QR/바코드 디코더 라이브러리 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2@1.8.4/dist/quagga.min.js"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/barcode.js?v=3"></script>
+
+    <script>
+        // 탭 스타일 전환 핸들러 보완
+        function switchMode(mode) {
+            const panelQ = document.getElementById('panel-qrcode');
+            const panelB = document.getElementById('panel-barcode');
+            const panelS = document.getElementById('panel-scan');
+            const previewCol = document.getElementById('preview-column');
+            
+            const tabQ = document.getElementById('tab-qrcode');
+            const tabB = document.getElementById('tab-barcode');
+            const tabS = document.getElementById('tab-scan');
+            
+            // 모든 패널 숨김
+            panelQ.style.display = 'none';
+            panelB.style.display = 'none';
+            panelS.style.display = 'none';
+            previewCol.style.display = 'block';
+            
+            // 탭 스타일 초기화
+            [tabQ, tabB, tabS].forEach(t => {
+                if(t) {
+                    t.style.borderBottom = 'none';
+                    t.style.color = 'var(--slate-500)';
+                    t.style.fontWeight = '500';
+                }
+            });
+            
+            const activeTab = document.getElementById('tab-' + (mode === 'scan' ? 'scan' : mode));
+            if (activeTab) {
+                activeTab.style.borderBottom = '2px solid var(--blue-600)';
+                activeTab.style.color = 'var(--blue-600)';
+                activeTab.style.fontWeight = '600';
+            }
+
+            if (mode === 'qrcode') {
+                panelQ.style.display = 'block';
+                document.getElementById('qrcode-render-target').style.display = 'block';
+                document.getElementById('barcode-render-target').style.display = 'none';
+                document.getElementById('scan-preview-img').style.display = 'none';
+                const hasImg = document.querySelector('#qrcode-render-target img');
+                document.getElementById('btn-download').disabled = !hasImg;
+            } else if (mode === 'barcode') {
+                panelB.style.display = 'block';
+                document.getElementById('qrcode-render-target').style.display = 'none';
+                document.getElementById('barcode-render-target').style.display = 'block';
+                document.getElementById('scan-preview-img').style.display = 'none';
+                // 바코드 미리보기 캔버스 내용 확인
+                const canvas = document.getElementById('barcode-render-target');
+                document.getElementById('btn-download').disabled = (canvas.width <= 1);
+            } else if (mode === 'scan') {
+                panelS.style.display = 'flex';
+                // 스캔 모드에서는 오른쪽 미리보기에 생성물이 아닌 업로드된 사진을 노출
+                document.getElementById('qrcode-render-target').style.display = 'none';
+                document.getElementById('barcode-render-target').style.display = 'none';
+                const scanImg = document.getElementById('scan-preview-img');
+                scanImg.style.display = scanImg.src ? 'block' : 'none';
+                document.getElementById('btn-download').disabled = true; // 스캔 모드에서는 생성 다운로드 비활성화
+            }
+        }
+    </script>
+</body>
+</html>

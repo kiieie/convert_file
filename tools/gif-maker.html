@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>움짤 GIF 메이커 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        
+        /* 다중 이미지 프레임 슬롯 박스 모던화 */
+        .modern-frame-list {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid var(--slate-200);
+            background-color: #FFFFFF;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            min-height: 130px;
+            margin-top: 8px;
+        }
+        .modern-frame-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid var(--slate-200);
+            background-color: var(--slate-50);
+            border-radius: var(--radius-sm);
+            padding: 6px;
+            position: relative;
+            min-width: 90px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .modern-frame-item img {
+            width: 76px;
+            height: 76px;
+            object-fit: cover;
+            border: 1px solid var(--slate-200);
+            background-color: #FFFFFF;
+            border-radius: 2px;
+        }
+        .modern-frame-item__badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: var(--slate-900);
+            color: #FFFFFF;
+            font-size: 9px;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+        .modern-frame-item__remove {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--error);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 2px;
+            font-size: 9px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .modern-frame-item__remove:hover {
+            background-color: #ef4444;
+        }
+        .modern-frame-item__delay {
+            font-size: 10px;
+            margin-top: 6px;
+            width: 100%;
+            text-align: center;
+            color: var(--slate-600);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">움짤 GIF 메이커 (GIF Maker)</h1>
+                <p class="modern-content__desc">여러 이미지 프레임들을 차례대로 이어 붙여 움직이는 애니메이션 GIF 파일로 병합합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner Zone (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 다중 업로드 및 프레임 매니저 리스트 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">GIF로 인코딩할 사진 이미지들을 다중 선택해 끌고 오십시오.</div>
+                        <div class="modern-upload-zone__desc">PNG, JPG, WebP 형식을 지원합니다. (최대 총합 50MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*" multiple>
+                    </div>
+
+                    <!-- 프레임 목록 슬롯 -->
+                    <div id="frames-container" style="display:none;">
+                        <span class="modern-label">업로드 완료된 시퀀스 프레임 리스트</span>
+                        <div class="modern-frame-list" id="frame-list">
+                            <!-- JS 동적 주입 -->
+                        </div>
+                    </div>
+
+                    <!-- 결과물 미리보기 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; min-height: 240px;">
+                        <img id="preview-gif" style="max-width: 100%; max-height: 260px; border-radius: var(--radius-sm); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" alt="GIF Preview">
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 프레임 속성 및 렌더링 버튼 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">재생 타임라인 설정</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">장면당 지연 시간 (Interval)</span>
+                            <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                                <input type="number" class="modern-input" id="gif-delay" value="200" style="width:80px;" min="50" step="50">
+                                <span style="font-size:13px; color:var(--slate-500);">ms (1000ms = 1초)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">출력 해상도 (Dimensions)</h3>
+                        <div style="display:flex; gap:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">가로 너비</span>
+                                <input type="number" class="modern-input" id="gif-width" value="320" placeholder="px">
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">세로 높이</span>
+                                <input type="number" class="modern-input" id="gif-height" value="240" placeholder="px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-render" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🎬 움짤 애니메이션 GIF 생성하기
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 GIF 애니메이션 제작 FAQ</h3>
+                <p>
+                    선택한 이미지 프레임들은 클라이언트 사이드 Web Worker 비동기 루프로 로컬 조립되므로 인코딩 중 탭 강제 정지 현상이 예방됩니다.
+                </p>
+                <ul>
+                    <li><b>장면 지연 시간:</b> 지연 시간이 짧을수록 프레임 재생 간격이 좁아져 빠른 배속의 생동감 넘치는 움직임이 형성됩니다. 일반적으로 150~300ms가 적절합니다.</li>
+                    <li><b>프레임 삭제:</b> 프레임 카드 우측 상단의 빨간 단추(X)를 눌러 제외하면, 제외 즉시 타임라인이 재구성됩니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- GIFshot 외부 라이브러리 로컬 연동 -->
+    <script src="/js/vendors/gifshot.min.js?v=3"></script>
+
+    <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/gif-maker.js?v=3"></script>
+</body>
+</html>

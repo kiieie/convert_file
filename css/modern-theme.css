@@ -1,0 +1,57 @@
+/* ==========================================================================
+   ConvertFile Modern Minimalist Design Tokens (modern-theme.css)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* 모노톤 중심의 고급스럽고 정돈된 색상 스키마 */
+    --slate-50: #F8FAFC;
+    --slate-100: #F1F5F9;
+    --slate-200: #E2E8F0;
+    --slate-300: #CBD5E1;
+    --slate-400: #94A3B8;
+    --slate-500: #64748B;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1E293B;
+    --slate-900: #0F172A;
+    
+    /* 신뢰감을 주는 액센트 블루 */
+    --blue-500: #3B82F6;
+    --blue-600: #2563EB;
+    --blue-700: #1D4ED8;
+    
+    /* 시스템 컬러 */
+    --success: #16A34A;
+    --error: #DC2626;
+    
+    /* 디자인 규격 */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    
+    /* 폰트 정의 */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--slate-50);
+    color: var(--slate-900);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    user-select: auto;
+}
+
+a {
+    color: var(--blue-600);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

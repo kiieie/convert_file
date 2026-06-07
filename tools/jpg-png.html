@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 포맷 변환기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">이미지 포맷 변환기 (Image Converter)</h1>
+                <p class="modern-content__desc">PNG, JPG, WebP, BMP, AVIF 등 다양한 사진 포맷을 원하는 출력 확장자로 상호 변환합니다.</p>
+            </header>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">변환할 원본 이미지 파일을 여기에 올려놓으십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PNG, JPG, WebP, BMP, AVIF, HEIC 지원 (최대 25MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 컴퓨터에서 파일 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">출력 포맷 (Target Format)</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">저장할 포맷 지정</span>
+                            <select class="modern-select" id="target-format" disabled>
+                                <option value="image/png">PNG 포맷 (무손실 투명 배경 보존)</option>
+                                <option value="image/jpeg">JPEG/JPG 포맷 (화질 타협 고속 로딩)</option>
+                                <option value="image/webp">WebP 포맷 (구글 차세대 압축 규격)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">상세 압축 설정</h3>
+                        
+                        <!-- JPG/WebP 퀄리티 슬라이더 -->
+                        <div class="modern-form-group" id="quality-panel" style="display:none;">
+                            <span class="modern-label">압축 화질: <strong id="quality-val" style="color:var(--blue-600);">90</strong>%</span>
+                            <input type="range" min="10" max="100" value="90" style="width:100%; cursor:pointer;" id="compress-quality">
+                        </div>
+
+                        <!-- 투명 배경 이미지 JPG 변환 시 대체색 -->
+                        <div class="modern-form-group" id="alpha-panel" style="display:none;">
+                            <span class="modern-label">투명 배경 채우기 대체 컬러</span>
+                            <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                                <input type="color" id="bg-filler-color" value="#FFFFFF" style="border:1px solid var(--slate-200); border-radius:4px; width:45px; height:28px; padding:0; cursor:pointer;">
+                                <span style="font-size:11px; color:var(--slate-400);">(JPG 포맷은 투명 알파 채널을 지원하지 않음)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-convert" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🔄 이미지 포맷 고속 변환
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 이미지 포맷 특성 요약</h3>
+                <p>
+                    모든 변환 연산이 원격 네트워크 전송 없이 브라우저 상에서 다이렉트로 이행되므로 유실 사고 우려 없이 안전하게 사용하실 수 있습니다.
+                </p>
+                <ul>
+                    <li><b>PNG vs JPG:</b> PNG는 무손실 압축으로 그래픽 디자인에 적절하나 용량이 큽니다. 반면 JPG는 화질이 미세하게 손실되나 압축률이 우수해 고용량 사진에 적당합니다.</li>
+                    <li><b>WebP 권장:</b> 구글의 차세대 포맷인 WebP는 동일 화질 대비 JPG나 PNG보다 용량이 최대 30% 이상 절감되므로, 웹사이트 업로드 속도를 올리는데 기여합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/jpg-png.js?v=3"></script>
+</body>
+</html>

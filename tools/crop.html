@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 자르기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">이미지 자르기 (Image Cropper)</h1>
+                <p class="modern-content__desc">사진의 일부 영역을 가변 마우스 드래그 또는 특정 화면 비율 프리셋으로 잘라냅니다.</p>
+            </header>
+
+            <!-- 구글 애드센스 배너 공간 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner Space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">잘라내고 싶은 사진을 여기에 떨어뜨리십시오.</div>
+                        <div class="modern-upload-zone__desc">클릭하여 PC 폴더에서 선택할 수도 있습니다. (최대 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 크롭 오버레이 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; overflow:hidden;">
+                        <div class="modern-crop-viewport" id="crop-viewport">
+                            <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                            <!-- 동적 크롭 오버레이 레이어 -->
+                            <div class="modern-crop-overlay" id="crop-overlay" style="display:none;">
+                                <div class="modern-crop-box" id="crop-box">
+                                    <div class="modern-crop-handle modern-crop-handle--tl" data-handle="tl"></div>
+                                    <div class="modern-crop-handle modern-crop-handle--tr" data-handle="tr"></div>
+                                    <div class="modern-crop-handle modern-crop-handle--bl" data-handle="bl"></div>
+                                    <div class="modern-crop-handle modern-crop-handle--br" data-handle="br"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">자르기 비율 (Aspect Ratio)</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">자르기 비율 선택</span>
+                            <select class="modern-select" id="aspect-ratio-preset" disabled>
+                                <option value="free">자유 영역 (Freeform)</option>
+                                <option value="1:1">정사각형 (1:1)</option>
+                                <option value="4:3">클래식 비율 (4:3)</option>
+                                <option value="16:9">와이드 비율 (16:9)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">선택 영역 좌표 정보</h3>
+                        <div style="display:flex; gap:10px; margin-bottom:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">가로 너비 (Width)</span>
+                                <input type="number" class="modern-input" id="crop-width" disabled placeholder="W">
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">세로 높이 (Height)</span>
+                                <input type="number" class="modern-input" id="crop-height" disabled placeholder="H">
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">시작점 X</span>
+                                <input type="number" class="modern-input" id="crop-x" disabled placeholder="X">
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">시작점 Y</span>
+                                <input type="number" class="modern-input" id="crop-y" disabled placeholder="Y">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-crop" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        ✂️ 선택 영역 자르기 및 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 이미지 크롭 기능 가이드</h3>
+                <p>
+                    선택한 이미지의 가로세로를 직관적인 원형 조작점을 드래그하여 임의 영역으로 손쉽게 절단할 수 있습니다. 
+                </p>
+                <ul>
+                    <li><b>비율 구동:</b> 정사각형(1:1)이나 유튜브/비디오 썸네일 규격(16:9) 프리셋을 통해 인스타그램이나 다양한 SNS 프로필 업로드용 규격을 바로 생성 가능합니다.</li>
+                    <li><b>사생활 안전:</b> 모든 비트맵 분할 가공 처리가 네트워크 경유 없이 PC 브라우저 세션에서 완수되어 데이터 유출 리스크가 없습니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/crop.js?v=3"></script>
+</body>
+</html>

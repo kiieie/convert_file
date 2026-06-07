@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 크기 조절기 - ConvertFile</title>
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">이미지 크기 조절기 (Image Resizer)</h1>
+                <p class="modern-content__desc">사진의 해상도 픽셀 값을 직접 입력하거나 슬라이더 비율 방식으로 이미지 사이즈를 재조정합니다.</p>
+            </header>
+
+            <!-- 구글 애드센스 배너 공간 -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner Slot (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">크기를 변경할 이미지 파일을 여기에 끌어다 놓으십시오.</div>
+                        <div class="modern-upload-zone__desc">또는 이곳을 클릭하여 로컬 디스크에서 선택하십시오. (최대 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">크기 설정 (Dimensions)</h3>
+                        
+                        <div class="modern-form-group">
+                            <span class="modern-label">조절 기준</span>
+                            <div style="display:flex; gap:16px; font-size:13px; margin-top:2px;">
+                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="pixel" checked> 픽셀(px)</label>
+                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="percent"> 비율(%)</label>
+                            </div>
+                        </div>
+
+                        <!-- 픽셀값 제어 폼 -->
+                        <div id="pixel-form">
+                            <div style="display:flex; gap:10px; margin-bottom:10px;">
+                                <div class="modern-form-group" style="flex:1;">
+                                    <span class="modern-label">가로 너비 (Width)</span>
+                                    <input type="number" class="modern-input" id="resize-width" placeholder="px" disabled>
+                                </div>
+                                <div class="modern-form-group" style="flex:1;">
+                                    <span class="modern-label">세로 높이 (Height)</span>
+                                    <input type="number" class="modern-input" id="resize-height" placeholder="px" disabled>
+                                </div>
+                            </div>
+                            <div class="modern-form-group">
+                                <label style="cursor:pointer; font-size:12px; display:flex; align-items:center; gap:6px;">
+                                    <input type="checkbox" id="aspect-ratio" checked disabled> 종횡비 비율 고정
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 백분율 제어 폼 -->
+                        <div id="percent-form" style="display:none; margin-top:8px;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">배율 조정: <strong id="percent-val" style="color:var(--blue-600);">100</strong>%</span>
+                                <input type="range" min="10" max="200" value="100" style="width:100%; cursor:pointer;" id="resize-percent" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">고급 가공 필터</h3>
+                        <div class="modern-form-group" style="margin-bottom:12px;">
+                            <span class="modern-label">보간 방식 필터</span>
+                            <select class="modern-select" id="interpolation-filter" disabled>
+                                <option value="bilinear">Bilinear (부드럽게 - 사진 권장)</option>
+                                <option value="nearest">Nearest Neighbor (도트 그래픽용)</option>
+                            </select>
+                        </div>
+                        <div class="modern-form-group">
+                            <span class="modern-label">저장 확장자 형식</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="match">원본 포맷 그대로 저장</option>
+                                <option value="image/jpeg">JPG 이미지</option>
+                                <option value="image/png">PNG 이미지 (투명 배경)</option>
+                                <option value="image/webp">WebP 이미지 (웹 압축 최적화)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-resize" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        💾 크기 조절 이미지 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box">
+                <h3>💡 온라인 이미지 크기 조절기 가이드</h3>
+                <p>
+                    ConvertFile의 이미지 리사이저 툴은 HTML5 캔버스 인터페이스 표준을 준수하여 <b>어떠한 사진 정보도 서버로 중계 및 저장하지 않는 완벽한 로컬 변환 서비스</b>입니다.
+                </p>
+                <ul>
+                    <li><b>종횡비 비율 고정:</b> 너비나 높이 중 하나의 수치를 변경할 때 원본의 가로세로 비율이 뒤틀리지 않도록 짝을 맞춰 자동 정밀 보정합니다.</li>
+                    <li><b>포맷 변환 결합:</b> 크기 조절을 진행하면서 즉시 최종 포맷(JPG, PNG, WebP 등)을 스위칭해 다운로드받을 수 있어 다단계 변환 시간을 극적으로 줄여줍니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/resize.js?v=3"></script>
+</body>
+</html>

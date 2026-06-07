@@ -1,0 +1,39 @@
+:root {
+    /* Windows XP Luna Blue 주요 테마 컬러 */
+    --xp-blue-dark: #0A246A;
+    --xp-blue-light: #3A6EA5;
+    --xp-blue-active-border: #0054E3;
+    
+    /* 윈도우 프레임 및 입체 효과 컬러 */
+    --xp-face: #ECE9D8;
+    --xp-highlight: #FFFFFF;
+    --xp-shadow: #ACA899;
+    --xp-shadow-dark: #716F64;
+    
+    /* 활성/비활성 제목 표시줄 그라디언트 */
+    --xp-titlebar-active-start: #0058E6;
+    --xp-titlebar-active-end: #3A93FC;
+    --xp-titlebar-inactive-start: #7A96DF;
+    --xp-titlebar-inactive-end: #BCCDF5;
+    
+    /* 기타 UI 요소 */
+    --xp-start-green: #21A121;
+    --xp-start-green-hover: #2dbd2d;
+    --xp-selection-blue: #316AC5;
+    --xp-window-bg: #FFFFFF;
+    --xp-menu-bar: #D6D2C2;
+    --xp-scrollbar-track: #F1EFE2;
+    
+    /* 테두리 두께 규격 */
+    --xp-border-width: 3px;
+    
+    /* 말풍선 경고창 컬러 */
+    --xp-balloon-bg: #FFFFE1;
+    --xp-balloon-border: #000000;
+}
+
+/* 시스템 테마 컬러 유틸리티 */
+.xp-color-face { background-color: var(--xp-face); }
+.xp-color-window { background-color: var(--xp-window-bg); }
+.xp-color-text { color: #000000; }
+.xp-color-text-disabled { color: var(--xp-shadow); text-shadow: 1px 1px 0px var(--xp-highlight); }
