@@ -358,6 +358,18 @@
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
         }
 
+        // 페이지 로드 시 URL 쿼리 파라미터를 파싱하여 해당 탭을 자동 활성화
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const tab = params.get('tab');
+            const validTabs = ['img-to-pdf', 'pdf-to-img', 'pdf-merge', 'pdf-split', 'pdf-edit'];
+            if (tab && validTabs.includes(tab)) {
+                switchPdfMode(tab);
+            } else {
+                switchPdfMode('img-to-pdf'); // default
+            }
+        });
+
         // 탭 스타일 및 컴포넌트 스위칭 로직
         function switchPdfMode(mode) {
             const panelImg = document.getElementById('panel-img-to-pdf');

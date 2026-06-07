@@ -66,8 +66,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="modern-sidebar__group">
             <div class="modern-sidebar__group-title">PDF 도구</div>
-            <a href="/tools/pdf.html" class="modern-sidebar__item" id="menu-pdf">
-                <span>📄</span> PDF ↔ 이미지 변환
+            <a href="/tools/pdf.html?tab=img-to-pdf" class="modern-sidebar__item" id="menu-pdf-img-to-pdf">
+                <span>🖼️</span> 이미지 → PDF 병합
+            </a>
+            <a href="/tools/pdf.html?tab=pdf-to-img" class="modern-sidebar__item" id="menu-pdf-pdf-to-img">
+                <span>🖼️</span> PDF → 이미지 추출
+            </a>
+            <a href="/tools/pdf.html?tab=pdf-merge" class="modern-sidebar__item" id="menu-pdf-merge">
+                <span>🔗</span> PDF 끼리 병합
+            </a>
+            <a href="/tools/pdf.html?tab=pdf-split" class="modern-sidebar__item" id="menu-pdf-split">
+                <span>✂️</span> PDF 페이지 분할
+            </a>
+            <a href="/tools/pdf.html?tab=pdf-edit" class="modern-sidebar__item" id="menu-pdf-edit">
+                <span>🛠️</span> PDF 편집 (삭제/회전/압축)
             </a>
         </div>
 
@@ -93,12 +105,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // 사이드바 구조 렌더링
     sidebarEl.innerHTML = sidebarHtml;
 
-    // 경로 매치 기반 active 하이라이트 클래스 적용
+    // 경로 및 쿼리 매치 기반 active 하이라이트 클래스 적용
     const items = sidebarEl.querySelectorAll('.modern-sidebar__item');
+    const currentFull = currentPath + window.location.search;
+
     items.forEach(item => {
         const href = item.getAttribute('href');
-        // 정확히 매칭되거나, 서브페이지 경로일 경우 활성화 처리
-        if (currentPath === href || (href !== '/' && currentPath.indexOf(href) === 0)) {
+        let isActive = false;
+
+        if (href.includes('?')) {
+            // 쿼리 매개변수가 포함된 경로의 경우 full URL 비교 수행
+            isActive = (currentFull === href);
+        } else {
+            // 일반 경로의 경우 pathname만 매치
+            isActive = (currentPath === href);
+        }
+
+        if (isActive) {
             item.classList.add('modern-sidebar__item--active');
         }
     });

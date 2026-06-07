@@ -189,10 +189,8 @@ test('PDF to Image (pdf.html) - PDF to Image Extraction E2E Test', async ({ page
     fs.writeFileSync(mockPdf, mockPdfBuffer);
 
     try {
-        await page.goto('http://127.0.0.1:8080/tools/pdf.html');
-
-        // 탭 전환: PDF -> 이미지 추출
-        await page.click('#tab-pdf-to-img');
+        // 쿼리 파라미터를 사용해 해당 탭이 활성화된 상태로 즉시 진입
+        await page.goto('http://127.0.0.1:8080/tools/pdf.html?tab=pdf-to-img');
 
         // 파일 업로드
         const fileChooserPromise = page.waitForEvent('filechooser');
@@ -227,10 +225,8 @@ test('PDF Split (pdf.html) - PDF Split each & range E2E Test', async ({ page }) 
     fs.writeFileSync(mockPdf, mockPdfBuffer);
 
     try {
-        await page.goto('http://127.0.0.1:8080/tools/pdf.html');
-
-        // 탭 전환: PDF 페이지 분할
-        await page.click('#tab-pdf-split');
+        // 쿼리 파라미터를 사용해 해당 탭이 활성화된 상태로 즉시 진입
+        await page.goto('http://127.0.0.1:8080/tools/pdf.html?tab=pdf-split');
 
         // 파일 업로드
         const fileChooserPromise = page.waitForEvent('filechooser');
@@ -268,10 +264,8 @@ test('PDF Edit (pdf.html) - PDF Metadata Compress, Watermark & Password Encrypti
     fs.writeFileSync(mockPdf, mockPdfBuffer);
 
     try {
-        await page.goto('http://127.0.0.1:8080/tools/pdf.html');
-
-        // 탭 전환: PDF 편집
-        await page.click('#tab-pdf-edit');
+        // 쿼리 파라미터를 사용해 해당 탭이 활성화된 상태로 즉시 진입
+        await page.goto('http://127.0.0.1:8080/tools/pdf.html?tab=pdf-edit');
 
         // 파일 업로드
         const fileChooserPromise = page.waitForEvent('filechooser');
