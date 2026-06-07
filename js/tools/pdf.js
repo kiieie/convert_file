@@ -25,10 +25,32 @@
 
     const btnRunPdf = document.getElementById('btn-run-pdf');
 
+    // PDF 끼리 병합 요소
+    const pdfMergeDropZone = document.getElementById('pdf-merge-drop-zone');
+    const pdfMergeFileInput = document.getElementById('pdf-merge-file-input');
+    const addedPdfsCard = document.getElementById('added-pdfs-card');
+    const addedPdfsList = document.getElementById('added-pdfs-list');
+
+    // PDF 분할 요소
+    const splitModeRadios = document.querySelectorAll('input[name="pdf-split-mode"]');
+    const splitRangeGroup = document.getElementById('split-range-group');
+    const splitRangeInput = document.getElementById('split-range-input');
+
+    // PDF 편집 요소
+    const editCompress = document.getElementById('edit-compress');
+    const editDeleteRange = document.getElementById('edit-delete-range');
+    const editRotateRange = document.getElementById('edit-rotate-range');
+    const editRotateAngle = document.getElementById('edit-rotate-angle');
+    const editWatermarkText = document.getElementById('edit-watermark-text');
+    const editWatermarkSize = document.getElementById('edit-watermark-size');
+    const editWatermarkOpacity = document.getElementById('edit-watermark-opacity');
+    const editPageNumber = document.getElementById('edit-page-number');
+
     // 2. 상태 변수
-    let pdfMode = 'img-to-pdf'; // 'img-to-pdf' | 'pdf-to-img'
+    let pdfMode = 'img-to-pdf'; // 'img-to-pdf' | 'pdf-to-img' | 'pdf-merge' | 'pdf-split' | 'pdf-edit'
     let selectedImages = [];     // 이미지 병합 타겟 파일 어레이 [{file, dataUrl, name}]
-    let selectedPdfFile = null;  // PDF 분할 타겟 파일
+    let selectedPdfFile = null;  // PDF 분할/추출/편집 타겟 파일
+    let selectedPdfMergeFiles = []; // PDF 끼리 병합 타겟 파일 어레이 [{file, name}]
 
     // 전역 스위칭 바인딩
     window.setPdfMode = function(mode) {
@@ -39,6 +61,8 @@
     function updateSubmitButtonState() {
         if (pdfMode === 'img-to-pdf') {
             btnRunPdf.disabled = selectedImages.length === 0;
+        } else if (pdfMode === 'pdf-merge') {
+            btnRunPdf.disabled = selectedPdfMergeFiles.length === 0;
         } else {
             btnRunPdf.disabled = !selectedPdfFile;
         }
@@ -197,13 +221,124 @@
     }
 
     // ==========================================================================
+    // 탭 3: PDF 끼리 병합 로직
+    // ==========================================================================
+    if (pdfMergeDropZone && pdfMergeFileInput) {
+        pdfMergeDropZone.addEventListener('click', () => pdfMergeFileInput.click());
+
+        const preventDefaults = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        };
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            pdfMergeDropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            pdfMergeDropZone.addEventListener(eventName, () => {
+                pdfMergeDropZone.style.borderColor = 'var(--blue-600)';
+                pdfMergeDropZone.style.backgroundColor = '#EFF6FF';
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            pdfMergeDropZone.addEventListener(eventName, () => {
+                pdfMergeDropZone.style.borderColor = 'var(--blue-500)';
+                pdfMergeDropZone.style.backgroundColor = 'var(--slate-50)';
+            }, false);
+        });
+
+        pdfMergeDropZone.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) addMergePdfs(files);
+        });
+
+        pdfMergeFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) addMergePdfs(e.target.files);
+        });
+    }
+
+    function addMergePdfs(files) {
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) continue;
+            selectedPdfMergeFiles.push({
+                file: file,
+                name: file.name
+            });
+        }
+        renderMergePdfs();
+        updateSubmitButtonState();
+    }
+
+    function renderMergePdfs() {
+        if (selectedPdfMergeFiles.length === 0) {
+            addedPdfsCard.style.display = 'none';
+            return;
+        }
+
+        addedPdfsCard.style.display = 'block';
+        addedPdfsList.innerHTML = '';
+
+        selectedPdfMergeFiles.forEach((pdfObj, idx) => {
+            const item = document.createElement('div');
+            item.className = 'image-file-item';
+            item.style.display = 'flex';
+            item.style.justifyContent = 'space-between';
+            item.style.width = '100%';
+            item.style.padding = '8px';
+            item.style.border = '1px solid var(--slate-200)';
+            item.style.borderRadius = 'var(--radius-sm)';
+            item.style.backgroundColor = '#FFFFFF';
+            item.innerHTML = `
+                <div style="font-size:12px; color:var(--slate-700); font-weight:500; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width:80%;">${idx + 1}. ${pdfObj.name}</div>
+                <div class="pdf-file-item__remove" data-index="${idx}" style="color:var(--error); font-weight:bold; cursor:pointer; font-size:14px; padding:0 6px;">×</div>
+            `;
+            addedPdfsList.appendChild(item);
+        });
+
+        const deleteButtons = addedPdfsList.querySelectorAll('.pdf-file-item__remove');
+        deleteButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const idx = parseInt(btn.getAttribute('data-index'), 10);
+                selectedPdfMergeFiles.splice(idx, 1);
+                renderMergePdfs();
+                updateSubmitButtonState();
+            });
+        });
+    }
+
+    // ==========================================================================
+    // 탭 4: PDF 분할 라디오 제어
+    // ==========================================================================
+    if (splitModeRadios) {
+        splitModeRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === 'range') {
+                    splitRangeGroup.style.display = 'block';
+                } else {
+                    splitRangeGroup.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // ==========================================================================
     // 변환 실행 및 트리거 공통 리스너
     // ==========================================================================
     btnRunPdf.addEventListener('click', () => {
         if (pdfMode === 'img-to-pdf') {
             runImageToPdf();
-        } else {
+        } else if (pdfMode === 'pdf-to-img') {
             runPdfToImage();
+        } else if (pdfMode === 'pdf-merge') {
+            runPdfMerge();
+        } else if (pdfMode === 'pdf-split') {
+            runPdfSplit();
+        } else if (pdfMode === 'pdf-edit') {
+            runPdfEdit();
         }
     });
 
@@ -384,5 +519,271 @@
             }, 100);
         };
         fileReader.readAsArrayBuffer(selectedPdfFile);
+    }
+
+    // 3. PDF 끼리 병합 실행
+    async function runPdfMerge() {
+        if (selectedPdfMergeFiles.length === 0) return;
+
+        const prog = UIComponents.showProgressDialog(
+            "PDF 병합 가동 중",
+            "여러 PDF 문서를 하나로 결합하고 있습니다..."
+        );
+
+        setTimeout(async () => {
+            try {
+                const mergedPdf = await PDFLib.PDFDocument.create();
+
+                for (let i = 0; i < selectedPdfMergeFiles.length; i++) {
+                    prog.updateProgress(
+                        Math.round((i / selectedPdfMergeFiles.length) * 80),
+                        `PDF 파일 복사 중... (${i + 1} / ${selectedPdfMergeFiles.length})`
+                    );
+
+                    const pdfObj = selectedPdfMergeFiles[i];
+                    const pdfBytes = await pdfObj.file.arrayBuffer();
+                    const srcDoc = await PDFLib.PDFDocument.load(pdfBytes);
+                    
+                    const copiedPages = await mergedPdf.copyPages(srcDoc, srcDoc.getPageIndices());
+                    copiedPages.forEach((page) => mergedPdf.addPage(page));
+                }
+
+                prog.updateProgress(90, "PDF 바이너리 스트림 생성 중...");
+
+                const mergedBytes = await mergedPdf.save({ useObjectStreams: true });
+                const blob = new Blob([mergedBytes], { type: 'application/pdf' });
+                
+                FileUtils.downloadFile(URL.createObjectURL(blob), 'merged_documents.pdf');
+
+                prog.updateProgress(100, "병합 완료!");
+                setTimeout(() => prog.close(), 400);
+
+            } catch (err) {
+                prog.close();
+                UIComponents.showErrorDialog("PDF Merge Failure", `PDF 병합 도중 에러가 발생했습니다: ${err.message}`);
+            }
+        }, 100);
+    }
+
+    // 4. PDF 분할 실행
+    async function runPdfSplit() {
+        if (!selectedPdfFile) return;
+
+        const splitMode = document.querySelector('input[name="pdf-split-mode"]:checked').value;
+        
+        const prog = UIComponents.showProgressDialog(
+            "PDF 분할 준비 중",
+            "PDF 원본 스트림을 분석하고 있습니다..."
+        );
+
+        setTimeout(async () => {
+            try {
+                const arrayBuffer = await selectedPdfFile.arrayBuffer();
+                const srcDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                const maxPages = srcDoc.getPageCount();
+
+                if (splitMode === 'each') {
+                    // Split each page into its own PDF and zip them
+                    const zip = new JSZip();
+
+                    for (let i = 0; i < maxPages; i++) {
+                        prog.updateProgress(
+                            Math.round((i / maxPages) * 80),
+                            `페이지 분할 중... (${i + 1} / ${maxPages})`
+                        );
+
+                        const singlePageDoc = await PDFLib.PDFDocument.create();
+                        const [copiedPage] = await singlePageDoc.copyPages(srcDoc, [i]);
+                        singlePageDoc.addPage(copiedPage);
+
+                        const singlePdfBytes = await singlePageDoc.save({ useObjectStreams: true });
+                        zip.file(`page_${i + 1}.pdf`, singlePdfBytes);
+                    }
+
+                    prog.updateProgress(90, "개별 PDF 압축(ZIP) 진행 중...");
+                    const zipContent = await zip.generateAsync({ type: 'blob' });
+                    const downloadName = FileUtils.getDownloadName(selectedPdfFile.name, '_split_pages', 'zip');
+                    FileUtils.downloadFile(URL.createObjectURL(zipContent), downloadName);
+
+                } else {
+                    // Extract specific range
+                    const rangeStr = splitRangeInput.value.trim();
+                    if (!rangeStr) {
+                        throw new Error("추출할 페이지 범위를 입력해 주십시오.");
+                    }
+
+                    const pageIndices = parsePageRange(rangeStr, maxPages);
+                    if (pageIndices.length === 0) {
+                        throw new Error("유효한 페이지 범위가 존재하지 않습니다.");
+                    }
+
+                    prog.updateProgress(50, `지정된 ${pageIndices.length}개 페이지 추출 중...`);
+
+                    const extractedDoc = await PDFLib.PDFDocument.create();
+                    const copiedPages = await extractedDoc.copyPages(srcDoc, pageIndices);
+                    copiedPages.forEach((page) => extractedDoc.addPage(page));
+
+                    prog.updateProgress(85, "추출된 PDF 스트림 저장 중...");
+                    const extractedBytes = await extractedDoc.save({ useObjectStreams: true });
+                    const blob = new Blob([extractedBytes], { type: 'application/pdf' });
+                    const downloadName = FileUtils.getDownloadName(selectedPdfFile.name, '_extracted', 'pdf');
+                    FileUtils.downloadFile(URL.createObjectURL(blob), downloadName);
+                }
+
+                prog.updateProgress(100, "분할/추출 완료!");
+                setTimeout(() => prog.close(), 400);
+
+            } catch (err) {
+                prog.close();
+                UIComponents.showErrorDialog("PDF Split Failure", `PDF 분할 도중 에러가 발생했습니다: ${err.message}`);
+            }
+        }, 100);
+    }
+
+    // 5. PDF 편집 실행 (삭제, 회전, 압축)
+    async function runPdfEdit() {
+        if (!selectedPdfFile) return;
+
+        const compress = editCompress.checked;
+        const deleteRangeStr = editDeleteRange.value.trim();
+        const rotateRangeStr = editRotateRange.value.trim();
+        const rotateAngle = parseInt(editRotateAngle.value, 10);
+
+        const prog = UIComponents.showProgressDialog(
+            "PDF 편집 가동 중",
+            "PDF 원본 구조를 읽어들이는 중..."
+        );
+
+        setTimeout(async () => {
+            try {
+                const arrayBuffer = await selectedPdfFile.arrayBuffer();
+                const srcDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                const maxPages = srcDoc.getPageCount();
+
+                prog.updateProgress(30, "페이지 필터링 및 조작 처리 중...");
+
+                // 역순으로 삭제 처리
+                if (deleteRangeStr) {
+                    const deleteIndices = parsePageRange(deleteRangeStr, maxPages);
+                    
+                    if (deleteIndices.length === maxPages) {
+                        throw new Error("최소한 1개 이상의 페이지를 남겨두어야 합니다 (전체 삭제 불가).");
+                    }
+
+                    // 큰 인덱스부터 내림차순 정렬하여 순차 삭제
+                    deleteIndices.sort((a, b) => b - a);
+                    deleteIndices.forEach(idx => {
+                        srcDoc.removePage(idx);
+                    });
+                }
+
+                // 회전 적용 (남은 문서 기준으로 회전 처리)
+                if (rotateRangeStr && rotateAngle !== 0) {
+                    const remainingPagesCount = srcDoc.getPageCount();
+                    const rotateIndices = parsePageRange(rotateRangeStr, remainingPagesCount);
+                    
+                    rotateIndices.forEach(idx => {
+                        const page = srcDoc.getPage(idx);
+                        const currentRotation = page.getRotation().angle;
+                        const newRotation = (currentRotation + rotateAngle) % 360;
+                        page.setRotation(PDFLib.degrees(newRotation));
+                    });
+                }
+
+                // 워터마크 적용 (남은 문서 전체 페이지에 적용)
+                const watermarkText = editWatermarkText.value.trim();
+                if (watermarkText) {
+                    const font = await srcDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+                    const size = parseInt(editWatermarkSize.value, 10) || 50;
+                    const opacity = parseFloat(editWatermarkOpacity.value) || 0.3;
+                    const remainingPages = srcDoc.getPages();
+                    
+                    remainingPages.forEach(page => {
+                        const { width, height } = page.getSize();
+                        const textWidth = font.widthOfTextAtSize(watermarkText, size);
+                        const rad = 45 * Math.PI / 180;
+                        const x = (width - textWidth * Math.cos(rad)) / 2;
+                        const y = (height - textWidth * Math.sin(rad)) / 2;
+                        
+                        page.drawText(watermarkText, {
+                            x: x,
+                            y: y,
+                            size: size,
+                            font: font,
+                            color: PDFLib.rgb(0.7, 0.7, 0.7),
+                            opacity: opacity,
+                            rotate: PDFLib.degrees(45),
+                        });
+                    });
+                }
+
+                // 페이지 번호 일괄 추가
+                const addPageNumber = editPageNumber.checked;
+                if (addPageNumber) {
+                    const font = await srcDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+                    const remainingPages = srcDoc.getPages();
+                    const total = remainingPages.length;
+                    remainingPages.forEach((page, idx) => {
+                        const { width } = page.getSize();
+                        const text = `${idx + 1} / ${total}`;
+                        const size = 10;
+                        const textWidth = font.widthOfTextAtSize(text, size);
+                        page.drawText(text, {
+                            x: (width - textWidth) / 2,
+                            y: 20,
+                            size: size,
+                            font: font,
+                            color: PDFLib.rgb(0.3, 0.3, 0.3),
+                        });
+                    });
+                }
+
+                prog.updateProgress(75, "PDF 최적화 압축 및 파일 저장 중...");
+
+                // 저장 (압축 옵션 포함)
+                const saveOptions = compress ? { useObjectStreams: true } : {};
+                const finalBytes = await srcDoc.save(saveOptions);
+
+                const blob = new Blob([finalBytes], { type: 'application/pdf' });
+                const downloadName = FileUtils.getDownloadName(selectedPdfFile.name, '_edited', 'pdf');
+                FileUtils.downloadFile(URL.createObjectURL(blob), downloadName);
+
+                prog.updateProgress(100, "편집 완료!");
+                setTimeout(() => prog.close(), 400);
+
+            } catch (err) {
+                prog.close();
+                UIComponents.showErrorDialog("PDF Edit Failure", `PDF 편집 도중 에러가 발생했습니다: ${err.message}`);
+            }
+        }, 100);
+    }
+
+    // 페이지 범위 파싱 헬퍼 함수
+    function parsePageRange(rangeStr, maxPages) {
+        const pages = new Set();
+        const parts = rangeStr.replace(/\s+/g, '').split(',');
+        for (const part of parts) {
+            if (!part) continue;
+            if (part.includes('-')) {
+                const [startStr, endStr] = part.split('-');
+                const start = parseInt(startStr, 10);
+                const end = parseInt(endStr, 10);
+                if (!isNaN(start) && !isNaN(end)) {
+                    const s = Math.max(1, Math.min(start, maxPages));
+                    const e = Math.max(1, Math.min(end, maxPages));
+                    const min = Math.min(s, e);
+                    const max = Math.max(s, e);
+                    for (let i = min; i <= max; i++) {
+                        pages.add(i - 1);
+                    }
+                }
+            } else {
+                const pageNum = parseInt(part, 10);
+                if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= maxPages) {
+                    pages.add(pageNum - 1);
+                }
+            }
+        }
+        return Array.from(pages).sort((a, b) => a - b);
     }
 })();

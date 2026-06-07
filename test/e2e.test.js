@@ -178,3 +178,120 @@ test('PDF Merger (pdf.html) - Browser Operation Test', async ({ page }) => {
         }
     }
 });
+
+test('PDF to Image (pdf.html) - PDF to Image Extraction E2E Test', async ({ page }) => {
+    // 1페이지짜리 유효한 최소 PDF 파일 생성
+    const mockPdf = path.join(__dirname, 'mock-pdf.pdf');
+    const mockPdfBuffer = Buffer.from(
+        'JVBERi0xLjQKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCjIgMCBvYmoKICA8PCAvVHlwZSAvUGFnZXMKICAgICAvS2lkcyBbIDMgMCBSIF0KICAgICAvQ291bnQgMQogID4+CmVuZG9iagozIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2UKICAgICAvUGFyZW50IDIgMCBSCiAgICAgL01lZGlhQm94IFsgMCAwIDU5NSA4NDIgXQogICAgIC9Db250ZW50cyA0IDAgUgogID4+CmVuZG9iago0IDAgb2JqCiAgPDwgL0xlbmd0aCAxNSA+PgpzdHJlYW0KQlQgL0YxIDEyIFRmIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNzMgMDAwMDAgbCAKMDAwMDAwMDEzNiAwMDAwMCBsIAowMDAwMDAwMjMwIDAwMDAwIGwgdHJhaWxlcgogIDw8IC9TaXplIDUKICAgICAvUm9vdCAxIDAgUgogID4+CnN0YXJ0eHJlZgoyODQKJSVFT0Y=',
+        'base64'
+    );
+    fs.writeFileSync(mockPdf, mockPdfBuffer);
+
+    try {
+        await page.goto('http://127.0.0.1:8080/tools/pdf.html');
+
+        // 탭 전환: PDF -> 이미지 추출
+        await page.click('#tab-pdf-to-img');
+
+        // 파일 업로드
+        const fileChooserPromise = page.waitForEvent('filechooser');
+        await page.click('#btn-select-pdf');
+        const fileChooser = await fileChooserPromise;
+        await fileChooser.setFiles(mockPdf);
+
+        // 업로드 파일 요약 노출 확인
+        await page.waitForSelector('#pdf-info-card', { state: 'visible' });
+        await expect(page.locator('#pdf-file-summary')).toContainText('mock-pdf.pdf');
+
+        // 변환 실행 및 ZIP 다운로드 검증
+        const downloadPromise = page.waitForEvent('download');
+        await page.click('#btn-run-pdf');
+        const download = await downloadPromise;
+
+        const filename = download.suggestedFilename();
+        expect(filename).toContain('mock-pdf_pages.zip');
+    } finally {
+        if (fs.existsSync(mockPdf)) {
+            fs.unlinkSync(mockPdf);
+        }
+    }
+});
+
+test('PDF Split (pdf.html) - PDF Split each & range E2E Test', async ({ page }) => {
+    const mockPdf = path.join(__dirname, 'mock-pdf.pdf');
+    const mockPdfBuffer = Buffer.from(
+        'JVBERi0xLjQKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCjIgMCBvYmoKICA8PCAvVHlwZSAvUGFnZXMKICAgICAvS2lkcyBbIDMgMCBSIF0KICAgICAvQ291bnQgMQogID4+CmVuZG9iagozIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2UKICAgICAvUGFyZW50IDIgMCBSCiAgICAgL01lZGlhQm94IFsgMCAwIDU5NSA4NDIgXQogICAgIC9Db250ZW50cyA0IDAgUgogID4+CmVuZG9iago0IDAgb2JqCiAgPDwgL0xlbmd0aCAxNSA+PgpzdHJlYW0KQlQgL0YxIDEyIFRmIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNzMgMDAwMDAgbCAKMDAwMDAwMDEzNiAwMDAwMCBsIAowMDAwMDAwMjMwIDAwMDAwIGwgdHJhaWxlcgogIDw8IC9TaXplIDUKICAgICAvUm9vdCAxIDAgUgogID4+CnN0YXJ0eHJlZgoyODQKJSVFT0Y=',
+        'base64'
+    );
+    fs.writeFileSync(mockPdf, mockPdfBuffer);
+
+    try {
+        await page.goto('http://127.0.0.1:8080/tools/pdf.html');
+
+        // 탭 전환: PDF 페이지 분할
+        await page.click('#tab-pdf-split');
+
+        // 파일 업로드
+        const fileChooserPromise = page.waitForEvent('filechooser');
+        await page.click('#btn-select-pdf');
+        const fileChooser = await fileChooserPromise;
+        await fileChooser.setFiles(mockPdf);
+
+        // 1) 각 페이지 분할 (each) 테스트
+        const downloadPromiseEach = page.waitForEvent('download');
+        await page.click('#btn-run-pdf');
+        const downloadEach = await downloadPromiseEach;
+        expect(downloadEach.suggestedFilename()).toContain('mock-pdf_split_pages.zip');
+
+        // 2) 범위 추출 (range) 테스트
+        await page.check('input[name="pdf-split-mode"][value="range"]');
+        await page.fill('#split-range-input', '1');
+
+        const downloadPromiseRange = page.waitForEvent('download');
+        await page.click('#btn-run-pdf');
+        const downloadRange = await downloadPromiseRange;
+        expect(downloadRange.suggestedFilename()).toContain('mock-pdf_extracted.pdf');
+    } finally {
+        if (fs.existsSync(mockPdf)) {
+            fs.unlinkSync(mockPdf);
+        }
+    }
+});
+
+test('PDF Edit (pdf.html) - PDF Metadata Compress, Watermark & Password Encryption E2E Test', async ({ page }) => {
+    const mockPdf = path.join(__dirname, 'mock-pdf.pdf');
+    const mockPdfBuffer = Buffer.from(
+        'JVBERi0xLjQKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCjIgMCBvYmoKICA8PCAvVHlwZSAvUGFnZXMKICAgICAvS2lkcyBbIDMgMCBSIF0KICAgICAvQ291bnQgMQogID4+CmVuZG9iagozIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2UKICAgICAvUGFyZW50IDIgMCBSCiAgICAgL01lZGlhQm94IFsgMCAwIDU5NSA4NDIgXQogICAgIC9Db250ZW50cyA0IDAgUgogID4+CmVuZG9iago0IDAgb2JqCiAgPDwgL0xlbmd0aCAxNSA+PgpzdHJlYW0KQlQgL0YxIDEyIFRmIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNzMgMDAwMDAgbCAKMDAwMDAwMDEzNiAwMDAwMCBsIAowMDAwMDAwMjMwIDAwMDAwIGwgdHJhaWxlcgogIDw8IC9TaXplIDUKICAgICAvUm9vdCAxIDAgUgogID4+CnN0YXJ0eHJlZgoyODQKJSVFT0Y=',
+        'base64'
+    );
+    fs.writeFileSync(mockPdf, mockPdfBuffer);
+
+    try {
+        await page.goto('http://127.0.0.1:8080/tools/pdf.html');
+
+        // 탭 전환: PDF 편집
+        await page.click('#tab-pdf-edit');
+
+        // 파일 업로드
+        const fileChooserPromise = page.waitForEvent('filechooser');
+        await page.click('#btn-select-pdf');
+        const fileChooser = await fileChooserPromise;
+        await fileChooser.setFiles(mockPdf);
+
+        // 옵션 채우기 (워터마크 텍스트 & 페이지 번호 추가 활성화)
+        await page.fill('#edit-watermark-text', 'CONFIDENTIAL');
+        await page.check('#edit-page-number');
+
+        // 변환 실행 및 편집된 PDF 다운로드 검증
+        const downloadPromise = page.waitForEvent('download');
+        await page.click('#btn-run-pdf');
+        const download = await downloadPromise;
+
+        expect(download.suggestedFilename()).toContain('mock-pdf_edited.pdf');
+    } finally {
+        if (fs.existsSync(mockPdf)) {
+            fs.unlinkSync(mockPdf);
+        }
+    }
+});
