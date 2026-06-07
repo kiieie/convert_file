@@ -1,253 +1,368 @@
 /**
  * ==========================================================================
- * ConvertFile - Video to GIF Converter Business Logic (video-gif.js)
+ * ConvertFile - Video to GIF Converter with Batch Support (video-gif.js)
  * ==========================================================================
+ * 단일 또는 여러 비디오 파일을 GIF 애니메이션으로 변환합니다.
+ * gifshot 라이브러리를 사용하여 브라우저 내에서 완전히 처리합니다.
  */
 
 (function() {
-    // 1. DOM 요소 획득
+    // DOM elements
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
+    const batchVideoContainer = document.getElementById('batch-video-container');
+    const videoBatchList = document.getElementById('video-batch-list');
+    const batchVideoCount = document.getElementById('batch-video-count');
+    const btnClearVideos = document.getElementById('btn-clear-videos');
     const previewContainer = document.getElementById('preview-container');
+    const previewLabel = document.getElementById('preview-label');
     const sourceVideo = document.getElementById('source-video');
     const previewGif = document.getElementById('preview-gif');
-    
+
     const startTimeInput = document.getElementById('start-time');
     const endTimeInput = document.getElementById('end-time');
     const gifWidthInput = document.getElementById('gif-width');
     const gifFpsSelect = document.getElementById('gif-fps');
-    
+
     const btnConvert = document.getElementById('btn-convert');
+    const btnConvertAll = document.getElementById('btn-convert-all');
+    const btnSelectFile = document.getElementById('btn-select-file');
+    const statusText = document.getElementById('status-text');
+    const statusInfo = document.getElementById('status-info');
 
-    // 2. 상태 변수
-    let videoFile = null;
-    let videoDuration = 0;
+    // 상태 변수
+    let videoQueue = []; // File 객체 배열
+    let selectedIndex = -1; // 현재 미리보기 중인 인덱스
 
-    // 3. 비디오 파일 업로드 리스너
-    // 드롭존 클릭 시 파일 브라우저 실행
-    dropZone.addEventListener('click', () => {
+    // 파일 선택 버튼
+    btnSelectFile.addEventListener('click', (e) => {
+        e.stopPropagation();
         fileInput.click();
     });
 
-    const preventDefaults = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-    };
+    // -------------------------
+    // Drag & Drop 핸들러
+    // -------------------------
+    const preventDefaults = (e) => { e.preventDefault(); e.stopPropagation(); };
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(ev => dropZone.addEventListener(ev, preventDefaults));
 
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, preventDefaults, false);
-    });
-
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropZone.addEventListener(eventName, () => {
-            dropZone.style.borderColor = 'var(--blue-600)';
-            dropZone.style.backgroundColor = '#EFF6FF';
-        }, false);
-    });
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, () => {
-            dropZone.style.borderColor = 'var(--blue-500)';
-            dropZone.style.backgroundColor = 'var(--slate-50)';
-        }, false);
-    });
+    ['dragenter', 'dragover'].forEach(ev => dropZone.addEventListener(ev, () => {
+        dropZone.style.borderColor = 'var(--blue-600)';
+        dropZone.style.backgroundColor = '#EFF6FF';
+    }));
+    ['dragleave', 'drop'].forEach(ev => dropZone.addEventListener(ev, () => {
+        dropZone.style.borderColor = 'var(--blue-500)';
+        dropZone.style.backgroundColor = 'var(--slate-50)';
+    }));
 
     dropZone.addEventListener('drop', (e) => {
-        const dt = e.dataTransfer;
-        const files = dt.files;
-        if (files.length > 0) {
-            loadVideoFile(files[0]);
-        }
+        addVideosToQueue(Array.from(e.dataTransfer.files));
     });
 
     fileInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
-            loadVideoFile(e.target.files[0]);
+            addVideosToQueue(Array.from(e.target.files));
+            fileInput.value = '';
         }
     });
 
-    // 비디오 로딩 및 세팅
-    function loadVideoFile(file) {
-        // 비디오 파일 유형 검증
-        if (!file.type.startsWith('video/')) {
-            UIComponents.showErrorDialog("Invalid File Format", "비디오 파일 형식이 유효하지 않습니다. MP4 또는 WebM 동영상을 업로드하십시오.");
-            return;
+    // 전체 초기화
+    if (btnClearVideos) {
+        btnClearVideos.addEventListener('click', () => {
+            videoQueue = [];
+            selectedIndex = -1;
+            renderVideoList();
+            previewContainer.style.display = 'none';
+            if (batchVideoContainer) batchVideoContainer.style.display = 'none';
+            btnConvert.setAttribute('disabled', true);
+            if (btnConvertAll) btnConvertAll.setAttribute('disabled', true);
+            statusText.textContent = '';
+            statusInfo.textContent = '';
+        });
+    }
+
+    /**
+     * 큐에 비디오 추가 (유효성 검사, 중복 제거)
+     * @param {File[]} files
+     */
+    function addVideosToQueue(files) {
+        files.forEach(file => {
+            if (!file.type.startsWith('video/')) return;
+            if (file.size > 50 * 1024 * 1024) {
+                UIComponents.showErrorDialog('Size Limit', `${file.name} exceeds 50MB limit.`);
+                return;
+            }
+            const isDuplicate = videoQueue.some(f => f.name === file.name && f.size === file.size);
+            if (!isDuplicate) videoQueue.push(file);
+        });
+        renderVideoList();
+        if (videoQueue.length > 0) {
+            if (batchVideoContainer) batchVideoContainer.style.display = 'block';
+            if (btnConvertAll) btnConvertAll.removeAttribute('disabled');
+            // 첫 번째 비디오 자동 선택
+            if (selectedIndex < 0) selectVideo(0);
         }
+    }
 
-        // 최대 파일 크기 체크 (50MB)
-        if (file.size > 50 * 1024 * 1024) {
-            UIComponents.showErrorDialog("Size Limit Exceeded", "비디오 용량이 50MB를 초과했습니다. 더 작은 크기의 동영상을 이용해 주십시오.");
-            return;
-        }
+    /**
+     * 비디오 배치 목록 UI 렌더링
+     */
+    function renderVideoList() {
+        if (!videoBatchList) return;
+        videoBatchList.innerHTML = '';
+        if (batchVideoCount) batchVideoCount.textContent = `${videoQueue.length} video${videoQueue.length !== 1 ? 's' : ''} selected`;
 
-        videoFile = file;
+        videoQueue.forEach((file, index) => {
+            const item = document.createElement('div');
+            item.className = 'video-batch-item';
+            item.style.cursor = 'pointer';
+            if (index === selectedIndex) {
+                item.style.borderColor = 'var(--blue-500)';
+                item.style.backgroundColor = '#EFF6FF';
+            }
 
-        // 비디오 소스 셋업
+            const icon = document.createElement('div');
+            icon.className = 'video-batch-item__icon';
+            icon.textContent = '\ud83c\udfac';
+
+            const info = document.createElement('div');
+            info.className = 'video-batch-item__info';
+            info.innerHTML = `
+                <div class="video-batch-item__name" title="${file.name}">${file.name}</div>
+                <div class="video-batch-item__meta">${(file.size / 1024 / 1024).toFixed(1)} MB</div>
+            `;
+
+            const status = document.createElement('span');
+            status.className = 'video-batch-item__status video-batch-item__status--pending';
+            status.textContent = index === selectedIndex ? '\u25b6 Selected' : 'Waiting';
+            status.id = `vstatus-${index}`;
+
+            const removeBtn = document.createElement('button');
+            removeBtn.style.cssText = 'background:none;border:none;cursor:pointer;color:var(--slate-400);font-size:16px;padding:0;line-height:1;';
+            removeBtn.textContent = '\u00d7';
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                videoQueue.splice(index, 1);
+                if (selectedIndex === index) { selectedIndex = -1; previewContainer.style.display = 'none'; }
+                else if (selectedIndex > index) selectedIndex--;
+                renderVideoList();
+                if (videoQueue.length === 0) {
+                    if (batchVideoContainer) batchVideoContainer.style.display = 'none';
+                    btnConvert.setAttribute('disabled', true);
+                    if (btnConvertAll) btnConvertAll.setAttribute('disabled', true);
+                }
+            });
+
+            // 클릭 시 해당 비디오 선택/미리보기
+            item.addEventListener('click', () => selectVideo(index));
+
+            item.appendChild(icon);
+            item.appendChild(info);
+            item.appendChild(status);
+            item.appendChild(removeBtn);
+            videoBatchList.appendChild(item);
+        });
+    }
+
+    /**
+     * 특정 비디오 로드 및 미리보기
+     * @param {number} index
+     */
+    function selectVideo(index) {
+        if (index < 0 || index >= videoQueue.length) return;
+        selectedIndex = index;
+        const file = videoQueue[index];
+
         const videoUrl = URL.createObjectURL(file);
         sourceVideo.src = videoUrl;
-
-        // 미리보기 레이아웃 갱신
-        dropZone.style.display = 'none';
+        if (previewGif) previewGif.style.display = 'none';
         previewContainer.style.display = 'flex';
-        previewGif.style.display = 'none';
+        if (previewLabel) previewLabel.textContent = `Preview: ${file.name}`;
 
-        // 비디오 메타데이터가 로딩되었을 때 범위 입력창 초기화
         sourceVideo.onloadedmetadata = () => {
-            videoDuration = sourceVideo.duration;
-            
-            // UI 컨트롤 활성화 및 기본값 바인딩
-            startTimeInput.removeAttribute('disabled');
-            endTimeInput.removeAttribute('disabled');
-            gifWidthInput.removeAttribute('disabled');
-            gifFpsSelect.removeAttribute('disabled');
-            btnConvert.removeAttribute('disabled');
-
+            const duration = sourceVideo.duration;
             startTimeInput.value = 0;
-            startTimeInput.max = videoDuration;
-            
-            // 기본 추출 길이는 최대 5초로 초기 제약
-            endTimeInput.value = Math.min(5, videoDuration).toFixed(1);
-            endTimeInput.max = videoDuration;
-
-            // 비디오 프레임 가독을 위해 0초로 강제 탐색
-            sourceVideo.currentTime = 0;
+            endTimeInput.value = Math.min(5, duration).toFixed(1);
+            btnConvert.removeAttribute('disabled');
+            statusText.textContent = `Selected: ${file.name}`;
+            statusInfo.textContent = `Duration: ${duration.toFixed(1)}s`;
         };
 
         sourceVideo.onerror = () => {
-            UIComponents.showErrorDialog("Video Load Crash", "브라우저에서 비디오 코덱을 해독하여 불러올 수 없습니다.");
+            UIComponents.showErrorDialog('Video Load Error', 'Cannot decode video codec in browser.');
         };
+
+        renderVideoList(); // 하이라이트 갱신
     }
 
-    // 4. 비디오 -> GIF 변환 파이프라인
+    // 선택된 비디오 변환
     btnConvert.addEventListener('click', () => {
-        if (!videoFile || videoDuration <= 0) return;
+        if (selectedIndex < 0 || selectedIndex >= videoQueue.length) return;
+        const statusEl = document.getElementById(`vstatus-${selectedIndex}`);
+        convertVideoToGif(videoQueue[selectedIndex], selectedIndex, statusEl);
+    });
 
-        // gifshot 라이브러리 안전성 검증
-        if (typeof gifshot === 'undefined') {
-            UIComponents.showErrorDialog("Library Load Fail", "GIF 생성 인코더(gifshot)를 발견하지 못했습니다. 인터넷 연결이 원활한지 확인한 후 페이지를 새로고침해 주십시오.");
-            return;
-        }
+    // 전체 비디오 변환 (같은 설정 적용)
+    if (btnConvertAll) {
+        btnConvertAll.addEventListener('click', async () => {
+            if (videoQueue.length === 0) return;
+            btnConvertAll.setAttribute('disabled', true);
+            btnConvert.setAttribute('disabled', true);
+            statusText.textContent = `Converting ${videoQueue.length} videos...`;
 
-        const start = parseFloat(startTimeInput.value);
-        const end = parseFloat(endTimeInput.value);
-        const width = parseInt(gifWidthInput.value);
-        const fps = parseInt(gifFpsSelect.value);
+            for (let i = 0; i < videoQueue.length; i++) {
+                await selectVideoAsync(i);
+                const statusEl = document.getElementById(`vstatus-${i}`);
+                await convertVideoToGif(videoQueue[i], i, statusEl);
+            }
 
-        // 정밀 유효성 검사
-        if (start < 0 || end <= start || end > videoDuration) {
-            UIComponents.showErrorDialog("Invalid Duration Settings", "시작 및 종료 시간이 올바르지 않습니다. 동영상 구간 범위 내로 정확히 설정해 주십시오.");
-            return;
-        }
+            statusText.textContent = `\u2705 All ${videoQueue.length} videos converted!`;
+            btnConvertAll.removeAttribute('disabled');
+            btnConvert.removeAttribute('disabled');
+        });
+    }
 
-        const duration = end - start;
-        if (duration > 15) {
-            // 브라우저 힙 메모리 폭증 방지를 위해 프레임 추출을 15초 이내로 제약
-            UIComponents.showErrorDialog("Duration Constraint", "움짤 GIF 변환 구간은 성능 향상 및 브라우저 보호를 위해 최대 15초까지만 허용됩니다.");
-            return;
-        }
+    /**
+     * 비동기 비디오 선택 (메타데이터 로드 대기)
+     * @param {number} index
+     * @returns {Promise<void>}
+     */
+    function selectVideoAsync(index) {
+        return new Promise((resolve) => {
+            selectedIndex = index;
+            const file = videoQueue[index];
+            const videoUrl = URL.createObjectURL(file);
+            sourceVideo.src = videoUrl;
+            sourceVideo.onloadedmetadata = () => {
+                const duration = sourceVideo.duration;
+                endTimeInput.value = Math.min(5, duration).toFixed(1);
+                startTimeInput.value = 0;
+                renderVideoList();
+                resolve();
+            };
+        });
+    }
 
-        // 프레임 추출 타임스탬프 계산
-        const frameInterval = 1 / fps;
-        const totalFrames = Math.ceil(duration * fps);
-        const captureTimes = [];
-
-        for (let i = 0; i < totalFrames; i++) {
-            captureTimes.push(start + (i * frameInterval));
-        }
-
-        // 변환 작업 모달 다이얼로그 호출
-        const prog = UIComponents.showProgressDialog(
-            "비디오 캡처 중", 
-            `타임라인에서 프레임을 추출하고 있습니다... (0 / ${totalFrames})`
-        );
-
-        let currentFrameIndex = 0;
-        const framesData = [];
-
-        // 추출 전용 가상 캔버스 인스턴스 빌드
-        const captureCanvas = document.createElement('canvas');
-        const ctx = captureCanvas.getContext('2d');
-        
-        // 원본 비율에 맞는 해상도 가로/세로 매핑 (NaN/Infinity 대비 방어 코드 주입)
-        let videoRatio = sourceVideo.videoWidth / sourceVideo.videoHeight;
-        if (isNaN(videoRatio) || !isFinite(videoRatio) || videoRatio <= 0) {
-            videoRatio = 16 / 9; // 기본 16:9 비율 대체
-        }
-        
-        // 가상 캔버스 규격 확보 (0 또는 음수 방지)
-        captureCanvas.width = width > 0 ? width : 320;
-        captureCanvas.height = Math.round(captureCanvas.width / videoRatio) || 180;
-
-        // 타임라인 검색 탐색 프레임 캡처 재귀함수
-        function captureNextFrame() {
-            if (currentFrameIndex >= captureTimes.length) {
-                // 프레임 캡처 취합 완료 -> GIF 빌드 시작
-                prog.updateProgress(90, "추출된 프레임을 병합하여 GIF 애니메이션을 생성하고 있습니다...");
-                
-                // gifshot 비동기 생성기 구동
-                gifshot.createGIF({
-                    images: framesData,
-                    gifWidth: captureCanvas.width,
-                    gifHeight: captureCanvas.height,
-                    interval: frameInterval, // 초 단위 프레임 딜레이
-                    numWorkers: 2,
-                    frameDuration: fps
-                }, function(obj) {
-                    prog.updateProgress(100, "변환 완료!");
-                    
-                    setTimeout(() => {
-                        prog.close();
-                        if (!obj.error) {
-                            // 결과물 렌더링
-                            previewGif.src = obj.image;
-                            previewGif.style.display = 'block';
-                            previewGif.scrollIntoView({ behavior: 'smooth' });
-
-                            // 자동 다운로드 처리
-                            const downloadName = FileUtils.getDownloadName(videoFile.name, '_converted', 'gif');
-                            FileUtils.downloadFile(obj.image, downloadName);
-                        } else {
-                            UIComponents.showErrorDialog("GIF Builder Crash", "GIF 인코더가 작동을 중지했습니다.");
-                        }
-                    }, 400);
-                });
+    /**
+     * 비디오 -> GIF 변환 및 다운로드
+     * @param {File} file
+     * @param {number} index
+     * @param {HTMLElement|null} statusEl
+     * @returns {Promise<void>}
+     */
+    function convertVideoToGif(file, index, statusEl) {
+        return new Promise((resolve) => {
+            if (typeof gifshot === 'undefined') {
+                UIComponents.showErrorDialog('Library Error', 'gifshot library not loaded. Please refresh the page.');
+                resolve();
                 return;
             }
 
-            // 비디오 타임라인 특정 초로 강제 도프
-            const seekTime = captureTimes[currentFrameIndex];
-            sourceVideo.currentTime = seekTime;
+            const start = parseFloat(startTimeInput.value);
+            const end = parseFloat(endTimeInput.value);
+            const width = parseInt(gifWidthInput.value) || 320;
+            const fps = parseInt(gifFpsSelect.value) || 10;
 
-            // seeked 이벤트 대기 (해당 재생 시간의 버퍼가 비디오에 정확히 로드되는 타이밍 인터셉트)
-            sourceVideo.onseeked = () => {
-                try {
-                    // 가상 캔버스에 비디오 재생 화면 복제
-                    ctx.drawImage(sourceVideo, 0, 0, captureCanvas.width, captureCanvas.height);
-                    
-                    // 화질과 로딩 타협을 위해 jpeg 포맷으로 추출
-                    const frameDataUrl = captureCanvas.toDataURL('image/jpeg', 0.9);
-                    framesData.push(frameDataUrl);
+            if (start < 0 || end <= start) {
+                UIComponents.showErrorDialog('Invalid Range', 'End time must be greater than start time.');
+                resolve();
+                return;
+            }
+            const duration = end - start;
+            if (duration > 15) {
+                UIComponents.showErrorDialog('Duration Limit', 'Max clip length is 15 seconds to protect browser memory.');
+                resolve();
+                return;
+            }
 
-                    // 진행률 업데이트
-                    currentFrameIndex++;
-                    const percent = Math.round((currentFrameIndex / totalFrames) * 85); // 캡처는 85%까지
-                    prog.updateProgress(percent, `타임라인에서 프레임을 추출하고 있습니다... (${currentFrameIndex} / ${totalFrames})`);
+            if (statusEl) {
+                statusEl.className = 'video-batch-item__status video-batch-item__status--processing';
+                statusEl.textContent = '\u23f3 Converting...';
+            }
 
-                    // 꼬리 물기 재귀 호출
-                    captureNextFrame();
-                } catch (err) {
-                    prog.close();
-                    let tip = "";
-                    if (err.name === "SecurityError") {
-                        tip = " (보안 정책 차단: 로컬 file:// 경로로 직접 실행한 경우 CORS 보안 제한으로 인해 Canvas 캡처가 불가할 수 있습니다. http://127.0.0.1 서버를 기동해 구동해 주십시오.)";
-                    }
-                    UIComponents.showErrorDialog("Capture Buffer Fail", `프레임을 캔버스로 복제하지 못했습니다: ${err.message}${tip}`);
+            const frameInterval = 1 / fps;
+            const totalFrames = Math.ceil(duration * fps);
+            const captureTimes = [];
+            for (let i = 0; i < totalFrames; i++) captureTimes.push(start + (i * frameInterval));
+
+            const prog = UIComponents.showProgressDialog('Converting Video', `Extracting frames... (0/${totalFrames})`);
+
+            let currentFrameIndex = 0;
+            const framesData = [];
+
+            const captureCanvas = document.createElement('canvas');
+            const ctx = captureCanvas.getContext('2d');
+            let videoRatio = sourceVideo.videoWidth / sourceVideo.videoHeight;
+            if (!videoRatio || !isFinite(videoRatio) || videoRatio <= 0) videoRatio = 16 / 9;
+            captureCanvas.width = width > 0 ? width : 320;
+            captureCanvas.height = Math.round(captureCanvas.width / videoRatio) || 180;
+
+            // 재귀 프레임 캡처
+            function captureNextFrame() {
+                if (currentFrameIndex >= captureTimes.length) {
+                    prog.updateProgress(90, 'Building GIF animation...');
+                    gifshot.createGIF({
+                        images: framesData,
+                        gifWidth: captureCanvas.width,
+                        gifHeight: captureCanvas.height,
+                        interval: frameInterval,
+                        numWorkers: 2,
+                        frameDuration: fps
+                    }, function(obj) {
+                        prog.updateProgress(100, 'Done!');
+                        setTimeout(() => {
+                            prog.close();
+                            if (!obj.error) {
+                                if (previewGif) {
+                                    previewGif.src = obj.image;
+                                    previewGif.style.display = 'block';
+                                }
+                                const downloadName = file.name.replace(/\.[^.]+$/, '') + '_converted.gif';
+                                FileUtils.downloadFile(obj.image, downloadName);
+                                if (statusEl) {
+                                    statusEl.className = 'video-batch-item__status video-batch-item__status--done';
+                                    statusEl.textContent = '\u2713 Done';
+                                }
+                            } else {
+                                if (statusEl) {
+                                    statusEl.className = 'video-batch-item__status video-batch-item__status--error';
+                                    statusEl.textContent = '\u2717 Error';
+                                }
+                                UIComponents.showErrorDialog('GIF Error', 'GIF encoder failed.');
+                            }
+                            resolve();
+                        }, 400);
+                    });
+                    return;
                 }
-            };
-        }
 
-        // 비디오 재생을 멈추고 프레임 시퀀스 추출 작동
-        sourceVideo.pause();
-        captureNextFrame();
-    });
+                sourceVideo.currentTime = captureTimes[currentFrameIndex];
+                sourceVideo.onseeked = () => {
+                    try {
+                        ctx.drawImage(sourceVideo, 0, 0, captureCanvas.width, captureCanvas.height);
+                        framesData.push(captureCanvas.toDataURL('image/jpeg', 0.9));
+                        currentFrameIndex++;
+                        const pct = Math.round((currentFrameIndex / totalFrames) * 85);
+                        prog.updateProgress(pct, `Extracting frames... (${currentFrameIndex}/${totalFrames})`);
+                        captureNextFrame();
+                    } catch (err) {
+                        prog.close();
+                        if (statusEl) {
+                            statusEl.className = 'video-batch-item__status video-batch-item__status--error';
+                            statusEl.textContent = '\u2717 Error';
+                        }
+                        let tip = '';
+                        if (err.name === 'SecurityError') {
+                            tip = ' (CORS error: run via http server, not file://)';
+                        }
+                        UIComponents.showErrorDialog('Capture Error', `Frame capture failed: ${err.message}${tip}`);
+                        resolve();
+                    }
+                };
+            }
+
+            sourceVideo.pause();
+            captureNextFrame();
+        });
+    }
 })();

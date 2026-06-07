@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
@@ -20,35 +19,85 @@
             border-radius: var(--radius-sm);
             margin-bottom: 15px;
         }
+        /* Batch file list styles */
+        .batch-file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .batch-file-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+        }
+        .batch-file-item__thumb {
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+            border-radius: 3px;
+            background: var(--slate-200);
+            flex-shrink: 0;
+        }
+        .batch-file-item__info { flex: 1; min-width: 0; }
+        .batch-file-item__name {
+            font-weight: 600;
+            color: var(--slate-800);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .batch-file-item__meta { color: var(--slate-500); margin-top: 2px; }
+        .batch-file-item__status { font-size: 11px; font-weight: 600; flex-shrink: 0; }
+        .batch-file-item__status--pending  { color: var(--slate-400); }
+        .batch-file-item__status--processing { color: var(--blue-600); }
+        .batch-file-item__status--done  { color: #16a34a; }
+        .batch-file-item__status--error { color: var(--error); }
+        .batch-summary {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--slate-600);
+            padding: 8px 0;
+            border-top: 1px solid var(--slate-100);
+            margin-top: 8px;
+        }
     </style>
 
-    <title>온라인 이미지 포맷 변환기 (JPG/PNG/WebP/BMP) - ConvertFile</title>
-    <meta name="description" content="JPG, PNG, WebP, BMP 등 다양한 사진 포맷을 상호 고속 변환하세요. 알파 채널 투명 배경 보존 및 품질 압축 설정 지원.">
-    <meta name="keywords" content="이미지 포맷 변환, JPG PNG 변환, WebP 변환, 포맷 변환기">
-    <link rel="canonical" href="https://convertfile.pages.dev/tools/jpg-png.html">
+    <title>Online Image Format Converter (JPG/PNG/WebP) - Batch Convert - ConvertFile</title>
+    <meta name="description" content="Convert multiple JPG, PNG, WebP, BMP images at once. Batch format conversion with quality control. 100% local processing, no server upload.">
+    <meta name="keywords" content="image format converter, JPG PNG converter, WebP converter, batch image convert">
+    <link rel="canonical" href="https://2convert.org/tools/jpg-png.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://convertfile.pages.dev/tools/jpg-png.html">
-    <meta property="og:title" content="온라인 이미지 포맷 변환기 (JPG/PNG/WebP/BMP) - ConvertFile">
-    <meta property="og:description" content="JPG, PNG, WebP, BMP 등 다양한 사진 포맷을 상호 고속 변환하세요. 알파 채널 투명 배경 보존 및 품질 압축 설정 지원.">
-    <meta property="og:image" content="https://convertfile.pages.dev/assets/og-image.png">
+    <meta property="og:url" content="https://2convert.org/tools/jpg-png.html">
+    <meta property="og:title" content="Online Image Format Converter - Batch Convert - ConvertFile">
+    <meta property="og:description" content="Convert multiple JPG, PNG, WebP, BMP images at once. Batch format conversion.">
+    <meta property="og:image" content="https://2convert.org/assets/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://convertfile.pages.dev/tools/jpg-png.html">
-    <meta property="twitter:title" content="온라인 이미지 포맷 변환기 (JPG/PNG/WebP/BMP) - ConvertFile">
-    <meta property="twitter:description" content="JPG, PNG, WebP, BMP 등 다양한 사진 포맷을 상호 고속 변환하세요. 알파 채널 투명 배경 보존 및 품질 압축 설정 지원.">
-    <meta property="twitter:image" content="https://convertfile.pages.dev/assets/og-image.png">
+    <meta property="twitter:url" content="https://2convert.org/tools/jpg-png.html">
+    <meta property="twitter:title" content="Online Image Format Converter - Batch Convert - ConvertFile">
+    <meta property="twitter:description" content="Convert multiple JPG, PNG, WebP, BMP images at once.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "온라인 이미지 포맷 변환기 (JPG/PNG/WebP/BMP) - ConvertFile",
-  "url": "https://convertfile.pages.dev/tools/jpg-png.html",
-  "description": "JPG, PNG, WebP, BMP 등 다양한 사진 포맷을 상호 고속 변환하세요. 알파 채널 투명 배경 보존 및 품질 압축 설정 지원.",
+  "name": "Image Format Converter - ConvertFile",
+  "url": "https://2convert.org/tools/jpg-png.html",
+  "description": "Convert multiple JPG, PNG, WebP, BMP images at once.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
   "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
@@ -58,103 +107,116 @@
 <body>
 
     <div class="modern-layout">
-        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <!-- Left sidebar -->
         <aside class="modern-sidebar"></aside>
 
-        <!-- 2. 우측 메인 워크스페이스 -->
+        <!-- Main workspace -->
         <main class="modern-content">
             <header class="modern-content__header">
-                <h1 class="modern-content__title">이미지 포맷 변환기 (Image Converter)</h1>
-                <p class="modern-content__desc">PNG, JPG, WebP, BMP, AVIF 등 다양한 사진 포맷을 원하는 출력 확장자로 상호 변환합니다.</p>
+                <h1 class="modern-content__title">Image Format Converter (Batch)</h1>
+                <p class="modern-content__desc">Convert multiple PNG, JPG, WebP, BMP images simultaneously to your desired format. All processing is done locally in your browser.</p>
             </header>
 
-            <!-- 애드센스 슬롯 -->
+            <!-- AdSense slot -->
             <div class="modern-ad-zone">
-                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+                <span>[Ad Slot] Google AdSense Banner (728x90)</span>
             </div>
 
             <div class="modern-tool-grid">
-                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <!-- Column 1: Upload zone + file list -->
                 <div style="display:flex; flex-direction:column; gap:12px;">
-                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <!-- Upload dropzone (multiple files) -->
                     <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
                         <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
-                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">변환할 원본 이미지 파일을 여기에 올려놓으십시오.</div>
-                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PNG, JPG, WebP, BMP, AVIF, HEIC 지원 (최대 25MB)</div>
-                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 컴퓨터에서 파일 선택</button>
-                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">Drop multiple image files here</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PNG, JPG, WebP, BMP, AVIF supported (up to 25MB each)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 Select Files</button>
+                        <!-- multiple attribute allows selecting multiple files -->
+                        <input type="file" id="file-input" style="display:none;" accept="image/*" multiple>
                     </div>
 
-                    <!-- 미리보기 영역 -->
-                    <div class="modern-preview-container" id="preview-container" style="display:none;">
-                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    <!-- Batch file list -->
+                    <div id="batch-container" style="display:none;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <span style="font-size:13px; font-weight:700; color:var(--slate-700);" id="batch-count">0 files selected</span>
+                            <button class="modern-btn" style="font-size:11px; padding:4px 10px; height:auto; background:var(--slate-100); color:var(--slate-700);" id="btn-clear-batch">🗑 Clear All</button>
+                        </div>
+                        <div class="batch-file-list" id="batch-file-list"></div>
+                        <div class="batch-summary" id="batch-summary"></div>
                     </div>
-                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+
+                    <!-- Status text -->
                     <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
                         <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
                         <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
                     </div>
                 </div>
 
-                <!-- 2열: 속성 조정 제어반 -->
+                <!-- Column 2: Settings panel -->
                 <div style="display:flex; flex-direction:column; gap:12px;">
                     <div class="modern-card">
-                        <h3 class="modern-card__title">출력 포맷 (Target Format)</h3>
+                        <h3 class="modern-card__title">Output Format</h3>
                         <div class="modern-form-group">
-                            <span class="modern-label">저장할 포맷 지정</span>
-                            <select class="modern-select" id="target-format" disabled>
-                                <option value="image/png">PNG 포맷 (무손실 투명 배경 보존)</option>
-                                <option value="image/jpeg">JPEG/JPG 포맷 (화질 타협 고속 로딩)</option>
-                                <option value="image/webp">WebP 포맷 (구글 차세대 압축 규격)</option>
+                            <span class="modern-label">Select target format</span>
+                            <select class="modern-select" id="target-format">
+                                <option value="image/png">PNG (lossless, transparent)</option>
+                                <option value="image/jpeg">JPEG/JPG (lossy, small size)</option>
+                                <option value="image/webp">WebP (Google next-gen format)</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="modern-card">
-                        <h3 class="modern-card__title">상세 압축 설정</h3>
+                        <h3 class="modern-card__title">Quality Settings</h3>
                         
-                        <!-- JPG/WebP 퀄리티 슬라이더 -->
-                        <div class="modern-form-group" id="quality-panel" style="display:none;">
-                            <span class="modern-label">압축 화질: <strong id="quality-val" style="color:var(--blue-600);">90</strong>%</span>
+                        <!-- Quality slider for JPG/WebP -->
+                        <div class="modern-form-group" id="quality-panel">
+                            <span class="modern-label">Compression quality: <strong id="quality-val" style="color:var(--blue-600);">90</strong>%</span>
                             <input type="range" min="10" max="100" value="90" style="width:100%; cursor:pointer;" id="compress-quality">
                         </div>
 
-                        <!-- 투명 배경 이미지 JPG 변환 시 대체색 -->
+                        <!-- Background fill color for PNG->JPG -->
                         <div class="modern-form-group" id="alpha-panel" style="display:none;">
-                            <span class="modern-label">투명 배경 채우기 대체 컬러</span>
+                            <span class="modern-label">Transparent background fill color</span>
                             <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
                                 <input type="color" id="bg-filler-color" value="#FFFFFF" style="border:1px solid var(--slate-200); border-radius:4px; width:45px; height:28px; padding:0; cursor:pointer;">
-                                <span style="font-size:11px; color:var(--slate-400);">(JPG 포맷은 투명 알파 채널을 지원하지 않음)</span>
+                                <span style="font-size:11px; color:var(--slate-400);">(JPG does not support alpha transparency)</span>
                             </div>
                         </div>
                     </div>
 
                     <button class="modern-btn modern-btn--primary" id="btn-convert" disabled style="height:38px; font-size:14px; font-weight:600;">
-                        🔄 이미지 포맷 고속 변환
+                        🔄 Convert All Files
                     </button>
+
+                    <div style="font-size:11px; color:var(--slate-500); text-align:center;">
+                        Files will be downloaded individually as each conversion completes.
+                    </div>
                 </div>
             </div>
 
-            <!-- 하단 안내 정보 가이드 -->
+            <!-- Guide -->
             <div class="modern-instructions-box">
-                <h3>💡 이미지 포맷 특성 요약</h3>
+                <h3>💡 Image Format Guide</h3>
                 <p>
-                    모든 변환 연산이 원격 네트워크 전송 없이 브라우저 상에서 다이렉트로 이행되므로 유실 사고 우려 없이 안전하게 사용하실 수 있습니다.
+                    All conversions happen entirely in your browser — no files are ever uploaded to a server.
+                    Select multiple files at once or drag and drop them to batch convert.
                 </p>
                 <ul>
-                    <li><b>PNG vs JPG:</b> PNG는 무손실 압축으로 그래픽 디자인에 적절하나 용량이 큽니다. 반면 JPG는 화질이 미세하게 손실되나 압축률이 우수해 고용량 사진에 적당합니다.</li>
-                    <li><b>WebP 권장:</b> 구글의 차세대 포맷인 WebP는 동일 화질 대비 JPG나 PNG보다 용량이 최대 30% 이상 절감되므로, 웹사이트 업로드 속도를 올리는데 기여합니다.</li>
+                    <li><b>PNG vs JPG:</b> PNG is lossless and supports transparency, ideal for graphics. JPG compresses well for photos.</li>
+                    <li><b>WebP recommended:</b> Google's next-gen format offers up to 30% smaller file sizes than JPG/PNG at the same quality.</li>
+                    <li><b>Batch convert:</b> Select multiple files at once and convert them all with one click. Each file downloads automatically.</li>
                 </ul>
             </div>
         </main>
     </div>
 
-    <!-- 스크립트 결합 -->
-    <script src="/js/core/image-loader.js?v=3"></script>
-    <script src="/js/core/canvas-utils.js?v=3"></script>
-    <script src="/js/core/file-utils.js?v=3"></script>
-    <script src="/js/core/ui-components.js?v=3"></script>
-    <script src="/js/core/sidebar.js?v=3"></script>
-    <script src="/js/tools/jpg-png.js?v=3"></script>
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/canvas-utils.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/jpg-png.js?v=4"></script>
 </body>
 </html>
