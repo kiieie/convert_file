@@ -315,4 +315,149 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/img-pdf.html"/>
   </url>
 
+  <!-- Color Palette Extractor -->
+  <url>
+    <loc>https://2convert.org/tools/color-extractor.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/color-extractor.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/tools/color-extractor.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/color-extractor.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/tools/color-extractor.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/color-extractor.html"/>
+  </url>
+
+  <!-- Image Watermark -->
+  <url>
+    <loc>https://2convert.org/tools/watermark.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/watermark.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/tools/watermark.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/watermark.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/tools/watermark.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/watermark.html"/>
+  </url>
+
+  <!-- Meme Generator -->
+  <url>
+    <loc>https://2convert.org/tools/meme-generator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/meme-generator.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/tools/meme-generator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/meme-generator.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/tools/meme-generator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/meme-generator.html"/>
+  </url>
+
+  <!-- Image to Base64 -->
+  <url>
+    <loc>https://2convert.org/tools/base64.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/base64.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/tools/base64.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/base64.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/tools/base64.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/base64.html"/>
+  </url>
+
+  <!-- SVG to PNG/JPG -->
+  <url>
+    <loc>https://2convert.org/tools/svg-convert.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/svg-convert.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/tools/svg-convert.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/svg-convert.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/tools/svg-convert.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/svg-convert.html"/>
+  </url>
+
 </urlset>

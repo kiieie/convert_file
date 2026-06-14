@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+
+    <title>Convertidor de SVG a PNG/JPG - Vectorial a Píxeles Online | 2convert.org</title>
+    <meta name="description" content="Convierta archivos vectoriales SVG a imágenes PNG o JPG de forma gratuita y en línea. Ajuste el ancho y el alto conservando la proporción. 100% local y privado.">
+    <meta name="keywords" content="svg a png, svg a jpg, convertir svg online, vector a raster, redimensionar svg, cambiar formato svg">
+    <link rel="canonical" href="https://2convert.org/es/tools/svg-convert.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Convertidor de SVG a PNG/JPG</h1>
+                <p class="modern-content__desc">Convierta gráficos vectoriales SVG a imágenes de píxeles PNG o JPG con tamaños de salida personalizados. Mantenga la transparencia o renderice con un fondo blanco sólido.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Arrastre su archivo SVG aquí</div>
+                        <div class="modern-upload-zone__desc">Soporta formato vectorial SVG &middot; Haga clic para seleccionar archivo</div>
+                        <input type="file" id="file-input" style="display:none;" accept=".svg,image/svg+xml">
+                    </div>
+
+                    <!-- Preview container -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <img id="preview-img" alt="Vista previa de SVG">
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings & Action -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- Settings card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Dimensiones de Salida</h3>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">Ancho (px)</span>
+                            <input type="number" id="output-width" class="modern-input" value="300" min="1" max="10000" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">Alto (px)</span>
+                            <input type="number" id="output-height" class="modern-input" value="150" min="1" max="10000" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <label style="cursor:pointer; font-size:13px; font-weight:500; display:flex; align-items:center; gap:6px;">
+                                <input type="checkbox" id="aspect-ratio" checked disabled> Bloquear relación de aspecto
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Output Format -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Opciones de Formato</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Formato de Salida</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="image/png" selected>PNG (Conserva transparencia)</option>
+                                <option value="image/jpeg">JPG (Fondo blanco plano)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-convert" style="height:42px; font-size:14px; font-weight:700;" disabled>
+                        ⚙️ Convertir y Descargar
+                    </button>
+
+                    <!-- File Info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Información Vectorial</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            Sin archivo SVG cargado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Conversión de SVG a imagen de píxeles</h3>
+                <p>SVG es un formato basado en trazos matemáticos vectoriales. Convertirlo a PNG o JPG lo transforma en una cuadrícula fija de píxeles (rasterización).</p>
+                <ul>
+                    <li><b>Exportación de alta resolución:</b> Puede asignar tamaños de ancho y alto sumamente grandes (ej. 2000px o 4000px) para obtener un resultado final de píxeles nítido y de gran calidad.</li>
+                    <li><b>Conservación de transparencias:</b> Use el formato PNG para mantener el canal transparente de su SVG. Si selecciona JPG, el área transparente se volverá de color blanco sólido.</li>
+                    <li><b>Procesamiento local:</b> El renderizado se realiza mediante Canvas HTML5 en el navegador local, evitando que sus archivos salgan de su equipo.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/svg-convert.js?v=1"></script>
+</body>
+</html>

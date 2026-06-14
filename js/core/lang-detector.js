@@ -30,6 +30,11 @@
         '/tools/bg-remove.html',
         '/tools/img-pdf.html',
         '/tools/video-gif.html',
+        '/tools/color-extractor.html',
+        '/tools/watermark.html',
+        '/tools/meme-generator.html',
+        '/tools/base64.html',
+        '/tools/svg-convert.html',
     ];
 
     // /index.html 과 / 를 동일하게 취급하기 위해 정규화

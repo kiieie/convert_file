@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+
+    <title>이미지 워터마크 만들기 - 사진에 글자나 로고 넣기 | 2convert.org</title>
+    <meta name="description" content="온라인에서 무료로 사진에 텍스트 또는 이미지 워터마크를 서명으로 추가하세요. 글꼴, 색상, 크기, 투명도, 위치를 자유롭게 설정할 수 있습니다. 100% 안전한 로컬 작동.">
+    <meta name="keywords" content="워터마크 삽입, 사진 워터마크, 이미지 서명, 텍스트 겹치기, 사진 로고 넣기">
+    <link rel="canonical" href="https://2convert.org/ko/tools/watermark.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">이미지 워터마크</h1>
+                <p class="modern-content__desc">사진에 사용자 정의 텍스트나 로고 이미지 워터마크를 오버레이하여 저작권을 보호하십시오. 불투명도, 스케일, 세부 위치를 실시간 미리보기를 통해 조절할 수 있습니다.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">주 이미지를 여기에 끌어다 놓으십시오</div>
+                        <div class="modern-upload-zone__desc">PNG, JPG, WebP 지원 &middot; 클릭하여 파일 선택</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <canvas id="preview-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Watermark options -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">워터마크 설정</h3>
+
+                        <!-- Type toggle -->
+                        <div class="modern-form-group">
+                            <span class="modern-label">워터마크 종류</span>
+                            <div style="display:flex; gap:16px; margin-top:4px;">
+                                <label style="cursor:pointer; font-size:13px; font-weight:500;">
+                                    <input type="radio" name="watermark-type" value="text" checked disabled> 텍스트 워터마크
+                                </label>
+                                <label style="cursor:pointer; font-size:13px; font-weight:500;">
+                                    <input type="radio" name="watermark-type" value="image" disabled> 로고 이미지 오버레이
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Text inputs group -->
+                        <div id="text-watermark-group" style="margin-top:12px;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">워터마크 텍스트</span>
+                                <input type="text" class="modern-input" id="watermark-text" value="COPYRIGHT" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">글자 크기 &mdash; <span id="font-size-label">48px</span></span>
+                                <input type="range" id="font-size" min="12" max="150" value="48" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">글자 색상</span>
+                                <input type="color" id="text-color" value="#ffffff" style="width:50px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">글자 불투명도 &mdash; <span id="text-opacity-label">50%</span></span>
+                                <input type="range" id="text-opacity" min="0.1" max="1.0" step="0.05" value="0.5" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Logo inputs group -->
+                        <div id="image-watermark-group" style="margin-top:12px; display:none;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">로고 파일 선택</span>
+                                <button type="button" class="modern-btn" id="btn-select-logo" style="margin-top:4px;" disabled>
+                                    📁 로고 이미지 파일 선택
+                                </button>
+                                <input type="file" id="logo-file-input" style="display:none;" accept="image/*">
+                                <div id="logo-name-label" style="font-size:11px; color:var(--slate-400); margin-top:4px;">로고 이미지가 없습니다</div>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">로고 크기 배율 &mdash; <span id="logo-scale-label">50%</span></span>
+                                <input type="range" id="logo-scale" min="10" max="200" value="50" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">로고 불투명도 &mdash; <span id="logo-opacity-label">50%</span></span>
+                                <input type="range" id="logo-opacity" min="0.1" max="1.0" step="0.05" value="0.5" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Layout position -->
+                        <div class="modern-form-group" style="margin-top:12px;">
+                            <span class="modern-label">위치</span>
+                            <select class="modern-select" id="watermark-position" disabled>
+                                <option value="bottom-right" selected>우측 하단</option>
+                                <option value="bottom-left">좌측 하단</option>
+                                <option value="top-right">우측 상단</option>
+                                <option value="top-left">좌측 상단</option>
+                                <option value="center">중앙 정렬</option>
+                                <option value="tiled">바둑판식 배열 (격자 반복)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Format & Download -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">내보내기 옵션</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">저장 포맷</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="image/png" selected>PNG (무손실 투명 배경)</option>
+                                <option value="image/jpeg">JPG (압축형 흰 배경)</option>
+                                <option value="image/webp">WebP (고효율 압축)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-download" style="height:42px; font-size:14px; font-weight:700;" disabled>
+                        💾 워터마크 이미지 다운로드
+                    </button>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">이미지 정보</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            불러온 이미지가 없습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 워터마크 제작 팁</h3>
+                <p>워터마크 합성은 사용자의 PC 내부 브라우저 메모리 안에서만 실행되므로, 사진이 외부로 유출되지 않습니다.</p>
+                <ul>
+                    <li><b>로고 워터마크:</b> 로고 이미지를 삽입할 때는 배경이 투명한 PNG 파일을 올려야 사진 뒤 배경을 가리지 않고 깔끔하게 어우러집니다.</li>
+                    <li><b>바둑판식 배열:</b> 결과물 시안이나 저작권 침해를 확실하게 방지해야 하는 보호 대상 사진의 경우 화면 전체에 대각선 격자로 반복 인쇄하는 격자 방식을 권장합니다.</li>
+                    <li><b>최적 불투명도:</b> 30%~50% 영역의 불투명도를 사용할 때가 저작권을 명시하면서도 이미지의 가시성을 최소한으로 방해하여 보기에 좋습니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/watermark.js?v=1"></script>
+</body>
+</html>

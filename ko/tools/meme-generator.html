@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+
+    <title>밈 생성기 - 온라인 무료 짤방 메이커 텍스트 넣기 | 2convert.org</title>
+    <meta name="description" content="온라인에서 무료로 밈 이미지를 제작하세요. 사진을 올리고 상단과 하단에 흰색 본문과 검은색 외곽선 텍스트를 커스텀 추가할 수 있습니다. 100% 브라우저 실행.">
+    <meta name="keywords" content="밈 생성기, 짤방 만들기, 사진 글자 넣기, 짤방 텍스트 편집기, 밈 메이커">
+    <link rel="canonical" href="https://2convert.org/ko/tools/meme-generator.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">밈 생성기</h1>
+                <p class="modern-content__desc">이미지에 상단 및 하단 텍스트를 추가하여 재미있는 밈(짤방)을 제작하세요. 글자 크기, 색상, 외곽선 굵기를 커스터마이징하고 즉시 내려받을 수 있습니다.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">배경 이미지를 여기에 끌어다 놓으십시오</div>
+                        <div class="modern-upload-zone__desc">PNG, JPG, WebP 지원 &middot; 클릭하여 파일 선택</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <canvas id="preview-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Text Controls -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">텍스트 설정</h3>
+
+                        <div class="modern-form-group">
+                            <span class="modern-label">상단 텍스트 (Top Text)</span>
+                            <input type="text" class="modern-input" id="top-text" placeholder="여기에 상단 문구 입력" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">하단 텍스트 (Bottom Text)</span>
+                            <input type="text" class="modern-input" id="bottom-text" placeholder="여기에 하단 문구 입력" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">글자 크기 &mdash; <span id="font-size-label">48px</span></span>
+                            <input type="range" id="font-size" min="20" max="100" value="48" style="width:100%; cursor:pointer;" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">글자 채우기 색상</span>
+                            <input type="color" id="text-color" value="#ffffff" style="width:50px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">외곽선 테두리 색상</span>
+                            <input type="color" id="stroke-color" value="#000000" style="width:50px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">외곽선 굵기 &mdash; <span id="stroke-width-label">6px</span></span>
+                            <input type="range" id="stroke-width" min="0" max="15" value="6" style="width:100%; cursor:pointer;" disabled>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <label style="cursor:pointer; font-size:13px; font-weight:500; display:flex; align-items:center; gap:6px;">
+                                <input type="checkbox" id="uppercase-text" checked disabled> 영어 텍스트는 항상 대문자로 강제 변환
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Output Format & Download -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">저장 옵션</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">저장 포맷</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="image/png">PNG (무손실 투명)</option>
+                                <option value="image/jpeg" selected>JPG (압축형 배경)</option>
+                                <option value="image/webp">WebP (고효율 압축)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-download" style="height:42px; font-size:14px; font-weight:700;" disabled>
+                        💾 밈 이미지 다운로드
+                    </button>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">이미지 정보</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            불러온 이미지가 없습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 짤방 만들기 팁</h3>
+                <p>브라우저에서 직접 이미지를 렌더링하므로 서버에 데이터가 남지 않아 보안에 최적화되어 있습니다.</p>
+                <ul>
+                    <li><b>Impact 글꼴:</b> 해외 밈 및 국내 짤방에서 많이 쓰이는 두꺼운 산세리프 형태의 'Impact' 서체를 기본 폰트로 적용하여 전문적인 짤방 스타일을 연출합니다.</li>
+                    <li><b>자동 줄바꿈:</b> 문장이 길어져 캔버스 넓이를 초과하면 단어 경계를 기준으로 자동으로 행을 나누어 조절되므로 긴 문단도 안전하게 배치할 수 있습니다.</li>
+                    <li><b>대비 효과:</b> 흰색 글자 채우기와 검은색 외곽선 테두리의 기본 구성은 사진 배경 색상의 밝고 어두움에 상관없이 항상 최상의 글자 가독성을 제공합니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/meme-generator.js?v=1"></script>
+</body>
+</html>

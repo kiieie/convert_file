@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-tabs {
+            display: flex;
+            gap: 4px;
+            border-bottom: 1px solid var(--slate-200);
+            margin-bottom: 16px;
+        }
+        .modern-tabs__item {
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--slate-500);
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .modern-tabs__item:hover {
+            color: var(--slate-800);
+        }
+        .modern-tabs__item--active {
+            color: var(--primary-600);
+            border-bottom-color: var(--primary-600);
+        }
+        #img-preview {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+
+    <title>Convertidor Imagen ↔ Base64 - Codificar o Decodificar Online | 2convert.org</title>
+    <meta name="description" content="Convierta imágenes a cadenas Base64 data URI en línea, o decodifique código Base64 a archivos de imagen. Rápido, gratis, 100% local, seguro y privado.">
+    <meta name="keywords" content="imagen a base64, base64 a imagen, codificador base64, decodificador base64, convertidor data URI, imagen a texto">
+    <link rel="canonical" href="https://2convert.org/es/tools/base64.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Convertidor de Imagen &harr; Base64</h1>
+                <p class="modern-content__desc">Convierta imágenes a cadenas Base64 para incrustar en HTML o CSS, o decodifique cadenas Base64 de vuelta a archivos de imagen descargables.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <!-- Tabs -->
+            <div class="modern-tabs">
+                <div class="modern-tabs__item modern-tabs__item--active" id="tab-to-b64">Imagen a Base64</div>
+                <div class="modern-tabs__item" id="tab-to-img">Base64 a Imagen</div>
+            </div>
+
+            <!-- Panel 1: Image to Base64 -->
+            <div id="panel-to-b64">
+                <div class="modern-tool-grid">
+                    <!-- Col 1: Upload -->
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div class="modern-upload-zone" id="drop-zone">
+                            <div class="modern-upload-zone__icon"></div>
+                            <div class="modern-upload-zone__title">Arrastre su imagen aquí</div>
+                            <div class="modern-upload-zone__desc">Soporta PNG, JPG, WebP, GIF &middot; Haga clic para seleccionar archivo</div>
+                            <input type="file" id="file-input" style="display:none;" accept="image/*">
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Output -->
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div class="modern-card" id="b64-result-card" style="display:none;">
+                            <h3 class="modern-card__title">Base64 Data URI</h3>
+                            <textarea id="b64-output" class="modern-input" style="height:150px; font-family:monospace; font-size:11px; margin-top:8px;" readonly></textarea>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-copy" style="margin-top:12px; width:100%; height:38px;">
+                                📋 Copiar Cadena Base64
+                            </button>
+                        </div>
+
+                        <div class="modern-card">
+                            <h3 class="modern-card__title">Información Base64</h3>
+                            <div id="info-b64-block" style="font-size:12px; color:var(--slate-500); line-height:1.6; margin-top:8px;">
+                                Sin imagen cargada.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 2: Base64 to Image -->
+            <div id="panel-to-img" style="display:none;">
+                <div class="modern-tool-grid">
+                    <!-- Col 1: Input -->
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div class="modern-card">
+                            <h3 class="modern-card__title">Pegar Cadena Base64</h3>
+                            <textarea id="b64-input" class="modern-input" placeholder="Pegue el código data:image/png;base64,... o el código base64 plano aquí" style="height:180px; font-family:monospace; font-size:11px; margin-top:8px;"></textarea>
+                            <button type="button" class="modern-btn modern-btn--primary" id="btn-convert" style="margin-top:12px; width:100%; height:40px; font-weight:700;">
+                                ⚙️ Decodificar Base64 a Imagen
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Preview -->
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div class="modern-preview-container" id="img-preview-container" style="display:none; padding:12px;">
+                            <img id="img-preview" alt="Vista previa de Base64 decodificado">
+                        </div>
+
+                        <div class="modern-card">
+                            <h3 class="modern-card__title">Información de Imagen Decodificada</h3>
+                            <div id="info-img-block" style="font-size:12px; color:var(--slate-500); line-height:1.6; margin-top:8px;">
+                                Sin imagen decodificada.
+                            </div>
+                            <button type="button" class="modern-btn" id="btn-download" style="margin-top:12px; width:100%; height:38px;" disabled>
+                                💾 Descargar Imagen Decodificada
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Funcionamiento de la conversión Base64</h3>
+                <p>Base64 es un esquema de codificación de binario a texto que permite representar los datos de imagen como una cadena de texto ASCII estándar. Este proceso se ejecuta en su navegador localmente.</p>
+                <ul>
+                    <li><b>Incrustación en HTML/CSS:</b> Puede usar la cadena generada directamente en el atributo <code>src</code> de HTML (<code>&lt;img src="data:image/png;base64,..."&gt;</code>) o en propiedades background de CSS, reduciendo las llamadas HTTP.</li>
+                    <li><b>Formato Data URI:</b> El prefijo inicial <code>data:image/png;base64,</code> define el tipo de contenido e indica al motor del navegador cómo reconstruir la imagen.</li>
+                    <li><b>Seguridad Garantizada:</b> Dado que los archivos se decodifican localmente en la memoria de su navegador, sus datos no se exponen al exterior.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/base64.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            cursor: crosshair;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+        }
+        .palette-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .color-display-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .color-preview-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-200);
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+        }
+        .code-list {
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--slate-700);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+    </style>
+
+    <title>Extractor de Paleta de Colores - Obtener Códigos de Imagen | 2convert.org</title>
+    <meta name="description" content="Extraiga paletas de colores dominantes de sus imágenes y seleccione colores de píxeles individuales. Obtenga códigos HEX, RGB y HSL de forma gratuita y privada.">
+    <meta name="keywords" content="extractor de color, selector de color de imagen, generador paleta colores, color de foto hex, cuentagotas imagen online">
+    <link rel="canonical" href="https://2convert.org/es/tools/color-extractor.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Extractor de Paleta de Colores</h1>
+                <p class="modern-content__desc">Suba una imagen para extraer automáticamente su paleta de colores dominantes o haga clic directamente en cualquier píxel de la foto para obtener su código exacto (HEX, RGB, HSL).</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Arrastre su imagen aquí</div>
+                        <div class="modern-upload-zone__desc">Soporta PNG, JPG, WebP &middot; Haga clic para seleccionar archivo</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px; flex-direction:column; gap:8px;">
+                        <canvas id="preview-canvas"></canvas>
+                        <div style="font-size:11px; color:var(--slate-400); text-align:center;">💡 Haga clic en cualquier lugar de la imagen superior para extraer un color.</div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Info & Results -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Picked color card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Color Seleccionado</h3>
+                        <div class="color-display-row">
+                            <div class="color-preview-circle" id="picker-preview" style="background-color: #e2e8f0;"></div>
+                            <div class="code-list">
+                                <div>HEX: <strong id="color-hex">—</strong></div>
+                                <div>RGB: <span id="color-rgb">—</span></div>
+                                <div>HSL: <span id="color-hsl">—</span></div>
+                            </div>
+                        </div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-copy-hex" style="margin-top:12px; width:100%; height:36px; font-size:12px;">
+                            📋 Copiar Código HEX
+                        </button>
+                    </div>
+
+                    <!-- Dominant palette card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Paleta de Colores Dominantes</h3>
+                        <div class="palette-grid" id="dominant-palette">
+                            <span style="font-size:12px; color:var(--slate-400);">Cargue una imagen para analizar la paleta.</span>
+                        </div>
+                    </div>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Información de Imagen</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            Sin imagen cargada.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Cómo extraer y seleccionar colores</h3>
+                <p>Toda la extracción de color ocurre localmente en su navegador a través de HTML5 Canvas. Sus imágenes nunca se envían al servidor.</p>
+                <ul>
+                    <li><b>Paleta dominante:</b> El script subdivide la imagen en una cuadrícula, agrupa las tonalidades más cercanas y detecta automáticamente las 6 variantes más frecuentes.</li>
+                    <li><b>Cuentagotas de píxel:</b> Haga clic en la imagen cargada para capturar el color de cualquier píxel específico en tiempo real.</li>
+                    <li><b>Copiar códigos:</b> Copie el valor HEX de la sección de color seleccionado, o haga clic sobre cualquier tono de la paleta para cargarlo en el selector.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/color-extractor.js?v=1"></script>
+</body>
+</html>

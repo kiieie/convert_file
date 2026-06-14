@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            cursor: crosshair;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+        }
+        .palette-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .color-display-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .color-preview-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-200);
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+        }
+        .code-list {
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--slate-700);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+    </style>
+
+    <title>색상 팔레트 추출기 - 이미지에서 색상 코드 추출 | 2convert.org</title>
+    <meta name="description" content="이미지에서 지배적인 색상 팔레트를 자동 추출하고 특정 픽셀을 클릭해 색상을 선택하세요. HEX, RGB, HSL 코드를 즉시 제공합니다. 무료 로컬 변환.">
+    <meta name="keywords" content="색상 추출기, 이미지 색상 추출, 이미지 팔레트 생성기, 스포이드 툴, 이미지 색상 선택">
+    <link rel="canonical" href="https://2convert.org/ko/tools/color-extractor.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">색상 팔레트 추출기</h1>
+                <p class="modern-content__desc">이미지를 업로드하여 주요 색상 팔레트를 자동으로 추출하거나 이미지의 아무 곳이나 클릭하여 정확한 픽셀의 색상 코드(HEX, RGB, HSL)를 추출합니다.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">이미지를 여기에 끌어다 놓으십시오</div>
+                        <div class="modern-upload-zone__desc">PNG, JPG, WebP 지원 &middot; 클릭하여 파일 선택</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px; flex-direction:column; gap:8px;">
+                        <canvas id="preview-canvas"></canvas>
+                        <div style="font-size:11px; color:var(--slate-400); text-align:center;">💡 위의 이미지에서 원하는 위치를 클릭하면 색상이 추출됩니다.</div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Info & Results -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Picked color card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">선택된 색상</h3>
+                        <div class="color-display-row">
+                            <div class="color-preview-circle" id="picker-preview" style="background-color: #e2e8f0;"></div>
+                            <div class="code-list">
+                                <div>HEX: <strong id="color-hex">—</strong></div>
+                                <div>RGB: <span id="color-rgb">—</span></div>
+                                <div>HSL: <span id="color-hsl">—</span></div>
+                            </div>
+                        </div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-copy-hex" style="margin-top:12px; width:100%; height:36px; font-size:12px;">
+                            📋 HEX 코드 복사
+                        </button>
+                    </div>
+
+                    <!-- Dominant palette card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">주요 색상 팔레트</h3>
+                        <div class="palette-grid" id="dominant-palette">
+                            <span style="font-size:12px; color:var(--slate-400);">이미지를 업로드하면 주요 팔레트가 표시됩니다.</span>
+                        </div>
+                    </div>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">이미지 정보</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            불러온 이미지가 없습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 색상 추출 및 선택 방법</h3>
+                <p>모든 추출 작업은 사용자의 브라우저 내에서 HTML5 Canvas API를 사용해 안전하게 실행됩니다. 이미지 파일은 서버로 전송되지 않습니다.</p>
+                <ul>
+                    <li><b>주요 팔레트:</b> 추출 알고리즘이 이미지의 픽셀 그리드를 샘플링하여 가장 높은 비율을 차지하는 6가지 대표 색상을 자동으로 분석해 보여줍니다.</li>
+                    <li><b>픽셀 스포이드:</b> 업로드된 이미지를 클릭하면 해당 위치의 픽셀 색상 정보를 실시간으로 가져와 코드 형식으로 보여줍니다.</li>
+                    <li><b>코드 복사:</b> "HEX 코드 복사"를 클릭해 클립보드에 담거나, 주요 팔레트 카드의 동그라미를 클릭해 상세 정보를 로드하고 복사할 수 있습니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/color-extractor.js?v=1"></script>
+</body>
+</html>

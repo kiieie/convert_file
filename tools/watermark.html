@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+
+    <title>Image Watermark Tool - Add Text or Logo to Photos | 2convert.org</title>
+    <meta name="description" content="Add text or image watermarks to your photos online for free. Customize font, color, size, opacity, and position. 100% client-side, secure, and private.">
+    <meta name="keywords" content="add watermark, watermark photo, image watermark, text overlay photo, logo on photo online">
+    <link rel="canonical" href="https://2convert.org/tools/watermark.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Image Watermark</h1>
+                <p class="modern-content__desc">Protect your copyright by adding custom text or a logo image watermark to your photos. Adjust opacity, scale, and positions with live preview.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Ad Slot] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Drop your main image here</div>
+                        <div class="modern-upload-zone__desc">PNG, JPG, WebP supported &middot; Click to select file</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <canvas id="preview-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Watermark options -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Watermark Settings</h3>
+
+                        <!-- Type toggle -->
+                        <div class="modern-form-group">
+                            <span class="modern-label">Watermark Type</span>
+                            <div style="display:flex; gap:16px; margin-top:4px;">
+                                <label style="cursor:pointer; font-size:13px; font-weight:500;">
+                                    <input type="radio" name="watermark-type" value="text" checked disabled> Text Watermark
+                                </label>
+                                <label style="cursor:pointer; font-size:13px; font-weight:500;">
+                                    <input type="radio" name="watermark-type" value="image" disabled> Logo Image
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Text inputs group -->
+                        <div id="text-watermark-group" style="margin-top:12px;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">Watermark Text</span>
+                                <input type="text" class="modern-input" id="watermark-text" value="COPYRIGHT" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Font Size &mdash; <span id="font-size-label">48px</span></span>
+                                <input type="range" id="font-size" min="12" max="150" value="48" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Text Color</span>
+                                <input type="color" id="text-color" value="#ffffff" style="width:50px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Text Opacity &mdash; <span id="text-opacity-label">50%</span></span>
+                                <input type="range" id="text-opacity" min="0.1" max="1.0" step="0.05" value="0.5" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Logo inputs group -->
+                        <div id="image-watermark-group" style="margin-top:12px; display:none;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">Select Logo File</span>
+                                <button type="button" class="modern-btn" id="btn-select-logo" style="margin-top:4px;" disabled>
+                                    📁 Choose Logo Image
+                                </button>
+                                <input type="file" id="logo-file-input" style="display:none;" accept="image/*">
+                                <div id="logo-name-label" style="font-size:11px; color:var(--slate-400); margin-top:4px;">No logo loaded</div>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Logo Scale &mdash; <span id="logo-scale-label">50%</span></span>
+                                <input type="range" id="logo-scale" min="10" max="200" value="50" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Logo Opacity &mdash; <span id="logo-opacity-label">50%</span></span>
+                                <input type="range" id="logo-opacity" min="0.1" max="1.0" step="0.05" value="0.5" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Layout position -->
+                        <div class="modern-form-group" style="margin-top:12px;">
+                            <span class="modern-label">Position</span>
+                            <select class="modern-select" id="watermark-position" disabled>
+                                <option value="bottom-right" selected>Bottom Right</option>
+                                <option value="bottom-left">Bottom Left</option>
+                                <option value="top-right">Top Right</option>
+                                <option value="top-left">Top Left</option>
+                                <option value="center">Center</option>
+                                <option value="tiled">Tiled (Repeated Grid)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Format & Download -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Export Options</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Format</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="image/png" selected>PNG (Lossless)</option>
+                                <option value="image/jpeg">JPG (Compressed)</option>
+                                <option value="image/webp">WebP (Efficient)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-download" style="height:42px; font-size:14px; font-weight:700;" disabled>
+                        💾 Download Watermarked Image
+                    </button>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Image Info</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            No image loaded.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Watermarking Best Practices</h3>
+                <p>Watermarking occurs completely in-browser. Your image stays private.</p>
+                <ul>
+                    <li><b>Logo Watermark:</b> Use transparent PNG files for your logo to avoid ugly white background boxes overlaying your photos.</li>
+                    <li><b>Tiled Position:</b> Ideal for proofing. Repeated watermarks diagonally across the page make it very difficult for unauthorized crops.</li>
+                    <li><b>Opacity Balance:</b> 30% to 50% opacity is recommended. It is visible enough to deter theft but light enough not to distract from the main subject.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/watermark.js?v=1"></script>
+</body>
+</html>

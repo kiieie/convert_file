@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
             heic:       "HEIC to JPG",
             webp:       "WebP Convert",
             bgRemove:   "Background Remover",
+            colorExtractor: "Color Palette Extractor",
+            watermark:   "Image Watermark",
+            memeGen:     "Meme Generator",
+            svgConvert:  "SVG to PNG/JPG",
             gifTools:   "GIF Tools",
             gifMaker:   "GIF Maker",
             gifSplit:   "GIF Splitter",
@@ -38,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             convert:    "Format Convert",
             barcode:    "QR & Barcode",
             metadata:   "EXIF Remover",
+            base64:     "Image ↔ Base64",
             lang:       "Language",
             about:      "About",
             privacy:    "Privacy",
@@ -53,6 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
             heic:       "HEIC → JPG",
             webp:       "WebP 변환",
             bgRemove:   "배경 제거 AI",
+            colorExtractor: "색상 팔레트 추출기",
+            watermark:   "이미지 워터마크",
+            memeGen:     "밈 생성기",
+            svgConvert:  "SVG to PNG/JPG",
             gifTools:   "GIF 도구",
             gifMaker:   "GIF 메이커",
             gifSplit:   "GIF 프레임 분할",
@@ -67,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             convert:    "포맷 변환",
             barcode:    "QR & 바코드",
             metadata:   "EXIF 삭제",
+            base64:     "이미지 ↔ Base64",
             lang:       "언어",
             about:      "소개",
             privacy:    "개인정보",
@@ -82,6 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
             heic:       "HEIC a JPG",
             webp:       "Convertir WebP",
             bgRemove:   "Quitar Fondo IA",
+            colorExtractor: "Paleta de Colores",
+            watermark:   "Marca de Agua",
+            memeGen:     "Generador de Memes",
+            svgConvert:  "Convertir SVG",
             gifTools:   "GIF",
             gifMaker:   "Crear GIF",
             gifSplit:   "Dividir GIF",
@@ -96,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             convert:    "Convertir Formato",
             barcode:    "QR & Barras",
             metadata:   "Quitar EXIF",
+            base64:     "Imagen ↔ Base64",
             lang:       "Idioma",
             about:      "Nosotros",
             privacy:    "Privacidad",
@@ -118,6 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${langPrefix}/tools/heic2jpg.html"              class="modern-sidebar__item" id="menu-heic">📱 ${t.heic}</a>
             <a href="${langPrefix}/tools/webp-convert.html"          class="modern-sidebar__item" id="menu-webp">⚡ ${t.webp}</a>
             <a href="${langPrefix}/tools/bg-remove.html"             class="modern-sidebar__item" id="menu-bg-remove">✨ ${t.bgRemove}</a>
+            <a href="${langPrefix}/tools/color-extractor.html"       class="modern-sidebar__item" id="menu-color-extractor">🎨 ${t.colorExtractor}</a>
+            <a href="${langPrefix}/tools/watermark.html"             class="modern-sidebar__item" id="menu-watermark">✍️ ${t.watermark}</a>
+            <a href="${langPrefix}/tools/meme-generator.html"         class="modern-sidebar__item" id="menu-meme-gen">😂 ${t.memeGen}</a>
+            <a href="${langPrefix}/tools/svg-convert.html"           class="modern-sidebar__item" id="menu-svg-convert">📐 ${t.svgConvert}</a>
         </div>
 
         <div class="modern-sidebar__group">
@@ -141,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${langPrefix}/tools/jpg-png.html"  class="modern-sidebar__item" id="menu-jpg-png">🔁 ${t.convert}</a>
             <a href="${langPrefix}/tools/barcode.html"  class="modern-sidebar__item" id="menu-barcode">📊 ${t.barcode}</a>
             <a href="${langPrefix}/tools/metadata.html" class="modern-sidebar__item" id="menu-metadata">🛡️ ${t.metadata}</a>
+            <a href="${langPrefix}/tools/base64.html"   class="modern-sidebar__item" id="menu-base64">🔗 ${t.base64}</a>
         </div>
 
         <div class="modern-sidebar__group" style="margin-top:auto; border-top:1px solid var(--slate-100); padding-top:10px;">

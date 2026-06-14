@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+        }
+    </style>
+
+    <title>Online Meme Generator - Create custom memes instantly | 2convert.org</title>
+    <meta name="description" content="Create custom memes online for free. Upload any image, add top and bottom caption text, adjust size, colors, stroke outlines. 100% private, no watermark.">
+    <meta name="keywords" content="meme generator, create meme, caption image, impact font meme maker, online custom meme creator">
+    <link rel="canonical" href="https://2convert.org/tools/meme-generator.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Meme Generator</h1>
+                <p class="modern-content__desc">Upload an image to write top and bottom text captions. Adjust size, colors, stroke outline width, and instantly download your custom meme.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Ad Slot] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Drop your image here</div>
+                        <div class="modern-upload-zone__desc">PNG, JPG, WebP supported &middot; Click to select file</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <canvas id="preview-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Captions Card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Meme Text</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Top Caption</span>
+                            <input type="text" class="modern-input" id="top-text" placeholder="TOP TEXT CAPTION" disabled>
+                        </div>
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">Bottom Caption</span>
+                            <input type="text" class="modern-input" id="bottom-text" placeholder="BOTTOM TEXT CAPTION" disabled>
+                        </div>
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <label style="cursor:pointer; font-size:12px;">
+                                <input type="checkbox" id="uppercase-text" checked disabled> Force Uppercase Letters
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Styling Card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Font Styling</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Font Size &mdash; <span id="font-size-label">48px</span></span>
+                            <input type="range" id="font-size" min="20" max="100" value="48" style="width:100%; cursor:pointer;" disabled>
+                        </div>
+                        <div class="modern-form-group" style="margin-top:8px; display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                            <div>
+                                <span class="modern-label">Text Color</span>
+                                <input type="color" id="text-color" value="#ffffff" style="width:100%; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                            </div>
+                            <div>
+                                <span class="modern-label">Outline Color</span>
+                                <input type="color" id="stroke-color" value="#000000" style="width:100%; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+                        <div class="modern-form-group" style="margin-top:8px;">
+                            <span class="modern-label">Outline Thickness &mdash; <span id="stroke-width-label">5px</span></span>
+                            <input type="range" id="stroke-width" min="0" max="10" value="5" style="width:100%; cursor:pointer;" disabled>
+                        </div>
+                    </div>
+
+                    <!-- Output Format & Download -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Export options</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Format</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="image/jpeg" selected>JPG (Recommended)</option>
+                                <option value="image/png">PNG (Lossless)</option>
+                                <option value="image/webp">WebP (Efficient)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-download" style="height:42px; font-size:14px; font-weight:700;" disabled>
+                        💾 Download Meme Image
+                    </button>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Image Info</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            No image loaded.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Meme Creation Tips</h3>
+                <p>Everything runs client-side in your browser. No files are uploaded to any server.</p>
+                <ul>
+                    <li><b>Impact Font:</b> The generator uses the classic "Impact" font style with a thick black outline, which is standard for internet memes.</li>
+                    <li><b>Line wrapping:</b> If the text is very long, it will automatically wrap into multiple lines to prevent overflowing the canvas width boundaries.</li>
+                    <li><b>High Quality:</b> Exporting as JPG is recommended for memes since it compresses photographic textures well. Use PNG if you need lossless output.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/meme-generator.js?v=1"></script>
+</body>
+</html>

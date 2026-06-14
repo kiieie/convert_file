@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+
+    <title>Marca de Agua de Imagen - Agregar Texto o Logo Online | 2convert.org</title>
+    <meta name="description" content="Agregue marcas de agua de texto o imagen a sus fotos en línea de forma gratuita. Personalice fuente, color, tamaño, opacidad y posición. 100% privado y seguro.">
+    <meta name="keywords" content="agregar marca de agua, marca de agua de fotos, marca de agua imagen, texto sobre foto, poner logo en foto online">
+    <link rel="canonical" href="https://2convert.org/es/tools/watermark.html">
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Marca de Agua de Imagen</h1>
+                <p class="modern-content__desc">Proteja sus derechos de autor agregando texto personalizado o marcas de agua de imagen (logotipos) en sus fotos. Modifique opacidad, escala y posición con previsualización en vivo.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Col 1: Upload & Canvas -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Arrastre su imagen principal aquí</div>
+                        <div class="modern-upload-zone__desc">Soporta PNG, JPG, WebP &middot; Haga clic para seleccionar archivo</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- Canvas preview -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <canvas id="preview-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Watermark options -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Ajustes de Marca de Agua</h3>
+
+                        <!-- Type toggle -->
+                        <div class="modern-form-group">
+                            <span class="modern-label">Tipo de Marca de Agua</span>
+                            <div style="display:flex; gap:16px; margin-top:4px;">
+                                <label style="cursor:pointer; font-size:13px; font-weight:500;">
+                                    <input type="radio" name="watermark-type" value="text" checked disabled> Marca de Texto
+                                </label>
+                                <label style="cursor:pointer; font-size:13px; font-weight:500;">
+                                    <input type="radio" name="watermark-type" value="image" disabled> Marca de Imagen (Logo)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Text inputs group -->
+                        <div id="text-watermark-group" style="margin-top:12px;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">Texto de la Marca</span>
+                                <input type="text" class="modern-input" id="watermark-text" value="COPYRIGHT" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Tamaño de Fuente &mdash; <span id="font-size-label">48px</span></span>
+                                <input type="range" id="font-size" min="12" max="150" value="48" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Color del Texto</span>
+                                <input type="color" id="text-color" value="#ffffff" style="width:50px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Opacidad del Texto &mdash; <span id="text-opacity-label">50%</span></span>
+                                <input type="range" id="text-opacity" min="0.1" max="1.0" step="0.05" value="0.5" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Logo inputs group -->
+                        <div id="image-watermark-group" style="margin-top:12px; display:none;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">Seleccionar Imagen de Logotipo</span>
+                                <button type="button" class="modern-btn" id="btn-select-logo" style="margin-top:4px;" disabled>
+                                    📁 Seleccionar Logotipo
+                                </button>
+                                <input type="file" id="logo-file-input" style="display:none;" accept="image/*">
+                                <div id="logo-name-label" style="font-size:11px; color:var(--slate-400); margin-top:4px;">Sin logo cargado</div>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Escala del Logo &mdash; <span id="logo-scale-label">50%</span></span>
+                                <input type="range" id="logo-scale" min="10" max="200" value="50" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+
+                            <div class="modern-form-group" style="margin-top:8px;">
+                                <span class="modern-label">Opacidad del Logo &mdash; <span id="logo-opacity-label">50%</span></span>
+                                <input type="range" id="logo-opacity" min="0.1" max="1.0" step="0.05" value="0.5" style="width:100%; cursor:pointer;" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Layout position -->
+                        <div class="modern-form-group" style="margin-top:12px;">
+                            <span class="modern-label">Posición</span>
+                            <select class="modern-select" id="watermark-position" disabled>
+                                <option value="bottom-right" selected>Abajo a la derecha</option>
+                                <option value="bottom-left">Abajo a la izquierda</option>
+                                <option value="top-right">Arriba a la derecha</option>
+                                <option value="top-left">Arriba a la izquierda</option>
+                                <option value="center">Centro</option>
+                                <option value="tiled">En mosaico (Cuadrícula repetida)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Format & Download -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Opciones de Exportación</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Formato</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="image/png" selected>PNG (Transparencia sin pérdidas)</option>
+                                <option value="image/jpeg">JPG (Comprimido con fondo blanco)</option>
+                                <option value="image/webp">WebP (Compresión óptima)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-download" style="height:42px; font-size:14px; font-weight:700;" disabled>
+                        💾 Descargar Imagen con Marca de Agua
+                    </button>
+
+                    <!-- Image info -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Información de Imagen</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">
+                            Sin imagen cargada.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Consejos de Marcas de Agua</h3>
+                <p>Las marcas de agua se agregan localmente a través de su propio navegador, por lo que su archivo original no se almacena en nuestros servidores.</p>
+                <ul>
+                    <li><b>Uso de logos:</b> Se recomienda usar logotipos en formato PNG transparente para evitar bordes o fondos blancos toscos sobre sus fotografías.</li>
+                    <li><b>Marcas en Mosaico:</b> Esta opción dibuja el texto o logotipo de forma diagonal y repetida sobre toda la imagen, siendo ideal para muestras comerciales o protección estricta.</li>
+                    <li><b>Opacidad de equilibrio:</b> Una opacidad del 30% al 50% suele ser lo recomendado para no interferir visualmente con el contenido de la foto pero mantener visibles los derechos de copia.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/watermark.js?v=1"></script>
+</body>
+</html>
