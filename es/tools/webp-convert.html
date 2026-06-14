@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .preview-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .preview-panel__label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--slate-500);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .preview-panel__img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--slate-200);
+            background: repeating-conic-gradient(var(--slate-100) 0% 25%, #fff 0% 50%) 0 0 / 14px 14px;
+            display: none;
+        }
+        .preview-panel__placeholder {
+            width: 100%;
+            height: 130px;
+            border-radius: var(--radius-sm);
+            border: 1px dashed var(--slate-200);
+            background: var(--slate-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--slate-300);
+        }
+        .stats-bar {
+            display: none;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 10px 12px;
+            background: var(--slate-50);
+            border: 1px solid var(--slate-100);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            color: var(--slate-600);
+            margin-top: 8px;
+        }
+        .stats-bar__item { display: flex; flex-direction: column; gap: 2px; }
+        .stats-bar__item strong { font-size: 13px; color: var(--slate-800); }
+        .stats-bar__savings { color: #16a34a; font-weight: 700; }
+        .stats-bar__bigger { color: #dc2626; font-weight: 700; }
+        .convert-btn-row {
+            display: flex;
+            gap: 8px;
+        }
+        .convert-btn-row .modern-btn {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    </style>
+
+    <title>Convertidor WebP Online — Convertir Imágenes a/desde WebP - 2Convert</title>
+    <meta name="description" content="Convierta imágenes JPG, PNG, BMP y GIF a WebP para reducir el tamaño, o convierta WebP de vuelta a JPG/PNG. Procesamiento 100% local en su navegador.">
+    <meta name="keywords" content="convertir a webp, webp a jpg, webp a png, convertidor webp online, cambiar formato imagen webp">
+    <link rel="canonical" href="https://2convert.org/es/tools/webp-convert.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/es/tools/webp-convert.html">
+    <meta property="og:title" content="Convertidor WebP Online — Convertir Imágenes a/desde WebP">
+    <meta property="og:description" content="Convierta imágenes a WebP o WebP de vuelta a JPG/PNG. Herramienta online gratuita y local.">
+    <meta property="og:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convertidor WebP - 2Convert",
+      "url": "https://2convert.org/es/tools/webp-convert.html",
+      "description": "Convierta imágenes a WebP o de WebP a otros formatos en el navegador sin subir archivos.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Left sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main workspace -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Convertidor WebP</h1>
+                <p class="modern-content__desc">Convierta imágenes JPG, PNG, BMP y GIF a WebP para reducir su peso, o convierta archivos WebP de vuelta a JPG o PNG. Todo el procesamiento se realiza localmente en su navegador.</p>
+            </header>
+
+            <!-- AdSense slot -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Column 1: Upload + Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- Upload dropzone -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">Arrastre una imagen aquí</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">Soporta JPG, PNG, WebP, GIF, BMP (máx 25 MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor:pointer; pointer-events:auto;">📂 Seleccionar Imagen</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp">
+                    </div>
+
+                    <!-- Side-by-side preview -->
+                    <div class="preview-pair">
+                        <div class="preview-panel">
+                            <span class="preview-panel__label">Original</span>
+                            <img class="preview-panel__img" id="preview-original" alt="Imagen original">
+                            <div class="preview-panel__placeholder" id="placeholder-original">Sin imagen</div>
+                            <span id="info-original" style="font-size:11px; color:var(--slate-500); text-align:center;"></span>
+                        </div>
+                        <div class="preview-panel">
+                            <span class="preview-panel__label">Convertido</span>
+                            <img class="preview-panel__img" id="preview-converted" alt="Imagen convertida">
+                            <div class="preview-panel__placeholder" id="placeholder-converted">Convierta para ver resultado</div>
+                            <span id="info-converted" style="font-size:11px; color:var(--slate-500); text-align:center;"></span>
+                        </div>
+                    </div>
+
+                    <!-- Stats bar -->
+                    <div class="stats-bar" id="stats-bar">
+                        <div class="stats-bar__item">
+                            <span>Formato original</span>
+                            <strong id="stat-original-fmt">—</strong>
+                        </div>
+                        <div class="stats-bar__item">
+                            <span>Tamaño original</span>
+                            <strong id="stat-original-size">—</strong>
+                        </div>
+                        <div class="stats-bar__item">
+                            <span>Tamaño de salida</span>
+                            <strong id="stat-output-size">—</strong>
+                        </div>
+                        <div class="stats-bar__item">
+                            <span>Ahorro</span>
+                            <strong id="stat-savings">—</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Información de Imagen</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.8;">
+                            Sin imagen cargada. Seleccione un archivo para comenzar.
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Calidad (WebP / JPG)</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Calidad de compresión: <strong id="quality-val" style="color:var(--blue-600);">85</strong>%</span>
+                            <input type="range" min="50" max="100" value="85" style="width:100%; cursor:pointer;" id="quality-slider">
+                        </div>
+                        <div style="font-size:11px; color:var(--slate-400); margin-top:2px;">
+                            Mayor = mejor calidad visual, pero mayor peso. El formato PNG siempre es sin pérdida.
+                        </div>
+                    </div>
+
+                    <div class="modern-card" id="bg-color-card" style="display:none;">
+                        <h3 class="modern-card__title">Fondo de Relleno (JPG)</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Las zonas transparentes se rellenarán con:</span>
+                            <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                                <input type="color" id="bg-color" value="#FFFFFF" style="border:1px solid var(--slate-200); border-radius:4px; width:45px; height:28px; padding:0; cursor:pointer;">
+                                <span style="font-size:11px; color:var(--slate-400);">JPG no soporta transparencias</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Convert buttons -->
+                    <div class="convert-btn-row">
+                        <button class="modern-btn modern-btn--primary" id="btn-to-webp" disabled>
+                            ✨ A WebP
+                        </button>
+                        <button class="modern-btn" id="btn-to-jpg" disabled style="background:var(--slate-700); color:#fff;">
+                            🖼️ A JPG
+                        </button>
+                    </div>
+                    <div class="convert-btn-row" style="margin-top:-4px;">
+                        <button class="modern-btn" id="btn-to-png" disabled style="background:var(--slate-100); color:var(--slate-700); border:1px solid var(--slate-300);">
+                            🖼️ A PNG
+                        </button>
+                        <button class="modern-btn" id="btn-download" style="background:#16a34a; color:#fff; display:none;">
+                            📥 Descargar
+                        </button>
+                    </div>
+
+                    <div id="status-msg" style="font-size:12px; font-weight:600; color:var(--slate-600); text-align:center; min-height:18px;"></div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Guía del Convertidor WebP</h3>
+                <p>
+                    Las conversiones ocurren localmente en su navegador — sus fotos no salen de su equipo. WebP es un formato moderno que ofrece una compresión sumamente superior en comparación con JPG y PNG.
+                </p>
+                <ul>
+                    <li><b>A WebP:</b> Cargue cualquier archivo JPG, PNG, BMP o GIF y haga clic en <em>A WebP</em>. Reducción promedio de 25–35% contra JPG y hasta 50% contra PNG.</li>
+                    <li><b>Desde WebP:</b> Cargue un WebP y conviértalo a JPG (máxima compatibilidad) o PNG (mantiene transparencia).</li>
+                    <li><b>Deslizador de calidad:</b> Aplica para salidas en JPG y WebP (50 a 100). Las salidas en PNG ignoran este valor ya que son sin pérdida.</li>
+                    <li><b>Transparencias:</b> WebP y PNG las preservan. Al convertir a JPG, el canal de transparencia se rellena con el color seleccionado (blanco por defecto).</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/canvas-utils.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/webp-convert.js?v=1"></script>
+</body>
+</html>

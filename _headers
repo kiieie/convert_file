@@ -22,3 +22,11 @@
 /tools/bg-remove.html
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/ko/tools/bg-remove.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/es/tools/bg-remove.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups

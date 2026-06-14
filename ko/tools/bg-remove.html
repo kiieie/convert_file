@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .bg-preview-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .bg-preview-box {
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bg-preview-box img,
+        .bg-preview-box canvas {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+        }
+        .bg-preview-label {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--slate-500);
+            background: rgba(255,255,255,0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .bg-color-swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-300);
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-color-swatch.active {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+        }
+        .progress-bar-wrap {
+            background: var(--slate-100);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue-500), #6366f1);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .model-loading-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--slate-500);
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 999px;
+            padding: 3px 10px;
+        }
+        .spinner {
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--slate-300);
+            border-top-color: var(--blue-500);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+
+    <title>배경 제거 AI - 누끼따기 무료 온라인 이미지 배경 지우개 - 2Convert</title>
+    <meta name="description" content="AI로 이미지 배경을 즉석에서 무료로 제거해 누끼를 따세요. 브라우저 내부에서 100% 실행되므로 파일 업로드 없이 안전하게 배경을 지울 수 있습니다.">
+    <meta name="keywords" content="배경 제거 AI, 누끼따기 사이트, 이미지 배경 지우기, 투명 배경 만들기, 사진 누끼">
+    <link rel="canonical" href="https://2convert.org/ko/tools/bg-remove.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/ko/tools/bg-remove.html">
+    <meta property="og:title" content="배경 제거 AI - 누끼따기 무료 온라인 이미지 배경 지우개">
+    <meta property="og:description" content="AI를 이용하여 브라우저 내에서 즉각적으로 사진 배경을 투명하게 만드십시오. 100% 개인정보 보호.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "배경 제거 AI",
+      "url": "https://2convert.org/ko/tools/bg-remove.html",
+      "description": "AI 이미지 세그멘테이션 모델을 활용하여 브라우저 내에서 즉석으로 이미지 배경을 분리 및 제거합니다.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires WebAssembly support."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <aside class="modern-sidebar"></aside>
+
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">배경 제거 AI</h1>
+                <p class="modern-content__desc">인공지능(RMBG-1.4) 모델을 브라우저 로컬 웹어셈블리(WASM)로 구동하여 서버 업로드 없이 안전하고 정밀하게 사진 배경을 제거(누끼따기)합니다.</p>
+            </header>
+
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Left: Upload + Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Model loading status -->
+                    <div id="model-status" style="display:none;">
+                        <span class="model-loading-badge">
+                            <span class="spinner" id="model-spinner"></span>
+                            <span id="model-status-text">AI 모델 로딩 중...</span>
+                        </span>
+                        <div class="progress-bar-wrap" id="model-progress-wrap" style="display:none; margin-top:6px;">
+                            <div class="progress-bar-fill" id="model-progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">여기에 사진을 끌어다 놓으십시오</div>
+                        <div class="modern-upload-zone__desc">또는 클릭하여 파일 선택 (JPG, PNG, WebP — 최대 10MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg,image/png,image/webp">
+                    </div>
+
+                    <!-- Before/After preview -->
+                    <div id="preview-area" style="display:none;">
+                        <div class="bg-preview-wrapper">
+                            <div class="bg-preview-box">
+                                <span class="bg-preview-label">원본 사진</span>
+                                <img id="preview-original" src="" alt="원본">
+                            </div>
+                            <div class="bg-preview-box" id="result-box">
+                                <span class="bg-preview-label">배경 제거됨</span>
+                                <canvas id="preview-result"></canvas>
+                                <div id="processing-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.8);gap:8px;">
+                                    <div class="spinner" style="width:24px;height:24px;border-width:3px;"></div>
+                                    <span style="font-size:12px;color:var(--slate-600);" id="proc-text">연산 처리 중...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:8px; display:flex; justify-content:space-between; font-size:12px; color:var(--slate-500); padding:0 2px;">
+                            <span id="img-info"></span>
+                            <span id="proc-time"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">출력 배경 선택</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">투명/대체 컬러</span>
+                            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:4px;">
+                                <!-- Transparent -->
+                                <div class="bg-color-swatch active" id="swatch-transparent"
+                                     style="background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 0 0 / 10px 10px;"
+                                     title="투명" data-bg="transparent"></div>
+                                <!-- White -->
+                                <div class="bg-color-swatch" id="swatch-white"
+                                     style="background:#ffffff;" title="흰색" data-bg="#ffffff"></div>
+                                <!-- Black -->
+                                <div class="bg-color-swatch" id="swatch-black"
+                                     style="background:#000000;" title="검은색" data-bg="#000000"></div>
+                                <!-- Blue -->
+                                <div class="bg-color-swatch" id="swatch-blue"
+                                     style="background:#3b82f6;" title="파란색" data-bg="#3b82f6"></div>
+                                <!-- Green (chroma key) -->
+                                <div class="bg-color-swatch" id="swatch-green"
+                                     style="background:#00b140;" title="크로마키 그린" data-bg="#00b140"></div>
+                                <!-- Custom color -->
+                                <label style="cursor:pointer; font-size:12px; color:var(--slate-600);">
+                                    직접선택: <input type="color" id="custom-bg-color" value="#ffffff"
+                                        style="vertical-align:middle; width:28px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:12px;">
+                            <span class="modern-label">저장 포맷</span>
+                            <select class="modern-select" id="output-format">
+                                <option value="image/png">PNG (배경 투명화 지원)</option>
+                                <option value="image/jpeg">JPG (투명하지 않음)</option>
+                                <option value="image/webp">WebP (고효율 + 투명 지원)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">구동 모델 정보</h3>
+                        <div style="font-size:12px; color:var(--slate-500); line-height:1.5;">
+                            <p style="margin:0 0 6px;">Transformers.js 기반의 <strong>RMBG-1.4</strong> 고정밀 이미지 분할 모델을 이용하여 전량 로컬 WASM으로 구동합니다.</p>
+                            <p style="margin:0; color:var(--slate-400);">첫 기동 시에만 모델 데이터(~60MB)를 브라우저에 다운로드 및 캐싱하며, 이후에는 무차입 고속으로 동작합니다.</p>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-remove-bg" disabled style="height:42px; font-size:14px; font-weight:600;">
+                        ✨ AI 배경 제거 실행
+                    </button>
+
+                    <button class="modern-btn" id="btn-download" disabled style="height:38px; font-size:13px;">
+                        💾 결과 이미지 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <div class="modern-instructions-box">
+                <h3>💡 AI 배경 지우개 사용 팁</h3>
+                <p>브라우저 내부 그래픽 연산을 활용하여 소중한 사진 자산이 <strong>외부 네트워크 서버로 절대 저장 또는 전송되지 않아 안심하고</strong> 사용할 수 있습니다.</p>
+                <ul>
+                    <li><b>첫 로드 속도:</b> 첫 이용 시 브라우저 내에 약 60MB의 인공지능 신경망 데이터를 적재하느라 시간이 소요될 수 있습니다. 다운로드 완료 후에는 인터넷이 끊겨도 오프라인에서 즉시 실행됩니다.</li>
+                    <li><b>품질 극대화:</b> 인물, 동물, 상품 이미지 등 피사체와 배경의 경계 구분이 뚜렷한 사진일수록 완벽에 가까운 누끼따기 품질이 보장됩니다.</li>
+                    <li><b>배경 합성 기능:</b> 투명 상태로 다운로드하여 포토샵 등에서 활용하시거나, 기본 제공되는 컬러칩 및 컬러픽커 커스텀 배경색을 지정해 쇼핑몰 등록용 상품 컷으로 즉석 전환해 보세요.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+
+    <!-- Load Transformers.js as ES module, expose globally before tool script runs -->
+    <script type="module">
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.0.2/dist/transformers.min.js';
+        env.allowLocalModels = false;
+        window.__HF = { pipeline, env };
+        window.dispatchEvent(new CustomEvent('transformers-ready'));
+    </script>
+
+    <script src="/js/tools/bg-remove.js?v=2"></script>
+</body>
+</html>

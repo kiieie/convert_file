@@ -114,10 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${langPrefix}/tools/resize.html"   class="modern-sidebar__item" id="menu-resize">📐 ${t.resize}</a>
             <a href="${langPrefix}/tools/crop.html"     class="modern-sidebar__item" id="menu-crop">✂️ ${t.crop}</a>
             <a href="${langPrefix}/tools/rotate.html"   class="modern-sidebar__item" id="menu-rotate">🔄 ${t.rotate}</a>
-            <a href="/tools/compress.html"              class="modern-sidebar__item" id="menu-compress">🗜️ ${t.compress}</a>
-            <a href="/tools/heic2jpg.html"              class="modern-sidebar__item" id="menu-heic">📱 ${t.heic}</a>
-            <a href="/tools/webp-convert.html"          class="modern-sidebar__item" id="menu-webp">⚡ ${t.webp}</a>
-            <a href="/tools/bg-remove.html"             class="modern-sidebar__item" id="menu-bg-remove">✨ ${t.bgRemove}</a>
+            <a href="${langPrefix}/tools/compress.html"              class="modern-sidebar__item" id="menu-compress">🗜️ ${t.compress}</a>
+            <a href="${langPrefix}/tools/heic2jpg.html"              class="modern-sidebar__item" id="menu-heic">📱 ${t.heic}</a>
+            <a href="${langPrefix}/tools/webp-convert.html"          class="modern-sidebar__item" id="menu-webp">⚡ ${t.webp}</a>
+            <a href="${langPrefix}/tools/bg-remove.html"             class="modern-sidebar__item" id="menu-bg-remove">✨ ${t.bgRemove}</a>
         </div>
 
         <div class="modern-sidebar__group">
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="modern-sidebar__group">
             <div class="modern-sidebar__group-title">${t.videoTools}</div>
             <a href="${langPrefix}/tools/video-gif.html" class="modern-sidebar__item" id="menu-video-gif">🎬 ${t.videoGif}</a>
-            <a href="/tools/img-pdf.html"                class="modern-sidebar__item" id="menu-img-pdf">📑 ${t.imgPdf}</a>
+            <a href="${langPrefix}/tools/img-pdf.html"                class="modern-sidebar__item" id="menu-img-pdf">📑 ${t.imgPdf}</a>
             <a href="${langPrefix}/tools/pdf.html"       class="modern-sidebar__item" id="menu-pdf">📄 ${t.pdfTools}</a>
         </div>
 

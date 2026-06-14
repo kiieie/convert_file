@@ -24,6 +24,11 @@
         '/tools/pdf.html',
         '/tools/resize.html',
         '/tools/rotate.html',
+        '/tools/heic2jpg.html',
+        '/tools/compress.html',
+        '/tools/webp-convert.html',
+        '/tools/bg-remove.html',
+        '/tools/img-pdf.html',
         '/tools/video-gif.html',
     ];
 

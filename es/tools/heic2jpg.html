@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-img {
+            max-width: 100%;
+            max-height: 320px;
+            border-radius: var(--radius-sm);
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+        .size-compare {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .size-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 11px;
+        }
+        .size-badge--before {
+            background: var(--slate-100);
+            color: var(--slate-600);
+        }
+        .size-badge--after {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .size-badge--arrow {
+            color: var(--slate-400);
+            font-size: 14px;
+        }
+        #status-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 0 4px;
+            margin-top: 10px;
+            min-height: 18px;
+        }
+        #status-text { font-weight: 600; color: var(--slate-700); }
+        #status-info  { color: var(--slate-500); font-weight: 500; }
+    </style>
+
+    <title>Convertidor HEIC a JPG Gratis en Línea - Rápido y Local - 2Convert</title>
+    <meta name="description" content="Convierta fotos HEIC y HEIF a JPG al instante en su navegador. Sin subidas, 100% privado y gratis. Ideal para fotos de iPhone.">
+    <meta name="keywords" content="convertir HEIC a JPG, convertidor HEIF, fotos iPhone, HEIC online, HEIC JPEG gratis">
+    <link rel="canonical" href="https://2convert.org/es/tools/heic2jpg.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/es/tools/heic2jpg.html">
+    <meta property="og:title" content="Convertidor HEIC a JPG Gratis en Línea - Rápido y Local">
+    <meta property="og:description" content="Convierta fotos HEIC/HEIF de iPhone a JPG en su navegador. Sin servidores, 100% privado y gratis.">
+    <meta property="og:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convertidor HEIC a JPG - 2Convert",
+      "url": "https://2convert.org/es/tools/heic2jpg.html",
+      "description": "Convierta imágenes HEIC y HEIF directamente en el navegador sin subir sus archivos a ningún servidor.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+    }
+    </script>
+
+    <!-- heic2any library for HEIC/HEIF decoding -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Convertidor HEIC a JPG</h1>
+                <p class="modern-content__desc">Convierta fotos HEIC / HEIF de iPhone a JPG en su navegador. Sin servidores, 100% privado y gratis.</p>
+            </header>
+
+            <!-- Ad slot -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Column 1: Upload + Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Drop zone -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width:48px; height:48px; margin-bottom:8px;"></div>
+                        <div class="modern-upload-zone__title" style="font-size:15px; color:var(--slate-800);">Arrastre su archivo HEIC / HEIF aquí</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom:12px; color:var(--slate-500);">HEIC, HEIF, JPG, PNG, WebP soportados &middot; Máx 50 MB</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor:pointer;">📂 Seleccionar Archivo</button>
+                        <input type="file" id="file-input" style="display:none;" accept=".heic,.heif,image/*">
+                    </div>
+
+                    <!-- Preview area -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+                        <img id="preview-img" alt="Vista previa" src="">
+                    </div>
+
+                    <!-- Size comparison -->
+                    <div id="size-compare-row" class="size-compare" style="display:none; padding: 0 4px;">
+                        <span class="size-badge size-badge--before" id="badge-before">Antes: &#8212;</span>
+                        <span class="size-badge--arrow">&#8594;</span>
+                        <span class="size-badge size-badge--after" id="badge-after">Después: &#8212;</span>
+                        <span id="badge-savings" style="font-size:11px; color:var(--slate-500);"></span>
+                    </div>
+
+                    <!-- Status bar -->
+                    <div id="status-bar">
+                        <span id="status-text"></span>
+                        <span id="status-info"></span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Quality card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Calidad de Salida</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Calidad JPG: <strong id="quality-val" style="color:var(--blue-600);">92</strong>%</span>
+                            <input type="range" id="quality-slider" min="50" max="100" value="92" style="width:100%; cursor:pointer;">
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--slate-400); margin-top:2px;">
+                            <span>Archivo más chico</span>
+                            <span>Mejor calidad</span>
+                        </div>
+                    </div>
+
+                    <!-- File info card -->
+                    <div class="modern-card" id="file-info-card" style="display:none;">
+                        <h3 class="modern-card__title">Información de Archivo</h3>
+                        <div style="font-size:12px; color:var(--slate-600); display:flex; flex-direction:column; gap:6px;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Nombre</span>
+                                <span id="info-name" style="font-weight:600; color:var(--slate-800); max-width:160px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:right;"></span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Tamaño original</span>
+                                <span id="info-size" style="font-weight:600; color:var(--slate-800);"></span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Dimensiones</span>
+                                <span id="info-dims" style="font-weight:600; color:var(--slate-800);">&#8212;</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Tipo</span>
+                                <span id="info-type" style="font-weight:600; color:var(--blue-600);"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Convert button -->
+                    <button class="modern-btn modern-btn--primary" id="btn-convert" disabled style="height:42px; font-size:14px; font-weight:700;">
+                        🔄 Convertir a JPG
+                    </button>
+
+                    <!-- Download button (hidden until conversion done) -->
+                    <button class="modern-btn" id="btn-download" style="display:none; height:42px; font-size:14px; font-weight:700; background:#16a34a; color:#fff; border:none; border-radius:var(--radius-sm); cursor:pointer;">
+                        📥 Descargar JPG
+                    </button>
+
+                    <div style="font-size:11px; color:var(--slate-400); text-align:center; line-height:1.6;">
+                        Todo el procesamiento se realiza localmente en su navegador.<br>Sus fotos nunca se subirán a ningún servidor.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Guía de Conversión HEIC / HEIF</h3>
+                <p>
+                    HEIC (High Efficiency Image Container) es el formato de foto predeterminado de Apple desde iOS 11. Aunque ahorra espacio en su iPhone, muchas aplicaciones y páginas web no lo soportan. Esta herramienta convierte archivos HEIC/HEIF a JPG compatible universalmente, todo en su navegador.
+                </p>
+                <ul>
+                    <li><b>Fotos de iPhone:</b> Los archivos capturados en iOS 11+ se guardan como .heic. Esta herramienta los maneja directamente sin aplicaciones adicionales.</li>
+                    <li><b>Barra de calidad:</b> Se recomienda el 92% para un equilibrio óptimo entre tamaño y calidad visual. Valores menores dan archivos más chicos; 100% genera el archivo más pesado y fiel.</li>
+                    <li><b>Tamaño Antes / Después:</b> Luego de la conversión, se muestran los tamaños para ver cuánto espacio se optimizó.</li>
+                    <li><b>Otros formatos:</b> Puede arrastrar JPG, PNG o WebP regulares y se volverán a procesar a JPG con la calidad elegida.</li>
+                    <li><b>Privacidad garantizada:</b> Sus imágenes no salen de su dispositivo. Sin servidores, sin nube, total seguridad.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Core scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/canvas-utils.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <!-- Tool script -->
+    <script src="/js/tools/heic2jpg.js?v=1"></script>
+</body>
+</html>

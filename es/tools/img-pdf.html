@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <!-- Auto Language Detector Redirector -->
+    <script src="/js/core/lang-detector.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .img-thumb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .img-thumb-item {
+            position: relative;
+            border: 1px solid var(--slate-200);
+            background: #fff;
+            border-radius: var(--radius-md);
+            padding: 7px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: grab;
+            transition: box-shadow 0.15s, border-color 0.15s;
+            user-select: none;
+        }
+        .img-thumb-item:active {
+            cursor: grabbing;
+        }
+        .img-thumb-item.drag-over {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+        }
+        .img-thumb-item.dragging {
+            opacity: 0.4;
+        }
+        .img-thumb-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--slate-100);
+            pointer-events: none;
+        }
+        .img-thumb-item__index {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: var(--blue-600);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 4px;
+            padding: 1px 5px;
+            line-height: 1.4;
+        }
+        .img-thumb-item__name {
+            font-size: 10px;
+            color: var(--slate-600);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+        .img-thumb-item__remove {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--error, #ef4444);
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1.5px solid #fff;
+            line-height: 1;
+        }
+        .img-thumb-item__remove:hover {
+            background: #b91c1c;
+        }
+        .page-count-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--blue-50, #eff6ff);
+            border: 1px solid var(--blue-200, #bfdbfe);
+            color: var(--blue-700, #1d4ed8);
+            border-radius: var(--radius-sm);
+            padding: 5px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        #status-bar {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            margin-top: 8px;
+            display: none;
+        }
+        #status-bar.info  { background: var(--blue-50, #eff6ff);   color: var(--blue-700, #1d4ed8);  border: 1px solid var(--blue-200, #bfdbfe); }
+        #status-bar.error { background: #fef2f2; color: #b91c1c;   border: 1px solid #fecaca; }
+        #status-bar.ok    { background: #f0fdf4; color: #15803d;   border: 1px solid #bbf7d0; }
+        #orientation-note {
+            font-size: 11px;
+            color: var(--slate-400);
+            margin-top: 3px;
+            display: block;
+        }
+        .modern-upload-zone.drag-active {
+            border-color: var(--blue-500) !important;
+            background: var(--blue-50, #eff6ff) !important;
+        }
+    </style>
+
+    <title>Convertidor de Imágenes a PDF Gratis — JPG, PNG, WebP a PDF - 2Convert</title>
+    <meta name="description" content="Convierta varias imágenes a un único archivo PDF al instante en su navegador. Soporta JPG, PNG, WebP y GIF. Elija tamaño de página, orientación y calidad sin subir archivos.">
+    <meta name="keywords" content="imágenes a pdf, convertir fotos a pdf, combinar jpg a pdf, crear pdf desde png, lote de imágenes a pdf">
+    <link rel="canonical" href="https://2convert.org/es/tools/img-pdf.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/es/tools/img-pdf.html">
+    <meta property="og:title" content="Convertidor de Imágenes a PDF Gratis — JPG, PNG, WebP a PDF">
+    <meta property="og:description" content="Convierta y combine varias imágenes en un solo documento PDF en su navegador. Gratis, privado y local.">
+    <meta property="og:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convertidor de Imágenes a PDF - 2Convert",
+      "url": "https://2convert.org/es/tools/img-pdf.html",
+      "description": "Combine imágenes JPG, PNG, WebP y GIF en un archivo PDF directamente en el navegador.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main content -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Imágenes a PDF</h1>
+                <p class="modern-content__desc">Combine múltiples imágenes JPG, PNG, WebP o GIF en un solo documento PDF directamente en su navegador. Sin cuentas ni subidas al servidor.</p>
+            </header>
+
+            <!-- Ad Zone -->
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <!-- Tool Grid -->
+            <div class="modern-tool-grid">
+
+                <!-- Col 1: Upload zone + image list -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Drop zone -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease; cursor: pointer;">
+                        <div class="modern-upload-zone__icon" style="width:48px;height:48px;margin-bottom:8px;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 viewBox=%220 0 24 24%22 stroke=%22%232563EB%22 stroke-width=%221.5%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 d=%22M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z%22/></svg>');"></div>
+                        <div class="modern-upload-zone__title" style="font-size:15px;color:var(--slate-800);">Arrastre sus imágenes aquí</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom:12px;color:var(--slate-500);">JPG, PNG, WebP, GIF &mdash; hasta 20 imágenes</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-images" style="cursor:pointer;">📂 Seleccionar Imágenes</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*" multiple>
+                    </div>
+
+                    <!-- Status bar -->
+                    <div id="status-bar"></div>
+
+                    <!-- Thumbnail list card -->
+                    <div class="modern-card" id="images-card" style="display:none;">
+                        <h3 class="modern-card__title" style="margin-bottom:6px;">
+                            Imágenes Seleccionadas
+                            <span style="font-size:11px;font-weight:400;color:var(--slate-400);margin-left:6px;">Arrastre las miniaturas para ordenar las páginas</span>
+                        </h3>
+
+                        <!-- Page count badge -->
+                        <div class="page-count-badge" id="page-count-badge">
+                            <span>📄</span>
+                            <span id="page-count-text">0 páginas</span>
+                        </div>
+
+                        <!-- Thumbnail grid -->
+                        <div class="img-thumb-grid" id="thumb-grid"></div>
+
+                        <!-- Add more button -->
+                        <button type="button" id="btn-add-more" class="modern-btn" style="margin-top:12px;font-size:12px;padding:6px 12px;">
+                            ➕ Agregar Más Imágenes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Col 2: Settings panel -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Configuración de PDF</h3>
+
+                        <!-- Page Size -->
+                        <div class="modern-form-group">
+                            <span class="modern-label">Tamaño de Página</span>
+                            <select class="modern-select" id="sel-page-size">
+                                <option value="a4" selected>A4 (210 x 297 mm)</option>
+                                <option value="letter">Carta / Letter (216 x 279 mm)</option>
+                                <option value="original">Tamaño de imagen original</option>
+                            </select>
+                        </div>
+
+                        <!-- Orientation -->
+                        <div class="modern-form-group" id="orientation-group">
+                            <span class="modern-label">Orientación</span>
+                            <select class="modern-select" id="sel-orientation">
+                                <option value="auto" selected>Auto (horizontal si es más ancha)</option>
+                                <option value="portrait">Vertical (Portrait)</option>
+                                <option value="landscape">Horizontal (Landscape)</option>
+                            </select>
+                            <span id="orientation-note">Se ignora si elige "Tamaño de imagen original".</span>
+                        </div>
+
+                        <!-- Quality -->
+                        <div class="modern-form-group">
+                            <span class="modern-label">Calidad de Imágenes</span>
+                            <select class="modern-select" id="sel-quality">
+                                <option value="0.95" selected>Alta (95%) &mdash; recomendado</option>
+                                <option value="0.75">Media (75%)</option>
+                                <option value="0.50">Baja (50%) &mdash; archivo más liviano</option>
+                            </select>
+                        </div>
+
+                        <!-- Output filename -->
+                        <div class="modern-form-group">
+                            <span class="modern-label">Nombre del Documento</span>
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <input type="text" class="modern-input" id="inp-filename" value="convertido" style="flex:1;">
+                                <span style="font-size:13px;color:var(--slate-500);white-space:nowrap;">.pdf</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generate button -->
+                    <button class="modern-btn modern-btn--primary" id="btn-generate" disabled style="height:42px;font-size:14px;font-weight:700;">
+                        🔄 Generar PDF y Descargar
+                    </button>
+
+                    <!-- Progress indicator -->
+                    <div id="progress-wrap" style="display:none;">
+                        <div style="background:var(--slate-100);border-radius:999px;height:6px;overflow:hidden;">
+                            <div id="progress-bar" style="height:100%;width:0%;background:var(--blue-500);transition:width 0.2s;border-radius:999px;"></div>
+                        </div>
+                        <div id="progress-text" style="font-size:11px;color:var(--slate-500);margin-top:4px;text-align:center;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 Guía del Convertidor a PDF</h3>
+                <p>
+                    Todo el ensamblado ocurre <b>íntegramente en su navegador</b>, funcionando incluso sin conexión una vez cargada la página.
+                </p>
+                <ul>
+                    <li><b>Subir fotos:</b> Haga clic en "Seleccionar Imágenes" o arrastre JPG, PNG, WebP o GIF (hasta 20 archivos).</li>
+                    <li><b>Ordenar páginas:</b> Mueva las miniaturas a la posición deseada. El número azul indica el orden de la página.</li>
+                    <li><b>Descartar fotos:</b> Toque la X roja para excluir una imagen de la compilación.</li>
+                    <li><b>Dimensiones de página:</b> A4 y Carta escalan la foto proporcionalmente. "Original" crea cada hoja exactamente del tamaño de la imagen original.</li>
+                    <li><b>Orientación inteligente:</b> Detecta si la imagen es horizontal o vertical en modo Auto, adaptando la página de manera óptima.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- jsPDF CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Core scripts -->
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+
+    <!-- Tool script -->
+    <script src="/js/tools/img-pdf.js?v=1"></script>
+
+</body>
+</html>

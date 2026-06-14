@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .preview-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .preview-panel__label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--slate-500);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .preview-panel__img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--slate-200);
+            background: repeating-conic-gradient(var(--slate-100) 0% 25%, #fff 0% 50%) 0 0 / 14px 14px;
+            display: none;
+        }
+        .preview-panel__placeholder {
+            width: 100%;
+            height: 130px;
+            border-radius: var(--radius-sm);
+            border: 1px dashed var(--slate-200);
+            background: var(--slate-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--slate-300);
+        }
+        .stats-bar {
+            display: none;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 10px 12px;
+            background: var(--slate-50);
+            border: 1px solid var(--slate-100);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            color: var(--slate-600);
+            margin-top: 8px;
+        }
+        .stats-bar__item { display: flex; flex-direction: column; gap: 2px; }
+        .stats-bar__item strong { font-size: 13px; color: var(--slate-800); }
+        .stats-bar__savings { color: #16a34a; font-weight: 700; }
+        .stats-bar__bigger { color: #dc2626; font-weight: 700; }
+        .convert-btn-row {
+            display: flex;
+            gap: 8px;
+        }
+        .convert-btn-row .modern-btn {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    </style>
+
+    <title>WebP 변환기 - 이미지 WebP 상호 변환기 무료 온라인 - 2Convert</title>
+    <meta name="description" content="JPG, PNG, BMP, GIF 이미지를 WebP 포맷으로 상호 변환하여 용량을 줄이세요. 반대로 WebP 사진을 JPG/PNG로 되돌릴 수도 있습니다. 100% 브라우저 로컬 실행.">
+    <meta name="keywords" content="WebP 변환기, WebP JPG 변환, WebP PNG 변환, 이미지 변환기, webp to jpg">
+    <link rel="canonical" href="https://2convert.org/ko/tools/webp-convert.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/ko/tools/webp-convert.html">
+    <meta property="og:title" content="WebP 변환기 - 이미지 WebP 상호 변환기 무료 온라인">
+    <meta property="og:description" content="JPG/PNG를 WebP로 변환하거나 WebP를 JPG/PNG로 상호 변환할 수 있습니다. 개인정보 보호 무료 도구.">
+    <meta property="og:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "WebP 변환기 - 2Convert",
+      "url": "https://2convert.org/ko/tools/webp-convert.html",
+      "description": "이미지를 WebP 포맷으로 변환하거나 WebP 사진을 JPG, PNG 등으로 상호 변환합니다.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Left sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main workspace -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">WebP 변환기</h1>
+                <p class="modern-content__desc">JPG, PNG, BMP, GIF 이미지를 압축률이 뛰어난 WebP 포맷으로 변환하거나, WebP 이미지를 다시 JPG나 PNG 포맷으로 변환합니다. 서버 전송 없는 로컬 변환을 제공합니다.</p>
+            </header>
+
+            <!-- AdSense slot -->
+            <div class="modern-ad-zone">
+                <span>[광고 슬롯] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Column 1: Upload + Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- Upload dropzone -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">변환할 이미지를 여기에 끌어다 놓으십시오</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">JPG, PNG, WebP, GIF, BMP 지원 (최대 25 MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor:pointer; pointer-events:auto;">📂 이미지 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp">
+                    </div>
+
+                    <!-- Side-by-side preview -->
+                    <div class="preview-pair">
+                        <div class="preview-panel">
+                            <span class="preview-panel__label">변환 전 (Original)</span>
+                            <img class="preview-panel__img" id="preview-original" alt="원본 이미지">
+                            <div class="preview-panel__placeholder" id="placeholder-original">불러온 이미지 없음</div>
+                            <span id="info-original" style="font-size:11px; color:var(--slate-500); text-align:center;"></span>
+                        </div>
+                        <div class="preview-panel">
+                            <span class="preview-panel__label">변환 후 (Converted)</span>
+                            <img class="preview-panel__img" id="preview-converted" alt="변환된 이미지">
+                            <div class="preview-panel__placeholder" id="placeholder-converted">변환 시 결과가 출력됩니다</div>
+                            <span id="info-converted" style="font-size:11px; color:var(--slate-500); text-align:center;"></span>
+                        </div>
+                    </div>
+
+                    <!-- Stats bar -->
+                    <div class="stats-bar" id="stats-bar">
+                        <div class="stats-bar__item">
+                            <span>원본 포맷</span>
+                            <strong id="stat-original-fmt">—</strong>
+                        </div>
+                        <div class="stats-bar__item">
+                            <span>원본 용량</span>
+                            <strong id="stat-original-size">—</strong>
+                        </div>
+                        <div class="stats-bar__item">
+                            <span>출력 용량</span>
+                            <strong id="stat-output-size">—</strong>
+                        </div>
+                        <div class="stats-bar__item">
+                            <span>용량 절감률</span>
+                            <strong id="stat-savings">—</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">이미지 정보</h3>
+                        <div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.8;">
+                            불러온 이미지가 없습니다. 시작하려면 이미지 파일을 선택하십시오.
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">화질 설정 (WebP / JPG)</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">압축 화질: <strong id="quality-val" style="color:var(--blue-600);">85</strong>%</span>
+                            <input type="range" min="50" max="100" value="85" style="width:100%; cursor:pointer;" id="quality-slider">
+                        </div>
+                        <div style="font-size:11px; color:var(--slate-400); margin-top:2px;">
+                            수치가 높을수록 고화질 고용량이 됩니다. PNG 포맷 출력은 항상 무손실 압축입니다.
+                        </div>
+                    </div>
+
+                    <div class="modern-card" id="bg-color-card" style="display:none;">
+                        <h3 class="modern-card__title">배경 채우기 색상 (JPG)</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">배경 투명 영역을 채울 색상 지정:</span>
+                            <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                                <input type="color" id="bg-color" value="#FFFFFF" style="border:1px solid var(--slate-200); border-radius:4px; width:45px; height:28px; padding:0; cursor:pointer;">
+                                <span style="font-size:11px; color:var(--slate-400);">JPG 포맷은 투명도를 지원하지 않습니다</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Convert buttons -->
+                    <div class="convert-btn-row">
+                        <button class="modern-btn modern-btn--primary" id="btn-to-webp" disabled>
+                            ✨ WebP로 변환
+                        </button>
+                        <button class="modern-btn" id="btn-to-jpg" disabled style="background:var(--slate-700); color:#fff;">
+                            🖼️ JPG로 변환
+                        </button>
+                    </div>
+                    <div class="convert-btn-row" style="margin-top:-4px;">
+                        <button class="modern-btn" id="btn-to-png" disabled style="background:var(--slate-100); color:var(--slate-700); border:1px solid var(--slate-300);">
+                            🖼️ PNG로 변환
+                        </button>
+                        <button class="modern-btn" id="btn-download" style="background:#16a34a; color:#fff; display:none;">
+                            📥 다운로드
+                        </button>
+                    </div>
+
+                    <div id="status-msg" style="font-size:12px; font-weight:600; color:var(--slate-600); text-align:center; min-height:18px;"></div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>💡 WebP 변환 가이드</h3>
+                <p>
+                    모든 이미지 변환 작업은 사용자의 브라우저 내에서 100% 로컬 연산으로 동작하여 개인정보 유출 우려가 전혀 없습니다. WebP는 구글이 개발한 차세대 이미지 포맷으로 기존 포맷에 비해 뛰어난 용량 최적화 성능을 가집니다.
+                </p>
+                <ul>
+                    <li><b>WebP로 변환:</b> 일반 JPG, PNG, BMP, GIF 파일을 업로드한 뒤 <em>WebP로 변환</em> 버튼을 클릭하면, 화질 손실 거의 없이 기존 대비 최소 30%에서 최대 80% 이상의 압축 효과를 누릴 수 있습니다.</li>
+                    <li><b>WebP에서 다른 포맷으로:</b> WebP 확장자 이미지를 업로드하고 JPG(범용 호환용) 또는 PNG(투명 배경 보존용) 포맷으로 변환해 내려받을 수 있습니다.</li>
+                    <li><b>압축률 슬라이더:</b> WebP 및 JPG로 변환할 때 화질 계수(50~100)를 수동 조절 가능합니다. PNG 포맷 변환 시에는 무손실로 동작하므로 무시됩니다.</li>
+                    <li><b>배경 투명화:</b> WebP 및 PNG는 투명 알파 채널을 보존합니다. 투명 부분이 있는 이미지를 JPG로 변환 시 투명한 부분이 지정하신 컬러(기본 흰색)로 채워집니다.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=4"></script>
+    <script src="/js/core/canvas-utils.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=4"></script>
+    <script src="/js/core/ui-components.js?v=4"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+    <script src="/js/tools/webp-convert.js?v=1"></script>
+</body>
+</html>

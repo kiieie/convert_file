@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .bg-preview-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .bg-preview-box {
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bg-preview-box img,
+        .bg-preview-box canvas {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+        }
+        .bg-preview-label {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--slate-500);
+            background: rgba(255,255,255,0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .bg-color-swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-300);
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-color-swatch.active {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+        }
+        .progress-bar-wrap {
+            background: var(--slate-100);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue-500), #6366f1);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .model-loading-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--slate-500);
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 999px;
+            padding: 3px 10px;
+        }
+        .spinner {
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--slate-300);
+            border-top-color: var(--blue-500);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+
+    <title>Quitar Fondo IA - Eliminar fondo de fotos gratis en línea - 2Convert</title>
+    <meta name="description" content="Elimine el fondo de sus fotos al instante con Inteligencia Artificial gratis. Funciona al 100% en su navegador, manteniendo sus archivos privados y seguros.">
+    <meta name="keywords" content="quitar fondo ia, eliminar fondo imagen, fondo transparente gratis, borrar fondo fotos, recortar silueta online">
+    <link rel="canonical" href="https://2convert.org/es/tools/bg-remove.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/es/tools/bg-remove.html">
+    <meta property="og:title" content="Quitar Fondo IA - Eliminar fondo de fotos gratis en línea">
+    <meta property="og:description" content="Elimine el fondo de fotos al instante con IA en su navegador. 100% privado y sin coste.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Quitar Fondo IA",
+      "url": "https://2convert.org/es/tools/bg-remove.html",
+      "description": "Utiliza modelos de segmentación de imágenes por IA en el navegador para eliminar el fondo de las fotos de forma segura.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires WebAssembly support."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <aside class="modern-sidebar"></aside>
+
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Quitar Fondo IA</h1>
+                <p class="modern-content__desc">Elimine el fondo de sus imágenes mediante IA (modelo RMBG-1.4) ejecutándose en WebAssembly local. Sin subidas, 100% privado y gratis.</p>
+            </header>
+
+            <div class="modern-ad-zone">
+                <span>[Anuncio] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Left: Upload + Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Model loading status -->
+                    <div id="model-status" style="display:none;">
+                        <span class="model-loading-badge">
+                            <span class="spinner" id="model-spinner"></span>
+                            <span id="model-status-text">Cargando modelo de IA...</span>
+                        </span>
+                        <div class="progress-bar-wrap" id="model-progress-wrap" style="display:none; margin-top:6px;">
+                            <div class="progress-bar-fill" id="model-progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Arrastre su foto aquí</div>
+                        <div class="modern-upload-zone__desc">O haga clic para buscar (JPG, PNG, WebP — máx 10MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg,image/png,image/webp">
+                    </div>
+
+                    <!-- Before/After preview -->
+                    <div id="preview-area" style="display:none;">
+                        <div class="bg-preview-wrapper">
+                            <div class="bg-preview-box">
+                                <span class="bg-preview-label">Original</span>
+                                <img id="preview-original" src="" alt="Original">
+                            </div>
+                            <div class="bg-preview-box" id="result-box">
+                                <span class="bg-preview-label">Fondo removido</span>
+                                <canvas id="preview-result"></canvas>
+                                <div id="processing-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.8);gap:8px;">
+                                    <div class="spinner" style="width:24px;height:24px;border-width:3px;"></div>
+                                    <span style="font-size:12px;color:var(--slate-600);" id="proc-text">Procesando silueta...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:8px; display:flex; justify-content:space-between; font-size:12px; color:var(--slate-500); padding:0 2px;">
+                            <span id="img-info"></span>
+                            <span id="proc-time"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Opciones de Fondo</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Color de fondo resultante</span>
+                            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:4px;">
+                                <!-- Transparent -->
+                                <div class="bg-color-swatch active" id="swatch-transparent"
+                                     style="background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 0 0 / 10px 10px;"
+                                     title="Transparente" data-bg="transparent"></div>
+                                <!-- White -->
+                                <div class="bg-color-swatch" id="swatch-white"
+                                     style="background:#ffffff;" title="Blanco" data-bg="#ffffff"></div>
+                                <!-- Black -->
+                                <div class="bg-color-swatch" id="swatch-black"
+                                     style="background:#000000;" title="Negro" data-bg="#000000"></div>
+                                <!-- Blue -->
+                                <div class="bg-color-swatch" id="swatch-blue"
+                                     style="background:#3b82f6;" title="Azul" data-bg="#3b82f6"></div>
+                                <!-- Green (chroma key) -->
+                                <div class="bg-color-swatch" id="swatch-green"
+                                     style="background:#00b140;" title="Verde chroma" data-bg="#00b140"></div>
+                                <!-- Custom color -->
+                                <label style="cursor:pointer; font-size:12px; color:var(--slate-600);">
+                                    Personalizado: <input type="color" id="custom-bg-color" value="#ffffff"
+                                        style="vertical-align:middle; width:28px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:12px;">
+                            <span class="modern-label">Formato de Salida</span>
+                            <select class="modern-select" id="output-format">
+                                <option value="image/png">PNG (soporta fondo transparente)</option>
+                                <option value="image/jpeg">JPG (sin transparencias)</option>
+                                <option value="image/webp">WebP (alta eficiencia + transparente)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Información del Modelo</h3>
+                        <div style="font-size:12px; color:var(--slate-500); line-height:1.5;">
+                            <p style="margin:0 0 6px;">Utiliza el modelo <strong>RMBG-1.4</strong> para segmentación precisa ejecutándose en local vía Transformers.js.</p>
+                            <p style="margin:0; color:var(--slate-400);">El primer uso descarga el modelo (~60MB) en su navegador. Luego quedará guardado en caché para uso instantáneo.</p>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-remove-bg" disabled style="height:42px; font-size:14px; font-weight:600;">
+                        ✨ Quitar fondo con IA
+                    </button>
+
+                    <button class="modern-btn" id="btn-download" disabled style="height:38px; font-size:13px;">
+                        💾 Descargar Resultado
+                    </button>
+                </div>
+            </div>
+
+            <div class="modern-instructions-box">
+                <h3>💡 Consejos de Uso</h3>
+                <p>Al procesarse localmente en la tarjeta gráfica de su dispositivo, <strong>sus imágenes nunca son enviadas a internet</strong>, asegurando privacidad total.</p>
+                <ul>
+                    <li><b>Demora inicial:</b> La primera vez puede tardar unos segundos mientras se descarga la red neuronal de 60MB. Los siguientes intentos se ejecutan offline.</li>
+                    <li><b>Calidad visual:</b> Funciona óptimamente en retratos, mascotas u objetos con alto contraste respecto al fondo.</li>
+                    <li><b>Sustitución de color:</b> Puede descargar en transparente para diseño o elegir un fondo sólido para fichas de producto e-commerce de manera directa.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=4"></script>
+
+    <!-- Load Transformers.js as ES module, expose globally before tool script runs -->
+    <script type="module">
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.0.2/dist/transformers.min.js';
+        env.allowLocalModels = false;
+        window.__HF = { pipeline, env };
+        window.dispatchEvent(new CustomEvent('transformers-ready'));
+    </script>
+
+    <script src="/js/tools/bg-remove.js?v=2"></script>
+</body>
+</html>
