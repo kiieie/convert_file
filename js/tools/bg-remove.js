@@ -111,12 +111,18 @@
         modelStatusText.textContent = 'Loading AI model (first use ~60MB)...';
 
         try {
-            // Dynamically import Transformers.js from CDN
-            const { pipeline: createPipeline, env } = await import(
-                'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1/dist/transformers.min.js'
-            );
+            // Wait for Transformers.js module to be ready (loaded via <script type="module">)
+            if (!window.__HF) {
+                await new Promise((resolve, reject) => {
+                    const timeout = setTimeout(() => reject(new Error('Transformers.js load timeout')), 30000);
+                    window.addEventListener('transformers-ready', () => {
+                        clearTimeout(timeout);
+                        resolve();
+                    }, { once: true });
+                });
+            }
 
-            env.allowLocalModels = false;
+            const { pipeline: createPipeline } = window.__HF;
 
             pipeline = await createPipeline('image-segmentation', 'briaai/RMBG-1.4', {
                 progress_callback: (info) => {
@@ -133,12 +139,13 @@
             modelProgressWrap.style.display = 'none';
             return pipeline;
         } catch (err) {
-            modelStatusText.textContent = '❌ Failed to load AI model';
+            modelStatusText.textContent = '❌ Failed to load AI model: ' + err.message;
             console.error('Transformers.js load error:', err);
             pipelineLoading = false;
             return null;
         }
     }
+
 
     // ── Remove background ────────────────────────────────────────────────
     btnRemoveBg.addEventListener('click', async () => {

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -66,6 +66,21 @@
             margin: 0;
             line-height: 1.4;
         }
+        .modern-tool-card--new {
+            border-color: var(--blue-200);
+            background: linear-gradient(135deg, #fff 0%, #eff6ff 100%);
+        }
+        .modern-tool-card--new .modern-tool-card__title::after {
+            content: ' NEW';
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--blue-500);
+            background: #dbeafe;
+            padding: 1px 5px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
     </style>
 
     <title>ConvertFile - 온라인 무료 이미지 & GIF/PDF 변환/편집기</title>
@@ -125,6 +140,34 @@
 
             <!-- 툴 리스트 카드 대시보드 -->
             <div class="modern-dashboard-grid">
+                <!-- ── 인기 신규 도구 ── -->
+                <a href="/tools/heic2jpg.html" class="modern-tool-card modern-tool-card--new">
+                    <div class="modern-tool-card__icon">📱</div>
+                    <h3 class="modern-tool-card__title">HEIC to JPG</h3>
+                    <p class="modern-tool-card__desc">아이폰 HEIC/HEIF 사진을 브라우저 내에서 즉시 JPG로 변환합니다.</p>
+                </a>
+                <a href="/tools/compress.html" class="modern-tool-card modern-tool-card--new">
+                    <div class="modern-tool-card__icon">🗜️</div>
+                    <h3 class="modern-tool-card__title">이미지 압축</h3>
+                    <p class="modern-tool-card__desc">화질 실시간 미리보기로 JPG, PNG, WebP 용량을 줄입니다.</p>
+                </a>
+                <a href="/tools/webp-convert.html" class="modern-tool-card modern-tool-card--new">
+                    <div class="modern-tool-card__icon">⚡</div>
+                    <h3 class="modern-tool-card__title">WebP 변환기</h3>
+                    <p class="modern-tool-card__desc">이미지를 WebP로 변환해 용량을 줄이거나, WebP를 JPG/PNG로 되돌립니다.</p>
+                </a>
+                <a href="/tools/bg-remove.html" class="modern-tool-card modern-tool-card--new">
+                    <div class="modern-tool-card__icon">✨</div>
+                    <h3 class="modern-tool-card__title">배경 제거 AI</h3>
+                    <p class="modern-tool-card__desc">AI로 사진 배경을 제거합니다. 100% 브라우저 작동으로 개인정보가 보호됩니다.</p>
+                </a>
+                <a href="/tools/img-pdf.html" class="modern-tool-card modern-tool-card--new">
+                    <div class="modern-tool-card__icon">📑</div>
+                    <h3 class="modern-tool-card__title">이미지 → PDF</h3>
+                    <p class="modern-tool-card__desc">여러 이미지를 커스텀 페이지 크기와 순서로 하나의 PDF로 결합합니다.</p>
+                </a>
+
+                <!-- ── 기존 도구 ── -->
                 <a href="/tools/resize.html" class="modern-tool-card">
                     <div class="modern-tool-card__icon">📐</div>
                     <h3 class="modern-tool-card__title">이미지 크기 조절</h3>
