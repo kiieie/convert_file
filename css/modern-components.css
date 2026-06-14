@@ -5,7 +5,7 @@
 /* 1. 기본 레이아웃 구성 요소 */
 .modern-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 200px 1fr;
     min-height: 100vh;
 }
 
@@ -13,50 +13,58 @@
 .modern-sidebar {
     background-color: var(--slate-900);
     color: #FFFFFF;
-    padding: 24px 16px;
+    padding: 16px 10px;
     border-right: 1px solid var(--slate-800);
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 .modern-sidebar__logo {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #FFFFFF;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-left: 8px;
+    padding: 4px 6px 8px;
+    border-bottom: 1px solid var(--slate-800);
+    margin-bottom: 4px;
 }
 
 .modern-sidebar__group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
 }
 
 .modern-sidebar__group-title {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    color: var(--slate-400);
+    color: var(--slate-500);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-    padding-left: 8px;
+    letter-spacing: 0.06em;
+    margin: 6px 0 2px 6px;
 }
 
 .modern-sidebar__item {
-    font-size: 13px;
-    padding: 8px 12px;
+    font-size: 12px;
+    padding: 6px 8px;
     color: var(--slate-300);
     text-decoration: none;
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 500;
-    transition: background-color 0.15s, color 0.15s;
+    gap: 7px;
+    font-weight: 400;
+    transition: background-color 0.12s, color 0.12s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modern-sidebar__item:hover {
@@ -76,11 +84,12 @@
 
 /* 3. 콘텐츠 영역 (Workspace Content) */
 .modern-content {
-    padding: 32px 40px;
+    padding: 24px 32px;
     background-color: var(--slate-50);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    min-width: 0;
 }
 
 .modern-content__header {

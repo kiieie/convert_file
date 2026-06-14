@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+
+        /* Comparison stats panel */
+        .compress-stats {
+            display: none;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .compress-stats.visible {
+            display: flex;
+        }
+        .compress-stat-box {
+            flex: 1;
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            font-size: 12px;
+            color: var(--slate-600);
+        }
+        .compress-stat-box__label {
+            font-weight: 600;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--slate-400);
+            margin-bottom: 4px;
+        }
+        .compress-stat-box__value {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--slate-800);
+        }
+        .compress-stat-box__sub {
+            font-size: 11px;
+            color: var(--slate-500);
+            margin-top: 2px;
+        }
+        .compress-stat-box--savings {
+            border-color: var(--blue-400);
+            background: #EFF6FF;
+        }
+        .compress-stat-box--savings .compress-stat-box__value {
+            color: var(--blue-600);
+        }
+        .compress-savings-badge {
+            display: inline-block;
+            background: #DCFCE7;
+            color: #166534;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .compress-savings-badge.worse {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        /* Quality slider styling */
+        .quality-slider-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quality-slider-wrap input[type="range"] {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        /* Preview canvas container */
+        #preview-container canvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Processing indicator */
+        .compress-processing {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--slate-500);
+            margin-top: 6px;
+        }
+        .compress-processing.visible {
+            display: flex;
+        }
+        .compress-processing__dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--blue-500);
+            animation: pulse-dot 1s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+    </style>
+
+    <title>Image Compressor - Reduce JPG, PNG, WebP File Size | 2convert.org</title>
+    <meta name="description" content="Compress JPG, PNG, and WebP images online for free. Adjust quality, see before/after file size comparison, and download the compressed image instantly. No upload needed — runs locally in your browser.">
+    <meta name="keywords" content="image compressor, compress jpg, compress png, compress webp, reduce image size, image optimizer">
+    <link rel="canonical" href="https://2convert.org/tools/compress.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/tools/compress.html">
+    <meta property="og:title" content="Image Compressor - Reduce JPG, PNG, WebP File Size | 2convert.org">
+    <meta property="og:description" content="Compress JPG, PNG, and WebP images online for free. Adjust quality, see before/after file size comparison, and download the compressed image instantly.">
+    <meta property="og:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/tools/compress.html">
+    <meta property="twitter:title" content="Image Compressor - Reduce JPG, PNG, WebP File Size | 2convert.org">
+    <meta property="twitter:description" content="Compress JPG, PNG, and WebP images online for free. Adjust quality, see before/after file size comparison, and download the compressed image instantly.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Compressor - Reduce JPG, PNG, WebP File Size",
+      "url": "https://2convert.org/tools/compress.html",
+      "description": "Compress JPG, PNG, and WebP images online for free. Adjust quality, see before/after file size comparison, and download the compressed image instantly.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main workspace -->
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">Image Compressor</h1>
+                <p class="modern-content__desc">Reduce JPG, PNG, and WebP image file sizes with a quality slider. See real before &amp; after sizes and download the compressed result instantly — no upload, 100% local.</p>
+            </header>
+
+            <!-- Ad zone -->
+            <div class="modern-ad-zone">
+                <span>[Ad Slot] Google AdSense Banner Slot (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Column 1: Upload zone + Preview + Stats -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Upload drop zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Drop your image here to compress</div>
+                        <div class="modern-upload-zone__desc">Or click to browse. Accepts JPG, PNG, WebP. Max 25 MB.</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg,image/png,image/webp">
+                    </div>
+
+                    <!-- Preview canvas -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+
+                    <!-- Processing indicator -->
+                    <div class="compress-processing" id="processing-indicator">
+                        <div class="compress-processing__dot"></div>
+                        <span>Updating preview&hellip;</span>
+                    </div>
+
+                    <!-- Before / After stats -->
+                    <div class="compress-stats" id="compress-stats">
+                        <div class="compress-stat-box">
+                            <div class="compress-stat-box__label">Original</div>
+                            <div class="compress-stat-box__value" id="stat-orig-size">—</div>
+                            <div class="compress-stat-box__sub" id="stat-orig-dim">—</div>
+                        </div>
+                        <div class="compress-stat-box">
+                            <div class="compress-stat-box__label">Compressed</div>
+                            <div class="compress-stat-box__value" id="stat-comp-size">—</div>
+                            <div class="compress-stat-box__sub" id="stat-comp-format">—</div>
+                        </div>
+                        <div class="compress-stat-box compress-stat-box--savings">
+                            <div class="compress-stat-box__label">Savings</div>
+                            <div class="compress-stat-box__value" id="stat-savings-pct">—</div>
+                            <div id="stat-savings-badge"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Quality card -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Compression Quality</h3>
+
+                        <div class="modern-form-group">
+                            <span class="modern-label">Quality &mdash; <span id="quality-label" style="color:var(--blue-600); font-weight:700;">80%</span></span>
+                            <div class="quality-slider-wrap">
+                                <span style="font-size:11px; color:var(--slate-400);">10</span>
+                                <input type="range" id="quality-slider" min="10" max="100" value="80" disabled>
+                                <span style="font-size:11px; color:var(--slate-400);">100</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--slate-400); margin-top:2px;">
+                                <span>Smaller file</span>
+                                <span>Best quality</span>
+                            </div>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:14px;">
+                            <span class="modern-label">Output Format</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="match">Same as input</option>
+                                <option value="image/jpeg">JPG</option>
+                                <option value="image/png">PNG</option>
+                                <option value="image/webp">WebP</option>
+                            </select>
+                            <div id="png-quality-note" style="display:none; font-size:11px; color:var(--slate-400); margin-top:4px;">
+                                &#9888;&#65039; PNG is lossless &mdash; quality slider has no effect on PNG output.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- File info card -->
+                    <div class="modern-card" id="file-info-card" style="display:none;">
+                        <h3 class="modern-card__title">File Info</h3>
+                        <div style="font-size:12px; color:var(--slate-600); line-height:1.9;">
+                            <div><strong>Name:</strong> <span id="info-name" style="color:var(--slate-800); word-break:break-all;">—</span></div>
+                            <div><strong>Dimensions:</strong> <span id="info-dims" style="color:var(--slate-800);">—</span></div>
+                            <div><strong>Original size:</strong> <span id="info-size" style="color:var(--slate-800);">—</span></div>
+                            <div><strong>Type:</strong> <span id="info-type" style="color:var(--slate-800);">—</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Download button -->
+                    <button class="modern-btn modern-btn--primary" id="btn-download" disabled style="height:42px; font-size:14px; font-weight:600;">
+                        &#x1F4BE; Download Compressed Image
+                    </button>
+
+                    <div id="download-info" style="display:none; text-align:center; font-size:11px; color:var(--slate-500); margin-top:-6px;">
+                        <span id="download-info-text"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box">
+                <h3>&#x1F4A1; How to Use the Image Compressor</h3>
+                <p>
+                    All processing happens <strong>entirely in your browser</strong> using the HTML5 Canvas API &mdash; no image data is ever sent to a server.
+                </p>
+                <ul>
+                    <li><strong>Quality Slider (10&ndash;100):</strong> Lower values produce smaller files with more visible compression artifacts. 70&ndash;85 is the sweet spot for most photos.</li>
+                    <li><strong>Output Format:</strong> "Same as input" preserves the original format. Switching to WebP typically achieves the best compression-to-quality ratio for modern browsers.</li>
+                    <li><strong>PNG note:</strong> PNG compression is lossless, so the quality slider has no effect when outputting PNG &mdash; only color data and dimensions affect the file size.</li>
+                    <li><strong>Live Preview:</strong> Preview and size stats update automatically 300 ms after you move the slider or change the format.</li>
+                    <li><strong>Savings badge:</strong> The "Saved X%" figure is based on the actual compressed blob size returned by the browser &mdash; not an estimate.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/compress.js?v=1"></script>
+</body>
+</html>

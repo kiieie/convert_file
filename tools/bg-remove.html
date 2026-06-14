@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .bg-preview-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .bg-preview-box {
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bg-preview-box img,
+        .bg-preview-box canvas {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+        }
+        .bg-preview-label {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--slate-500);
+            background: rgba(255,255,255,0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .bg-color-swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-300);
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-color-swatch.active {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+        }
+        .progress-bar-wrap {
+            background: var(--slate-100);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue-500), #6366f1);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .model-loading-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--slate-500);
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 999px;
+            padding: 3px 10px;
+        }
+        .spinner {
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--slate-300);
+            border-top-color: var(--blue-500);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+
+    <title>AI Background Remover - Free Online Tool | 2convert.org</title>
+    <meta name="description" content="Remove image backgrounds instantly with AI. No upload to server — runs 100% in your browser. Free, private, and fast.">
+    <meta name="keywords" content="background remover, remove background, transparent background, AI background remove">
+    <link rel="canonical" href="https://2convert.org/tools/bg-remove.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/tools/bg-remove.html">
+    <meta property="og:title" content="AI Background Remover - Free Online Tool | 2convert.org">
+    <meta property="og:description" content="Remove image backgrounds instantly with AI. Runs 100% in your browser — private and free.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Background Remover",
+      "url": "https://2convert.org/tools/bg-remove.html",
+      "description": "Remove image backgrounds instantly with AI, running 100% in your browser.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires WebAssembly support."
+    }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <aside class="modern-sidebar"></aside>
+
+        <main class="modern-content">
+            <header class="modern-content__header">
+                <h1 class="modern-content__title">AI Background Remover</h1>
+                <p class="modern-content__desc">Remove backgrounds from photos instantly using AI — runs entirely in your browser. No uploads, no accounts, completely free.</p>
+            </header>
+
+            <div class="modern-ad-zone">
+                <span>[Ad Slot] Google AdSense Banner (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- Left: Upload + Preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <!-- Model loading status -->
+                    <div id="model-status" style="display:none;">
+                        <span class="model-loading-badge">
+                            <span class="spinner" id="model-spinner"></span>
+                            <span id="model-status-text">Loading AI model...</span>
+                        </span>
+                        <div class="progress-bar-wrap" id="model-progress-wrap" style="display:none; margin-top:6px;">
+                            <div class="progress-bar-fill" id="model-progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Upload zone -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Drop your image here</div>
+                        <div class="modern-upload-zone__desc">or click to select a file (JPG, PNG, WebP — max 10MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/jpeg,image/png,image/webp">
+                    </div>
+
+                    <!-- Before/After preview -->
+                    <div id="preview-area" style="display:none;">
+                        <div class="bg-preview-wrapper">
+                            <div class="bg-preview-box">
+                                <span class="bg-preview-label">Original</span>
+                                <img id="preview-original" src="" alt="Original">
+                            </div>
+                            <div class="bg-preview-box" id="result-box">
+                                <span class="bg-preview-label">Background Removed</span>
+                                <canvas id="preview-result"></canvas>
+                                <div id="processing-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.8);gap:8px;">
+                                    <div class="spinner" style="width:24px;height:24px;border-width:3px;"></div>
+                                    <span style="font-size:12px;color:var(--slate-600);" id="proc-text">Processing...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:8px; display:flex; justify-content:space-between; font-size:12px; color:var(--slate-500); padding:0 2px;">
+                            <span id="img-info"></span>
+                            <span id="proc-time"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Controls -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Background Options</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Output background</span>
+                            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:4px;">
+                                <!-- Transparent -->
+                                <div class="bg-color-swatch active" id="swatch-transparent"
+                                     style="background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 0 0 / 10px 10px;"
+                                     title="Transparent" data-bg="transparent"></div>
+                                <!-- White -->
+                                <div class="bg-color-swatch" id="swatch-white"
+                                     style="background:#ffffff;" title="White" data-bg="#ffffff"></div>
+                                <!-- Black -->
+                                <div class="bg-color-swatch" id="swatch-black"
+                                     style="background:#000000;" title="Black" data-bg="#000000"></div>
+                                <!-- Blue -->
+                                <div class="bg-color-swatch" id="swatch-blue"
+                                     style="background:#3b82f6;" title="Blue" data-bg="#3b82f6"></div>
+                                <!-- Green (chroma key) -->
+                                <div class="bg-color-swatch" id="swatch-green"
+                                     style="background:#00b140;" title="Green Screen" data-bg="#00b140"></div>
+                                <!-- Custom color -->
+                                <label style="cursor:pointer; font-size:12px; color:var(--slate-600);">
+                                    Custom: <input type="color" id="custom-bg-color" value="#ffffff"
+                                        style="vertical-align:middle; width:28px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="modern-form-group" style="margin-top:12px;">
+                            <span class="modern-label">Output format</span>
+                            <select class="modern-select" id="output-format">
+                                <option value="image/png">PNG (supports transparency)</option>
+                                <option value="image/jpeg">JPG (no transparency)</option>
+                                <option value="image/webp">WebP (smaller size + transparency)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">AI Model</h3>
+                        <div style="font-size:12px; color:var(--slate-500); line-height:1.5;">
+                            <p style="margin:0 0 6px;">Uses <strong>RMBG-1.4</strong> model via Transformers.js — runs 100% locally in your browser using WebAssembly.</p>
+                            <p style="margin:0; color:var(--slate-400);">First use downloads ~60MB model. Cached after that.</p>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-remove-bg" disabled style="height:42px; font-size:14px; font-weight:600;">
+                        ✨ Remove Background
+                    </button>
+
+                    <button class="modern-btn" id="btn-download" disabled style="height:38px; font-size:13px;">
+                        💾 Download Result
+                    </button>
+                </div>
+            </div>
+
+            <div class="modern-instructions-box">
+                <h3>💡 How the AI Background Remover Works</h3>
+                <p>This tool uses the <strong>RMBG-1.4</strong> AI segmentation model, running entirely in your browser via WebAssembly. <strong>Your images never leave your device</strong> — complete privacy guaranteed.</p>
+                <ul>
+                    <li><strong>First use:</strong> The AI model (~60MB) is downloaded once and cached in your browser. Subsequent uses are instant.</li>
+                    <li><strong>Best results:</strong> Works best on photos with clear subject-background contrast (portraits, product photos, animals).</li>
+                    <li><strong>Transparent PNG:</strong> Choose PNG output to preserve transparency for use in design tools.</li>
+                    <li><strong>Custom background:</strong> Replace the removed background with any solid color — perfect for e-commerce product photos.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=3"></script>
+    <script src="/js/tools/bg-remove.js?v=1"></script>
+</body>
+</html>
