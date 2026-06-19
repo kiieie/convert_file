@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname;
     const isKorean = currentPath.startsWith('/ko/');
     const isSpanish = currentPath.startsWith('/es/');
-    const langPrefix = isKorean ? '/ko' : (isSpanish ? '/es' : '');
-    const currentLang = isKorean ? 'ko' : (isSpanish ? 'es' : 'en');
+    const isChinese = currentPath.startsWith('/zh/');
+    const langPrefix = isKorean ? '/ko' : (isSpanish ? '/es' : (isChinese ? '/zh' : ''));
+    const currentLang = isKorean ? 'ko' : (isSpanish ? 'es' : (isChinese ? 'zh' : 'en'));
 
     const t = {
         en: {
@@ -116,6 +117,40 @@ document.addEventListener("DOMContentLoaded", () => {
             privacy:    "Privacidad",
             terms:      "Términos",
             contact:    "Contacto",
+        },
+        zh: {
+            imageTools: "图像工具",
+            resize:     "调整大小",
+            crop:       "裁剪",
+            rotate:     "旋转和翻转",
+            compress:   "图像压缩",
+            heic:       "HEIC 转 JPG",
+            webp:       "WebP 转换",
+            bgRemove:   "AI 背景消除",
+            colorExtractor: "调色板提取",
+            watermark:   "图像水印",
+            memeGen:     "表情包生成器",
+            svgConvert:  "SVG 转 PNG/JPG",
+            gifTools:   "GIF 工具",
+            gifMaker:   "制作 GIF",
+            gifSplit:   "GIF 帧拆分",
+            gifOpt:     "GIF 优化",
+            gifSpeed:   "GIF 速度调整",
+            gifEffects: "GIF 特效与字幕",
+            videoTools: "视频与 PDF",
+            videoGif:   "视频转 GIF",
+            imgPdf:     "图像转 PDF",
+            pdfTools:   "PDF 工具",
+            utils:      "实用工具",
+            convert:    "格式转换",
+            barcode:    "二维码和条形码",
+            metadata:   "移除 EXIF",
+            base64:     "图像 ↔ Base64",
+            lang:       "语言",
+            about:      "关于我们",
+            privacy:    "隐私政策",
+            terms:      "使用条款",
+            contact:    "联系我们",
         }
     }[currentLang];
 
@@ -170,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
                 <option value="ko" ${currentLang === 'ko' ? 'selected' : ''}>한국어</option>
                 <option value="es" ${currentLang === 'es' ? 'selected' : ''}>Español</option>
+                <option value="zh" ${currentLang === 'zh' ? 'selected' : ''}>简体中文</option>
             </select>
         </div>
 

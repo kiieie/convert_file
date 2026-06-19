@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -12,23 +15,101 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
     <link rel="stylesheet" href="/css/tools.css">
-    <style>.modern-ad-zone{border:1px dashed var(--slate-200);background-color:#FFF;padding:12px;text-align:center;font-size:11px;color:var(--slate-400);border-radius:var(--radius-sm);margin-bottom:15px;}</style>
-    <title>온라인 비디오 to GIF 움짤 변환기 (Video to GIF) - ConvertFile</title>
-    <meta name="description" content="MP4 등의 동영상 파일에서 원하는 구간을 잘라내어 고화질 GIF 움짤 애니메이션으로 고속 인코딩해 보세요.">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-video-player {
+            max-width: 100%;
+            max-height: 250px;
+            background-color: #000;
+            border-radius: var(--radius-md);
+        }
+        /* Batch video list styles */
+        .video-batch-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .video-batch-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            cursor: pointer;
+            transition: border-color 0.15s;
+        }
+        .video-batch-item__icon { font-size: 22px; flex-shrink: 0; }
+        .video-batch-item__info { flex: 1; min-width: 0; }
+        .video-batch-item__name {
+            font-weight: 600;
+            color: var(--slate-800);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .video-batch-item__meta { color: var(--slate-500); margin-top: 2px; }
+        .video-batch-item__status { font-size: 11px; font-weight: 600; flex-shrink: 0; }
+        .video-batch-item__status--pending    { color: var(--slate-400); }
+        .video-batch-item__status--processing { color: var(--blue-600); }
+        .video-batch-item__status--done       { color: #16a34a; }
+        .video-batch-item__status--error      { color: var(--error); }
+    </style>
+
+    <title>온라인 동영상 GIF 변환기 (일괄 변환) - ConvertFile</title>
+    <meta name="description" content="MP4, WebM 동영상을 움직이는 GIF로 변환합니다. 여러 동영상 파일의 일괄 처리를 지원합니다. 시작/종료 시간, 너비, FPS를 선택하세요.">
+    <meta name="keywords" content="동영상 gif 변환, mp4 gif 변환, 비디오 gif 변환기, 일괄 동영상 gif">
     <link rel="canonical" href="https://2convert.org/ko/tools/video-gif.html">
+    
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/ko/tools/video-gif.html">
-    <meta property="og:title" content="온라인 비디오 to GIF 움짤 변환기 (Video to GIF) - ConvertFile">
-    <meta property="og:description" content="MP4 등의 동영상 파일에서 원하는 구간을 잘라내어 고화질 GIF 움짤 애니메이션으로 고속 인코딩해 보세요.">
+    <meta property="og:title" content="온라인 동영상 GIF 변환기 (일괄 변환) - ConvertFile">
+    <meta property="og:description" content="여러 MP4 동영상을 GIF 애니메이션으로 변환합니다.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"온라인 비디오 to GIF 움짤 변환기 (Video to GIF) - ConvertFile","url":"https://2convert.org/ko/tools/video-gif.html","description":"MP4 등의 동영상 파일에서 원하는 구간을 잘라내어 고화질 GIF 움짤 애니메이션으로 고속 인코딩해 보세요.","applicationCategory":"MultimediaApplication","operatingSystem":"All"}</script>
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/ko/tools/video-gif.html">
+    <meta property="twitter:title" content="동영상 GIF 변환기 - ConvertFile">
+    <meta property="twitter:description" content="여러 동영상을 GIF로 변환합니다.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
+ 
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "동영상 GIF 변환기 - ConvertFile",
+  "url": "https://2convert.org/ko/tools/video-gif.html",
+  "description": "일괄 처리를 지원하는 MP4, WebM 동영상 GIF 변환기입니다.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
+    </script>
 </head>
 <body>
+ 
     <div class="modern-layout">
         <aside class="modern-sidebar"></aside>
+ 
         <main class="modern-content">
             <header class="modern-content__header">
 <!-- Google tag (gtag.js) -->
@@ -37,18 +118,176 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
+ 
   gtag('config', 'G-S87614V8Y9');
 </script>
-                <h1 class="modern-content__title">비디오 to GIF 변환기 (Video to GIF)</h1>
-                <p class="modern-content__desc">MP4 또는 WebM 동영상 파일을 업로드하여 원하는 구간만 움짤 GIF 애니메이션으로 고속 변환합니다.</p>
+                <h1 class="modern-content__title">동영상 GIF 변환기 (일괄 변환)</h1>
+                <p class="modern-content__desc">하나 이상의 MP4/WebM 동영상을 업로드하고 각각 움직이는 GIF로 변환하세요. 변환 시 시작/종료 시간, 출력 너비, FPS를 설정할 수 있습니다.</p>
             </header>
-            <div class="modern-ad-zone"><span>[광고 슬롯] Google AdSense Banner (728x90)</span></div>
+ 
+            <div class="modern-ad-zone">
+                <span>[광고 영역] 구글 애드센스 배너 (728x90)</span>
+            </div>
+ 
+            <div class="modern-tool-grid">
+                <!-- Column 1: Drop zone + batch list + preview -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- Drop zone (multiple videos) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
+                        <div class="modern-upload-zone__title">여기에 MP4 또는 WebM 동영상 파일을 드래그앤드롭하세요</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">HTML5 코덱 지원 동영상 (개당 최대 50MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 동영상 파일 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="video/mp4, video/webm" multiple>
+                    </div>
+ 
+                    <!-- Batch video list -->
+                    <div id="batch-video-container" style="display:none;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <span style="font-size:13px; font-weight:700; color:var(--slate-700);" id="batch-video-count">선택된 동영상 0개</span>
+                            <button class="modern-btn" style="font-size:11px; padding:4px 10px; height:auto; background:var(--slate-100); color:var(--slate-700);" id="btn-clear-videos">🗑 모두 지우기</button>
+                        </div>
+                        <div class="video-batch-list" id="video-batch-list"></div>
+                    </div>
+ 
+                    <!-- Video preview -->
+                    <div id="preview-container" style="display:none; flex-direction:column; gap:10px;">
+                        <div style="font-size:12px; color:var(--slate-600); font-weight:600;" id="preview-label">미리보기</div>
+                        <video class="modern-video-player" id="source-video" controls muted></video>
+                        <img id="preview-gif" style="max-width: 100%; max-height: 200px; display:none; border-radius: var(--radius-sm);" alt="GIF preview">
+                    </div>
+ 
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+ 
+                <!-- Column 2: Conversion settings -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">변환 설정</h3>
+                        
+                        <div style="display:flex; gap:10px; margin-bottom:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">시작 시간 (초)</span>
+                                <input type="number" class="modern-input" id="start-time" value="0" min="0" step="0.5">
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">종료 시간 (초)</span>
+                                <input type="number" class="modern-input" id="end-time" value="5" min="0" step="0.5">
+                            </div>
+                        </div>
+ 
+                        <div style="display:flex; gap:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">출력 너비 (px)</span>
+                                <input type="number" class="modern-input" id="gif-width" value="320">
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">프레임 레이트 (FPS)</span>
+                                <select class="modern-select" id="gif-fps">
+                                    <option value="5">5 FPS (낮은 화질)</option>
+                                    <option value="10" selected>10 FPS (표준 화질)</option>
+                                    <option value="15">15 FPS (부드러운 화질)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <button class="modern-btn modern-btn--primary" id="btn-convert" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🎞️ 선택한 동영상을 GIF로 변환
+                    </button>
+ 
+                    <button class="modern-btn" id="btn-convert-all" disabled style="height:38px; font-size:13px; font-weight:600; background:var(--slate-700); color:#fff; border:none; border-radius:var(--radius-md); cursor:pointer;">
+                        ⚡ 모든 동영상 변환 (동일한 설정)
+                    </button>
+ 
+                    <div style="font-size:11px; color:var(--slate-500); text-align:center;">
+                        클립당 최대 15초. 각 GIF는 자동으로 다운로드됩니다.
+                    </div>
+                </div>
+            </div>
+ 
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 동영상 GIF 변환기 (동영상 움짤)</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">동영상 GIF 변환기 (동영상 움짤) 도구는 웹 브라우저의 네이티브 기술을 기반으로 구축되었으며, 클라이언트 측 애플리케이션의 실행 컨텍스트 내에서 HTML5 Video 미디어 재생 엘리먼트 및 Canvas 프레임 캡처를 직접적으로 활용합니다. 비디오 스트림 트랙 프레임 추출 및 GIF 인코딩 서브모듈를 통합함으로써 시스템은 이진 연산을 실행하고 사용자 페이로드를 즉각적으로 처리합니다. 이러한 아키텍처는 전통적인 서버 통신으로 인한 지연 시간을 제거하여, 대용량 파일 처리나 빈번한 데이터 작업 시에도 최적의 응답성과 제로 레이턴시(Zero Latency)를 보장합니다.</p>
+                    <p style="margin-bottom: 12px;">현대적인 웹 개발 흐름에서 비디오 파일에서 움직이는 GIF 애니메이션으로 변환 처리를 서버가 아닌 클라이언트 브라우저로 위임하는 것은 성능 향상과 정보 보안 측면에서 매우 중요합니다. 네트워크 채널을 통해 원본 파일이나 미디어 스트림을 전송하는 대신, 사용자 단말기의 로컬 스레드에서 직접 연산이 실행됩니다. 고급 자바스크립트 API를 활용하여 제어판의 슬라이더 조절이나 실시간 미리보기가 지연 없이 렌더링되므로, 데스크톱 전용 앱처럼 매끄러운 사용자 경험을 제공합니다.</p>
+                    <p style="margin-bottom: 12px;">내부적으로는 비디오 프레임 추출 바이트 버퍼 메모리를 활용하여 메모리 할당과 해제를 최적화합니다. 데이터 처리 주기 동안 프레임 샘플링 레이트 조절 및 LZW 압축 인코딩를 적용하여 전송 처리량을 극대화하고 픽셀 또는 텍스트의 정밀도를 유지합니다. 최종 결과물은 HTML5 Media Stream API 및 GIF89a 사양 규격 표준 규격을 엄격하게 준수하여 생성되므로, 생성된 이미지, 코드 또는 문서 파일이 다양한 외부 플랫폼, 운영 체제 및 전문 편집 프로그램과 완벽하게 호환됩니다.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ 사용 방법
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">웹 도구 페이지에 접속한 후 상단에 위치한 파일 업로드 영역 또는 텍스트 입력란을 확인합니다.</li>
+                            <li style="margin-bottom: 8px;">드래그 앤 드롭 방식을 사용해 원본 파일(PNG, JPG, WEBP 등)을 업로드하거나, 지정된 필드에 텍스트 또는 숫자 데이터를 입력합니다.</li>
+                            <li style="margin-bottom: 8px;">제어판 영역의 조절 바나 화질 설정 슬라이더를 사용하여 요구 사양에 맞춰 변환 파라미터를 세부 조정합니다.</li>
+                            <li style="margin-bottom: 8px;">실행 버튼(예: 생성, 변환 또는 처리 시작)을 클릭하여 캔버스나 메모리 버퍼 상에서 연산 프로세스를 동작시킵니다.</li>
+                            <li style="margin-bottom: 8px;">실시간 미리보기 화면으로 변환 결과를 검토한 다음, 다운로드 버튼을 눌러 결과 파일을 로컬 저장소에 안전하게 저장합니다.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 주요 특징
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>브라우저 로컬 프로세싱:</strong> 모든 연산을 메인 스레드 또는 웹 워커(Web Workers) 내에서 수행하여 화면 멈춤 현상을 방지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>고정밀 렌더링 알고리즘:</strong> 변환 및 압축 과정에서 프레임 샘플링 레이트 조절 및 LZW 압축 인코딩를 적용해 화질 저하를 최소화하고 원래의 정밀도를 유지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>효율적인 메모리 관리:</strong> 비디오 프레임 추출 바이트 버퍼 메모리를 통해 임시 버퍼 공간을 유연하게 할당하여 메모리 누수를 막고 브라우저 안정성을 극대화합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>국제 표준 규격 준수:</strong> HTML5 Media Stream API 및 GIF89a 사양 규격 표준 규격을 철저하게 적용하여, 저장된 결과 파일을 어떤 외부 프로그램에서도 호환성 오류 없이 활용할 수 있습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>로컬 메모리 보안 및 개인정보 보호:</strong> 본 도구는 사용자의 웹 브라우저 로컬 샌드박스 환경 내에서만 백퍼센트 실행됩니다. 클라이언트 측 브라우저 단에서 임시 파일 읽기 및 가공이 수행되므로, 입력된 텍스트나 업로드된 파일이 외부 서버로 절대 전송되지 않습니다. 이는 유럽 연합의 GDPR 및 국내 개인정보보호법 규정을 충족하며 안전한 작업 환경을 보장합니다.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 자주 묻는 질문 (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 동영상 파일에서 애니메이션 프레임을 어떻게 추출하나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">올려진 동영상을 브라우저 가상 Video 태그로 재생하며 지정한 시간 범위와 초당 프레임 수(FPS)에 맞추어 캔버스로 화면 프레임을 캡처해 GIF 프레임 셋을 구축합니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 동영상 원본보다 변환된 GIF 용량이 큰 이유는 무엇인가요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">GIF 포맷은 MP4와 같은 시간적 영상 압축 기술이 없고 고전적인 LZW 개별 압축만 쓰기 때문에 화소 정보가 반복 누적되어 파일 용량이 상대적으로 비대해집니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 변환할 수 있는 동영상의 최대 길이는 어느 정도인가요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">컴퓨터 브라우저 실시간 메모리 내에서 연산이 이루어집니다. 따라서 기기의 메모리 부족 현상을 방지하기 위해 10초 이내의 짤막한 구간을 변환하시는 것을 권장합니다.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>            </div>
         </main>
     </div>
+
     <script src="/js/vendors/gifshot.min.js?v=4"></script>
-    <script src="/js/core/image-loader.js?v=4"></script>
-    <script src="/js/core/canvas-utils.js?v=4"></script>
     <script src="/js/core/file-utils.js?v=4"></script>
     <script src="/js/core/ui-components.js?v=4"></script>
     <script src="/js/core/sidebar.js?v=4"></script>

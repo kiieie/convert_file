@@ -2,4 +2,4 @@
 # 배포 후 본인의 Google AdSense 웹 사이트 관리 페이지에 적혀있는 코드로 수정해 주십시오.
 # 예시 포맷: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
 
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-4754586105413913, DIRECT, f08c47fec0942fa0

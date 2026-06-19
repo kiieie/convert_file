@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<!-- Google AdSense Auto Ads -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<!-- Auto Language Detector Redirector -->
+<script src="/js/core/lang-detector.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/modern-theme.css" rel="stylesheet"/>
+<link href="/css/modern-components.css" rel="stylesheet"/>
+<link href="/css/tools.css" rel="stylesheet"/>
+<style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .image-file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .image-file-item {
+            border: 1px solid var(--slate-200);
+            background-color: #FFFFFF;
+            border-radius: var(--radius-md);
+            padding: 8px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .image-file-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--slate-100);
+        }
+        .image-file-item__name {
+            font-size: 11px;
+            color: var(--slate-600);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }
+        .image-file-item__remove {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--error);
+            color: #FFFFFF;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid #FFFFFF;
+        }
+    </style>
+<title>在线 PDF ↔ 图像转换器（PDF 工具）- ConvertFile</title>
+<meta content="将多张照片合并到一个 PDF 文档中，或将 PDF 文档的每一页提取为打包在 ZIP 文件中的高质量图像。" name="description"/>
+<meta content="图像转pdf、pdf转图像、jpg转pdf、pdf转jpg、pdf合并、pdf编辑器" name="keywords"/>
+<link href="https://2convert.org/zh/tools/pdf.html" rel="canonical"/>
+<!-- Open Graph / Facebook -->
+<meta content="website" property="og:type"/>
+<meta content="https://2convert.org/zh/tools/pdf.html" property="og:url"/>
+<meta content="在线 PDF ↔ 图像转换器（PDF 工具）- ConvertFile" property="og:title"/>
+<meta content="将多张照片合并到一个 PDF 文档中，或将 PDF 文档的每一页提取为打包在 ZIP 文件中的高质量图像。" property="og:description"/>
+<meta content="https://2convert.org/assets/og-image.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://2convert.org/zh/tools/pdf.html" property="twitter:url"/>
+<meta content="在线 PDF ↔ 图像转换器（PDF 工具）- ConvertFile" property="twitter:title"/>
+<meta content="将多张照片合并到一个 PDF 文档中，或将 PDF 文档的每一页提取为打包在 ZIP 文件中的高质量图像。" property="twitter:description"/>
+<meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
+<!-- Structured Data -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "在线 PDF ↔ 图像转换器（PDF 工具）- ConvertFile",
+  "url": "https://2convert.org/zh/tools/pdf.html",
+  "description": "将多张照片合并到一个 PDF 文档中，或将 PDF 文档的每一页提取为打包在 ZIP 文件中的高质量图像。",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}</script>
+</head>
+<body>
+<div class="modern-layout">
+<!-- 1. Left Sidebar Fixed Navigation -->
+<aside class="modern-sidebar"></aside>
+<!-- 2. Right Main Workspace -->
+<main class="modern-content">
+<header class="modern-content__header">
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<h1 class="modern-content__title">PDF ↔ 图像工具</h1>
+<p class="modern-content__desc">将多个图像合并为一个 PDF 文件，或将 PDF 文档的所有页面提取为 JPG 图像。</p>
+</header>
+<!-- Google AdSense Zone -->
+<div class="modern-ad-zone">
+<span>[广告区] Google AdSense 横幅 (728x90)</span>
+</div>
+<!-- Modern Tabs -->
+<div class="modern-tabs" style="display:flex; flex-wrap:wrap; gap:4px; border-bottom: 1px solid var(--slate-200); margin-bottom:15px;">
+<div class="modern-tab modern-tab--active" id="tab-img-to-pdf" onclick="switchPdfMode('img-to-pdf')" style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:13px; color:var(--blue-600); border-bottom:2px solid var(--blue-600);">图片 → PDF</div>
+<div class="modern-tab" id="tab-pdf-to-img" onclick="switchPdfMode('pdf-to-img')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF → 图片</div>
+<div class="modern-tab" id="tab-pdf-merge" onclick="switchPdfMode('pdf-merge')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF合并</div>
+<div class="modern-tab" id="tab-pdf-split" onclick="switchPdfMode('pdf-split')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF分割</div>
+<div class="modern-tab" id="tab-pdf-edit" onclick="switchPdfMode('pdf-edit')" style="padding:8px 16px; cursor:pointer; font-weight:500; font-size:13px; color:var(--slate-500);">PDF编辑</div>
+</div>
+<div class="modern-tool-grid">
+<!-- Col 1: Dropzones -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Image to PDF Dropzone -->
+<div id="panel-img-to-pdf">
+<div class="modern-upload-zone" id="img-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+<div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z&quot;/&gt;&lt;/svg&gt;');"></div>
+<div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">将图像文件拖放到此处以合并为 PDF。</div>
+<div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">支持PNG、JPG、WebP多选（总共最大50MB）</div>
+<button class="modern-btn modern-btn--primary" id="btn-select-images" style="cursor: pointer; pointer-events: auto;" type="button">📂 选择图像</button>
+<input accept="image/*" id="img-file-input" multiple="" style="display:none;" type="file"/>
+</div>
+<!-- Added images thumbnail grid -->
+<div class="modern-card" id="added-images-card" style="margin-top:12px; display:none;">
+<h3 class="modern-card__title">选定的图像列表和顺序</h3>
+<div class="image-file-list" id="added-images-list"></div>
+</div>
+</div>
+<!-- Single PDF Dropzone (Extract/Split/Edit) -->
+<div id="panel-pdf-to-img" style="display:none;">
+<div class="modern-upload-zone" id="pdf-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+<div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z&quot;/&gt;&lt;/svg&gt;');"></div>
+<div class="modern-upload-zone__title" id="pdf-drop-zone-title" style="font-size: 15px; color: var(--slate-800);">将 PDF 文档拖放到此处进行处理。</div>
+<div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">PDF格式支持（最大50MB）</div>
+<button class="modern-btn modern-btn--primary" id="btn-select-pdf" style="cursor: pointer; pointer-events: auto;" type="button">📂 选择 PDF 文件</button>
+<input accept="application/pdf" id="pdf-file-input" style="display:none;" type="file"/>
+</div>
+<!-- PDF Info card -->
+<div class="modern-card" id="pdf-info-card" style="margin-top:12px; display:none;">
+<h3 class="modern-card__title">PDF 文档详细信息</h3>
+<div class="modern-form-group">
+<span class="modern-label">文件摘要</span>
+<div id="pdf-file-summary" style="font-size:13px; color:var(--slate-700); font-weight:500;"></div>
+</div>
+</div>
+</div>
+<!-- PDF Merge Dropzone -->
+<div id="panel-pdf-merge" style="display:none;">
+<div class="modern-upload-zone" id="pdf-merge-drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+<div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M12 4.5v15m7.5-7.5h-15&quot;/&gt;&lt;/svg&gt;');"></div>
+<div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">将多个 PDF 文件拖放到此处进行合并。</div>
+<div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">支持PDF多选（总共最大100MB）</div>
+<button class="modern-btn modern-btn--primary" id="btn-select-merge-pdfs" style="cursor: pointer; pointer-events: auto;" type="button">📂 选择 PDF 文件</button>
+<input accept="application/pdf" id="pdf-merge-file-input" multiple="" style="display:none;" type="file"/>
+</div>
+<!-- Added PDFs List -->
+<div class="modern-card" id="added-pdfs-card" style="margin-top:12px; display:none;">
+<h3 class="modern-card__title">选定的 PDF 文件顺序</h3>
+<div class="image-file-list" id="added-pdfs-list" style="display:flex; flex-direction:column; gap:6px;"></div>
+</div>
+</div>
+</div>
+<!-- Col 2: Settings Panel -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="modern-card">
+<h3 class="modern-card__title">转换设置</h3>
+<!-- Settings for Image to PDF -->
+<div id="settings-img-to-pdf">
+<div class="modern-form-group">
+<span class="modern-label">页面布局尺寸</span>
+<select class="modern-select" id="pdf-page-size">
+<option selected="" value="A4">A4 标准尺寸（210 x 297 毫米）</option>
+<option value="FIT">适合原始图像分辨率（自动调整）</option>
+</select>
+</div>
+<div class="modern-form-group">
+<span class="modern-label">页面方向（适用于 A4）</span>
+<select class="modern-select" id="pdf-page-orientation">
+<option selected="" value="portrait">肖像</option>
+<option value="landscape">景观</option>
+</select>
+</div>
+<div class="modern-form-group">
+<span class="modern-label">页边距（边距）</span>
+<select class="modern-select" id="pdf-page-margin">
+<option selected="" value="0">无边距（0 像素）</option>
+<option value="20">正常边距（20 像素）</option>
+<option value="40">宽边距（40 像素）</option>
+</select>
+</div>
+</div>
+<!-- Settings for PDF to Image -->
+<div id="settings-pdf-to-img" style="display:none;">
+<div class="modern-form-group">
+<span class="modern-label">目标图像格式</span>
+<select class="modern-select" id="pdf-out-format">
+<option selected="" value="image/png">PNG无损高品质</option>
+<option value="image/jpeg">JPEG 标准压缩</option>
+</select>
+</div>
+<div class="modern-form-group">
+<span class="modern-label">分辨率比例（Scale）</span>
+<select class="modern-select" id="pdf-out-scale">
+<option value="1">1.0x（标准分辨率）</option>
+<option selected="" value="1.5">1.5x（中等质量）</option>
+<option value="2">2.0x（高分辨率打印质量）</option>
+</select>
+</div>
+</div>
+<!-- Settings for PDF Merge -->
+<div id="settings-pdf-merge" style="display:none;">
+<p style="font-size:12px; color:var(--slate-500); line-height:1.5;">多个 PDF 文档将按上传顺序合并为一个 PDF。单击任何文件右侧的“X”按钮将其排除。</p>
+</div>
+<!-- Settings for PDF Split -->
+<div id="settings-pdf-split" style="display:none;">
+<div class="modern-form-group">
+<span class="modern-label">分割法</span>
+<div style="display:flex; flex-direction:column; gap:6px; font-size:12px; margin-top:4px;">
+<label style="cursor:pointer; display:flex; align-items:center; gap:6px;">
+<input checked="" name="pdf-split-mode" type="radio" value="each"/>将每个页面拆分为单独的 PDF（ZIP 下载）</label>
+<label style="cursor:pointer; display:flex; align-items:center; gap:6px;">
+<input name="pdf-split-mode" type="radio" value="range"/>提取特定页面范围</label>
+</div>
+</div>
+<div class="modern-form-group" id="split-range-group" style="display:none; margin-top:10px;">
+<span class="modern-label">目标页面范围</span>
+<input class="modern-input" id="split-range-input" placeholder="例如，1、3-5、7" style="width:100%;" type="text"/>
+<span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">使用逗号 (,) 和连字符 (-) 输入（例如 2, 4-6）</span>
+</div>
+</div>
+<!-- Settings for PDF Edit -->
+<div id="settings-pdf-edit" style="display:none;">
+<div class="modern-form-group" style="margin-bottom:12px; border-bottom:1px solid var(--slate-100); padding-bottom:8px;">
+<label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-weight:600; font-size:12px;">
+<input checked="" id="edit-compress" type="checkbox"/>优化 PDF 大小（压缩）</label>
+<span style="font-size:11px; color:var(--slate-400); display:block; margin-left:20px; margin-top:2px;">压缩流并丢弃冗余元数据</span>
+</div>
+<div class="modern-form-group" style="margin-bottom:12px;">
+<span class="modern-label" style="font-weight:600;">删除页面</span>
+<input class="modern-input" id="edit-delete-range" placeholder="例如2、4-5" style="width:100%;" type="text"/>
+<span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">输入页面范围以完全排除/删除</span>
+</div>
+<div class="modern-form-group" style="margin-bottom:12px;">
+<span class="modern-label" style="font-weight:600;">旋转页面</span>
+<input class="modern-input" id="edit-rotate-range" placeholder="例如1、3-5" style="width:100%; margin-bottom:6px;" type="text"/>
+<select class="modern-select" id="edit-rotate-angle">
+<option selected="" value="0">不旋转 (0°)</option>
+<option value="90">90° 顺时针</option>
+<option value="180">180°旋转</option>
+<option value="270">逆时针 90° (270°)</option>
+</select>
+<span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">选择角度和页面范围以应用旋转</span>
+</div>
+<div class="modern-form-group" style="margin-bottom:12px; border-top:1px solid var(--slate-100); padding-top:8px;">
+<span class="modern-label" style="font-weight:600;">添加文字水印</span>
+<input class="modern-input" id="edit-watermark-text" placeholder="例如机密的" style="width:100%; margin-bottom:6px;" type="text"/>
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+<div>
+<span class="modern-label" style="font-size:11px;">字体大小</span>
+<input class="modern-input" id="edit-watermark-size" max="150" min="10" style="width:100%;" type="number" value="50"/>
+</div>
+<div>
+<span class="modern-label" style="font-size:11px;">不透明度 (0.1 ~ 1.0)</span>
+<input class="modern-input" id="edit-watermark-opacity" max="1.0" min="0.1" step="0.1" style="width:100%;" type="number" value="0.3"/>
+</div>
+</div>
+<span style="font-size:11px; color:var(--slate-400); margin-top:2px; display:block;">在所有页面中心绘制对角文本</span>
+</div>
+<div class="modern-form-group" style="margin-bottom:8px; border-top:1px solid var(--slate-100); padding-top:8px;">
+<label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-weight:600; font-size:12px;">
+<input checked="" id="edit-page-number" type="checkbox"/>添加页码</label>
+<span style="font-size:11px; color:var(--slate-400); display:block; margin-left:20px; margin-top:2px;">在所有页面的底部中心插入“当前/总”页码</span>
+</div>
+</div>
+</div>
+<button class="modern-btn modern-btn--primary" disabled="" id="btn-run-pdf" style="height:38px; font-size:14px; font-weight:600;">🔄 运行转换和下载</button>
+</div>
+</div>
+<!-- Footer Guideline Box -->
+<!-- 하단 안내 정보 가이드 -->
+<div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+<!-- Section Title -->
+<h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 PDF 查看器和编辑器</h2>
+<!-- Description Paragraphs -->
+<div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+<p style="margin-bottom: 12px;">PDF 查看器和编辑器基于浏览器本机技术构建，直接在客户端应用程序的执行上下文中利用 pdf.js 渲染引擎和 SVG 画布投影。通过集成 PDF 文档解析和字体光栅化，系统可以执行二进制运算并即时处理用户负载。该架构消除了传统的往返服务器通信延迟，确保以最佳响应能力和零延迟处理大负载或高频操作。</p>
+<p style="margin-bottom: 12px;">在现代网页设计中，将文档查看和编辑处理委托给客户端浏览器是速度和安全性方面的重大进步。我们的工具不是在网络通道上来回传递原始数据、图像或媒体流，而是直接在用户的本地线程上运行操作。使用先进的 JavaScript API，该界面可以动态更新视觉状态、更新滑块并立即渲染预览容器，从而创建流畅的、类似桌面的用户体验。</p>
+<p style="margin-bottom: 12px;">在底层，内存分配是使用页面视口对象有效处理的。执行周期运行 PDF 二进制流解析和矢量图形转换，以优化数据吞吐量并保持像素或文本保真度。输出的结构严格符合 ISO 32000-1 PDF 规范，确保生成的所有文件、图形或代码段与主流平台、操作系统和专业软件套件完全兼容。</p>
+</div>
+<!-- Two-column layout for Features and How to Use -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+<!-- Left: How to Use -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">⚙️ 如何使用</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+<li style="margin-bottom: 8px;">访问该工具并找到界面顶部附近的主文件输入区域或文本输入容器。</li>
+<li style="margin-bottom: 8px;">使用拖放边界上传源文件（例如 PNG、JPG 或 WEBP），或将文本/数字内容粘贴到指定字段中。</li>
+<li style="margin-bottom: 8px;">使用控制侧边栏或滑块面板调整视觉参数、质量滑块或渲染选项，以满足您的技术需求。</li>
+<li style="margin-bottom: 8px;">单击操作按钮（例如生成、转换或处理）以调用画布或内存缓冲区上的处理逻辑。</li>
+<li style="margin-bottom: 8px;">查看渲染的预览，然后单击下载按钮将最终文件本地保存到您的桌面或设备。</li>
+</ol>
+</div>
+<!-- Right: Key Features -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">🌟 主要特点</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+<li style="margin-bottom: 8px;"><strong>浏览器绑定线程：</strong>在主执行周期或 Web Workers 内执行所有计算，防止浏览器冻结。</li>
+<li style="margin-bottom: 8px;"><strong>高保真操作：</strong>使用 PDF 二进制流解析和矢量图形转换来确保输出质量在压缩或调整大小期间保持数学上的精确性。</li>
+<li style="margin-bottom: 8px;"><strong>优化内存管理：</strong>通过页面视口对象分配临时缓冲区空间，以防止内存泄漏和浏览器崩溃。</li>
+<li style="margin-bottom: 8px;"><strong>标准化兼容性：</strong>严格遵守 ISO 32000-1 PDF 规范，提供在任何地方都完全可读和可编辑的输出文件。</li>
+</ul>
+</div>
+</div>
+<!-- Privacy & Security Alert -->
+<div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+<span style="font-size: 16px;">🛡️</span>
+<div>
+<strong>本地处理和保密：</strong>该工具完全在您的网络浏览器的本地沙箱环境中运行。通过利用客户端内存和浏览器级文件处理，不会将任何数据、文件或个人信息上传到外部服务器。该架构保证完全符合GDPR、CCPA等严格的隐私法规，为您提供绝对的安全。</div>
+</div>
+<!-- FAQ Section -->
+<div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+<h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 常见问题 (FAQ)</h3>
+<div itemscope="" itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：PDF 查看器如何显示页面？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">它使用 pdf.js 库解析 PDF 文档的二进制结构，渲染矢量路径、文本层和嵌入图像到 HTML5 Canvas 元素上。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：我可以编辑或注释 PDF 页面吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">是的。该编辑器允许您查看页面、添加文本叠加、徒手绘制线条或直接在渲染页面顶部突出显示特定区域。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：这个工具需要外部插件吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">不需要。该查看器完全使用 HTML5 和 JavaScript 构建，可在现代 Web 浏览器中本机运行，无需 Adob​​e Acrobat 插件。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- pdf-lib & pdf.js & JSZip Load -->
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<!-- Core & Tool scripts -->
+<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/core/file-utils.js?v=3"></script>
+<script src="/js/core/ui-components.js?v=3"></script>
+<script src="/js/tools/pdf.js?v=3"></script>
+<script>
+        // Set pdf.js Global worker URL
+        if (window['pdfjs-dist/build/pdf']) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+        }
+
+        // URL Query parameter parsing for tab auto-selection
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const tab = params.get('tab');
+            const validTabs = ['img-to-pdf', 'pdf-to-img', 'pdf-merge', 'pdf-split', 'pdf-edit'];
+            if (tab && validTabs.includes(tab)) {
+                switchPdfMode(tab);
+            } else {
+                switchPdfMode('img-to-pdf'); // default
+            }
+        });
+
+        // Tab Switching UI Logic
+        function switchPdfMode(mode) {
+            const panelImg = document.getElementById('panel-img-to-pdf');
+            const panelPdf = document.getElementById('panel-pdf-to-img');
+            const panelPdfMerge = document.getElementById('panel-pdf-merge');
+            
+            const settingsImg = document.getElementById('settings-img-to-pdf');
+            const settingsPdf = document.getElementById('settings-pdf-to-img');
+            const settingsPdfMerge = document.getElementById('settings-pdf-merge');
+            const settingsPdfSplit = document.getElementById('settings-pdf-split');
+            const settingsPdfEdit = document.getElementById('settings-pdf-edit');
+            
+            const tabImg = document.getElementById('tab-img-to-pdf');
+            const tabPdf = document.getElementById('tab-pdf-to-img');
+            const tabPdfMerge = document.getElementById('tab-pdf-merge');
+            const tabPdfSplit = document.getElementById('tab-pdf-split');
+            const tabPdfEdit = document.getElementById('tab-pdf-edit');
+            
+            // Hide all panels
+            [panelImg, panelPdf, panelPdfMerge].forEach(p => {
+                if (p) p.style.display = 'none';
+            });
+            [settingsImg, settingsPdf, settingsPdfMerge, settingsPdfSplit, settingsPdfEdit].forEach(s => {
+                if (s) s.style.display = 'none';
+            });
+            
+            // Reset tab styles
+            [tabImg, tabPdf, tabPdfMerge, tabPdfSplit, tabPdfEdit].forEach(t => {
+                if(t) {
+                    t.style.borderBottom = 'none';
+                    t.style.color = 'var(--slate-500)';
+                    t.style.fontWeight = '500';
+                }
+            });
+            
+            const activeTab = document.getElementById('tab-' + mode);
+            if (activeTab) {
+                activeTab.style.borderBottom = '2px solid var(--blue-600)';
+                activeTab.style.color = 'var(--blue-600)';
+                activeTab.style.fontWeight = '600';
+            }
+
+            // Sync global mode state
+            if (window.setPdfMode) {
+                window.setPdfMode(mode);
+            }
+
+            // Show selected panels
+            if (mode === 'img-to-pdf') {
+                panelImg.style.display = 'block';
+                settingsImg.style.display = 'block';
+            } else if (mode === 'pdf-to-img') {
+                panelPdf.style.display = 'block';
+                settingsPdf.style.display = 'block';
+                document.getElementById('pdf-drop-zone-title').textContent = "Drop PDF file here to extract images.";
+            } else if (mode === 'pdf-merge') {
+                panelPdfMerge.style.display = 'block';
+                settingsPdfMerge.style.display = 'block';
+            } else if (mode === 'pdf-split') {
+                panelPdf.style.display = 'block';
+                settingsPdfSplit.style.display = 'block';
+                document.getElementById('pdf-drop-zone-title').textContent = "Drop PDF file here to split pages.";
+            } else if (mode === 'pdf-edit') {
+                panelPdf.style.display = 'block';
+                settingsPdfEdit.style.display = 'block';
+                document.getElementById('pdf-drop-zone-title').textContent = "Drop PDF file here to edit.";
+            }
+        }
+    </script>
+</main></div></body>
+</html>

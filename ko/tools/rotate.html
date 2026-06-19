@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -12,23 +15,69 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
     <link rel="stylesheet" href="/css/tools.css">
-    <style>.modern-ad-zone{border:1px dashed var(--slate-200);background-color:#FFF;padding:12px;text-align:center;font-size:11px;color:var(--slate-400);border-radius:var(--radius-sm);margin-bottom:15px;}</style>
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-rotate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+    </style>
+
     <title>온라인 이미지 회전 및 대칭 반전 (Image Rotator) - ConvertFile</title>
     <meta name="description" content="이미지를 90도 회전하거나 상하좌우로 대칭 반전하세요. 웹 브라우저에서 바로 처리하는 고속 이미지 회전 도구.">
+    <meta name="keywords" content="이미지 회전, 대칭 반전, 상하 대칭, 좌우 대칭, 사진 회전">
     <link rel="canonical" href="https://2convert.org/ko/tools/rotate.html">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/ko/tools/rotate.html">
     <meta property="og:title" content="온라인 이미지 회전 및 대칭 반전 (Image Rotator) - ConvertFile">
     <meta property="og:description" content="이미지를 90도 회전하거나 상하좌우로 대칭 반전하세요. 웹 브라우저에서 바로 처리하는 고속 이미지 회전 도구.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"온라인 이미지 회전 및 대칭 반전 (Image Rotator) - ConvertFile","url":"https://2convert.org/ko/tools/rotate.html","description":"이미지를 90도 회전하거나 상하좌우로 대칭 반전하세요. 웹 브라우저에서 바로 처리하는 고속 이미지 회전 도구.","applicationCategory":"MultimediaApplication","operatingSystem":"All"}</script>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/ko/tools/rotate.html">
+    <meta property="twitter:title" content="온라인 이미지 회전 및 대칭 반전 (Image Rotator) - ConvertFile">
+    <meta property="twitter:description" content="이미지를 90도 회전하거나 상하좌우로 대칭 반전하세요. 웹 브라우저에서 바로 처리하는 고속 이미지 회전 도구.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "온라인 이미지 회전 및 대칭 반전 (Image Rotator) - ConvertFile",
+  "url": "https://2convert.org/ko/tools/rotate.html",
+  "description": "이미지를 90도 회전하거나 상하좌우로 대칭 반전하세요. 웹 브라우저에서 바로 처리하는 고속 이미지 회전 도구.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
+    </script>
 </head>
 <body>
+
     <div class="modern-layout">
         <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
         <main class="modern-content">
             <header class="modern-content__header">
 <!-- Google tag (gtag.js) -->
@@ -43,15 +92,153 @@
                 <h1 class="modern-content__title">이미지 회전 및 대칭 반전 (Image Rotator)</h1>
                 <p class="modern-content__desc">사진을 직각으로 회전시키거나 거울처럼 좌우/상하 뒤집고, 삐뚤어진 각도를 미세 조정합니다.</p>
             </header>
-            <div class="modern-ad-zone"><span>[광고 슬롯] Google AdSense Banner (728x90)</span></div>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner Zone (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">회전시킬 이미지 파일을 드래그 앤 드롭 하십시오.</div>
+                        <div class="modern-upload-zone__desc">클릭하여 PC 로컬 파일을 가져올 수도 있습니다. (최대 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">빠른 각도 회전</h3>
+                        <div class="modern-rotate-grid">
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-90cw" disabled>↩️ 시계방향 90°</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-90ccw" disabled>↪️ 반시계 90°</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-180" disabled>🔄 180° 회전</button>
+                            <button class="modern-btn modern-btn--outline" style="border-color:var(--error); color:var(--error);" id="btn-reset-rot" disabled>❌ 초기화</button>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">대칭 뒤집기 (Flip)</h3>
+                        <div class="modern-rotate-grid">
+                            <button class="modern-btn modern-btn--outline" id="btn-flip-h" disabled>↔️ 좌우 대칭</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-flip-v" disabled>↕️ 상하 대칭</button>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">미세 수평 교정</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">회전 각도: <strong id="angle-val" style="color:var(--blue-600);">0</strong>°</span>
+                            <input type="range" min="-180" max="180" value="0" style="width:100%; cursor:pointer;" id="rot-angle" disabled>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-download" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        💾 회전 결과 이미지 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 이미지 회전 및 대칭 변환기</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">이미지 회전 및 대칭 변환기 도구는 웹 브라우저의 네이티브 기술을 기반으로 구축되었으며, 클라이언트 측 애플리케이션의 실행 컨텍스트 내에서 Canvas API 2D 행렬 변환(Transformations)를 직접적으로 활용합니다. 아핀 변환 행렬 (이동 translate, 회전 rotate, 크기 scale)를 통합함으로써 시스템은 이진 연산을 실행하고 사용자 페이로드를 즉각적으로 처리합니다. 이러한 아키텍처는 전통적인 서버 통신으로 인한 지연 시간을 제거하여, 대용량 파일 처리나 빈번한 데이터 작업 시에도 최적의 응답성과 제로 레이턴시(Zero Latency)를 보장합니다.</p>
+                    <p style="margin-bottom: 12px;">현대적인 웹 개발 흐름에서 래스터 그래픽 이미지 방향 전환 및 반사 처리를 서버가 아닌 클라이언트 브라우저로 위임하는 것은 성능 향상과 정보 보안 측면에서 매우 중요합니다. 네트워크 채널을 통해 원본 파일이나 미디어 스트림을 전송하는 대신, 사용자 단말기의 로컬 스레드에서 직접 연산이 실행됩니다. 고급 자바스크립트 API를 활용하여 제어판의 슬라이더 조절이나 실시간 미리보기가 지연 없이 렌더링되므로, 데스크톱 전용 앱처럼 매끄러운 사용자 경험을 제공합니다.</p>
+                    <p style="margin-bottom: 12px;">내부적으로는 캔버스 좌표 변환 행렬 메모리를 활용하여 메모리 할당과 해제를 최적화합니다. 데이터 처리 주기 동안 각도-라디안 좌표 투사 매핑 알고리즘를 적용하여 전송 처리량을 극대화하고 픽셀 또는 텍스트의 정밀도를 유지합니다. 최종 결과물은 W3C HTML5 Canvas 그래픽 표준 사양 표준 규격을 엄격하게 준수하여 생성되므로, 생성된 이미지, 코드 또는 문서 파일이 다양한 외부 플랫폼, 운영 체제 및 전문 편집 프로그램과 완벽하게 호환됩니다.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ 사용 방법
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">웹 도구 페이지에 접속한 후 상단에 위치한 파일 업로드 영역 또는 텍스트 입력란을 확인합니다.</li>
+                            <li style="margin-bottom: 8px;">드래그 앤 드롭 방식을 사용해 원본 파일(PNG, JPG, WEBP 등)을 업로드하거나, 지정된 필드에 텍스트 또는 숫자 데이터를 입력합니다.</li>
+                            <li style="margin-bottom: 8px;">제어판 영역의 조절 바나 화질 설정 슬라이더를 사용하여 요구 사양에 맞춰 변환 파라미터를 세부 조정합니다.</li>
+                            <li style="margin-bottom: 8px;">실행 버튼(예: 생성, 변환 또는 처리 시작)을 클릭하여 캔버스나 메모리 버퍼 상에서 연산 프로세스를 동작시킵니다.</li>
+                            <li style="margin-bottom: 8px;">실시간 미리보기 화면으로 변환 결과를 검토한 다음, 다운로드 버튼을 눌러 결과 파일을 로컬 저장소에 안전하게 저장합니다.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 주요 특징
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>브라우저 로컬 프로세싱:</strong> 모든 연산을 메인 스레드 또는 웹 워커(Web Workers) 내에서 수행하여 화면 멈춤 현상을 방지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>고정밀 렌더링 알고리즘:</strong> 변환 및 압축 과정에서 각도-라디안 좌표 투사 매핑 알고리즘를 적용해 화질 저하를 최소화하고 원래의 정밀도를 유지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>효율적인 메모리 관리:</strong> 캔버스 좌표 변환 행렬 메모리를 통해 임시 버퍼 공간을 유연하게 할당하여 메모리 누수를 막고 브라우저 안정성을 극대화합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>국제 표준 규격 준수:</strong> W3C HTML5 Canvas 그래픽 표준 사양 표준 규격을 철저하게 적용하여, 저장된 결과 파일을 어떤 외부 프로그램에서도 호환성 오류 없이 활용할 수 있습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>로컬 메모리 보안 및 개인정보 보호:</strong> 본 도구는 사용자의 웹 브라우저 로컬 샌드박스 환경 내에서만 백퍼센트 실행됩니다. 클라이언트 측 브라우저 단에서 임시 파일 읽기 및 가공이 수행되므로, 입력된 텍스트나 업로드된 파일이 외부 서버로 절대 전송되지 않습니다. 이는 유럽 연합의 GDPR 및 국내 개인정보보호법 규정을 충족하며 안전한 작업 환경을 보장합니다.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 자주 묻는 질문 (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 브라우저 내부에서 이미지를 물리적으로 어떻게 회전시키나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">캔버스 2D 컨텍스트에 내장된 rotate() 함수를 호출합니다. 이미지 중앙을 기점으로 좌표 평면 자체를 회전시킨 뒤, 원본 픽셀 데이터를 다시 드로잉합니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 사진을 회전하거나 반전시키면 해상도 손실이 일어나나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">아닙니다. 90도 단위의 기하학적 회전이나 좌우/상하 대칭 처리는 데이터 손실이나 재압축 단계를 거치지 않기 때문에 화질의 유실이 전혀 없습니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 상하 혹은 좌우로 거울을 보듯 대칭을 시킬 수 있나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">네, 가능합니다. Canvas 컨텍스트의 scale(-1, 1) 또는 scale(1, -1) 변환 인자를 적용하여 좌우 미러링과 상하 미러링 처리를 완벽하게 구동합니다.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
-    
-    <script src="/js/core/image-loader.js?v=4"></script>
-    <script src="/js/core/canvas-utils.js?v=4"></script>
-    <script src="/js/core/file-utils.js?v=4"></script>
-    <script src="/js/core/ui-components.js?v=4"></script>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
     <script src="/js/core/sidebar.js?v=4"></script>
-    <script src="/js/tools/rotate.js?v=4"></script>
+    <script src="/js/tools/rotate.js?v=3"></script>
 </body>
 </html>

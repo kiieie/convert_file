@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -345,20 +348,81 @@
             </div>
 
             <!-- Footer Guideline Box -->
-            <div class="modern-instructions-box">
-                <h3>💡 PDF Tools Guideline</h3>
-                <p>
-                    This is a **client-side secure utility** that processes documents 100% locally in your browser memory without uploading anything to servers.
-                </p>
-                <ul>
-                    <li><b>Images → PDF:</b> Generates PDF pages in the order of uploaded images. Remove any unwanted pages using the 'X' button.</li>
-                    <li><b>PDF → Images:</b> Converts all pages of a PDF document into high-quality image assets bundled in a single ZIP download.</li>
-                    <li><b>PDF Merge:</b> Combines two or more uploaded PDF documents sequentially into one combined PDF.</li>
-                    <li><b>PDF Split:</b> Split all pages into individual 1-page PDFs (ZIP) or extract specific range using `2,4-6` notation.</li>
-                    <li><b>PDF Edit:</b> Combine compression, page deletions, rotations, watermarking, and page numbering into a single edit execution.</li>
-                </ul>
-            </main>
-    </div>
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 PDF Viewer & Editor</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">The PDF Viewer & Editor is built upon browser-native technologies, utilizing pdf.js rendering engine and SVG canvas projection directly within the execution context of the client-side application. By integrating PDF document parsing and font rasterization, the system executes binary operations and processes user payloads instantaneously. This architecture eliminates traditional round-trip server communication delays, ensuring that large payloads or high-frequency operations are handled with optimal responsiveness and zero latency.</p>
+                    <p style="margin-bottom: 12px;">In modern web design, delegating document viewing and editing processing to the client browser is a major step forward for speed and security. Rather than passing raw data, images, or media streams back and forth across network channels, our tool runs operations directly on the user's local thread. Using advanced JavaScript APIs, the interface dynamically updates visual states, updates sliders, and renders preview containers instantly, creating a fluid, desktop-like user experience.</p>
+                    <p style="margin-bottom: 12px;">Under the hood, memory allocation is handled efficiently using page viewport objects. The execution cycle runs PDF binary stream parsing and vector graphics translation to optimize data throughput and maintain pixel or text fidelity. The output is structured to conform strictly with ISO 32000-1 PDF specifications, ensuring that all files, graphics, or code segments generated are fully compatible with mainstream platforms, operating systems, and professional software suites.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ How to Use
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Access the tool and locate the primary file input zone or text input container near the top of the interface.</li>
+                            <li style="margin-bottom: 8px;">Upload your source file (such as PNG, JPG, or WEBP) using the drag-and-drop boundary, or paste text/numeric contents into the designated field.</li>
+                            <li style="margin-bottom: 8px;">Adjust the visual parameters, quality sliders, or rendering options using the control sidebar or slider panels to suit your technical needs.</li>
+                            <li style="margin-bottom: 8px;">Click the action button (e.g. Generate, Convert, or Process) to invoke the processing logic on the Canvas or memory buffer.</li>
+                            <li style="margin-bottom: 8px;">Review the rendered preview, then click the download button to save the final file locally to your desktop or device.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Key Features
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Browser-Bound Threading:</strong> Performs all calculations inside the main execution cycle or Web Workers, preventing browser freeze.</li>
+                            <li style="margin-bottom: 8px;"><strong>High-Fidelity Operations:</strong> Uses PDF binary stream parsing and vector graphics translation to ensure that output quality remains mathematically precise during compression or resizing.</li>
+                            <li style="margin-bottom: 8px;"><strong>Optimized Memory Management:</strong> Allocates temporary buffer space via page viewport objects to prevent memory leaks and browser crashes.</li>
+                            <li style="margin-bottom: 8px;"><strong>Standardized Compatibility:</strong> Adheres strictly to ISO 32000-1 PDF specifications to deliver output files that are fully readable and editable anywhere.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Local Processing & Confidentiality:</strong> This tool operates entirely within your web browser's local sandbox environment. By leveraging client-side memory and browser-level file processing, no data, files, or personal information are uploaded to external servers. This architecture guarantees full compliance with strict privacy regulations such as GDPR and CCPA, providing you with absolute security.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Frequently Asked Questions (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. How does the PDF viewer display pages?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">It uses the pdf.js library to parse the PDF document's binary structure, rendering vector paths, text layers, and embedded images onto HTML5 Canvas elements.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. Can I edit or annotate PDF pages?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Yes. The editor allows you to view pages, add text overlays, draw freehand lines, or highlight specific areas directly on top of the rendered pages.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. Does this tool require external plugins?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">No. The viewer is built entirely with HTML5 and JavaScript, running natively in modern web browsers without requiring Adobe Acrobat plugins.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
 
     <!-- pdf-lib & pdf.js & JSZip Load -->
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>

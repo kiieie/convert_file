@@ -30,3 +30,8 @@
 /es/tools/bg-remove.html
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/zh/tools/bg-remove.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+

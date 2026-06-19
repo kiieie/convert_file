@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -265,17 +268,80 @@
             </div>
 
             <!-- Instructions -->
-            <div class="modern-instructions-box">
-                <h3>💡 이미지 압축기 이용 안내</h3>
-                <p>
-                    모든 인코딩 및 압축 처리는 HTML5 Canvas API를 이용하여 <strong>온라인 서버 업로드 없이 로컬 브라우저 내에서만</strong> 실행됩니다.
-                </p>
-                <ul>
-                    <li><b>화질 조절 슬라이더 (10~100):</b> 슬라이더 값을 낮추면 눈에 띄지 않는 선에서 압축 손실률을 키워 파일 용량을 최대 80% 이상 줄일 수 있습니다. 사진의 경우 70~85% 구간이 가장 이상적입니다.</li>
-                    <li><b>변환 포맷 지정:</b> 원본 포맷을 그대로 유지하거나, 최신 고성능 웹 포맷인 WebP로 압축하면 화질 대비 가장 뛰어난 용량 절감 성능을 기대할 수 있습니다.</li>
-                    <li><b>PNG 특징:</b> PNG는 무손실 알파채널 투명 배경을 지원하여 압축률 슬라이더 수치와 관계없이 항상 무손실로 저장되므로, 용량을 크게 줄이려면 JPG나 WebP로 변환하는 것이 유리합니다.</li>
-                    <li><b>실시간 반응형 미리보기:</b> 슬라이더를 마우스로 끌거나 포맷을 바꾸는 즉시 약 300ms 후에 미리보기 캔버스와 실시간 예상 크기가 자동으로 갱신됩니다.</li>
-                </ul>
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 이미지 압축기</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">이미지 압축기 도구는 웹 브라우저의 네이티브 기술을 기반으로 구축되었으며, 클라이언트 측 애플리케이션의 실행 컨텍스트 내에서 Canvas.toBlob 및 FileReader API를 직접적으로 활용합니다. JPEG/WebP 손실 압축 알고리즘를 통합함으로써 시스템은 이진 연산을 실행하고 사용자 페이로드를 즉각적으로 처리합니다. 이러한 아키텍처는 전통적인 서버 통신으로 인한 지연 시간을 제거하여, 대용량 파일 처리나 빈번한 데이터 작업 시에도 최적의 응답성과 제로 레이턴시(Zero Latency)를 보장합니다.</p>
+                    <p style="margin-bottom: 12px;">현대적인 웹 개발 흐름에서 이미지 파일 크기 최적화 처리를 서버가 아닌 클라이언트 브라우저로 위임하는 것은 성능 향상과 정보 보안 측면에서 매우 중요합니다. 네트워크 채널을 통해 원본 파일이나 미디어 스트림을 전송하는 대신, 사용자 단말기의 로컬 스레드에서 직접 연산이 실행됩니다. 고급 자바스크립트 API를 활용하여 제어판의 슬라이더 조절이나 실시간 미리보기가 지연 없이 렌더링되므로, 데스크톱 전용 앱처럼 매끄러운 사용자 경험을 제공합니다.</p>
+                    <p style="margin-bottom: 12px;">내부적으로는 Blob 객체 및 이진 파일 스트림를 활용하여 메모리 할당과 해제를 최적화합니다. 데이터 처리 주기 동안 이산 코사인 변환(DCT) 기반 크기 조정 및 데이터 압축를 적용하여 전송 처리량을 극대화하고 픽셀 또는 텍스트의 정밀도를 유지합니다. 최종 결과물은 JPEG(JFIF) 및 WebP 이미지 포맷 표준 표준 규격을 엄격하게 준수하여 생성되므로, 생성된 이미지, 코드 또는 문서 파일이 다양한 외부 플랫폼, 운영 체제 및 전문 편집 프로그램과 완벽하게 호환됩니다.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ 사용 방법
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">웹 도구 페이지에 접속한 후 상단에 위치한 파일 업로드 영역 또는 텍스트 입력란을 확인합니다.</li>
+                            <li style="margin-bottom: 8px;">드래그 앤 드롭 방식을 사용해 원본 파일(PNG, JPG, WEBP 등)을 업로드하거나, 지정된 필드에 텍스트 또는 숫자 데이터를 입력합니다.</li>
+                            <li style="margin-bottom: 8px;">제어판 영역의 조절 바나 화질 설정 슬라이더를 사용하여 요구 사양에 맞춰 변환 파라미터를 세부 조정합니다.</li>
+                            <li style="margin-bottom: 8px;">실행 버튼(예: 생성, 변환 또는 처리 시작)을 클릭하여 캔버스나 메모리 버퍼 상에서 연산 프로세스를 동작시킵니다.</li>
+                            <li style="margin-bottom: 8px;">실시간 미리보기 화면으로 변환 결과를 검토한 다음, 다운로드 버튼을 눌러 결과 파일을 로컬 저장소에 안전하게 저장합니다.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 주요 특징
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>브라우저 로컬 프로세싱:</strong> 모든 연산을 메인 스레드 또는 웹 워커(Web Workers) 내에서 수행하여 화면 멈춤 현상을 방지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>고정밀 렌더링 알고리즘:</strong> 변환 및 압축 과정에서 이산 코사인 변환(DCT) 기반 크기 조정 및 데이터 압축를 적용해 화질 저하를 최소화하고 원래의 정밀도를 유지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>효율적인 메모리 관리:</strong> Blob 객체 및 이진 파일 스트림를 통해 임시 버퍼 공간을 유연하게 할당하여 메모리 누수를 막고 브라우저 안정성을 극대화합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>국제 표준 규격 준수:</strong> JPEG(JFIF) 및 WebP 이미지 포맷 표준 표준 규격을 철저하게 적용하여, 저장된 결과 파일을 어떤 외부 프로그램에서도 호환성 오류 없이 활용할 수 있습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>로컬 메모리 보안 및 개인정보 보호:</strong> 본 도구는 사용자의 웹 브라우저 로컬 샌드박스 환경 내에서만 백퍼센트 실행됩니다. 클라이언트 측 브라우저 단에서 임시 파일 읽기 및 가공이 수행되므로, 입력된 텍스트나 업로드된 파일이 외부 서버로 절대 전송되지 않습니다. 이는 유럽 연합의 GDPR 및 국내 개인정보보호법 규정을 충족하며 안전한 작업 환경을 보장합니다.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 자주 묻는 질문 (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 압축 알고리즘은 원본 용량을 어떻게 줄이나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">이미지를 캔버스에 렌더링한 후 사용자가 설정한 압축률 품질 인수와 함께 toBlob을 호출합니다. 브라우저 인코더가 시각적 품질 손실이 적은 대역의 고주파 신호를 솎아냅니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 손실(Lossy) 압축과 무손실(Lossless) 압축의 결정적 차이는 무엇인가요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">손실 압축(JPEG/WebP)은 용량을 획기적으로 줄이기 위해 미세한 색상 정보를 버리며, 무손실 압축은 픽셀 데이터를 온전히 보존하지만 디스크 절감 효과는 상대적으로 낮습니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 다운로드하기 전에 압축된 파일 크기를 미리 확인할 수 있나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">네, 그렇습니다. 압축 연산이 끝나는 즉시 원본 대비 용량 감소 비율, 최종 바이트 크기 및 전후 화질 비교를 웹 브라우저에서 실시간으로 확인할 수 있습니다.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

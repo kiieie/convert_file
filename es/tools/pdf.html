@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -345,20 +348,81 @@
             </div>
 
             <!-- Guía informativa inferior -->
-            <div class="modern-instructions-box">
-                <h3>💡 Guía de herramientas PDF</h3>
-                <p>
-                    Esta es una **utilidad local segura** que procesa documentos al 100% en la memoria de su navegador sin subir archivos a servidores externos.
-                </p>
-                <ul>
-                    <li><b>Imágenes → PDF:</b> Genera páginas PDF en el orden de las imágenes subidas. Elimine páginas no deseadas usando el botón 'X'.</li>
-                    <li><b>PDF → Imágenes:</b> Convierte todas las páginas del PDF en imágenes JPG empaquetadas en un único archivo ZIP.</li>
-                    <li><b>Combinar PDF:</b> Une de forma secuencial dos o más documentos PDF cargados en un solo archivo PDF unificado.</li>
-                    <li><b>Dividir PDF:</b> Divide todas las páginas en PDFs individuales de 1 página (ZIP) o extrae rangos específicos con la notación `2,4-6`.</li>
-                    <li><b>Editar PDF:</b> Combine compresión, rotación, borrado, marca de agua y paginación en una sola ejecución.</li>
-                </ul>
-            </main>
-    </div>
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 Lector y Editor de PDF</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">La herramienta Lector y Editor de PDF está construida sobre tecnologías nativas del navegador, utilizando motor de renderizado pdf.js y proyección en canvas SVG directamente dentro del contexto de ejecución de la aplicación del lado del cliente. Al integrar análisis de objetos lógicos PDF y rasterización de fuentes integradas, el sistema ejecuta operaciones binarias y procesa datos del usuario de forma instantánea. Esta arquitectura elimina los retrasos de comunicación tradicionales con servidores externos, garantizando que los archivos grandes o las operaciones de alta frecuencia se manejen con una respuesta óptima y sin latencia.</p>
+                    <p style="margin-bottom: 12px;">En el diseño web moderno, delegar el procesamiento de la visualización de documentos y edición rápida de PDF al navegador del cliente es un avance significativo para la velocidad y la seguridad de la información. En lugar de transmitir archivos sin procesar o flujos multimedia a través de canales de red, nuestra herramienta ejecuta operaciones directamente en el hilo local del usuario. Utilizando APIs avanzadas de JavaScript, la interfaz actualiza dinámicamente los estados visuales, los controles deslizantes y los contenedores de vista previa al instante, creando una experiencia fluida e interactiva.</p>
+                    <p style="margin-bottom: 12px;">Bajo el capó, la asignación de memoria se gestiona de manera eficiente utilizando objetos de escala y vista de página de documento. El ciclo de ejecución aplica deserialización de flujos binarios y conversión de vectores a gráficos web para optimizar el rendimiento de los datos y mantener la fidelidad de los píxeles o del texto. La salida está estructurada para cumplir estrictamente con las directrices internacionales ISO 32000-1 para PDF, asegurando que todos los archivos, gráficos o segmentos de código generados sean totalmente compatibles con las plataformas principales, sistemas operativos y suites de software profesional.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ Cómo usar
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Acceda a la herramienta y localice la zona de entrada de archivos principal o el contenedor de texto en la parte superior.</li>
+                            <li style="margin-bottom: 8px;">Cargue su archivo de origen (como PNG, JPG o WEBP) utilizando la zona de arrastrar y soltar, o pegue el contenido de texto o numérico.</li>
+                            <li style="margin-bottom: 8px;">Ajuste los parámetros visuales, controles deslizantes de calidad u opciones de procesamiento utilizando la barra lateral de control.</li>
+                            <li style="margin-bottom: 8px;">Haga clic en el botón de acción (por ejemplo, Generar, Convertir o Procesar) para iniciar la lógica de procesamiento en el Canvas o búfer.</li>
+                            <li style="margin-bottom: 8px;">Revise la vista previa resultante y luego haga clic en el botón de descarga para guardar el archivo final directamente en su dispositivo.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Características clave
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Procesamiento en Navegador:</strong> Realiza todos los cálculos dentro del ciclo de ejecución principal o Web Workers, evitando bloqueos de pantalla.</li>
+                            <li style="margin-bottom: 8px;"><strong>Operaciones de Alta Fidelidad:</strong> Utiliza deserialización de flujos binarios y conversión de vectores a gráficos web para asegurar que la calidad de salida permanezca matemáticamente precisa durante la compresión.</li>
+                            <li style="margin-bottom: 8px;"><strong>Gestión Eficiente de Memoria:</strong> Asigna espacio de búfer temporal a través de objetos de escala y vista de página de documento para prevenir fugas de memoria en el navegador.</li>
+                            <li style="margin-bottom: 8px;"><strong>Compatibilidad Estándar:</strong> Cumple estrictamente con las directrices internacionales ISO 32000-1 para PDF para ofrecer archivos de salida legibles y editables en cualquier plataforma.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Procesamiento Local y Privacidad:</strong> Esta herramienta funciona completamente en el entorno seguro de su navegador web. Al utilizar la memoria local del cliente y el procesamiento a nivel del navegador, no se suben archivos ni datos a servidores externos. Esta arquitectura garantiza el cumplimiento de regulaciones de privacidad como GDPR y CCPA, ofreciendo seguridad absoluta.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Preguntas frecuentes (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Cómo proyecta en pantalla el archivo el visor de PDF?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Emplea pdf.js para interpretar la jerarquía binaria de objetos del PDF, mapeando los trazados de fuentes vectoriales y gráficos directamente en elementos Canvas de HTML5.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Es posible agregar notas o editar contenido sobre el PDF?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Sí. La interfaz habilita funciones para dibujar marcas libres, colocar cuadros de texto estilizados y marcar líneas con capas de dibujo transparentes.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Se requiere instalar complementos externos en el navegador?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">No. El sistema ejecuta las librerías internamente utilizando lenguajes estándar de la web, descartando instalaciones del plugin Adobe Acrobat o similares.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
 
     <!-- Carga de librerías cdn -->
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>

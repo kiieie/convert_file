@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -31,23 +34,23 @@
         }
     </style>
 
-    <title>온라인 이미지 크기 조절기 (Image Resizer) - ConvertFile</title>
-    <meta name="description" content="사진 용량과 픽셀 크기를 자유롭게 변경하세요. 종횡비 비율 유지 기능과 Bilinear 보간 필터를 지원하는 무료 로컬 이미지 리사이저.">
-    <meta name="keywords" content="이미지 크기 조절, 사진 용량 줄이기, 리사이즈, 이미지 리사이저">
+    <title>Online Image Resizer - ConvertFile</title>
+    <meta name="description" content="Resize images by pixels or percentages. Maintain aspect ratio and choose interpolation filters locally.">
+    <meta name="keywords" content="image resizer, resize image, change image size, reduce image dimensions">
     <link rel="canonical" href="https://2convert.org/tools/resize.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/tools/resize.html">
-    <meta property="og:title" content="온라인 이미지 크기 조절기 (Image Resizer) - ConvertFile">
-    <meta property="og:description" content="사진 용량과 픽셀 크기를 자유롭게 변경하세요. 종횡비 비율 유지 기능과 Bilinear 보간 필터를 지원하는 무료 로컬 이미지 리사이저.">
+    <meta property="og:title" content="Online Image Resizer - ConvertFile">
+    <meta property="og:description" content="Resize images by pixels or percentages. Maintain aspect ratio and choose interpolation filters locally.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://2convert.org/tools/resize.html">
-    <meta property="twitter:title" content="온라인 이미지 크기 조절기 (Image Resizer) - ConvertFile">
-    <meta property="twitter:description" content="사진 용량과 픽셀 크기를 자유롭게 변경하세요. 종횡비 비율 유지 기능과 Bilinear 보간 필터를 지원하는 무료 로컬 이미지 리사이저.">
+    <meta property="twitter:title" content="Online Image Resizer - ConvertFile">
+    <meta property="twitter:description" content="Resize images by pixels or percentages. Maintain aspect ratio and choose interpolation filters locally.">
     <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
 
     <!-- Structured Data -->
@@ -55,9 +58,9 @@
     {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "온라인 이미지 크기 조절기 (Image Resizer) - ConvertFile",
+  "name": "Online Image Resizer - ConvertFile",
   "url": "https://2convert.org/tools/resize.html",
-  "description": "사진 용량과 픽셀 크기를 자유롭게 변경하세요. 종횡비 비율 유지 기능과 Bilinear 보간 필터를 지원하는 무료 로컬 이미지 리사이저.",
+  "description": "Resize images by pixels or percentages. Maintain aspect ratio and choose interpolation filters locally.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
   "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
@@ -82,13 +85,13 @@
 
   gtag('config', 'G-S87614V8Y9');
 </script>
-                <h1 class="modern-content__title">이미지 크기 조절기 (Image Resizer)</h1>
-                <p class="modern-content__desc">사진의 해상도 픽셀 값을 직접 입력하거나 슬라이더 비율 방식으로 이미지 사이즈를 재조정합니다.</p>
+                <h1 class="modern-content__title">Image Resizer</h1>
+                <p class="modern-content__desc">Resize images by entering specific pixel dimensions or using a percentage scale slider.</p>
             </header>
 
             <!-- 구글 애드센스 배너 공간 -->
             <div class="modern-ad-zone">
-                <span>[광고 슬롯] Google AdSense Banner Slot (728x90)</span>
+                <span>[Ad Zone] Google AdSense Banner Slot (728x90)</span>
             </div>
 
             <div class="modern-tool-grid">
@@ -97,8 +100,8 @@
                     <!-- 업로드 드롭존 -->
                     <div class="modern-upload-zone" id="drop-zone">
                         <div class="modern-upload-zone__icon"></div>
-                        <div class="modern-upload-zone__title">크기를 변경할 이미지 파일을 여기에 끌어다 놓으십시오.</div>
-                        <div class="modern-upload-zone__desc">또는 이곳을 클릭하여 로컬 디스크에서 선택하십시오. (최대 25MB)</div>
+                        <div class="modern-upload-zone__title">Drag and drop the image file here to resize.</div>
+                        <div class="modern-upload-zone__desc">Or click to select a file from your computer (Max 25MB).</div>
                         <input type="file" id="file-input" style="display:none;" accept="image/*">
                     </div>
 
@@ -116,13 +119,13 @@
                 <!-- 2열: 속성 조정 제어반 -->
                 <div style="display:flex; flex-direction:column; gap:12px;">
                     <div class="modern-card">
-                        <h3 class="modern-card__title">크기 설정 (Dimensions)</h3>
+                        <h3 class="modern-card__title">Dimensions</h3>
                         
                         <div class="modern-form-group">
-                            <span class="modern-label">조절 기준</span>
+                            <span class="modern-label">Resize Unit</span>
                             <div style="display:flex; gap:16px; font-size:13px; margin-top:2px;">
-                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="pixel" checked> 픽셀(px)</label>
-                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="percent"> 비율(%)</label>
+                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="pixel" checked> Pixels (px)</label>
+                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="percent"> Percentage (%)</label>
                             </div>
                         </div>
 
@@ -130,17 +133,17 @@
                         <div id="pixel-form">
                             <div style="display:flex; gap:10px; margin-bottom:10px;">
                                 <div class="modern-form-group" style="flex:1;">
-                                    <span class="modern-label">가로 너비 (Width)</span>
+                                    <span class="modern-label">Width</span>
                                     <input type="number" class="modern-input" id="resize-width" placeholder="px" disabled>
                                 </div>
                                 <div class="modern-form-group" style="flex:1;">
-                                    <span class="modern-label">세로 높이 (Height)</span>
+                                    <span class="modern-label">Height</span>
                                     <input type="number" class="modern-input" id="resize-height" placeholder="px" disabled>
                                 </div>
                             </div>
                             <div class="modern-form-group">
                                 <label style="cursor:pointer; font-size:12px; display:flex; align-items:center; gap:6px;">
-                                    <input type="checkbox" id="aspect-ratio" checked disabled> 종횡비 비율 고정
+                                    <input type="checkbox" id="aspect-ratio" checked disabled> Lock aspect ratio
                                 </label>
                             </div>
                         </div>
@@ -148,48 +151,113 @@
                         <!-- 백분율 제어 폼 -->
                         <div id="percent-form" style="display:none; margin-top:8px;">
                             <div class="modern-form-group">
-                                <span class="modern-label">배율 조정: <strong id="percent-val" style="color:var(--blue-600);">100</strong>%</span>
+                                <span class="modern-label">Percentage: <strong id="percent-val" style="color:var(--blue-600);">100</strong>%</span>
                                 <input type="range" min="10" max="200" value="100" style="width:100%; cursor:pointer;" id="resize-percent" disabled>
                             </div>
                         </div>
                     </div>
 
                     <div class="modern-card">
-                        <h3 class="modern-card__title">고급 가공 필터</h3>
+                        <h3 class="modern-card__title">Advanced Settings</h3>
                         <div class="modern-form-group" style="margin-bottom:12px;">
-                            <span class="modern-label">보간 방식 필터</span>
+                            <span class="modern-label">Interpolation Filter</span>
                             <select class="modern-select" id="interpolation-filter" disabled>
-                                <option value="bilinear">Bilinear (부드럽게 - 사진 권장)</option>
-                                <option value="nearest">Nearest Neighbor (도트 그래픽용)</option>
+                                <option value="bilinear">Bilinear (Smooth - Recommended)</option>
+                                <option value="nearest">Nearest Neighbor (Sharp - Good for pixel art)</option>
                             </select>
                         </div>
                         <div class="modern-form-group">
-                            <span class="modern-label">저장 확장자 형식</span>
+                            <span class="modern-label">Output Format</span>
                             <select class="modern-select" id="output-format" disabled>
-                                <option value="match">원본 포맷 그대로 저장</option>
-                                <option value="image/jpeg">JPG 이미지</option>
-                                <option value="image/png">PNG 이미지 (투명 배경)</option>
-                                <option value="image/webp">WebP 이미지 (웹 압축 최적화)</option>
+                                <option value="match">Match Original Format</option>
+                                <option value="image/jpeg">JPG Image</option>
+                                <option value="image/png">PNG Image (Transparent)</option>
+                                <option value="image/webp">WebP Image (Optimized for Web)</option>
                             </select>
                         </div>
                     </div>
 
                     <button class="modern-btn modern-btn--primary" id="btn-resize" disabled style="height:38px; font-size:14px; font-weight:600;">
-                        💾 크기 조절 이미지 다운로드
+                        💾 Resize & Download Image
                     </button>
                 </div>
             </div>
 
             <!-- 하단 안내 정보 가이드 -->
-            <div class="modern-instructions-box">
-                <h3>💡 온라인 이미지 크기 조절기 가이드</h3>
-                <p>
-                    ConvertFile의 이미지 리사이저 툴은 HTML5 캔버스 인터페이스 표준을 준수하여 <b>어떠한 사진 정보도 서버로 중계 및 저장하지 않는 완벽한 로컬 변환 서비스</b>입니다.
-                </p>
-                <ul>
-                    <li><b>종횡비 비율 고정:</b> 너비나 높이 중 하나의 수치를 변경할 때 원본의 가로세로 비율이 뒤틀리지 않도록 짝을 맞춰 자동 정밀 보정합니다.</li>
-                    <li><b>포맷 변환 결합:</b> 크기 조절을 진행하면서 즉시 최종 포맷(JPG, PNG, WebP 등)을 스위칭해 다운로드받을 수 있어 다단계 변환 시간을 극적으로 줄여줍니다.</li>
-                </ul>
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 Image Resizer</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">The Image Resizer is built upon browser-native technologies, utilizing Canvas API 2D resizing directly within the execution context of the client-side application. By integrating Hermite/Bilinear/Bicubic pixel interpolation, the system executes binary operations and processes user payloads instantaneously. This architecture eliminates traditional round-trip server communication delays, ensuring that large payloads or high-frequency operations are handled with optimal responsiveness and zero latency.</p>
+                    <p style="margin-bottom: 12px;">In modern web design, delegating raster image scaling processing to the client browser is a major step forward for speed and security. Rather than passing raw data, images, or media streams back and forth across network channels, our tool runs operations directly on the user's local thread. Using advanced JavaScript APIs, the interface dynamically updates visual states, updates sliders, and renders preview containers instantly, creating a fluid, desktop-like user experience.</p>
+                    <p style="margin-bottom: 12px;">Under the hood, memory allocation is handled efficiently using ImageData pixel arrays. The execution cycle runs bilinear interpolation mathematical filtering to optimize data throughput and maintain pixel or text fidelity. The output is structured to conform strictly with W3C HTML5 Canvas standards, ensuring that all files, graphics, or code segments generated are fully compatible with mainstream platforms, operating systems, and professional software suites.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ How to Use
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Access the tool and locate the primary file input zone or text input container near the top of the interface.</li>
+                            <li style="margin-bottom: 8px;">Upload your source file (such as PNG, JPG, or WEBP) using the drag-and-drop boundary, or paste text/numeric contents into the designated field.</li>
+                            <li style="margin-bottom: 8px;">Adjust the visual parameters, quality sliders, or rendering options using the control sidebar or slider panels to suit your technical needs.</li>
+                            <li style="margin-bottom: 8px;">Click the action button (e.g. Generate, Convert, or Process) to invoke the processing logic on the Canvas or memory buffer.</li>
+                            <li style="margin-bottom: 8px;">Review the rendered preview, then click the download button to save the final file locally to your desktop or device.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Key Features
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Browser-Bound Threading:</strong> Performs all calculations inside the main execution cycle or Web Workers, preventing browser freeze.</li>
+                            <li style="margin-bottom: 8px;"><strong>High-Fidelity Operations:</strong> Uses bilinear interpolation mathematical filtering to ensure that output quality remains mathematically precise during compression or resizing.</li>
+                            <li style="margin-bottom: 8px;"><strong>Optimized Memory Management:</strong> Allocates temporary buffer space via ImageData pixel arrays to prevent memory leaks and browser crashes.</li>
+                            <li style="margin-bottom: 8px;"><strong>Standardized Compatibility:</strong> Adheres strictly to W3C HTML5 Canvas standards to deliver output files that are fully readable and editable anywhere.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Local Processing & Confidentiality:</strong> This tool operates entirely within your web browser's local sandbox environment. By leveraging client-side memory and browser-level file processing, no data, files, or personal information are uploaded to external servers. This architecture guarantees full compliance with strict privacy regulations such as GDPR and CCPA, providing you with absolute security.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Frequently Asked Questions (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. How does the resizer calculate new pixels?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">It maps the source image pixel grid onto the new dimensions, using interpolation algorithms to calculate new color values and minimize pixelation.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. What is the difference between Bicubic and Bilinear interpolation?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Bilinear interpolation uses a weighted average of 2x2 pixels for speed, while Bicubic uses 4x4 pixels, resulting in smoother edges at the cost of more processing.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. Can I keep the aspect ratio locked?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Yes. The resizer has an aspect ratio lock checkbox to ensure the image does not stretch or distort during resizing.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

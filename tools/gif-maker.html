@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -104,23 +107,23 @@
         }
     </style>
 
-    <title>온라인 움짤 GIF 메이커 (GIF Maker) - ConvertFile</title>
-    <meta name="description" content="여러 장의 이미지를 합쳐 움직이는 GIF 움짤 애니메이션을 만들어보세요. 프레임 지연 시간 및 인코딩 품질 맞춤 설정.">
-    <meta name="keywords" content="GIF 만들기, 움짤 메이커, GIF 생성기, 움짤 만들기">
+    <title>Online Animated GIF Maker - ConvertFile</title>
+    <meta name="description" content="Combine multiple images to create an animated GIF. Customize frame delay and dimensions.">
+    <meta name="keywords" content="GIF maker, animated GIF, create GIF, image to GIF">
     <link rel="canonical" href="https://2convert.org/tools/gif-maker.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/tools/gif-maker.html">
-    <meta property="og:title" content="온라인 움짤 GIF 메이커 (GIF Maker) - ConvertFile">
-    <meta property="og:description" content="여러 장의 이미지를 합쳐 움직이는 GIF 움짤 애니메이션을 만들어보세요. 프레임 지연 시간 및 인코딩 품질 맞춤 설정.">
+    <meta property="og:title" content="Online Animated GIF Maker - ConvertFile">
+    <meta property="og:description" content="Combine multiple images to create an animated GIF. Customize frame delay and dimensions.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://2convert.org/tools/gif-maker.html">
-    <meta property="twitter:title" content="온라인 움짤 GIF 메이커 (GIF Maker) - ConvertFile">
-    <meta property="twitter:description" content="여러 장의 이미지를 합쳐 움직이는 GIF 움짤 애니메이션을 만들어보세요. 프레임 지연 시간 및 인코딩 품질 맞춤 설정.">
+    <meta property="twitter:title" content="Online Animated GIF Maker - ConvertFile">
+    <meta property="twitter:description" content="Combine multiple images to create an animated GIF. Customize frame delay and dimensions.">
     <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
 
     <!-- Structured Data -->
@@ -128,9 +131,9 @@
     {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "온라인 움짤 GIF 메이커 (GIF Maker) - ConvertFile",
+  "name": "Online Animated GIF Maker - ConvertFile",
   "url": "https://2convert.org/tools/gif-maker.html",
-  "description": "여러 장의 이미지를 합쳐 움직이는 GIF 움짤 애니메이션을 만들어보세요. 프레임 지연 시간 및 인코딩 품질 맞춤 설정.",
+  "description": "Combine multiple images to create an animated GIF. Customize frame delay and dimensions.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
   "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
@@ -155,13 +158,13 @@
 
   gtag('config', 'G-S87614V8Y9');
 </script>
-                <h1 class="modern-content__title">움짤 GIF 메이커 (GIF Maker)</h1>
-                <p class="modern-content__desc">여러 이미지 프레임들을 차례대로 이어 붙여 움직이는 애니메이션 GIF 파일로 병합합니다.</p>
+                <h1 class="modern-content__title">Animated GIF Maker</h1>
+                <p class="modern-content__desc">Combine multiple image frames in sequence to create an animated GIF.</p>
             </header>
 
             <!-- 애드센스 슬롯 -->
             <div class="modern-ad-zone">
-                <span>[광고 슬롯] Google AdSense Banner Zone (728x90)</span>
+                <span>[Ad Zone] Google AdSense Banner Zone (728x90)</span>
             </div>
 
             <div class="modern-tool-grid">
@@ -170,14 +173,14 @@
                     <!-- 업로드 드롭존 -->
                     <div class="modern-upload-zone" id="drop-zone">
                         <div class="modern-upload-zone__icon"></div>
-                        <div class="modern-upload-zone__title">GIF로 인코딩할 사진 이미지들을 다중 선택해 끌고 오십시오.</div>
-                        <div class="modern-upload-zone__desc">PNG, JPG, WebP 형식을 지원합니다. (최대 총합 50MB)</div>
+                        <div class="modern-upload-zone__title">Select and drag multiple images here to create a GIF.</div>
+                        <div class="modern-upload-zone__desc">Supports PNG, JPG, WebP (Max 50MB in total)</div>
                         <input type="file" id="file-input" style="display:none;" accept="image/*" multiple>
                     </div>
 
                     <!-- 프레임 목록 슬롯 -->
                     <div id="frames-container" style="display:none;">
-                        <span class="modern-label">업로드 완료된 시퀀스 프레임 리스트</span>
+                        <span class="modern-label">Uploaded Sequence Frames</span>
                         <div class="modern-frame-list" id="frame-list">
                             <!-- JS 동적 주입 -->
                         </div>
@@ -197,46 +200,111 @@
                 <!-- 2열: 프레임 속성 및 렌더링 버튼 -->
                 <div style="display:flex; flex-direction:column; gap:12px;">
                     <div class="modern-card">
-                        <h3 class="modern-card__title">재생 타임라인 설정</h3>
+                        <h3 class="modern-card__title">Playback Timeline</h3>
                         <div class="modern-form-group">
-                            <span class="modern-label">장면당 지연 시간 (Interval)</span>
+                            <span class="modern-label">Delay per Frame (Interval)</span>
                             <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
                                 <input type="number" class="modern-input" id="gif-delay" value="200" style="width:80px;" min="50" step="50">
-                                <span style="font-size:13px; color:var(--slate-500);">ms (1000ms = 1초)</span>
+                                <span style="font-size:13px; color:var(--slate-500);">ms (1000ms = 1s)</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="modern-card">
-                        <h3 class="modern-card__title">출력 해상도 (Dimensions)</h3>
+                        <h3 class="modern-card__title">Output Dimensions</h3>
                         <div style="display:flex; gap:10px;">
                             <div class="modern-form-group" style="flex:1;">
-                                <span class="modern-label">가로 너비</span>
+                                <span class="modern-label">Width</span>
                                 <input type="number" class="modern-input" id="gif-width" value="320" placeholder="px">
                             </div>
                             <div class="modern-form-group" style="flex:1;">
-                                <span class="modern-label">세로 높이</span>
+                                <span class="modern-label">Height</span>
                                 <input type="number" class="modern-input" id="gif-height" value="240" placeholder="px">
                             </div>
                         </div>
                     </div>
 
                     <button class="modern-btn modern-btn--primary" id="btn-render" disabled style="height:38px; font-size:14px; font-weight:600;">
-                        🎬 움짤 애니메이션 GIF 생성하기
+                        🎬 Create Animated GIF
                     </button>
                 </div>
             </div>
 
             <!-- 하단 안내 정보 가이드 -->
-            <div class="modern-instructions-box">
-                <h3>💡 GIF 애니메이션 제작 FAQ</h3>
-                <p>
-                    선택한 이미지 프레임들은 클라이언트 사이드 Web Worker 비동기 루프로 로컬 조립되므로 인코딩 중 탭 강제 정지 현상이 예방됩니다.
-                </p>
-                <ul>
-                    <li><b>장면 지연 시간:</b> 지연 시간이 짧을수록 프레임 재생 간격이 좁아져 빠른 배속의 생동감 넘치는 움직임이 형성됩니다. 일반적으로 150~300ms가 적절합니다.</li>
-                    <li><b>프레임 삭제:</b> 프레임 카드 우측 상단의 빨간 단추(X)를 눌러 제외하면, 제외 즉시 타임라인이 재구성됩니다.</li>
-                </ul>
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 GIF Maker</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">The GIF Maker is built upon browser-native technologies, utilizing Canvas API 2D rendering and gifshot encoder directly within the execution context of the client-side application. By integrating LZW compression and frame scheduling, the system executes binary operations and processes user payloads instantaneously. This architecture eliminates traditional round-trip server communication delays, ensuring that large payloads or high-frequency operations are handled with optimal responsiveness and zero latency.</p>
+                    <p style="margin-bottom: 12px;">In modern web design, delegating animated image compilation processing to the client browser is a major step forward for speed and security. Rather than passing raw data, images, or media streams back and forth across network channels, our tool runs operations directly on the user's local thread. Using advanced JavaScript APIs, the interface dynamically updates visual states, updates sliders, and renders preview containers instantly, creating a fluid, desktop-like user experience.</p>
+                    <p style="margin-bottom: 12px;">Under the hood, memory allocation is handled efficiently using ImageData frame arrays. The execution cycle runs NeuQuant color quantization and LZW encoding to optimize data throughput and maintain pixel or text fidelity. The output is structured to conform strictly with GIF89a standard specifications, ensuring that all files, graphics, or code segments generated are fully compatible with mainstream platforms, operating systems, and professional software suites.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ How to Use
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Access the tool and locate the primary file input zone or text input container near the top of the interface.</li>
+                            <li style="margin-bottom: 8px;">Upload your source file (such as PNG, JPG, or WEBP) using the drag-and-drop boundary, or paste text/numeric contents into the designated field.</li>
+                            <li style="margin-bottom: 8px;">Adjust the visual parameters, quality sliders, or rendering options using the control sidebar or slider panels to suit your technical needs.</li>
+                            <li style="margin-bottom: 8px;">Click the action button (e.g. Generate, Convert, or Process) to invoke the processing logic on the Canvas or memory buffer.</li>
+                            <li style="margin-bottom: 8px;">Review the rendered preview, then click the download button to save the final file locally to your desktop or device.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Key Features
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Browser-Bound Threading:</strong> Performs all calculations inside the main execution cycle or Web Workers, preventing browser freeze.</li>
+                            <li style="margin-bottom: 8px;"><strong>High-Fidelity Operations:</strong> Uses NeuQuant color quantization and LZW encoding to ensure that output quality remains mathematically precise during compression or resizing.</li>
+                            <li style="margin-bottom: 8px;"><strong>Optimized Memory Management:</strong> Allocates temporary buffer space via ImageData frame arrays to prevent memory leaks and browser crashes.</li>
+                            <li style="margin-bottom: 8px;"><strong>Standardized Compatibility:</strong> Adheres strictly to GIF89a standard specifications to deliver output files that are fully readable and editable anywhere.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Local Processing & Confidentiality:</strong> This tool operates entirely within your web browser's local sandbox environment. By leveraging client-side memory and browser-level file processing, no data, files, or personal information are uploaded to external servers. This architecture guarantees full compliance with strict privacy regulations such as GDPR and CCPA, providing you with absolute security.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Frequently Asked Questions (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. How does the GIF maker compile frames?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">It loads the selected static images, scales them to match, extracts the local/global color palettes, and writes the frame bytes using LZW compression and frame-interval timing.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. Why is the output GIF quality different from the source images?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">GIF only supports a maximum of 256 colors per frame. The compiler uses a quantization algorithm to approximate the colors, which may cause minor color banding.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. Can I change the animation speed?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Yes. You can adjust the frame delay slider to control the transition speed between frames before building the GIF.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

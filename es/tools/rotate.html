@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -12,23 +15,69 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
     <link rel="stylesheet" href="/css/tools.css">
-    <style>.modern-ad-zone{border:1px dashed var(--slate-200);background-color:#FFF;padding:12px;text-align:center;font-size:11px;color:var(--slate-400);border-radius:var(--radius-sm);margin-bottom:15px;}</style>
-    <title>Rotar y Voltear Imagen Online - ConvertFile</title>
-    <meta name="description" content="Rota tu imagen 90°, 180° o 270°, voltéala horizontal/verticalmente. Herramienta de rotación rápida en el navegador.">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-rotate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+    </style>
+
+    <title>Rotar e invertir imágenes en línea (Image Rotator) - ConvertFile</title>
+    <meta name="description" content="Rotar imagen 90 grados o voltearla vertical u horizontalmente. Herramienta de rotación rápida de imágenes procesada directamente en el navegador.">
+    <meta name="keywords" content="rotar imagen, voltear imagen, simetría vertical, simetría horizontal, rotación de fotos">
     <link rel="canonical" href="https://2convert.org/es/tools/rotate.html">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/es/tools/rotate.html">
-    <meta property="og:title" content="Rotar y Voltear Imagen Online - ConvertFile">
-    <meta property="og:description" content="Rota tu imagen 90°, 180° o 270°, voltéala horizontal/verticalmente. Herramienta de rotación rápida en el navegador.">
+    <meta property="og:title" content="Rotar e invertir imágenes en línea (Image Rotator) - ConvertFile">
+    <meta property="og:description" content="Rotar imagen 90 grados o voltearla vertical u horizontalmente. Herramienta de rotación rápida de imágenes procesada directamente en el navegador.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rotar y Voltear Imagen Online - ConvertFile","url":"https://2convert.org/es/tools/rotate.html","description":"Rota tu imagen 90°, 180° o 270°, voltéala horizontal/verticalmente. Herramienta de rotación rápida en el navegador.","applicationCategory":"MultimediaApplication","operatingSystem":"All"}</script>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/es/tools/rotate.html">
+    <meta property="twitter:title" content="Rotar e invertir imágenes en línea (Image Rotator) - ConvertFile">
+    <meta property="twitter:description" content="Rotar imagen 90 grados o voltearla vertical u horizontalmente. Herramienta de rotación rápida de imágenes procesada directamente en el navegador.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rotar e invertir imágenes en línea (Image Rotator) - ConvertFile",
+  "url": "https://2convert.org/es/tools/rotate.html",
+  "description": "Rotar imagen 90 grados o voltearla vertical u horizontalmente. Herramienta de rotación rápida de imágenes procesada directamente en el navegador.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
+    </script>
 </head>
 <body>
+
     <div class="modern-layout">
         <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
         <main class="modern-content">
             <header class="modern-content__header">
 <!-- Google tag (gtag.js) -->
@@ -40,18 +89,156 @@
 
   gtag('config', 'G-S87614V8Y9');
 </script>
-                <h1 class="modern-content__title">Rotar y Voltear Imagen (Image Rotator)</h1>
-                <p class="modern-content__desc">Rota tu foto en ángulos rectos o voltéala como un espejo. También puedes hacer ajustes finos de inclinación.</p>
+                <h1 class="modern-content__title">Rotar y voltear imágenes (Image Rotator)</h1>
+                <p class="modern-content__desc">Rote las imágenes en ángulos rectos, voltéelas horizontal o verticalmente como un espejo, y ajuste con precisión los ángulos inclinados.</p>
             </header>
-            <div class="modern-ad-zone"><span>[Espacio de Anuncio] Google AdSense Banner (728x90)</span></div>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[Zona de anuncios] Google AdSense Banner Zone (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Arrastre y suelte el archivo de imagen que desea rotar aquí.</div>
+                        <div class="modern-upload-zone__desc">También puede hacer clic para seleccionar desde su computadora local. (Máx. 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Rotación rápida de ángulo</h3>
+                        <div class="modern-rotate-grid">
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-90cw" disabled>↩️ 90° en sentido horario</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-90ccw" disabled>↪️ 90° en sentido antihorario</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-rot-180" disabled>🔄 Rotar 180°</button>
+                            <button class="modern-btn modern-btn--outline" style="border-color:var(--error); color:var(--error);" id="btn-reset-rot" disabled>❌ Restablecer</button>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Voltear simetría (Flip)</h3>
+                        <div class="modern-rotate-grid">
+                            <button class="modern-btn modern-btn--outline" id="btn-flip-h" disabled>↔️ Voltear horizontalmente</button>
+                            <button class="modern-btn modern-btn--outline" id="btn-flip-v" disabled>↕️ Voltear verticalmente</button>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Ajuste fino de nivelación</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Ángulo de rotación: <strong id="angle-val" style="color:var(--blue-600);">0</strong>°</span>
+                            <input type="range" min="-180" max="180" value="0" style="width:100%; cursor:pointer;" id="rot-angle" disabled>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-download" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        💾 Descargar imagen rotada
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 Rotador y Volteador de Imágenes</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">La herramienta Rotador y Volteador de Imágenes está construida sobre tecnologías nativas del navegador, utilizando transformaciones 2D con la API Canvas directamente dentro del contexto de ejecución de la aplicación del lado del cliente. Al integrar transformaciones afines de matriz (desplazar, rotar, escalar), el sistema ejecuta operaciones binarias y procesa datos del usuario de forma instantánea. Esta arquitectura elimina los retrasos de comunicación tradicionales con servidores externos, garantizando que los archivos grandes o las operaciones de alta frecuencia se manejen con una respuesta óptima y sin latencia.</p>
+                    <p style="margin-bottom: 12px;">En el diseño web moderno, delegar el procesamiento de el ajuste de la orientación y rotación de imágenes de mapas de bits al navegador del cliente es un avance significativo para la velocidad y la seguridad de la información. En lugar de transmitir archivos sin procesar o flujos multimedia a través de canales de red, nuestra herramienta ejecuta operaciones directamente en el hilo local del usuario. Utilizando APIs avanzadas de JavaScript, la interfaz actualiza dinámicamente los estados visuales, los controles deslizantes y los contenedores de vista previa al instante, creando una experiencia fluida e interactiva.</p>
+                    <p style="margin-bottom: 12px;">Bajo el capó, la asignación de memoria se gestiona de manera eficiente utilizando matrices de transformación lógica de canvas. El ciclo de ejecución aplica mapeo de coordenadas mediante conversión de grados a radianes para optimizar el rendimiento de los datos y mantener la fidelidad de los píxeles o del texto. La salida está estructurada para cumplir estrictamente con las directrices técnicas de W3C HTML5 Canvas, asegurando que todos los archivos, gráficos o segmentos de código generados sean totalmente compatibles con las plataformas principales, sistemas operativos y suites de software profesional.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ Cómo usar
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Acceda a la herramienta y localice la zona de entrada de archivos principal o el contenedor de texto en la parte superior.</li>
+                            <li style="margin-bottom: 8px;">Cargue su archivo de origen (como PNG, JPG o WEBP) utilizando la zona de arrastrar y soltar, o pegue el contenido de texto o numérico.</li>
+                            <li style="margin-bottom: 8px;">Ajuste los parámetros visuales, controles deslizantes de calidad u opciones de procesamiento utilizando la barra lateral de control.</li>
+                            <li style="margin-bottom: 8px;">Haga clic en el botón de acción (por ejemplo, Generar, Convertir o Procesar) para iniciar la lógica de procesamiento en el Canvas o búfer.</li>
+                            <li style="margin-bottom: 8px;">Revise la vista previa resultante y luego haga clic en el botón de descarga para guardar el archivo final directamente en su dispositivo.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Características clave
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Procesamiento en Navegador:</strong> Realiza todos los cálculos dentro del ciclo de ejecución principal o Web Workers, evitando bloqueos de pantalla.</li>
+                            <li style="margin-bottom: 8px;"><strong>Operaciones de Alta Fidelidad:</strong> Utiliza mapeo de coordenadas mediante conversión de grados a radianes para asegurar que la calidad de salida permanezca matemáticamente precisa durante la compresión.</li>
+                            <li style="margin-bottom: 8px;"><strong>Gestión Eficiente de Memoria:</strong> Asigna espacio de búfer temporal a través de matrices de transformación lógica de canvas para prevenir fugas de memoria en el navegador.</li>
+                            <li style="margin-bottom: 8px;"><strong>Compatibilidad Estándar:</strong> Cumple estrictamente con las directrices técnicas de W3C HTML5 Canvas para ofrecer archivos de salida legibles y editables en cualquier plataforma.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Procesamiento Local y Privacidad:</strong> Esta herramienta funciona completamente en el entorno seguro de su navegador web. Al utilizar la memoria local del cliente y el procesamiento a nivel del navegador, no se suben archivos ni datos a servidores externos. Esta arquitectura garantiza el cumplimiento de regulaciones de privacidad como GDPR y CCPA, ofreciendo seguridad absoluta.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Preguntas frecuentes (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Cómo rota la imagen el navegador?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">La herramienta altera el sistema de ejes del Canvas mediante la API rotate(), reubica el centro del lienzo y vuelve a plasmar el recurso sobre las nuevas coordenadas.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Rotar o voltear la foto causa una pérdida de resolución?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">No. Realizar rotaciones a intervalos de 90 grados o inversiones de espejo altera la posición espacial del mapa de píxeles sin activar procesos de compresión.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Es factible voltear la imagen en horizontal o vertical?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Sí. Mediante transformaciones de escala con valores negativos como scale(-1, 1) y scale(1, -1), el sistema invierte los ejes simulando el reflejo de un espejo.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
-    
-    <script src="/js/core/image-loader.js?v=4"></script>
-    <script src="/js/core/canvas-utils.js?v=4"></script>
-    <script src="/js/core/file-utils.js?v=4"></script>
-    <script src="/js/core/ui-components.js?v=4"></script>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
     <script src="/js/core/sidebar.js?v=4"></script>
-    <script src="/js/tools/rotate.js?v=4"></script>
+    <script src="/js/tools/rotate.js?v=3"></script>
 </body>
 </html>

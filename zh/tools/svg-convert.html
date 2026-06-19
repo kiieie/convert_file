@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<!-- Google AdSense Auto Ads -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/modern-theme.css" rel="stylesheet"/>
+<link href="/css/modern-components.css" rel="stylesheet"/>
+<link href="/css/tools.css" rel="stylesheet"/>
+<style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+<title>SVG 到 PNG/JPG 转换器 - 在线将矢量 SVG 转换为光栅 | 2convert.org</title>
+<meta content="免费在线将 SVG 矢量文件转换为 PNG 或 JPG 图像。调整输出宽度和高度，同时保持纵横比。 100% 客户端、私密且安全。" name="description"/>
+<meta content="svg 转 png、svg 转 jpg、转换 svg、矢量转光栅、svg 在线转换器、调整 svg 大小" name="keywords"/>
+<link href="https://2convert.org/zh/tools/svg-convert.html" rel="canonical"/>
+</head>
+<body>
+<div class="modern-layout">
+<!-- Sidebar -->
+<aside class="modern-sidebar"></aside>
+<!-- Main content -->
+<main class="modern-content">
+<header class="modern-content__header">
+<h1 class="modern-content__title">SVG 到 PNG/JPG 转换器</h1>
+<p class="modern-content__desc">将 SVG 矢量图形转换为具有自定义输出尺寸的 PNG 或 JPG 图像。保持透明度或在纯白色背景上渲染。</p>
+</header>
+<!-- Ad zone -->
+<div class="modern-ad-zone">
+<span>[广告位] Google AdSense 横幅 (728x90)</span>
+</div>
+<div class="modern-tool-grid">
+<!-- Col 1: Upload & Preview -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Upload zone -->
+<div class="modern-upload-zone" id="drop-zone">
+<div class="modern-upload-zone__icon"></div>
+<div class="modern-upload-zone__title">将您的 SVG 文件拖放到此处</div>
+<div class="modern-upload-zone__desc">支持SVG矢量格式·点击选择文件</div>
+<input accept=".svg,image/svg+xml" id="file-input" style="display:none;" type="file"/>
+</div>
+<!-- Preview container -->
+<div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+<img alt="SVG Preview" id="preview-img"/>
+</div>
+</div>
+<!-- Col 2: Settings & Action -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Settings card -->
+<div class="modern-card">
+<h3 class="modern-card__title">渲染尺寸</h3>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">宽度（像素）</span>
+<input class="modern-input" disabled="" id="output-width" max="10000" min="1" type="number" value="300"/>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">高度（像素）</span>
+<input class="modern-input" disabled="" id="output-height" max="10000" min="1" type="number" value="150"/>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<label style="cursor:pointer; font-size:13px; font-weight:500; display:flex; align-items:center; gap:6px;">
+<input checked="" disabled="" id="aspect-ratio" type="checkbox"/>约束比例（锁定纵横比）</label>
+</div>
+</div>
+<!-- Output Format -->
+<div class="modern-card">
+<h3 class="modern-card__title">格式选项</h3>
+<div class="modern-form-group">
+<span class="modern-label">输出格式</span>
+<select class="modern-select" disabled="" id="output-format">
+<option selected="" value="image/png">PNG（支持透明度）</option>
+<option value="image/jpeg">JPG（纯白色背景）</option>
+</select>
+</div>
+</div>
+<button class="modern-btn modern-btn--primary" disabled="" id="btn-convert" style="height:42px; font-size:14px; font-weight:700;" type="button">⚙️ 转换并下载</button>
+<!-- File Info -->
+<div class="modern-card">
+<h3 class="modern-card__title">矢量文件信息</h3>
+<div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">未加载 SVG。</div>
+</div>
+</div>
+</div>
+<!-- Instructions -->
+<!-- 하단 안내 정보 가이드 -->
+<div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+<!-- Section Title -->
+<h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 SVG 转换器</h2>
+<!-- Description Paragraphs -->
+<div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+<p style="margin-bottom: 12px;">SVG Converter 基于浏览器本机技术构建，利用 XMLSerializer 和 Canvas API 直接在客户端应用程序的执行上下文中进行绘图。通过将 SVG 矢量渲染集成到画布光栅化，系统可以立即执行二进制运算并处理用户有效负载。该架构消除了传统的往返服务器通信延迟，确保以最佳响应能力和零延迟处理大负载或高频操作。</p>
+<p style="margin-bottom: 12px;">在现代网页设计中，将矢量到光栅图像转换处理委托给客户端浏览器是速度和安全性方面的重大进步。我们的工具不是在网络通道上来回传递原始数据、图像或媒体流，而是直接在用户的本地线程上运行操作。使用先进的 JavaScript API，该界面可以动态更新视觉状态、更新滑块并立即渲染预览容器，从而创建流畅的、类似桌面的用户体验。</p>
+<p style="margin-bottom: 12px;">在底层，内存分配是使用 Blob URL 和 SVG 文档节点高效处理的。执行周期运行 SVG 绘图解析和画布序列化，以优化数据吞吐量并保持像素或文本保真度。输出的结构严格符合 W3C SVG 和 HTML5 Canvas 标准，确保生成的所有文件、图形或代码段与主流平台、操作系统和专业软件套件完全兼容。</p>
+</div>
+<!-- Two-column layout for Features and How to Use -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+<!-- Left: How to Use -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">⚙️ 如何使用</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+<li style="margin-bottom: 8px;">访问该工具并找到界面顶部附近的主文件输入区域或文本输入容器。</li>
+<li style="margin-bottom: 8px;">使用拖放边界上传源文件（例如 PNG、JPG 或 WEBP），或将文本/数字内容粘贴到指定字段中。</li>
+<li style="margin-bottom: 8px;">使用控制侧边栏或滑块面板调整视觉参数、质量滑块或渲染选项，以满足您的技术需求。</li>
+<li style="margin-bottom: 8px;">单击操作按钮（例如生成、转换或处理）以调用画布或内存缓冲区上的处理逻辑。</li>
+<li style="margin-bottom: 8px;">查看渲染的预览，然后单击下载按钮将最终文件本地保存到您的桌面或设备。</li>
+</ol>
+</div>
+<!-- Right: Key Features -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">🌟 主要特点</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+<li style="margin-bottom: 8px;"><strong>浏览器绑定线程：</strong>在主执行周期或 Web Workers 内执行所有计算，防止浏览器冻结。</li>
+<li style="margin-bottom: 8px;"><strong>高保真操作：</strong>使用 SVG 绘图解析和画布序列化来确保输出质量在压缩或调整大小期间保持数学上的精确性。</li>
+<li style="margin-bottom: 8px;"><strong>优化内存管理：</strong>通过 Blob URL 和 SVG 文档节点分配临时缓冲区空间，以防止内存泄漏和浏览器崩溃。</li>
+<li style="margin-bottom: 8px;"><strong>标准化兼容性：</strong>严格遵守 W3C SVG 和 HTML5 Canvas 标准，提供在任何地方都完全可读和可编辑的输出文件。</li>
+</ul>
+</div>
+</div>
+<!-- Privacy & Security Alert -->
+<div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+<span style="font-size: 16px;">🛡️</span>
+<div>
+<strong>本地处理和保密：</strong>该工具完全在您的网络浏览器的本地沙箱环境中运行。通过利用客户端内存和浏览器级文件处理，不会将任何数据、文件或个人信息上传到外部服务器。该架构保证完全符合GDPR、CCPA等严格的隐私法规，为您提供绝对的安全。</div>
+</div>
+<!-- FAQ Section -->
+<div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+<h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 常见问题 (FAQ)</h3>
+<div itemscope="" itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：SVG 转换如何进行？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">该工具解析 SVG XML 代码，创建带有 Blob URL 的临时 Image 元素，将其绘制到画布上，并将其导出为栅格 PNG 或 JPEG。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：为什么我转换后的 SVG 看起来很模糊？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">SVG 基于矢量并且可以无限缩放。为了防止模糊，转换器允许您在导出之前设置自定义光栅尺寸或 DPI 乘数。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：我可以将 PNG/JPG 转换回 SVG 吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">不。该工具将矢量 SVG 转换为光栅图像。将光栅图像转换回矢量路径需要跟踪算法，但不受支持。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Scripts -->
+<script src="/js/core/image-loader.js?v=4"></script>
+<script src="/js/core/file-utils.js?v=4"></script>
+<script src="/js/core/ui-components.js?v=4"></script>
+<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/tools/svg-convert.js?v=1"></script>
+</body>
+</html>

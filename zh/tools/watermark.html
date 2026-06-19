@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<!-- Google AdSense Auto Ads -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/modern-theme.css" rel="stylesheet"/>
+<link href="/css/modern-components.css" rel="stylesheet"/>
+<link href="/css/tools.css" rel="stylesheet"/>
+<style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        #preview-canvas {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+        }
+    </style>
+<title>图像水印工具-向照片添加文本或徽标| 2convert.org</title>
+<meta content="免费在线为您的照片添加文本或图像水印。自定义字体、颜色、大小、不透明度和位置。 100% 客户端、安全且私密。" name="description"/>
+<meta content="在线添加水印、照片水印、图像水印、文字叠加照片、照片上的徽标" name="keywords"/>
+<link href="https://2convert.org/zh/tools/watermark.html" rel="canonical"/>
+</head>
+<body>
+<div class="modern-layout">
+<!-- Sidebar -->
+<aside class="modern-sidebar"></aside>
+<!-- Main content -->
+<main class="modern-content">
+<header class="modern-content__header">
+<h1 class="modern-content__title">图片水印</h1>
+<p class="modern-content__desc">通过向照片添加自定义文本或徽标图像水印来保护您的版权。通过实时预览调整不透明度、比例和位置。</p>
+</header>
+<!-- Ad zone -->
+<div class="modern-ad-zone">
+<span>[广告位] Google AdSense 横幅 (728x90)</span>
+</div>
+<div class="modern-tool-grid">
+<!-- Col 1: Upload & Canvas -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Upload zone -->
+<div class="modern-upload-zone" id="drop-zone">
+<div class="modern-upload-zone__icon"></div>
+<div class="modern-upload-zone__title">将您的主图片放在此处</div>
+<div class="modern-upload-zone__desc">支持 PNG、JPG、WebP · 单击选择文件</div>
+<input accept="image/*" id="file-input" style="display:none;" type="file"/>
+</div>
+<!-- Canvas preview -->
+<div class="modern-preview-container" id="preview-container" style="display:none; padding:12px;">
+<canvas id="preview-canvas"></canvas>
+</div>
+</div>
+<!-- Col 2: Settings -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Watermark options -->
+<div class="modern-card">
+<h3 class="modern-card__title">水印设置</h3>
+<!-- Type toggle -->
+<div class="modern-form-group">
+<span class="modern-label">水印类型</span>
+<div style="display:flex; gap:16px; margin-top:4px;">
+<label style="cursor:pointer; font-size:13px; font-weight:500;">
+<input checked="" disabled="" name="watermark-type" type="radio" value="text"/>文字水印</label>
+<label style="cursor:pointer; font-size:13px; font-weight:500;">
+<input disabled="" name="watermark-type" type="radio" value="image"/>标志图像</label>
+</div>
+</div>
+<!-- Text inputs group -->
+<div id="text-watermark-group" style="margin-top:12px;">
+<div class="modern-form-group">
+<span class="modern-label">水印文字</span>
+<input class="modern-input" disabled="" id="watermark-text" type="text" value="COPYRIGHT"/>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">字体大小 —<span id="font-size-label">48像素</span></span>
+<input disabled="" id="font-size" max="150" min="12" style="width:100%; cursor:pointer;" type="range" value="48"/>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">文字颜色</span>
+<input disabled="" id="text-color" style="width:50px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" type="color" value="#ffffff"/>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">文本不透明度 —<span id="text-opacity-label">50%</span></span>
+<input disabled="" id="text-opacity" max="1.0" min="0.1" step="0.05" style="width:100%; cursor:pointer;" type="range" value="0.5"/>
+</div>
+</div>
+<!-- Logo inputs group -->
+<div id="image-watermark-group" style="margin-top:12px; display:none;">
+<div class="modern-form-group">
+<span class="modern-label">选择徽标文件</span>
+<button class="modern-btn" disabled="" id="btn-select-logo" style="margin-top:4px;" type="button">📁 选择徽标图片</button>
+<input accept="image/*" id="logo-file-input" style="display:none;" type="file"/>
+<div id="logo-name-label" style="font-size:11px; color:var(--slate-400); margin-top:4px;">未加载徽标</div>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">标志比例 —<span id="logo-scale-label">50%</span></span>
+<input disabled="" id="logo-scale" max="200" min="10" style="width:100%; cursor:pointer;" type="range" value="50"/>
+</div>
+<div class="modern-form-group" style="margin-top:8px;">
+<span class="modern-label">徽标不透明度 —<span id="logo-opacity-label">50%</span></span>
+<input disabled="" id="logo-opacity" max="1.0" min="0.1" step="0.05" style="width:100%; cursor:pointer;" type="range" value="0.5"/>
+</div>
+</div>
+<!-- Layout position -->
+<div class="modern-form-group" style="margin-top:12px;">
+<span class="modern-label">位置</span>
+<select class="modern-select" disabled="" id="watermark-position">
+<option selected="" value="bottom-right">右下角</option>
+<option value="bottom-left">左下角</option>
+<option value="top-right">右上</option>
+<option value="top-left">左上</option>
+<option value="center">中心</option>
+<option value="tiled">平铺（重复网格）</option>
+</select>
+</div>
+</div>
+<!-- Output Format & Download -->
+<div class="modern-card">
+<h3 class="modern-card__title">导出选项</h3>
+<div class="modern-form-group">
+<span class="modern-label">格式</span>
+<select class="modern-select" disabled="" id="output-format">
+<option selected="" value="image/png">PNG（无损）</option>
+<option value="image/jpeg">JPG（压缩）</option>
+<option value="image/webp">WebP（高效）</option>
+</select>
+</div>
+</div>
+<button class="modern-btn modern-btn--primary" disabled="" id="btn-download" style="height:42px; font-size:14px; font-weight:700;" type="button">💾 下载带水印的图像</button>
+<!-- Image info -->
+<div class="modern-card">
+<h3 class="modern-card__title">图像信息</h3>
+<div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.6;">没有加载图像。</div>
+</div>
+</div>
+</div>
+<!-- Instructions -->
+<!-- 하단 안내 정보 가이드 -->
+<div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+<!-- Section Title -->
+<h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 图像水印添加器</h2>
+<!-- Description Paragraphs -->
+<div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+<p style="margin-bottom: 12px;">图像水印添加器基于浏览器本机技术构建，直接在客户端应用程序的执行上下文中利用 Canvas API 多层渲染。通过集成 Alpha 通道不透明度遮罩和文本/图像叠加绘制，系统可以执行二进制运算并即时处理用户有效负载。该架构消除了传统的往返服务器通信延迟，确保以最佳响应能力和零延迟处理大负载或高频操作。</p>
+<p style="margin-bottom: 12px;">在现代网页设计中，将版权保护和视觉标签处理委托给客户端浏览器是速度和安全性的重大进步。我们的工具不是在网络通道上来回传递原始数据、图像或媒体流，而是直接在用户的本地线程上运行操作。使用先进的 JavaScript API，该界面可以动态更新视觉状态、更新滑块并立即渲染预览容器，从而创建流畅的、类似桌面的用户体验。</p>
+<p style="margin-bottom: 12px;">在底层，内存分配是使用覆盖画布坐标空间有效处理的。执行周期运行水印位置平铺和比例数学，以优化数据吞吐量并保持像素或文本保真度。输出的结构严格符合 W3C HTML5 Canvas 标准，确保生成的所有文件、图形或代码段与主流平台、操作系统和专业软件套件完全兼容。</p>
+</div>
+<!-- Two-column layout for Features and How to Use -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+<!-- Left: How to Use -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">⚙️ 如何使用</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+<li style="margin-bottom: 8px;">访问该工具并找到界面顶部附近的主文件输入区域或文本输入容器。</li>
+<li style="margin-bottom: 8px;">使用拖放边界上传源文件（例如 PNG、JPG 或 WEBP），或将文本/数字内容粘贴到指定字段中。</li>
+<li style="margin-bottom: 8px;">使用控制侧边栏或滑块面板调整视觉参数、质量滑块或渲染选项，以满足您的技术需求。</li>
+<li style="margin-bottom: 8px;">单击操作按钮（例如生成、转换或处理）以调用画布或内存缓冲区上的处理逻辑。</li>
+<li style="margin-bottom: 8px;">查看渲染的预览，然后单击下载按钮将最终文件本地保存到您的桌面或设备。</li>
+</ol>
+</div>
+<!-- Right: Key Features -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">🌟 主要特点</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+<li style="margin-bottom: 8px;"><strong>浏览器绑定线程：</strong>在主执行周期或 Web Workers 内执行所有计算，防止浏览器冻结。</li>
+<li style="margin-bottom: 8px;"><strong>高保真操作：</strong>使用水印位置平铺和缩放数学来确保输出质量在压缩或调整大小期间保持数学上的精确性。</li>
+<li style="margin-bottom: 8px;"><strong>优化内存管理：</strong>通过覆盖画布坐标空间分配临时缓冲区空间，以防止内存泄漏和浏览器崩溃。</li>
+<li style="margin-bottom: 8px;"><strong>标准化兼容性：</strong>严格遵守 W3C HTML5 Canvas 标准，提供在任何地方都完全可读和可编辑的输出文件。</li>
+</ul>
+</div>
+</div>
+<!-- Privacy & Security Alert -->
+<div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+<span style="font-size: 16px;">🛡️</span>
+<div>
+<strong>本地处理和保密：</strong>该工具完全在您的网络浏览器的本地沙箱环境中运行。通过利用客户端内存和浏览器级文件处理，不会将任何数据、文件或个人信息上传到外部服务器。该架构保证完全符合GDPR、CCPA等严格的隐私法规，为您提供绝对的安全。</div>
+</div>
+<!-- FAQ Section -->
+<div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+<h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 常见问题 (FAQ)</h3>
+<div itemscope="" itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：如何应用水印叠加？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">该工具使用 Canvas 图层绘制基础图像，设置透明度的 globalAlpha 属性，并在选定位置绘制文本或辅助水印图像。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：我可以创建平铺网格水印吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">是的。该工具具有平铺选项，可以计算图像的宽度和高度，并在整个表面上重复水印图案。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：水印会压缩我的原始图像吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">您可以使用压缩滑块控制最终导出质量。将其设置为 100% 或导出为 PNG 可以保留原始质量。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Scripts -->
+<script src="/js/core/image-loader.js?v=4"></script>
+<script src="/js/core/file-utils.js?v=4"></script>
+<script src="/js/core/ui-components.js?v=4"></script>
+<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/tools/watermark.js?v=1"></script>
+</body>
+</html>

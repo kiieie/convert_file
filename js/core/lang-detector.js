@@ -44,12 +44,14 @@
         return normalizedPath === page ||
                normalizedPath === '/ko' + page ||
                normalizedPath === '/es' + page ||
-               (page === '/' && (normalizedPath === '/ko/' || normalizedPath === '/es/'));
+               normalizedPath === '/zh' + page ||
+               (page === '/' && (normalizedPath === '/ko/' || normalizedPath === '/es/' || normalizedPath === '/zh/'));
     });
 
     // 무한 루프 리다이렉트 방지를 위해 이미 다국어 경로에 진입했는지 검사
     const isKoreanPath = normalizedPath.startsWith('/ko/') || normalizedPath === '/ko';
     const isSpanishPath = normalizedPath.startsWith('/es/') || normalizedPath === '/es';
+    const isChinesePath = normalizedPath.startsWith('/zh/') || normalizedPath === '/zh';
 
     // 사용자 수동 지정 언어 로드 또는 브라우저 언어 자동 감지
     function detectLanguage() {
@@ -61,6 +63,8 @@
             return 'ko';
         } else if (browserLang.startsWith('es')) {
             return 'es';
+        } else if (browserLang.startsWith('zh')) {
+            return 'zh';
         }
         return 'en'; // 기본값 영어
     }
@@ -75,12 +79,15 @@
         let cleanPath = normalizedPath;
         if (isKoreanPath) cleanPath = normalizedPath.replace(/^\/ko/, '') || '/';
         if (isSpanishPath) cleanPath = normalizedPath.replace(/^\/es/, '') || '/';
+        if (isChinesePath) cleanPath = normalizedPath.replace(/^\/zh/, '') || '/';
 
         let targetPath = cleanPath;
         if (targetLang === 'ko') {
             targetPath = '/ko' + cleanPath;
         } else if (targetLang === 'es') {
             targetPath = '/es' + cleanPath;
+        } else if (targetLang === 'zh') {
+            targetPath = '/zh' + cleanPath;
         }
         // 영어는 cleanPath 그대로 (루트 유지)
 

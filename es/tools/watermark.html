@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -187,14 +190,80 @@
             </div>
 
             <!-- Instructions -->
-            <div class="modern-instructions-box">
-                <h3>💡 Consejos de Marcas de Agua</h3>
-                <p>Las marcas de agua se agregan localmente a través de su propio navegador, por lo que su archivo original no se almacena en nuestros servidores.</p>
-                <ul>
-                    <li><b>Uso de logos:</b> Se recomienda usar logotipos en formato PNG transparente para evitar bordes o fondos blancos toscos sobre sus fotografías.</li>
-                    <li><b>Marcas en Mosaico:</b> Esta opción dibuja el texto o logotipo de forma diagonal y repetida sobre toda la imagen, siendo ideal para muestras comerciales o protección estricta.</li>
-                    <li><b>Opacidad de equilibrio:</b> Una opacidad del 30% al 50% suele ser lo recomendado para no interferir visualmente con el contenido de la foto pero mantener visibles los derechos de copia.</li>
-                </ul>
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 Añadidor de Marcas de Agua</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">La herramienta Añadidor de Marcas de Agua está construida sobre tecnologías nativas del navegador, utilizando renderizado en capas de Canvas API directamente dentro del contexto de ejecución de la aplicación del lado del cliente. Al integrar opacidad de canal alfa y superposición gráfica de capas de texto/imagen, el sistema ejecuta operaciones binarias y procesa datos del usuario de forma instantánea. Esta arquitectura elimina los retrasos de comunicación tradicionales con servidores externos, garantizando que los archivos grandes o las operaciones de alta frecuencia se manejen con una respuesta óptima y sin latencia.</p>
+                    <p style="margin-bottom: 12px;">En el diseño web moderno, delegar el procesamiento de la protección de propiedad intelectual y etiquetado visual de imágenes al navegador del cliente es un avance significativo para la velocidad y la seguridad de la información. En lugar de transmitir archivos sin procesar o flujos multimedia a través de canales de red, nuestra herramienta ejecuta operaciones directamente en el hilo local del usuario. Utilizando APIs avanzadas de JavaScript, la interfaz actualiza dinámicamente los estados visuales, los controles deslizantes y los contenedores de vista previa al instante, creando una experiencia fluida e interactiva.</p>
+                    <p style="margin-bottom: 12px;">Bajo el capó, la asignación de memoria se gestiona de manera eficiente utilizando coordenadas de lienzo y capas de dibujo dinámicas. El ciclo de ejecución aplica trazado de patrones de cuadrícula y redimensionamiento geométrico para optimizar el rendimiento de los datos y mantener la fidelidad de los píxeles o del texto. La salida está estructurada para cumplir estrictamente con las especificaciones técnicas de W3C HTML5 Canvas, asegurando que todos los archivos, gráficos o segmentos de código generados sean totalmente compatibles con las plataformas principales, sistemas operativos y suites de software profesional.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ Cómo usar
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Acceda a la herramienta y localice la zona de entrada de archivos principal o el contenedor de texto en la parte superior.</li>
+                            <li style="margin-bottom: 8px;">Cargue su archivo de origen (como PNG, JPG o WEBP) utilizando la zona de arrastrar y soltar, o pegue el contenido de texto o numérico.</li>
+                            <li style="margin-bottom: 8px;">Ajuste los parámetros visuales, controles deslizantes de calidad u opciones de procesamiento utilizando la barra lateral de control.</li>
+                            <li style="margin-bottom: 8px;">Haga clic en el botón de acción (por ejemplo, Generar, Convertir o Procesar) para iniciar la lógica de procesamiento en el Canvas o búfer.</li>
+                            <li style="margin-bottom: 8px;">Revise la vista previa resultante y luego haga clic en el botón de descarga para guardar el archivo final directamente en su dispositivo.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Características clave
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Procesamiento en Navegador:</strong> Realiza todos los cálculos dentro del ciclo de ejecución principal o Web Workers, evitando bloqueos de pantalla.</li>
+                            <li style="margin-bottom: 8px;"><strong>Operaciones de Alta Fidelidad:</strong> Utiliza trazado de patrones de cuadrícula y redimensionamiento geométrico para asegurar que la calidad de salida permanezca matemáticamente precisa durante la compresión.</li>
+                            <li style="margin-bottom: 8px;"><strong>Gestión Eficiente de Memoria:</strong> Asigna espacio de búfer temporal a través de coordenadas de lienzo y capas de dibujo dinámicas para prevenir fugas de memoria en el navegador.</li>
+                            <li style="margin-bottom: 8px;"><strong>Compatibilidad Estándar:</strong> Cumple estrictamente con las especificaciones técnicas de W3C HTML5 Canvas para ofrecer archivos de salida legibles y editables en cualquier plataforma.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Procesamiento Local y Privacidad:</strong> Esta herramienta funciona completamente en el entorno seguro de su navegador web. Al utilizar la memoria local del cliente y el procesamiento a nivel del navegador, no se suben archivos ni datos a servidores externos. Esta arquitectura garantiza el cumplimiento de regulaciones de privacidad como GDPR y CCPA, ofreciendo seguridad absoluta.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Preguntas frecuentes (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Bajo qué técnica opera el cambio de barra?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">La herramienta proyecta el archivo principal, define la opacidad general con globalAlpha y dibuja el logotipo o bloque de texto en el cuadrante o ángulo preestablecido.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Es posible cubrir la imagen con un patrón repetido (mosaico)?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Sí. Cuenta con una modalidad de mosaico automático que calcula el área y multiplica la marca de agua en diagonal a lo largo y ancho del lienzo.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿La inserción de marcas de agua deteriora la nitidez?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Puede configurar la compresión al 100% o descargar el resultado como archivo PNG para resguardar la fidelidad del archivo de origen sin pérdidas visuales.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

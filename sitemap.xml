@@ -11,6 +11,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/</loc>
@@ -24,6 +25,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://2convert.org/zh/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/"/>
+  </url>
 
   <!-- Image Editor Tools -->
   <url>
@@ -34,6 +45,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/resize.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/resize.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/resize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/resize.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/resize.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/resize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/resize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/resize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/resize.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/crop.html</loc>
@@ -43,6 +65,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/crop.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/crop.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/crop.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/crop.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/crop.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/crop.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/crop.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/crop.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/crop.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/rotate.html</loc>
@@ -52,6 +85,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/rotate.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/rotate.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/rotate.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/rotate.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/rotate.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/rotate.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/rotate.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/rotate.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/rotate.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/jpg-png.html</loc>
@@ -61,6 +105,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/jpg-png.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/jpg-png.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/jpg-png.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/jpg-png.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/jpg-png.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/jpg-png.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/jpg-png.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/jpg-png.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/jpg-png.html"/>
   </url>
 
   <!-- GIF Tools -->
@@ -72,6 +127,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-maker.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-maker.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-maker.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-maker.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/gif-maker.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-maker.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-maker.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-maker.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-maker.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/gif-splitter.html</loc>
@@ -81,6 +147,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-splitter.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-splitter.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-splitter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-splitter.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/gif-splitter.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-splitter.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-splitter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-splitter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-splitter.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/gif-optimize.html</loc>
@@ -90,6 +167,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-optimize.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-optimize.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-optimize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-optimize.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/gif-optimize.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-optimize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-optimize.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-optimize.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-optimize.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/gif-speed.html</loc>
@@ -99,6 +187,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-speed.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-speed.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-speed.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-speed.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/gif-speed.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-speed.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-speed.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-speed.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-speed.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/gif-effects.html</loc>
@@ -108,6 +207,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-effects.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-effects.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-effects.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-effects.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/gif-effects.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/gif-effects.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/gif-effects.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/gif-effects.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/gif-effects.html"/>
   </url>
 
   <!-- Video Tools -->
@@ -119,6 +229,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/video-gif.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/video-gif.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/video-gif.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/video-gif.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/video-gif.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/video-gif.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/video-gif.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/video-gif.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/video-gif.html"/>
   </url>
 
   <!-- PDF Tools -->
@@ -130,6 +251,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/pdf.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/pdf.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/pdf.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/pdf.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/pdf.html"/>
   </url>
 
   <!-- Utility Tools -->
@@ -141,6 +273,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/barcode.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/barcode.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/barcode.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/barcode.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/barcode.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/barcode.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/barcode.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/barcode.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/barcode.html"/>
   </url>
   <url>
     <loc>https://2convert.org/tools/metadata.html</loc>
@@ -150,32 +293,167 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/metadata.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/metadata.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/metadata.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/metadata.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/metadata.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/metadata.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/metadata.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/metadata.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/metadata.html"/>
   </url>
 
   <!-- Policy pages -->
   <url>
     <loc>https://2convert.org/pages/about.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/about.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/pages/about.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/about.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/pages/about.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/about.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/pages/about.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/pages/about.html"/>
   </url>
   <url>
     <loc>https://2convert.org/pages/privacy.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/pages/privacy.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/pages/privacy.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/pages/privacy.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/pages/privacy.html"/>
   </url>
   <url>
     <loc>https://2convert.org/pages/terms.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/terms.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/pages/terms.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/terms.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/pages/terms.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/terms.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/pages/terms.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/pages/terms.html"/>
   </url>
   <url>
     <loc>https://2convert.org/pages/contact.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/contact.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/pages/contact.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/contact.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/pages/contact.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/contact.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/pages/contact.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/pages/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/pages/contact.html"/>
   </url>
 
   <!-- New High-Demand Tools -->
@@ -187,6 +465,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/heic2jpg.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/heic2jpg.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/heic2jpg.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/heic2jpg.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/heic2jpg.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/heic2jpg.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/heic2jpg.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/heic2jpg.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/heic2jpg.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/heic2jpg.html</loc>
@@ -214,6 +503,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/compress.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/compress.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/compress.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/compress.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/compress.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/compress.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/compress.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/compress.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/compress.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/compress.html</loc>
@@ -241,6 +541,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/webp-convert.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/webp-convert.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/webp-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/webp-convert.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/webp-convert.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/webp-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/webp-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/webp-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/webp-convert.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/webp-convert.html</loc>
@@ -268,6 +579,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/bg-remove.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/bg-remove.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/bg-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/bg-remove.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/bg-remove.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/bg-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/bg-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/bg-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/bg-remove.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/bg-remove.html</loc>
@@ -295,6 +617,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/img-pdf.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/img-pdf.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/img-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/img-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/img-pdf.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/img-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/img-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/img-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/img-pdf.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/img-pdf.html</loc>
@@ -324,6 +657,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/color-extractor.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/color-extractor.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/color-extractor.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/color-extractor.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/color-extractor.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/color-extractor.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/color-extractor.html</loc>
@@ -353,6 +697,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/watermark.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/watermark.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/watermark.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/watermark.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/watermark.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/watermark.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/watermark.html</loc>
@@ -382,6 +737,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/meme-generator.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/meme-generator.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/meme-generator.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/meme-generator.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/meme-generator.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/meme-generator.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/meme-generator.html</loc>
@@ -411,6 +777,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/base64.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/base64.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/base64.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/base64.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/base64.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/base64.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/base64.html</loc>
@@ -440,6 +817,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/svg-convert.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/svg-convert.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/svg-convert.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/svg-convert.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/svg-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/svg-convert.html"/>
   </url>
   <url>
     <loc>https://2convert.org/ko/tools/svg-convert.html</loc>

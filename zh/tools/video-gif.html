@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<!-- Google AdSense Auto Ads -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/modern-theme.css" rel="stylesheet"/>
+<link href="/css/modern-components.css" rel="stylesheet"/>
+<link href="/css/tools.css" rel="stylesheet"/>
+<style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .modern-video-player {
+            max-width: 100%;
+            max-height: 250px;
+            background-color: #000;
+            border-radius: var(--radius-md);
+        }
+        /* Batch video list styles */
+        .video-batch-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .video-batch-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            cursor: pointer;
+            transition: border-color 0.15s;
+        }
+        .video-batch-item__icon { font-size: 22px; flex-shrink: 0; }
+        .video-batch-item__info { flex: 1; min-width: 0; }
+        .video-batch-item__name {
+            font-weight: 600;
+            color: var(--slate-800);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .video-batch-item__meta { color: var(--slate-500); margin-top: 2px; }
+        .video-batch-item__status { font-size: 11px; font-weight: 600; flex-shrink: 0; }
+        .video-batch-item__status--pending    { color: var(--slate-400); }
+        .video-batch-item__status--processing { color: var(--blue-600); }
+        .video-batch-item__status--done       { color: #16a34a; }
+        .video-batch-item__status--error      { color: var(--error); }
+    </style>
+<title>在线视频到 GIF 转换器（批量）- ConvertFile</title>
+<meta content="将 MP4、WebM 视频转换为动画 GIF。支持批量处理多个视频文件。选择开始/结束时间、宽度和 FPS。" name="description"/>
+<meta content="视频转gif，mp4转gif，视频gif转换器，批量视频gif" name="keywords"/>
+<link href="https://2convert.org/zh/tools/video-gif.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://2convert.org/zh/tools/video-gif.html" property="og:url"/>
+<meta content="在线视频到 GIF 转换器（批量）- ConvertFile" property="og:title"/>
+<meta content="将多个 MP4 视频转换为 GIF 动画。" property="og:description"/>
+<meta content="https://2convert.org/assets/og-image.png" property="og:image"/>
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://2convert.org/zh/tools/video-gif.html" property="twitter:url"/>
+<meta content="视频到 GIF 转换器 - ConvertFile" property="twitter:title"/>
+<meta content="将多个视频转换为 GIF。" property="twitter:description"/>
+<meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "视频到 GIF 转换器 - ConvertFile",
+  "url": "https://2convert.org/zh/tools/video-gif.html",
+  "description": "通过批量支持将 MP4、WebM 视频转换为动画 GIF。",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}</script>
+</head>
+<body>
+<div class="modern-layout">
+<aside class="modern-sidebar"></aside>
+<main class="modern-content">
+<header class="modern-content__header">
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<h1 class="modern-content__title">视频到 GIF 转换器（批量）</h1>
+<p class="modern-content__desc">上传一个或多个 MP4/WebM 视频并将每个视频转换为动画 GIF。设置每次转换的开始/结束时间、输出宽度和 FPS。</p>
+</header>
+<div class="modern-ad-zone">
+<span>[广告位] Google AdSense 横幅 (728x90)</span>
+</div>
+<div class="modern-tool-grid">
+<!-- Column 1: Drop zone + batch list + preview -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Drop zone (multiple videos) -->
+<div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+<div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
+<div class="modern-upload-zone__title">将 MP4 或 WebM 视频文件拖放到此处</div>
+<div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">HTML5 编解码器支持的视频（每个最多 50MB）</div>
+<button class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;" type="button">📂 选择视频文件</button>
+<input accept="video/mp4, video/webm" id="file-input" multiple="" style="display:none;" type="file"/>
+</div>
+<!-- Batch video list -->
+<div id="batch-video-container" style="display:none;">
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+<span id="batch-video-count" style="font-size:13px; font-weight:700; color:var(--slate-700);">已选择 0 个视频</span>
+<button class="modern-btn" id="btn-clear-videos" style="font-size:11px; padding:4px 10px; height:auto; background:var(--slate-100); color:var(--slate-700);">🗑 全部清除</button>
+</div>
+<div class="video-batch-list" id="video-batch-list"></div>
+</div>
+<!-- Video preview -->
+<div id="preview-container" style="display:none; flex-direction:column; gap:10px;">
+<div id="preview-label" style="font-size:12px; color:var(--slate-600); font-weight:600;">预览</div>
+<video class="modern-video-player" controls="" id="source-video" muted=""></video>
+<img alt="GIF preview" id="preview-gif" style="max-width: 100%; max-height: 200px; display:none; border-radius: var(--radius-sm);"/>
+</div>
+<div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+<span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+<span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+</div>
+</div>
+<!-- Column 2: Conversion settings -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="modern-card">
+<h3 class="modern-card__title">转换设置</h3>
+<div style="display:flex; gap:10px; margin-bottom:10px;">
+<div class="modern-form-group" style="flex:1;">
+<span class="modern-label">开始时间（秒）</span>
+<input class="modern-input" id="start-time" min="0" step="0.5" type="number" value="0"/>
+</div>
+<div class="modern-form-group" style="flex:1;">
+<span class="modern-label">结束时间（秒）</span>
+<input class="modern-input" id="end-time" min="0" step="0.5" type="number" value="5"/>
+</div>
+</div>
+<div style="display:flex; gap:10px;">
+<div class="modern-form-group" style="flex:1;">
+<span class="modern-label">输出宽度（像素）</span>
+<input class="modern-input" id="gif-width" type="number" value="320"/>
+</div>
+<div class="modern-form-group" style="flex:1;">
+<span class="modern-label">帧率 (FPS)</span>
+<select class="modern-select" id="gif-fps">
+<option value="5">5 FPS（低质量）</option>
+<option selected="" value="10">10 FPS（标准）</option>
+<option value="15">15 FPS（流畅）</option>
+</select>
+</div>
+</div>
+</div>
+<button class="modern-btn modern-btn--primary" disabled="" id="btn-convert" style="height:38px; font-size:14px; font-weight:600;">🎞️ 将选定的视频转换为 GIF</button>
+<button class="modern-btn" disabled="" id="btn-convert-all" style="height:38px; font-size:13px; font-weight:600; background:var(--slate-700); color:#fff; border:none; border-radius:var(--radius-md); cursor:pointer;">⚡ 转换所有视频（相同设置）</button>
+<div style="font-size:11px; color:var(--slate-500); text-align:center;">每个剪辑最多 15 秒。每个 GIF 都会自动下载。</div>
+</div>
+</div>
+<!-- 하단 안내 정보 가이드 -->
+<div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+<!-- Section Title -->
+<h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 视频到 GIF 转换器</h2>
+<!-- Description Paragraphs -->
+<div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+<p style="margin-bottom: 12px;">Video to GIF Converter 基于浏览器本机技术构建，直接在客户端应用程序的执行上下文中利用 HTML5 视频元素和 Canvas 帧捕获。通过集成视频帧提取和 GIF 编码，系统执行二进制运算并即时处理用户有效负载。该架构消除了传统的往返服务器通信延迟，确保以最佳响应能力和零延迟处理大负载或高频操作。</p>
+<p style="margin-bottom: 12px;">在现代网页设计中，将视频到动画转换处理委托给客户端浏览器是速度和安全性方面的重大进步。我们的工具不是在网络通道上来回传递原始数据、图像或媒体流，而是直接在用户的本地线程上运行操作。使用先进的 JavaScript API，该界面可以动态更新视觉状态、更新滑块并立即渲染预览容器，从而创建流畅的、类似桌面的用户体验。</p>
+<p style="margin-bottom: 12px;">在底层，内存分配是使用视频轨道中的帧数组缓冲区来有效处理的。执行周期运行帧采样率和 LZW 压缩编码，以优化数据吞吐量并保持像素或文本保真度。输出的结构严格符合 HTML5 Media Streams 和 GIF89a 规范，确保生成的所有文件、图形或代码段与主流平台、操作系统和专业软件套件完全兼容。</p>
+</div>
+<!-- Two-column layout for Features and How to Use -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+<!-- Left: How to Use -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">⚙️ 如何使用</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+<li style="margin-bottom: 8px;">访问该工具并找到界面顶部附近的主文件输入区域或文本输入容器。</li>
+<li style="margin-bottom: 8px;">使用拖放边界上传源文件（例如 PNG、JPG 或 WEBP），或将文本/数字内容粘贴到指定字段中。</li>
+<li style="margin-bottom: 8px;">使用控制侧边栏或滑块面板调整视觉参数、质量滑块或渲染选项，以满足您的技术需求。</li>
+<li style="margin-bottom: 8px;">单击操作按钮（例如生成、转换或处理）以调用画布或内存缓冲区上的处理逻辑。</li>
+<li style="margin-bottom: 8px;">查看渲染的预览，然后单击下载按钮将最终文件本地保存到您的桌面或设备。</li>
+</ol>
+</div>
+<!-- Right: Key Features -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">🌟 主要特点</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+<li style="margin-bottom: 8px;"><strong>浏览器绑定线程：</strong>在主执行周期或 Web Workers 内执行所有计算，防止浏览器冻结。</li>
+<li style="margin-bottom: 8px;"><strong>高保真操作：</strong>使用帧采样率和 LZW 压缩编码来确保输出质量在压缩或调整大小期间保持数学上的精确性。</li>
+<li style="margin-bottom: 8px;"><strong>优化内存管理：</strong>通过视频轨道的帧数组缓冲区分配临时缓冲区空间，以防止内存泄漏和浏览器崩溃。</li>
+<li style="margin-bottom: 8px;"><strong>标准化兼容性：</strong>严格遵守 HTML5 媒体流和 GIF89a 规范，以提供在任何地方都完全可读和可编辑的输出文件。</li>
+</ul>
+</div>
+</div>
+<!-- Privacy & Security Alert -->
+<div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+<span style="font-size: 16px;">🛡️</span>
+<div>
+<strong>本地处理和保密：</strong>该工具完全在您的网络浏览器的本地沙箱环境中运行。通过利用客户端内存和浏览器级文件处理，不会将任何数据、文件或个人信息上传到外部服务器。该架构保证完全符合GDPR、CCPA等严格的隐私法规，为您提供绝对的安全。</div>
+</div>
+<!-- FAQ Section -->
+<div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+<h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 常见问题 (FAQ)</h3>
+<div itemscope="" itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：视频转 GIF 转换器如何提取帧？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">该工具使用 HTML5 视频在本地播放视频，以指定的帧速率将各个帧捕获到 Canvas 上，并使用 GIF 编码器对其进行编译。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：为什么 GIF 文件比视频文件大？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">GIF 使用较旧的 LZW 压缩并且缺乏帧间运动估计，这意味着每个帧都包含全彩色阵列，使得动画 GIF 比 MP4 视频更大。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：我可以转换的最大视频长度是多少？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">由于转换在浏览器内存中运行，因此我们建议在 10-15 秒内转换剪辑，以避免高内存消耗和缓慢的渲染。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="/js/vendors/gifshot.min.js?v=4"></script>
+<script src="/js/core/file-utils.js?v=4"></script>
+<script src="/js/core/ui-components.js?v=4"></script>
+<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/tools/video-gif.js?v=4"></script>
+</body>
+</html>

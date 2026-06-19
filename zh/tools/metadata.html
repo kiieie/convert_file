@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<!-- Google AdSense Auto Ads -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/modern-theme.css" rel="stylesheet"/>
+<link href="/css/modern-components.css" rel="stylesheet"/>
+<link href="/css/tools.css" rel="stylesheet"/>
+<style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        
+        /* 모던 테이블 스타일 */
+        .modern-metadata-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        .modern-metadata-table th, .modern-metadata-table td {
+            border: 1px solid var(--slate-200);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .modern-metadata-table th {
+            background-color: var(--slate-50);
+            font-weight: 600;
+            color: var(--slate-800);
+        }
+        .modern-metadata-table tr:nth-child(even) td {
+            background-color: #F8FAFC;
+        }
+    </style>
+<title>在线照片 EXIF 编辑器和元数据删除器 - ConvertFile</title>
+<meta content="从 JPG/JPEG 照片中删除敏感的 EXIF 元数据（GPS 位置、日期、相机信息）以保护隐私。" name="description"/>
+<meta content="删除 EXIF、剥离照片元数据、删除 GPS 位置、清晰图像 EXIF" name="keywords"/>
+<link href="https://2convert.org/zh/tools/metadata.html" rel="canonical"/>
+<!-- Open Graph / Facebook -->
+<meta content="website" property="og:type"/>
+<meta content="https://2convert.org/zh/tools/metadata.html" property="og:url"/>
+<meta content="在线照片 EXIF 编辑器和元数据删除器 - ConvertFile" property="og:title"/>
+<meta content="从 JPG/JPEG 照片中删除敏感的 EXIF 元数据（GPS 位置、日期、相机信息）以保护隐私。" property="og:description"/>
+<meta content="https://2convert.org/assets/og-image.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://2convert.org/zh/tools/metadata.html" property="twitter:url"/>
+<meta content="在线照片 EXIF 编辑器和元数据删除器 - ConvertFile" property="twitter:title"/>
+<meta content="从 JPG/JPEG 照片中删除敏感的 EXIF 元数据（GPS 位置、日期、相机信息）以保护隐私。" property="twitter:description"/>
+<meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
+<!-- Structured Data -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "在线照片 EXIF 编辑器和元数据删除器 - ConvertFile",
+  "url": "https://2convert.org/zh/tools/metadata.html",
+  "description": "从 JPG/JPEG 照片中删除敏感的 EXIF 元数据（GPS 位置、日期、相机信息）以保护隐私。",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}</script>
+</head>
+<body>
+<div class="modern-layout">
+<!-- 1. 좌측 공통 고정 사이드바 -->
+<aside class="modern-sidebar"></aside>
+<!-- 2. 우측 메인 워크스페이스 -->
+<main class="modern-content">
+<header class="modern-content__header">
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<h1 class="modern-content__title">EXIF 元数据删除器</h1>
+<p class="modern-content__desc">从 JPEG 照片中永久删除相机型号、拍摄日期和 GPS 坐标等隐藏元数据。</p>
+</header>
+<!-- 애드센스 슬롯 -->
+<div class="modern-ad-zone">
+<span>[广告区] Google AdSense 横幅空间 (728x90)</span>
+</div>
+<div class="modern-tool-grid">
+<!-- 1열: 업로드존 및 원본 이미지 정보 -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- 업로드 드롭존 -->
+<div class="modern-upload-zone" id="drop-zone">
+<div class="modern-upload-zone__icon"></div>
+<div class="modern-upload-zone__title">将 JPG 照片拖放到此处即可查看和删除元数据。</div>
+<div class="modern-upload-zone__desc">或者单击以从计算机中选择一个文件（最大 25MB）。</div>
+<input accept="image/jpeg, image/jpg" id="file-input" style="display:none;" type="file"/>
+</div>
+<!-- 미리보기 영역 -->
+<div class="modern-preview-container" id="preview-container" style="display:none;">
+<canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+</div>
+<!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+<div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+<span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+<span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+</div>
+</div>
+<!-- 2열: 메타데이터 정보 리스트 및 작동 버튼 -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="modern-card" style="max-height: 350px; overflow-y: auto; display:flex; flex-direction:column;">
+<h3 class="modern-card__title">分析元数据标签</h3>
+<div id="no-tags-msg" style="font-size:13px; color:var(--slate-400); padding: 8px 0;">在此处上传照片以查看其 EXIF 元数据分析。</div>
+<table class="modern-metadata-table" id="metadata-table" style="display:none;">
+<thead>
+<tr>
+<th>标签名称</th>
+<th>价值</th>
+</tr>
+</thead>
+<tbody id="metadata-tbody">
+<!-- JS 동적 주입 -->
+</tbody>
+</table>
+</div>
+<button class="modern-btn modern-btn--primary" disabled="" id="btn-strip" style="background-color: var(--blue-600); height:38px; font-size:14px; font-weight:600;">🛡️ 清除 EXIF 元数据</button>
+</div>
+</div>
+<!-- 하단 안내 정보 가이드 -->
+<!-- 하단 안내 정보 가이드 -->
+<div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+<!-- Section Title -->
+<h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 图像元数据 EXIF 查看器和剥离器</h2>
+<!-- Description Paragraphs -->
+<div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+<p style="margin-bottom: 12px;">图像元数据 EXIF 查看器和剥离器基于浏览器本机技术构建，直接在客户端应用程序的执行上下文中利用 FileReader API 和二进制数组解析。通过集成 EXIF（可交换图像文件格式）段解析，系统可以执行二进制运算并即时处理用户负载。该架构消除了传统的往返服务器通信延迟，确保以最佳响应能力和零延迟处理大负载或高频操作。</p>
+<p style="margin-bottom: 12px;">在现代网页设计中，将图像元数据分析和隐私剥离处理委托给客户端浏览器是速度和安全性的重大进步。我们的工具不是在网络通道上来回传递原始数据、图像或媒体流，而是直接在用户的本地线程上运行操作。使用先进的 JavaScript API，该界面可以动态更新视觉状态、更新滑块并立即渲染预览容器，从而创建流畅的、类似桌面的用户体验。</p>
+<p style="margin-bottom: 12px;">在底层，内存分配是使用 ArrayBuffer 和二进制切片指针有效处理的。执行周期运行 JPEG APP1 标记检测和 EXIF 标记解码，以优化数据吞吐量并保持像素或文本保真度。输出的结构严格符合 JEITA CP-3451 EXIF 规范，确保生成的所有文件、图形或代码段与主流平台、操作系统和专业软件套件完全兼容。</p>
+</div>
+<!-- Two-column layout for Features and How to Use -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+<!-- Left: How to Use -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">⚙️ 如何使用</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+<li style="margin-bottom: 8px;">访问该工具并找到界面顶部附近的主文件输入区域或文本输入容器。</li>
+<li style="margin-bottom: 8px;">使用拖放边界上传源文件（例如 PNG、JPG 或 WEBP），或将文本/数字内容粘贴到指定字段中。</li>
+<li style="margin-bottom: 8px;">使用控制侧边栏或滑块面板调整视觉参数、质量滑块或渲染选项，以满足您的技术需求。</li>
+<li style="margin-bottom: 8px;">单击操作按钮（例如生成、转换或处理）以调用画布或内存缓冲区上的处理逻辑。</li>
+<li style="margin-bottom: 8px;">查看渲染的预览，然后单击下载按钮将最终文件本地保存到您的桌面或设备。</li>
+</ol>
+</div>
+<!-- Right: Key Features -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">🌟 主要特点</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+<li style="margin-bottom: 8px;"><strong>浏览器绑定线程：</strong>在主执行周期或 Web Workers 内执行所有计算，防止浏览器冻结。</li>
+<li style="margin-bottom: 8px;"><strong>高保真操作：</strong>使用 JPEG APP1 标记检测和 EXIF 标记解码来确保输出质量在压缩或调整大小期间保持数学上的精确性。</li>
+<li style="margin-bottom: 8px;"><strong>优化内存管理：</strong>通过ArrayBuffers和二进制切片指针分配临时缓冲区空间，以防止内存泄漏和浏览器崩溃。</li>
+<li style="margin-bottom: 8px;"><strong>标准化兼容性：</strong>严格遵守 JEITA CP-3451 EXIF 规范，提供在任何地方都完全可读和可编辑的输出文件。</li>
+</ul>
+</div>
+</div>
+<!-- Privacy & Security Alert -->
+<div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+<span style="font-size: 16px;">🛡️</span>
+<div>
+<strong>本地处理和保密：</strong>该工具完全在您的网络浏览器的本地沙箱环境中运行。通过利用客户端内存和浏览器级文件处理，不会将任何数据、文件或个人信息上传到外部服务器。该架构保证完全符合GDPR、CCPA等严格的隐私法规，为您提供绝对的安全。</div>
+</div>
+<!-- FAQ Section -->
+<div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+<h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 常见问题 (FAQ)</h3>
+<div itemscope="" itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：我的照片中存储了哪些元数据？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">照片可以包含 EXIF 标签，包括 GPS 位置、相机设置（光圈、快门速度、ISO）、日期、时间和设备型号。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：EXIF 剥离器如何保护我的隐私？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">剥离器读取 JPEG 二进制流，定位 APP1 元数据标记，并对文件缓冲区进行切片以排除这些元数据段，从而保存干净的图像。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：剥离元数据会降低图像质量吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">不会。EXIF 剥离器仅删除元数据字节，不会更改实际的压缩图像负载，确保零质量损失。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- 스크립트 바인딩 -->
+<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/core/image-loader.js?v=3"></script>
+<script src="/js/core/file-utils.js?v=3"></script>
+<script src="/js/core/ui-components.js?v=3"></script>
+<script src="/js/tools/metadata.js?v=3"></script>
+</body>
+</html>

@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -12,23 +15,65 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
     <link rel="stylesheet" href="/css/tools.css">
-    <style>.modern-ad-zone{border:1px dashed var(--slate-200);background-color:#FFF;padding:12px;text-align:center;font-size:11px;color:var(--slate-400);border-radius:var(--radius-sm);margin-bottom:15px;}</style>
-    <title>Redimensionar Imagen Online (Image Resizer) - ConvertFile</title>
-    <meta name="description" content="Cambia el tamaño de tus fotos libremente. Mantén la relación de aspecto. Herramienta gratuita local.">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <title>Redimensionador de imágenes en línea (Image Resizer) - ConvertFile</title>
+    <meta name="description" content="Cambie el tamaño del archivo y de los píxeles de sus fotos a su gusto. Redimensionador de imágenes local gratuito que admite la función de mantener relación de aspecto y filtro de interpolación Bilinear.">
+    <meta name="keywords" content="redimensionar imagen, reducir tamaño de foto, cambiar tamaño de imagen, redimensionador de fotos">
     <link rel="canonical" href="https://2convert.org/es/tools/resize.html">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/es/tools/resize.html">
-    <meta property="og:title" content="Redimensionar Imagen Online (Image Resizer) - ConvertFile">
-    <meta property="og:description" content="Cambia el tamaño de tus fotos libremente. Mantén la relación de aspecto. Herramienta gratuita local.">
+    <meta property="og:title" content="Redimensionador de imágenes en línea (Image Resizer) - ConvertFile">
+    <meta property="og:description" content="Cambie el tamaño del archivo y de los píxeles de sus fotos a su gusto. Redimensionador de imágenes local gratuito que admite la función de mantener relación de aspecto y filtro de interpolación Bilinear.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Redimensionar Imagen Online (Image Resizer) - ConvertFile","url":"https://2convert.org/es/tools/resize.html","description":"Cambia el tamaño de tus fotos libremente. Mantén la relación de aspecto. Herramienta gratuita local.","applicationCategory":"MultimediaApplication","operatingSystem":"All"}</script>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/es/tools/resize.html">
+    <meta property="twitter:title" content="Redimensionador de imágenes en línea (Image Resizer) - ConvertFile">
+    <meta property="twitter:description" content="Cambie el tamaño del archivo y de los píxeles de sus fotos a su gusto. Redimensionador de imágenes local gratuito que admite la función de mantener relación de aspecto y filtro de interpolación Bilinear.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Redimensionador de imágenes en línea (Image Resizer) - ConvertFile",
+  "url": "https://2convert.org/es/tools/resize.html",
+  "description": "Cambie el tamaño del archivo y de los píxeles de sus fotos a su gusto. Redimensionador de imágenes local gratuito que admite la función de mantener relación de aspecto y filtro de interpolación Bilinear.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
+    </script>
 </head>
 <body>
+
     <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
         <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
         <main class="modern-content">
             <header class="modern-content__header">
 <!-- Google tag (gtag.js) -->
@@ -40,18 +85,189 @@
 
   gtag('config', 'G-S87614V8Y9');
 </script>
-                <h1 class="modern-content__title">Redimensionar Imagen (Image Resizer)</h1>
-                <p class="modern-content__desc">Ajusta las dimensiones de tu imagen introduciendo valores en píxeles o usando un porcentaje de escala.</p>
+                <h1 class="modern-content__title">Redimensionador de imágenes (Image Resizer)</h1>
+                <p class="modern-content__desc">Ajuste el tamaño de la imagen ingresando directamente los píxeles de resolución o usando el control deslizante de porcentaje.</p>
             </header>
-            <div class="modern-ad-zone"><span>[Espacio de Anuncio] Google AdSense Banner (728x90)</span></div>
+
+            <!-- 구글 애드센스 배너 공간 -->
+            <div class="modern-ad-zone">
+                <span>[Zona de anuncios] Google AdSense Banner Slot (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 캔버스 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 -->
+                    <div class="modern-upload-zone" id="drop-zone">
+                        <div class="modern-upload-zone__icon"></div>
+                        <div class="modern-upload-zone__title">Arrastre y suelte el archivo de imagen que desea redimensionar aquí.</div>
+                        <div class="modern-upload-zone__desc">O haga clic aquí para seleccionar desde su disco local. (Máx. 25MB)</div>
+                        <input type="file" id="file-input" style="display:none;" accept="image/*">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none;">
+                        <canvas class="modern-preview-canvas" id="preview-canvas"></canvas>
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Configuración de tamaño (Dimensions)</h3>
+                        
+                        <div class="modern-form-group">
+                            <span class="modern-label">Unidad de medida</span>
+                            <div style="display:flex; gap:16px; font-size:13px; margin-top:2px;">
+                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="pixel" checked> Píxeles (px)</label>
+                                <label style="cursor:pointer;"><input type="radio" name="resize-mode" value="percent"> Porcentaje (%)</label>
+                            </div>
+                        </div>
+
+                        <!-- 픽셀값 제어 폼 -->
+                        <div id="pixel-form">
+                            <div style="display:flex; gap:10px; margin-bottom:10px;">
+                                <div class="modern-form-group" style="flex:1;">
+                                    <span class="modern-label">Ancho (Width)</span>
+                                    <input type="number" class="modern-input" id="resize-width" placeholder="px" disabled>
+                                </div>
+                                <div class="modern-form-group" style="flex:1;">
+                                    <span class="modern-label">Alto (Height)</span>
+                                    <input type="number" class="modern-input" id="resize-height" placeholder="px" disabled>
+                                </div>
+                            </div>
+                            <div class="modern-form-group">
+                                <label style="cursor:pointer; font-size:12px; display:flex; align-items:center; gap:6px;">
+                                    <input type="checkbox" id="aspect-ratio" checked disabled> Mantener relación de aspecto
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 백분율 제어 폼 -->
+                        <div id="percent-form" style="display:none; margin-top:8px;">
+                            <div class="modern-form-group">
+                                <span class="modern-label">Ajuste de escala: <strong id="percent-val" style="color:var(--blue-600);">100</strong>%</span>
+                                <input type="range" min="10" max="200" value="100" style="width:100%; cursor:pointer;" id="resize-percent" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">Filtro de procesamiento avanzado</h3>
+                        <div class="modern-form-group" style="margin-bottom:12px;">
+                            <span class="modern-label">Filtro de interpolación</span>
+                            <select class="modern-select" id="interpolation-filter" disabled>
+                                <option value="bilinear">Bilinear (Suave - recomendado para fotos)</option>
+                                <option value="nearest">Nearest Neighbor (Para arte de píxeles/pixel art)</option>
+                            </select>
+                        </div>
+                        <div class="modern-form-group">
+                            <span class="modern-label">Formato de extensión de guardado</span>
+                            <select class="modern-select" id="output-format" disabled>
+                                <option value="match">Guardar en el formato original</option>
+                                <option value="image/jpeg">Imagen JPG</option>
+                                <option value="image/png">Imagen PNG (Fondo transparente)</option>
+                                <option value="image/webp">Imagen WebP (Optimización de compresión web)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-resize" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        💾 Descargar imagen redimensionada
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 Redimensionador de Imágenes</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">La herramienta Redimensionador de Imágenes está construida sobre tecnologías nativas del navegador, utilizando redimensionado 2D con Canvas API directamente dentro del contexto de ejecución de la aplicación del lado del cliente. Al integrar interpolación de píxeles Hermite, Bilineal y Bicúbica, el sistema ejecuta operaciones binarias y procesa datos del usuario de forma instantánea. Esta arquitectura elimina los retrasos de comunicación tradicionales con servidores externos, garantizando que los archivos grandes o las operaciones de alta frecuencia se manejen con una respuesta óptima y sin latencia.</p>
+                    <p style="margin-bottom: 12px;">En el diseño web moderno, delegar el procesamiento de el escalado y remuestreo de imágenes ráster al navegador del cliente es un avance significativo para la velocidad y la seguridad de la información. En lugar de transmitir archivos sin procesar o flujos multimedia a través de canales de red, nuestra herramienta ejecuta operaciones directamente en el hilo local del usuario. Utilizando APIs avanzadas de JavaScript, la interfaz actualiza dinámicamente los estados visuales, los controles deslizantes y los contenedores de vista previa al instante, creando una experiencia fluida e interactiva.</p>
+                    <p style="margin-bottom: 12px;">Bajo el capó, la asignación de memoria se gestiona de manera eficiente utilizando búferes de tipo ImageData de Canvas. El ciclo de ejecución aplica filtrado por cálculo matemático de interpolación bilineal para optimizar el rendimiento de los datos y mantener la fidelidad de los píxeles o del texto. La salida está estructurada para cumplir estrictamente con las especificaciones estándar W3C HTML5 Canvas, asegurando que todos los archivos, gráficos o segmentos de código generados sean totalmente compatibles con las plataformas principales, sistemas operativos y suites de software profesional.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ Cómo usar
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">Acceda a la herramienta y localice la zona de entrada de archivos principal o el contenedor de texto en la parte superior.</li>
+                            <li style="margin-bottom: 8px;">Cargue su archivo de origen (como PNG, JPG o WEBP) utilizando la zona de arrastrar y soltar, o pegue el contenido de texto o numérico.</li>
+                            <li style="margin-bottom: 8px;">Ajuste los parámetros visuales, controles deslizantes de calidad u opciones de procesamiento utilizando la barra lateral de control.</li>
+                            <li style="margin-bottom: 8px;">Haga clic en el botón de acción (por ejemplo, Generar, Convertir o Procesar) para iniciar la lógica de procesamiento en el Canvas o búfer.</li>
+                            <li style="margin-bottom: 8px;">Revise la vista previa resultante y luego haga clic en el botón de descarga para guardar el archivo final directamente en su dispositivo.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 Características clave
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>Procesamiento en Navegador:</strong> Realiza todos los cálculos dentro del ciclo de ejecución principal o Web Workers, evitando bloqueos de pantalla.</li>
+                            <li style="margin-bottom: 8px;"><strong>Operaciones de Alta Fidelidad:</strong> Utiliza filtrado por cálculo matemático de interpolación bilineal para asegurar que la calidad de salida permanezca matemáticamente precisa durante la compresión.</li>
+                            <li style="margin-bottom: 8px;"><strong>Gestión Eficiente de Memoria:</strong> Asigna espacio de búfer temporal a través de búferes de tipo ImageData de Canvas para prevenir fugas de memoria en el navegador.</li>
+                            <li style="margin-bottom: 8px;"><strong>Compatibilidad Estándar:</strong> Cumple estrictamente con las especificaciones estándar W3C HTML5 Canvas para ofrecer archivos de salida legibles y editables en cualquier plataforma.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>Procesamiento Local y Privacidad:</strong> Esta herramienta funciona completamente en el entorno seguro de su navegador web. Al utilizar la memoria local del cliente y el procesamiento a nivel del navegador, no se suben archivos ni datos a servidores externos. Esta arquitectura garantiza el cumplimiento de regulaciones de privacidad como GDPR y CCPA, ofreciendo seguridad absoluta.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 Preguntas frecuentes (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Cómo deduce los nuevos píxeles el redimensionador?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">La herramienta proyecta el mapa de píxeles iniciales sobre la nueva proporción aplicando fórmulas de interpolación que rellenan o promedian los colores.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿En qué se diferencian los métodos de interpolación Bilineal y Bicúbico?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">El bilineal analiza bloques de 2x2 píxeles para ofrecer rapidez, mientras que el bicúbico lee entornos de 4x4, logrando suavizados superiores en curvas y gradientes.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. ¿Se puede restringir el escalado para no deformar la imagen?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">Sí. Puede activar la casilla de bloqueo de relación de aspecto, de modo que la herramienta recalcule la segunda dimensión en sintonía con la original.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
-    
-    <script src="/js/core/image-loader.js?v=4"></script>
-    <script src="/js/core/canvas-utils.js?v=4"></script>
-    <script src="/js/core/file-utils.js?v=4"></script>
-    <script src="/js/core/ui-components.js?v=4"></script>
+
+    <!-- 스크립트 결합 -->
+    <script src="/js/core/image-loader.js?v=3"></script>
+    <script src="/js/core/canvas-utils.js?v=3"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
     <script src="/js/core/sidebar.js?v=4"></script>
-    <script src="/js/tools/resize.js?v=4"></script>
+    <script src="/js/tools/resize.js?v=3"></script>
 </body>
 </html>

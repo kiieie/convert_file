@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<!-- Google AdSense Auto Ads -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/modern-theme.css" rel="stylesheet"/>
+<link href="/css/modern-components.css" rel="stylesheet"/>
+<link href="/css/tools.css" rel="stylesheet"/>
+<style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+        .bg-preview-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .bg-preview-box {
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: repeating-conic-gradient(#e2e8f0 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bg-preview-box img,
+        .bg-preview-box canvas {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+        }
+        .bg-preview-label {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--slate-500);
+            background: rgba(255,255,255,0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .bg-color-swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-300);
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-color-swatch.active {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+        }
+        .progress-bar-wrap {
+            background: var(--slate-100);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue-500), #6366f1);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .model-loading-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--slate-500);
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 999px;
+            padding: 3px 10px;
+        }
+        .spinner {
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--slate-300);
+            border-top-color: var(--blue-500);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+<title>AI背景去除器-免费在线工具| AI背景去除器2convert.org</title>
+<meta content="使用 AI 立即删除图像背景。无需上传到服务器 — 在浏览器中 100% 运行。免费、私密且快速。" name="description"/>
+<meta content="背景去除器，去除背景，透明背景，AI背景去除" name="keywords"/>
+<link href="https://2convert.org/zh/tools/bg-remove.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://2convert.org/zh/tools/bg-remove.html" property="og:url"/>
+<meta content="AI背景去除器-免费在线工具| AI背景去除器2convert.org" property="og:title"/>
+<meta content="使用 AI 立即删除图像背景。 100% 在您的浏览器中运行 — 私密且免费。" property="og:description"/>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI背景去除器",
+  "url": "https://2convert.org/zh/tools/bg-remove.html",
+  "description": "使用 AI 立即删除图像背景，100% 在浏览器中运行。",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires WebAssembly support."
+}</script>
+</head>
+<body>
+<div class="modern-layout">
+<aside class="modern-sidebar"></aside>
+<main class="modern-content">
+<header class="modern-content__header">
+<h1 class="modern-content__title">AI背景去除器</h1>
+<p class="modern-content__desc">使用人工智能立即从照片中删除背景 - 完全在您的浏览器中运行。无需上传，无需帐户，完全免费。</p>
+</header>
+<div class="modern-ad-zone">
+<span>[广告位] Google AdSense 横幅 (728x90)</span>
+</div>
+<div class="modern-tool-grid">
+<!-- Left: Upload + Preview -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<!-- Model loading status -->
+<div id="model-status" style="display:none;">
+<span class="model-loading-badge">
+<span class="spinner" id="model-spinner"></span>
+<span id="model-status-text">正在加载人工智能模型...</span>
+</span>
+<div class="progress-bar-wrap" id="model-progress-wrap" style="display:none; margin-top:6px;">
+<div class="progress-bar-fill" id="model-progress-bar"></div>
+</div>
+</div>
+<!-- Upload zone -->
+<div class="modern-upload-zone" id="drop-zone">
+<div class="modern-upload-zone__icon"></div>
+<div class="modern-upload-zone__title">将您的图片拖到此处</div>
+<div class="modern-upload-zone__desc">或单击选择文件（JPG、PNG、WebP — 最大 10MB）</div>
+<input accept="image/jpeg,image/png,image/webp" id="file-input" style="display:none;" type="file"/>
+</div>
+<!-- Before/After preview -->
+<div id="preview-area" style="display:none;">
+<div class="bg-preview-wrapper">
+<div class="bg-preview-box">
+<span class="bg-preview-label">原来的</span>
+<img alt="Original" id="preview-original" src=""/>
+</div>
+<div class="bg-preview-box" id="result-box">
+<span class="bg-preview-label">背景已移除</span>
+<canvas id="preview-result"></canvas>
+<div id="processing-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.8);gap:8px;">
+<div class="spinner" style="width:24px;height:24px;border-width:3px;"></div>
+<span id="proc-text" style="font-size:12px;color:var(--slate-600);">加工...</span>
+</div>
+</div>
+</div>
+<div style="margin-top:8px; display:flex; justify-content:space-between; font-size:12px; color:var(--slate-500); padding:0 2px;">
+<span id="img-info"></span>
+<span id="proc-time"></span>
+</div>
+</div>
+</div>
+<!-- Right: Controls -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="modern-card">
+<h3 class="modern-card__title">背景选项</h3>
+<div class="modern-form-group">
+<span class="modern-label">输出背景</span>
+<div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:4px;">
+<!-- Transparent -->
+<div class="bg-color-swatch active" data-bg="transparent" id="swatch-transparent" style="background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 0 0 / 10px 10px;" title="透明的"></div>
+<!-- White -->
+<div class="bg-color-swatch" data-bg="#ffffff" id="swatch-white" style="background:#ffffff;" title="白色的"></div>
+<!-- Black -->
+<div class="bg-color-swatch" data-bg="#000000" id="swatch-black" style="background:#000000;" title="黑色的"></div>
+<!-- Blue -->
+<div class="bg-color-swatch" data-bg="#3b82f6" id="swatch-blue" style="background:#3b82f6;" title="蓝色的"></div>
+<!-- Green (chroma key) -->
+<div class="bg-color-swatch" data-bg="#00b140" id="swatch-green" style="background:#00b140;" title="绿屏"></div>
+<!-- Custom color -->
+<label style="cursor:pointer; font-size:12px; color:var(--slate-600);">风俗：<input id="custom-bg-color" style="vertical-align:middle; width:28px; height:28px; padding:1px; border:1px solid var(--slate-300); border-radius:4px; cursor:pointer;" type="color" value="#ffffff"/>
+</label>
+</div>
+</div>
+<div class="modern-form-group" style="margin-top:12px;">
+<span class="modern-label">输出格式</span>
+<select class="modern-select" id="output-format">
+<option value="image/png">PNG（支持透明度）</option>
+<option value="image/jpeg">JPG（无透明度）</option>
+<option value="image/webp">WebP（较小尺寸+透明度）</option>
+</select>
+</div>
+</div>
+<div class="modern-card">
+<h3 class="modern-card__title">人工智能模型</h3>
+<div style="font-size:12px; color:var(--slate-500); line-height:1.5;">
+<p style="margin:0 0 6px;">用途<strong>人民币G-1.4</strong>通过 Transformers.js 的模型 — 使用 WebAssembly 在浏览器中本地运行 100%。</p>
+<p style="margin:0; color:var(--slate-400);">首次使用下载~60MB 模型。之后缓存。</p>
+</div>
+</div>
+<button class="modern-btn modern-btn--primary" disabled="" id="btn-remove-bg" style="height:42px; font-size:14px; font-weight:600;">✨ 删除背景</button>
+<button class="modern-btn" disabled="" id="btn-download" style="height:38px; font-size:13px;">💾 下载结果</button>
+</div>
+</div>
+<!-- 하단 안내 정보 가이드 -->
+<div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+<!-- Section Title -->
+<h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 图像背景去除器</h2>
+<!-- Description Paragraphs -->
+<div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+<p style="margin-bottom: 12px;">图像背景去除器基于浏览器本机技术构建，直接在客户端应用程序的执行上下文中利用 Canvas API 2D 像素操作。通过集成 RGBA Alpha 通道阈值和颜色距离算法，系统执行二进制运算并即时处理用户有效负载。该架构消除了传统的往返服务器通信延迟，确保以最佳响应能力和零延迟处理大负载或高频操作。</p>
+<p style="margin-bottom: 12px;">在现代网页设计中，将光栅图像背景分割处理委托给客户端浏览器是速度和安全性的重大进步。我们的工具不是在网络通道上来回传递原始数据、图像或媒体流，而是直接在用户的本地线程上运行操作。使用先进的 JavaScript API，该界面可以动态更新视觉状态、更新滑块并立即渲染预览容器，从而创建流畅的、类似桌面的用户体验。</p>
+<p style="margin-bottom: 12px;">在底层，内存分配是使用 ImageData 像素数组有效处理的。执行周期运行欧几里德颜色距离计算，以优化数据吞吐量并保持像素或文本保真度。输出的结构严格符合 W3C HTML5 Canvas 和 PNG alpha 透明度标准，确保生成的所有文件、图形或代码段与主流平台、操作系统和专业软件套件完全兼容。</p>
+</div>
+<!-- Two-column layout for Features and How to Use -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+<!-- Left: How to Use -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">⚙️ 如何使用</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+<li style="margin-bottom: 8px;">访问该工具并找到界面顶部附近的主文件输入区域或文本输入容器。</li>
+<li style="margin-bottom: 8px;">使用拖放边界上传源文件（例如 PNG、JPG 或 WEBP），或将文本/数字内容粘贴到指定字段中。</li>
+<li style="margin-bottom: 8px;">使用控制侧边栏或滑块面板调整视觉参数、质量滑块或渲染选项，以满足您的技术需求。</li>
+<li style="margin-bottom: 8px;">单击操作按钮（例如生成、转换或处理）以调用画布或内存缓冲区上的处理逻辑。</li>
+<li style="margin-bottom: 8px;">查看渲染的预览，然后单击下载按钮将最终文件本地保存到您的桌面或设备。</li>
+</ol>
+</div>
+<!-- Right: Key Features -->
+<div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+<h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">🌟 主要特点</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+<li style="margin-bottom: 8px;"><strong>浏览器绑定线程：</strong>在主执行周期或 Web Workers 内执行所有计算，防止浏览器冻结。</li>
+<li style="margin-bottom: 8px;"><strong>高保真操作：</strong>使用欧几里德颜色距离计算来确保输出质量在压缩或调整大小期间保持数学上的精确性。</li>
+<li style="margin-bottom: 8px;"><strong>优化内存管理：</strong>通过 ImageData 像素数组分配临时缓冲区空间，以防止内存泄漏和浏览器崩溃。</li>
+<li style="margin-bottom: 8px;"><strong>标准化兼容性：</strong>严格遵守 W3C HTML5 Canvas 和 PNG alpha 透明度标准，以提供在任何地方都完全可读和可编辑的输出文件。</li>
+</ul>
+</div>
+</div>
+<!-- Privacy & Security Alert -->
+<div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+<span style="font-size: 16px;">🛡️</span>
+<div>
+<strong>本地处理和保密：</strong>该工具完全在您的网络浏览器的本地沙箱环境中运行。通过利用客户端内存和浏览器级文件处理，不会将任何数据、文件或个人信息上传到外部服务器。该架构保证完全符合GDPR、CCPA等严格的隐私法规，为您提供绝对的安全。</div>
+</div>
+<!-- FAQ Section -->
+<div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+<h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 常见问题 (FAQ)</h3>
+<div itemscope="" itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：透明背景键控如何工作？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">该工具读取画布上每个像素的 RGBA 分量。它测量像素颜色和所选目标颜色之间的数学距离，用透明 Alpha 像素替换匹配像素。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：它可以删除复杂的多色背景吗？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">由于它使用基于阈值的颜色距离键控，因此它在纯色或均匀背景上效果最佳。对于渐变或复杂的细节，您可以调整容差滑块。</p>
+</div>
+</div>
+<div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+<h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">问：建议导出什么格式？</h4>
+<div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">强烈推荐 PNG，因为它支持 8 位 Alpha 通道以实现真正的透明度，而 JPEG 不支持透明图层。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="/js/core/image-loader.js?v=3"></script>
+<script src="/js/core/file-utils.js?v=3"></script>
+<script src="/js/core/ui-components.js?v=3"></script>
+<script src="/js/core/sidebar.js?v=4"></script>
+<!-- Load Transformers.js as ES module, expose globally before tool script runs -->
+<script type="module">
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/dist/transformers.min.js';
+        env.allowLocalModels = false;
+        window.__HF = { pipeline, env };
+        window.dispatchEvent(new CustomEvent('transformers-ready'));
+    </script>
+<script src="/js/tools/bg-remove.js?v=2"></script>
+</body>
+</html>

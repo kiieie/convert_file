@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
 <script>
@@ -12,23 +15,65 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
     <link rel="stylesheet" href="/css/modern-theme.css">
     <link rel="stylesheet" href="/css/modern-components.css">
     <link rel="stylesheet" href="/css/tools.css">
-    <style>.modern-ad-zone{border:1px dashed var(--slate-200);background-color:#FFF;padding:12px;text-align:center;font-size:11px;color:var(--slate-400);border-radius:var(--radius-sm);margin-bottom:15px;}</style>
-    <title>GIF 효과 및 캡션 (GIF Effects) - ConvertFile</title>
-    <meta name="description" content="GIF에 필터 효과와 텍스트 캡션을 추가하세요. 서버 전송 없는 클라이언트 사이드 처리.">
+    
+    <style>
+        .modern-ad-zone {
+            border: 1px dashed var(--slate-200);
+            background-color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--slate-400);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <title>온라인 GIF 효과 필터 및 자막 넣기 (GIF Effects) - ConvertFile</title>
+    <meta name="description" content="움직이는 GIF 파일에 자막(캡션) 텍스트를 넣거나 흑백, 세피아, 색상 반전 등의 다양한 비주얼 필터 효과를 추가해 보세요.">
+    <meta name="keywords" content="GIF 자막 넣기, GIF 텍스트 추가, GIF 필터 효과, 움짤 꾸미기">
     <link rel="canonical" href="https://2convert.org/ko/tools/gif-effects.html">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://2convert.org/ko/tools/gif-effects.html">
-    <meta property="og:title" content="GIF 효과 및 캡션 (GIF Effects) - ConvertFile">
-    <meta property="og:description" content="GIF에 필터 효과와 텍스트 캡션을 추가하세요. 서버 전송 없는 클라이언트 사이드 처리.">
+    <meta property="og:title" content="온라인 GIF 효과 필터 및 자막 넣기 (GIF Effects) - ConvertFile">
+    <meta property="og:description" content="움직이는 GIF 파일에 자막(캡션) 텍스트를 넣거나 흑백, 세피아, 색상 반전 등의 다양한 비주얼 필터 효과를 추가해 보세요.">
     <meta property="og:image" content="https://2convert.org/assets/og-image.png">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GIF 효과 및 캡션 (GIF Effects) - ConvertFile","url":"https://2convert.org/ko/tools/gif-effects.html","description":"GIF에 필터 효과와 텍스트 캡션을 추가하세요. 서버 전송 없는 클라이언트 사이드 처리.","applicationCategory":"MultimediaApplication","operatingSystem":"All"}</script>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/ko/tools/gif-effects.html">
+    <meta property="twitter:title" content="온라인 GIF 효과 필터 및 자막 넣기 (GIF Effects) - ConvertFile">
+    <meta property="twitter:description" content="움직이는 GIF 파일에 자막(캡션) 텍스트를 넣거나 흑백, 세피아, 색상 반전 등의 다양한 비주얼 필터 효과를 추가해 보세요.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "온라인 GIF 효과 필터 및 자막 넣기 (GIF Effects) - ConvertFile",
+  "url": "https://2convert.org/ko/tools/gif-effects.html",
+  "description": "움직이는 GIF 파일에 자막(캡션) 텍스트를 넣거나 흑백, 세피아, 색상 반전 등의 다양한 비주얼 필터 효과를 추가해 보세요.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+}
+    </script>
 </head>
 <body>
+
     <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
         <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
         <main class="modern-content">
             <header class="modern-content__header">
 <!-- Google tag (gtag.js) -->
@@ -40,18 +85,208 @@
 
   gtag('config', 'G-S87614V8Y9');
 </script>
-                <h1 class="modern-content__title">GIF 효과 및 캡션 (GIF Effects)</h1>
-                <p class="modern-content__desc">GIF에 필터 효과와 텍스트 캡션을 추가하세요.</p>
+                <h1 class="modern-content__title">GIF 효과 및 캡션 추가 (GIF Effects & Text)</h1>
+                <p class="modern-content__desc">움직이는 애니메이션 GIF 파일에 텍스트 문구(Meme 스타일), 필터 색상 효과 또는 워터마크 이미지를 100% 로컬 합성 처리합니다.</p>
             </header>
-            <div class="modern-ad-zone"><span>[광고 슬롯] Google AdSense Banner (728x90)</span></div>
+
+            <!-- 애드센스 슬롯 -->
+            <div class="modern-ad-zone">
+                <span>[광고 영역] Google AdSense Banner space (728x90)</span>
+            </div>
+
+            <div class="modern-tool-grid">
+                <!-- 1열: 업로드존 및 미리보기 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 업로드 드롭존 (명확성 보강) -->
+                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;%232563EB&quot; stroke-width=&quot;1.5&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M9.813 15.904L9 21m0 0l-.813-5.096L9 21zm0 0h12m-6-10H3.75a1.5 1.5 0 00-1.5 1.5V18a1.5 1.5 0 001.5 1.5h6.187m9.063-14.25L18.75 3m0 0l-1.313 3.375M18.75 3h.008v.008h-.008V3zm-2.25 10.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z&quot;/></svg>');"></div>
+                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">가공할 애니메이션 GIF 파일을 끌어놓으십시오.</div>
+                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">움짤 GIF 전용 (최대 30MB)</div>
+                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 GIF 파일 선택</button>
+                        <input type="file" id="file-input" style="display:none;" accept="image/gif">
+                    </div>
+
+                    <!-- 미리보기 영역 -->
+                    <div class="modern-preview-container" id="preview-container" style="display:none; flex-direction:column; gap:12px;">
+                        <img id="source-gif-img" style="max-width: 100%; max-height: 320px; border-radius: var(--radius-sm);" alt="Uploaded GIF">
+                        <img id="result-gif-img" style="max-width: 100%; max-height: 320px; display:none; border-radius: var(--radius-sm); border: 2px solid var(--success);" alt="Result GIF">
+                    </div>
+                    <!-- 업로드 상태 정보 출력 패널 (JS 연동) -->
+                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                    </div>
+                </div>
+
+                <!-- 2열: 속성 조정 제어반 -->
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- 1. 캡션/텍스트 오버레이 -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">텍스트 문구 오버레이</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">노출할 자막 텍스트</span>
+                            <input type="text" class="modern-input" id="caption-text" placeholder="여기에 글자를 적으세요..." disabled>
+                        </div>
+                        <div style="display:flex; gap:10px; margin-bottom:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">글자 크기 (px)</span>
+                                <input type="number" class="modern-input" id="caption-size" value="24" min="10" max="72" disabled>
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">글자 색상</span>
+                                <input type="color" class="modern-input" id="caption-color" value="#FFFFFF" style="padding: 2px 6px; height: 32px;" disabled>
+                            </div>
+                        </div>
+                        <div class="modern-form-group">
+                            <span class="modern-label">텍스트 노출 위치</span>
+                            <select class="modern-select" id="caption-position" disabled>
+                                <option value="bottom" selected>하단 중앙 (Meme 스타일)</option>
+                                <option value="top">상단 중앙</option>
+                                <option value="center">화면 정중앙</option>
+                            </select>
+                        </div>
+                        <div class="modern-form-group">
+                            <label style="cursor:pointer; font-size:12px; display:flex; align-items:center; gap:6px;">
+                                <input type="checkbox" id="caption-outline" checked disabled> 글자 검은색 테두리선 두르기 (가독성 향상)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. 컬러 필터 효과 -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">색상 필터 효과</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">적용할 필터 형식</span>
+                            <select class="modern-select" id="filter-type" disabled>
+                                <option value="none" selected>필터 없음 (원본 화질)</option>
+                                <option value="grayscale">그레이스케일 (흑백)</option>
+                                <option value="sepia">세피아 (갈색조 레트로)</option>
+                                <option value="invert">색상 반전 (네거티브)</option>
+                                <option value="blur">미세 흐림 효과 (Blur)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 3. 워터마크 이미지 추가 -->
+                    <div class="modern-card">
+                        <h3 class="modern-card__title">워터마크 이미지 합성</h3>
+                        <div class="modern-form-group">
+                            <span class="modern-label">오버레이할 이미지 선택</span>
+                            <input type="file" id="watermark-input" accept="image/*" disabled style="font-size: 11px;">
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">투명도 (Opacity)</span>
+                                <select class="modern-select" id="watermark-opacity" disabled>
+                                    <option value="0.3" selected>흐릿함 (30%)</option>
+                                    <option value="0.6">적당함 (60%)</option>
+                                    <option value="1.0">불투명 (100%)</option>
+                                </select>
+                            </div>
+                            <div class="modern-form-group" style="flex:1;">
+                                <span class="modern-label">워터마크 위치</span>
+                                <select class="modern-select" id="watermark-position" disabled>
+                                    <option value="bottom-right" selected>우측 하단</option>
+                                    <option value="top-left">좌측 상단</option>
+                                    <option value="center">가운데 정렬</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="modern-btn modern-btn--primary" id="btn-run-effects" disabled style="height:38px; font-size:14px; font-weight:600;">
+                        🎨 GIF 효과 일괄 합성 및 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <!-- 하단 안내 정보 가이드 -->
+                        <!-- 하단 안내 정보 가이드 -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <!-- Section Title -->
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 GIF 효과 및 필터 적용기</h2>
+                
+                <!-- Description Paragraphs -->
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">GIF 효과 및 필터 적용기 도구는 웹 브라우저의 네이티브 기술을 기반으로 구축되었으며, 클라이언트 측 애플리케이션의 실행 컨텍스트 내에서 Canvas API 2D 이미지 처리를 직접적으로 활용합니다. 이미지 커널 컨볼루션 필터 (블러, 샤픈, 엠보싱 등)를 통합함으로써 시스템은 이진 연산을 실행하고 사용자 페이로드를 즉각적으로 처리합니다. 이러한 아키텍처는 전통적인 서버 통신으로 인한 지연 시간을 제거하여, 대용량 파일 처리나 빈번한 데이터 작업 시에도 최적의 응답성과 제로 레이턴시(Zero Latency)를 보장합니다.</p>
+                    <p style="margin-bottom: 12px;">현대적인 웹 개발 흐름에서 애니메이션 GIF 시각 필터링 처리를 서버가 아닌 클라이언트 브라우저로 위임하는 것은 성능 향상과 정보 보안 측면에서 매우 중요합니다. 네트워크 채널을 통해 원본 파일이나 미디어 스트림을 전송하는 대신, 사용자 단말기의 로컬 스레드에서 직접 연산이 실행됩니다. 고급 자바스크립트 API를 활용하여 제어판의 슬라이더 조절이나 실시간 미리보기가 지연 없이 렌더링되므로, 데스크톱 전용 앱처럼 매끄러운 사용자 경험을 제공합니다.</p>
+                    <p style="margin-bottom: 12px;">내부적으로는 GIF 프레임별 ImageData 버퍼를 활용하여 메모리 할당과 해제를 최적화합니다. 데이터 처리 주기 동안 컨볼루션 행렬 연산 및 픽셀 변환 공식를 적용하여 전송 처리량을 극대화하고 픽셀 또는 텍스트의 정밀도를 유지합니다. 최종 결과물은 GIF89a 표준 규격 사양 표준 규격을 엄격하게 준수하여 생성되므로, 생성된 이미지, 코드 또는 문서 파일이 다양한 외부 플랫폼, 운영 체제 및 전문 편집 프로그램과 완벽하게 호환됩니다.</p>
+                </div>
+
+                <!-- Two-column layout for Features and How to Use -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Left: How to Use -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            ⚙️ 사용 방법
+                        </h3>
+                        <ol style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600);">
+                            <li style="margin-bottom: 8px;">웹 도구 페이지에 접속한 후 상단에 위치한 파일 업로드 영역 또는 텍스트 입력란을 확인합니다.</li>
+                            <li style="margin-bottom: 8px;">드래그 앤 드롭 방식을 사용해 원본 파일(PNG, JPG, WEBP 등)을 업로드하거나, 지정된 필드에 텍스트 또는 숫자 데이터를 입력합니다.</li>
+                            <li style="margin-bottom: 8px;">제어판 영역의 조절 바나 화질 설정 슬라이더를 사용하여 요구 사양에 맞춰 변환 파라미터를 세부 조정합니다.</li>
+                            <li style="margin-bottom: 8px;">실행 버튼(예: 생성, 변환 또는 처리 시작)을 클릭하여 캔버스나 메모리 버퍼 상에서 연산 프로세스를 동작시킵니다.</li>
+                            <li style="margin-bottom: 8px;">실시간 미리보기 화면으로 변환 결과를 검토한 다음, 다운로드 버튼을 눌러 결과 파일을 로컬 저장소에 안전하게 저장합니다.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Right: Key Features -->
+                    <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 16px;">
+                        <h3 style="font-size: 14px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            🌟 주요 특징
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--slate-600); list-style-type: disc;">
+                            <li style="margin-bottom: 8px;"><strong>브라우저 로컬 프로세싱:</strong> 모든 연산을 메인 스레드 또는 웹 워커(Web Workers) 내에서 수행하여 화면 멈춤 현상을 방지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>고정밀 렌더링 알고리즘:</strong> 변환 및 압축 과정에서 컨볼루션 행렬 연산 및 픽셀 변환 공식를 적용해 화질 저하를 최소화하고 원래의 정밀도를 유지합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>효율적인 메모리 관리:</strong> GIF 프레임별 ImageData 버퍼를 통해 임시 버퍼 공간을 유연하게 할당하여 메모리 누수를 막고 브라우저 안정성을 극대화합니다.</li>
+                            <li style="margin-bottom: 8px;"><strong>국제 표준 규격 준수:</strong> GIF89a 표준 규격 사양 표준 규격을 철저하게 적용하여, 저장된 결과 파일을 어떤 외부 프로그램에서도 호환성 오류 없이 활용할 수 있습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Alert -->
+                <div style="background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #1E3A8A; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="font-size: 16px;">🛡️</span>
+                    <div>
+                        <strong>로컬 메모리 보안 및 개인정보 보호:</strong> 본 도구는 사용자의 웹 브라우저 로컬 샌드박스 환경 내에서만 백퍼센트 실행됩니다. 클라이언트 측 브라우저 단에서 임시 파일 읽기 및 가공이 수행되므로, 입력된 텍스트나 업로드된 파일이 외부 서버로 절대 전송되지 않습니다. 이는 유럽 연합의 GDPR 및 국내 개인정보보호법 규정을 충족하며 안전한 작업 환경을 보장합니다.
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="border-top: 1px solid var(--slate-200); padding-top: 20px;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">🙋 자주 묻는 질문 (FAQ)</h3>
+                    <div itemscope itemtype="https://schema.org/FAQPage" style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 움직이는 GIF의 각 프레임에 필터를 어떻게 입히나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">GIF 바이너리를 프레임 단위로 파싱한 후 각 장면을 개별 캔버스 객체로 복원합니다. 그 뒤 픽셀별 행렬 필터를 적용하고 다시 순차적으로 컴파일하여 하나의 GIF로 묶어냅니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 필터를 적용하면 GIF 파일 크기가 증가하나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">일부 필터(노이즈, 강한 대비 등)는 색상을 다양하게 분산시키므로 중복 데이터를 축소하는 LZW 압축 성능을 떨어트려 최종 출력 파일의 용량이 늘어날 수 있습니다.</p>
+                </div>
+            </div>
+            <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="padding-bottom: 4px;">
+                <h4 itemprop="name" style="font-size: 13px; font-weight: 600; color: var(--slate-800); margin: 0 0 6px 0;">Q. 어떤 필터 종류들을 사용할 수 있나요?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text" style="font-size: 13px; line-height: 1.6; color: var(--slate-600); margin: 0;">그레이스케일(흑백), 세피아, 색상 반전, 빈티지 톤, 밝기 조정, 선명도 향상(Sharpen) 및 부드럽게 만들기(Blur) 등 다양한 변환 특성을 실시간 지원합니다.</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
-    
-    <script src="/js/core/image-loader.js?v=4"></script>
-    <script src="/js/core/canvas-utils.js?v=4"></script>
-    <script src="/js/core/file-utils.js?v=4"></script>
-    <script src="/js/core/ui-components.js?v=4"></script>
+
+    <!-- gifshot & gifuct-js 라이브러리 연동 -->
+    <script src="/js/vendors/gifshot.min.js?v=3"></script>
+    <script src="/js/vendors/gifuct-js.min.js?v=3"></script>
+
+    <!-- 코어 및 툴 스크립트 바인딩 -->
     <script src="/js/core/sidebar.js?v=4"></script>
-    <script src="/js/tools/gif-effects.js?v=4"></script>
+    <script src="/js/core/file-utils.js?v=3"></script>
+    <script src="/js/core/ui-components.js?v=3"></script>
+    <script src="/js/tools/gif-effects.js?v=3"></script>
 </body>
 </html>
