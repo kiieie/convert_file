@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GIF를 압축하면 화질이 많이 깨지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 2Convert.org의 Lossy LZW 압축 기술은 색상 노이즈를 제어하고 디더링을 최적화합니다. 육안으로는 거의 화질 차이를 느끼기 어렵지만 용량은 30~50% 줄어듭니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GIF 최적화 작업이 안전한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 모든 압축 연산은 사용자의 브라우저 내에서 100% 로컬로 구동됩니다. 귀하의 움짤 파일이 외부 서버로 전혀 업로드되지 않으므로 완벽히 안전합니다."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -171,6 +196,22 @@
                         <li>프레임 제거(Frame Skip) 비율을 설정한 뒤 **'최적화(Optimize)'**를 클릭합니다.</li>
                         <li>변환 완료 즉시 다운로드되며, 압축 전후 용량 변화를 실시간으로 비교해볼 수 있습니다.</li>
                     </ol>
+                
+                    <h2>자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. GIF를 압축하면 화질이 많이 깨지나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 아니요. 2Convert.org의 Lossy LZW 압축 기술은 색상 노이즈를 제어하고 디더링을 최적화합니다. 육안으로는 거의 화질 차이를 느끼기 어렵지만 용량은 30~50% 줄어듭니다.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. GIF 최적화 작업이 안전한가요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 네. 모든 압축 연산은 사용자의 브라우저 내에서 100% 로컬로 구동됩니다. 귀하의 움짤 파일이 외부 서버로 전혀 업로드되지 않으므로 완벽히 안전합니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

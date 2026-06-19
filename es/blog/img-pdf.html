@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se romperá el diseño del PDF generado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Las imágenes se alinean con las dimensiones de página estándar (como A4 o Carta) según su configuración de márgenes, asegurando que el documento se muestre idéntico en cualquier dispositivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es seguro combinar fotos con información personal sensible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Toda la compilación se realiza localmente en su navegador mediante pdf-lib. Sus documentos confidenciales nunca se envían a través de la red, siendo totalmente seguro."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -171,6 +196,22 @@
                         <li><strong>Evite las sombras:</strong> Asegúrese de que las fuentes de luz no proyecten sombras de su mano o teléfono sobre el papel.</li>
                         <li><strong>Recortar los bordes primero:</strong> Utilice la <a href="/es/tools/crop.html">Herramienta de recorte</a> de 2Convert para recortar las superficies de la mesa o el desorden del fondo antes de combinar.</li>
                     </ul>
+                
+                    <h2>Preguntas Frecuentes (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Se romperá el diseño del PDF generado?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. No. Las imágenes se alinean con las dimensiones de página estándar (como A4 o Carta) según su configuración de márgenes, asegurando que el documento se muestre idéntico en cualquier dispositivo.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Es seguro combinar fotos con información personal sensible?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Sí. Toda la compilación se realiza localmente en su navegador mediante pdf-lib. Sus documentos confidenciales nunca se envían a través de la red, siendo totalmente seguro.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

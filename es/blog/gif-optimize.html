@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Comprimir un GIF arruina la calidad visual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La compresión LZW con pérdida de 2Convert optimiza las paletas de colores. El tamaño se reduce entre un 30% y un 50% con cambios casi imperceptibles para el ojo humano."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es seguro el proceso de optimización de GIF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Toda la compresión se ejecuta localmente en el navegador. Sus archivos GIF nunca se suben a ningún servidor, garantizando privacidad absoluta."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -167,6 +192,22 @@
                         <li>Ajuste el control deslizante de compresión con pérdida, especifique un ancho de destino o elija omitir fotogramas.</li>
                         <li>Haga clic en **'Optimizar'** para ejecutar el algoritmo local. Su GIF optimizado se descargará de inmediato.</li>
                     </ol>
+                
+                    <h2>Preguntas Frecuentes (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Comprimir un GIF arruina la calidad visual?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. No. La compresión LZW con pérdida de 2Convert optimiza las paletas de colores. El tamaño se reduce entre un 30% y un 50% con cambios casi imperceptibles para el ojo humano.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Es seguro el proceso de optimización de GIF?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Sí. Toda la compresión se ejecuta localmente en el navegador. Sus archivos GIF nunca se suben a ningún servidor, garantizando privacidad absoluta.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

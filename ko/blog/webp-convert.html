@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "모든 브라우저가 WebP 포맷을 지원하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Safari, Chrome, Firefox, Edge 등 모든 모던 웹 브라우저가 WebP 포맷을 기본으로 지원하므로 블로그나 웹사이트에 안심하고 사용하셔도 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "WebP 변환 시 화질 손실이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WebP는 무손실 압축과 손실 압축을 모두 지원합니다. 손실 압축 시 품질을 80~85% 수준으로 맞추면, 원본과 육안 구분이 안 되면서 용량은 크게 줄어듭니다."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -168,6 +193,22 @@
                     <h2>4. 웹에서 다시 JPG나 PNG로 돌려받고 싶을 때</h2>
                     <p>WebP 포맷이 최신 포맷이다 보니, 일부 뷰어나 레거시 편집 프로그램에서 WebP 파일 인식이 안 되어 업로드가 안 되는 특이 상황이 생길 수 있습니다. 
                     그럴 때 역시 2Convert.org의 [WebP 변환기] 탭에서 옵션을 **'From WebP'**로 바꾸고 파일을 넣으시면, 역으로 WebP 파일을 순식간에 표준 JPG/PNG 포맷으로 복원해 줍니다.</p>
+                
+                    <h2>자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 모든 브라우저가 WebP 포맷을 지원하나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 네. Safari, Chrome, Firefox, Edge 등 모든 모던 웹 브라우저가 WebP 포맷을 기본으로 지원하므로 블로그나 웹사이트에 안심하고 사용하셔도 됩니다.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. WebP 변환 시 화질 손실이 있나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. WebP는 무손실 압축과 손실 압축을 모두 지원합니다. 손실 압축 시 품질을 80~85% 수준으로 맞추면, 원본과 육안 구분이 안 되면서 용량은 크게 줄어듭니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

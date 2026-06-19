@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "生成的 PDF 布局会错乱吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。图像会根据您的边距设置与标准页面尺寸（如 A4 或 US Letter）对齐，确保文档在任何设备上显示完全一致。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "合并包含敏感个人信息的照片安全吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "安全。整个文件编译过程完全在您的浏览器内存中本地运行（使用 pdf-lib）。您的机密文档绝不会通过网络发送，因此非常安全。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -171,6 +196,22 @@
                         <li><strong>避免阴影：</strong> 确保光源不会在纸上投下您手部或手机的阴影。</li>
                         <li><strong>先裁剪边缘：</strong> 合并之前，使用 2Convert 的 <a href="/zh/tools/crop.html">裁剪工具</a> 修剪掉桌面或混乱的背景。</li>
                     </ul>
+                
+                    <h2>常见问题 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 生成的 PDF 布局会错乱吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 不会。图像会根据您的边距设置与标准页面尺寸（如 A4 或 US Letter）对齐，确保文档在任何设备上显示完全一致。</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 合并包含敏感个人信息的照片安全吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 安全。整个文件编译过程完全在您的浏览器内存中本地运行（使用 pdf-lib）。您的机密文档绝不会通过网络发送，因此非常安全。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

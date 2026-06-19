@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "删除 EXIF 元数据会降低照片质量吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。清除 EXIF 数据仅删除文件的文本标题段（APP1 段）。图像像素数据保持不变，这意味着质量零损失。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "即时通讯软件会自动删除位置数据吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "部分平台默认会压缩图片并清除元数据。然而，当通过电子邮件、博客或二手交易平台分享原始文件时，位置数据将被完整保留并公开。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -177,6 +202,22 @@
                         <li>清理完毕的图像将自动下载，不包含任何跟踪数据。</li>
                     </ol>
                     <p>※ 注意：此过程不会改变实际像素或降低照片画质。它只是删除了文件的文本头部段，而照片图像本身保持不变。</p>
+                
+                    <h2>常见问题 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 删除 EXIF 元数据会降低照片质量吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 不会。清除 EXIF 数据仅删除文件的文本标题段（APP1 段）。图像像素数据保持不变，这意味着质量零损失。</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 即时通讯软件会自动删除位置数据吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 部分平台默认会压缩图片并清除元数据。然而，当通过电子邮件、博客或二手交易平台分享原始文件时，位置数据将被完整保留并公开。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

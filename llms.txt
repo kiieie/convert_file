@@ -77,3 +77,19 @@ Each tool is available in four languages:
 - "How do I resize an image without uploading it?" -> https://2convert.org/tools/resize.html
 - "How do I read EXIF data from a photo?" -> https://2convert.org/tools/metadata.html
 - "How do I convert PNG to WebP?" -> https://2convert.org/tools/webp-convert.html
+
+## Blogs & Technical Guides
+
+Informative tech guides optimized for search engines, explaining concepts and step-by-step usage:
+- [HEIC to JPG Guide](https://2convert.org/blog/heic-to-jpg.html) (Korean: [ko/blog/heic-to-jpg.html](https://2convert.org/ko/blog/heic-to-jpg.html)): Convert iPhone HEIC photos to JPG without installing programs.
+- [Reduce GIF Size Guide](https://2convert.org/blog/gif-optimize.html) (Korean: [ko/blog/gif-optimize.html](https://2convert.org/ko/blog/gif-optimize.html)): Compress animated GIF size without losing visual quality.
+- [Remove Metadata Guide](https://2convert.org/blog/exif-remove.html) (Korean: [ko/blog/exif-remove.html](https://2convert.org/ko/blog/exif-remove.html)): Protect privacy by removing GPS and EXIF data from photos.
+- [Remove Background Guide](https://2convert.org/blog/bg-remove.html) (Korean: [ko/blog/bg-remove.html](https://2convert.org/ko/blog/bg-remove.html)): Remove image background using browser-local AI.
+- [Images to PDF Guide](https://2convert.org/blog/img-pdf.html) (Korean: [ko/blog/img-pdf.html](https://2convert.org/ko/blog/img-pdf.html)): Merge multiple receipts or document images into a single PDF.
+- [Convert to WebP Guide](https://2convert.org/blog/webp-convert.html) (Korean: [ko/blog/webp-convert.html](https://2convert.org/ko/blog/webp-convert.html)): Boost blog speed and improve SEO ranking using WebP format.
+
+Blog indexes are available at:
+- English: https://2convert.org/blog/
+- Korean: https://2convert.org/ko/blog/
+- Spanish: https://2convert.org/es/blog/
+- Chinese (Simplified): https://2convert.org/zh/blog/

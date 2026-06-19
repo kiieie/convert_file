@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Existe un límite de resolución para descargar los recortes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A diferencia de la mayoría de los sitios, 2Convert.org utiliza redes neuronales locales (TensorFlow.js), lo que le permite descargar la resolución HD completa de su archivo original sin límites ni marcas de agua."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tan bien maneja la IA los detalles finos como el cabello?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El modelo de segmentación de aprendizaje profundo integrado divide los sujetos a nivel de píxel, capturando límites finos como el cabello con gran limpieza bajo iluminación estándar."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -170,6 +195,22 @@
                         <li><strong>Fondos simples:</strong> Los fondos de estudio lisos (blancos, grises o colores sólidos) son más fáciles de segmentar para las redes de IA.</li>
                         <li><strong>Enfoque nítido:</strong> Los bordes libres de desenfoque permiten a la IA delimitar los contornos con la máxima precisión.</li>
                     </ul>
+                
+                    <h2>Preguntas Frecuentes (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Existe un límite de resolución para descargar los recortes?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. A diferencia de la mayoría de los sitios, 2Convert.org utiliza redes neuronales locales (TensorFlow.js), lo que le permite descargar la resolución HD completa de su archivo original sin límites ni marcas de agua.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Qué tan bien maneja la IA los detalles finos como el cabello?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. El modelo de segmentación de aprendizaje profundo integrado divide los sujetos a nivel de píxel, capturando límites finos como el cabello con gran limpieza bajo iluminación estándar.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

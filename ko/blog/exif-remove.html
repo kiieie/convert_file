@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "EXIF 데이터를 지우면 사진 화질도 저하되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. EXIF 제거는 이미지 픽셀 데이터(화질)를 건드리지 않고 파일 헤더에 있는 텍스트 메타데이터 세그먼트(APP1)만 도려내므로 화질 저하가 전혀 없습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "카카오톡이나 문자로 전송할 때도 위치 정보가 유출되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "일부 메신저의 일반 전송은 메타데이터를 지우지만, '원본 전송' 옵션을 켜거나 이메일, 블로그, 당근마켓 등에 올릴 때는 위치 정보가 그대로 노출되어 매우 위험합니다."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -178,6 +203,22 @@
                         <li>위치 태그와 카메라 스펙이 모두 완벽히 소멸된 순수 이미지 파일이 자동으로 즉시 다운로드됩니다.</li>
                     </ol>
                     <p>※ 이 작업은 원본 이미지의 픽셀(화질)을 손상시키지 않고 파일 맨 앞부분의 텍스트 메타데이터 영역만 골라서 잘라내는 방식으로 동작하므로 화질 저하가 전혀 발생하지 않습니다.</p>
+                
+                    <h2>자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. EXIF 데이터를 지우면 사진 화질도 저하되나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 아니요. EXIF 제거는 이미지 픽셀 데이터(화질)를 건드리지 않고 파일 헤더에 있는 텍스트 메타데이터 세그먼트(APP1)만 도려내므로 화질 저하가 전혀 없습니다.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 카카오톡이나 문자로 전송할 때도 위치 정보가 유출되나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 일부 메신저의 일반 전송은 메타데이터를 지우지만, '원본 전송' 옵션을 켜거나 이메일, 블로그, 당근마켓 등에 올릴 때는 위치 정보가 그대로 노출되어 매우 위험합니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

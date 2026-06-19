@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "所有现代网页浏览器都支持 WebP 格式吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是的。所有现代浏览器（包括 Safari、Chrome、Firefox 和 Edge）均完全支持 WebP 格式，因此在博客和网站上使用是完全安全的。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "WebP 压缩是有损还是无损？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WebP 两者都支持。在进行有损转换时，将质量滑块设置为 80-85% 可获得最佳压缩比，此时图像在视觉上与原始 JPEG 几乎一致，但体积减少了约 30%。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -165,6 +190,22 @@
 
                     <h2>4. 如何将 WebP 转换回 JPG/PNG</h2>
                     <p>虽然 WebP 得到了广泛支持，但一些老旧的编辑器或较旧的 CMS 门户可能无法识别它。如果您需要将 WebP 还原为标准格式，请将工具设置切换为 **“从 WebP (From WebP)”** 并拖入您的 WebP 文件，即可立即将其下载为标准 JPEG 或 PNG。</p>
+                
+                    <h2>常见问题 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 所有现代网页浏览器都支持 WebP 格式吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 是的。所有现代浏览器（包括 Safari、Chrome、Firefox 和 Edge）均完全支持 WebP 格式，因此在博客和网站上使用是完全安全的。</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. WebP 压缩是有损还是无损？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. WebP 两者都支持。在进行有损转换时，将质量滑块设置为 80-85% 可获得最佳压缩比，此时图像在视觉上与原始 JPEG 几乎一致，但体积减少了约 30%。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

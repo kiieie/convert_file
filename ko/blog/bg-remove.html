@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "배경 제거 작업의 화질 제한이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "일반적인 누끼 사이트와 달리 2Convert.org는 브라우저 내부 AI 연산(TensorFlow.js)을 사용하므로, 고화질 원본 해상도 그대로 제한이나 워터마크 없이 무료로 받을 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "머리카락처럼 복잡한 경계도 잘 따지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 내장된 딥러닝 세그멘테이션 모델이 전경과 배경을 고차원 픽셀 단위로 분석하여 미세한 경계선도 상당히 깔끔하게 분리해 냅니다."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -171,6 +196,22 @@
                         <li><strong>단색 또는 단순한 배경:</strong> 복잡하고 복작거리는 배경보다는 스튜디오형 흰색/회색 배경이 유리합니다.</li>
                         <li><strong>초점이 명확한 사진:</strong> 아웃포커싱이 너무 과해 피사체 테두리가 뭉개진 사진은 경계 인식이 다소 모호할 수 있습니다.</li>
                     </ul>
+                
+                    <h2>자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 배경 제거 작업의 화질 제한이 있나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 일반적인 누끼 사이트와 달리 2Convert.org는 브라우저 내부 AI 연산(TensorFlow.js)을 사용하므로, 고화질 원본 해상도 그대로 제한이나 워터마크 없이 무료로 받을 수 있습니다.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 머리카락처럼 복잡한 경계도 잘 따지나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 네, 내장된 딥러닝 세그멘테이션 모델이 전경과 배경을 고차원 픽셀 단위로 분석하여 미세한 경계선도 상당히 깔끔하게 분리해 냅니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

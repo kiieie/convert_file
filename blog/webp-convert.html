@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do all modern web browsers support WebP format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All modern browsers (including Safari, Chrome, Firefox, and Edge) fully support the WebP format, making it completely safe to use for blogs and websites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is WebP compression lossy or lossless?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WebP supports both. When converting lossy, setting the quality slider to 80-85% achieves the best compression ratio where the image looks virtually identical to the original JPEG but is 30% smaller."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -165,6 +190,22 @@
 
                     <h2>4. How to Convert WebP Back to JPG/PNG</h2>
                     <p>While WebP is widely supported, some legacy editors or older CMS portals might not recognize it. If you need to revert WebPs to standard formats, switch the tool setting to **"From WebP"** and drag in your WebP files to instantly download them as standard JPEGs or PNGs.</p>
+                
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Do all modern web browsers support WebP format?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Yes. All modern browsers (including Safari, Chrome, Firefox, and Edge) fully support the WebP format, making it completely safe to use for blogs and websites.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Is WebP compression lossy or lossless?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. WebP supports both. When converting lossy, setting the quality slider to 80-85% achieves the best compression ratio where the image looks virtually identical to the original JPEG but is 30% smaller.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "변환된 PDF 파일의 레이아웃이 깨지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 설정하신 여백에 따라 A4 또는 Letter 등 표준 규격 용지 크기에 맞춰 이미지가 정확히 정렬되므로, 어떠한 기기나 뷰어에서도 레이아웃이 깨지지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "개인 정보가 포함된 계약서 사진을 넣어도 안전한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 100% 로컬 브라우저 내부에서만 변환(pdf-lib)이 실행됩니다. 기밀문서가 외부 네트워크로 절대 유출되지 않으므로 안심하고 병합하셔도 됩니다."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -172,6 +197,22 @@
                         <li><strong>그림자 방지:</strong> 방의 불빛이 사진에 손 그림자를 만들지 않도록 불빛을 등지지 말고 측면에서 촬영하는 것이 좋습니다.</li>
                         <li><strong>문서 자르기 도구 활용:</strong> 2Convert.org의 [이미지 자르기(Crop)](/ko/tools/crop.html) 도구를 먼저 거쳐 문서 주변의 불필요한 책상 배경을 잘라낸 뒤 병합하면 한층 더 깔끔해집니다.</li>
                     </ul>
+                
+                    <h2>자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 변환된 PDF 파일의 레이아웃이 깨지나요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 아니요. 설정하신 여백에 따라 A4 또는 Letter 등 표준 규격 용지 크기에 맞춰 이미지가 정확히 정렬되므로, 어떠한 기기나 뷰어에서도 레이아웃이 깨지지 않습니다.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 개인 정보가 포함된 계약서 사진을 넣어도 안전한가요?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 네. 100% 로컬 브라우저 내부에서만 변환(pdf-lib)이 실행됩니다. 기밀문서가 외부 네트워크로 절대 유출되지 않으므로 안심하고 병합하셔도 됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "压缩 GIF 会破坏画质吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。2Convert 的有损 LZW 压缩会过滤噪点并优化调色板。文件体积可减少 30-50%，而视觉画质肉眼几乎看不出区别。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GIF 优化过程安全吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "安全。整个压缩过程完全在您的浏览器沙盒中本地运行。您的 GIF 文件绝不会上传到任何服务器，确保绝对隐私。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -167,6 +192,22 @@
                         <li>调整“有损压缩”滑块，指定目标宽度，或选择“跳帧”。</li>
                         <li>点击 **“优化 (Optimize)”** 运行本地算法。您优化后的 GIF 将立即下载。</li>
                     </ol>
+                
+                    <h2>常见问题 (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. 压缩 GIF 会破坏画质吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 不会。2Convert 的有损 LZW 压缩会过滤噪点并优化调色板。文件体积可减少 30-50%，而视觉画质肉眼几乎看不出区别。</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. GIF 优化过程安全吗？</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. 安全。整个压缩过程完全在您的浏览器沙盒中本地运行。您的 GIF 文件绝不会上传到任何服务器，确保绝对隐私。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

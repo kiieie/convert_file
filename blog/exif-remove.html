@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does removing EXIF metadata reduce photo quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Stripping EXIF data only removes the textual header segment (APP1 segment) of the file. The image pixel data remains untouched, meaning there is zero quality loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do messaging apps automatically remove location data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some platforms (like KakaoTalk or WhatsApp) compress images and strip metadata by default. However, when sharing original files, via email, blogs, or marketplaces like Craigslist, location data is fully preserved and exposed."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -177,6 +202,22 @@
                         <li>Your cleaned images download automatically, free of tracking data.</li>
                     </ol>
                     <p>※ Note: This process does not alter the actual pixels or degrade the photo's quality. It simply deletes the text header segment of the file, leaving the picture itself untouched.</p>
+                
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Does removing EXIF metadata reduce photo quality?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. No. Stripping EXIF data only removes the textual header segment (APP1 segment) of the file. The image pixel data remains untouched, meaning there is zero quality loss.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Do messaging apps automatically remove location data?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Some platforms (like KakaoTalk or WhatsApp) compress images and strip metadata by default. However, when sharing original files, via email, blogs, or marketplaces like Craigslist, location data is fully preserved and exposed.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

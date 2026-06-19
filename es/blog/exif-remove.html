@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Eliminar los metadatos EXIF reduce la calidad de la foto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Eliminar los datos EXIF solo elimina el segmento de encabezado de texto (segmento APP1) del archivo. Los píxeles de la imagen no se alteran, por lo que la pérdida de calidad es cero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Las aplicaciones de mensajería eliminan automáticamente la ubicación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Algunas plataformas comprimen imágenes y eliminan metadatos por defecto. Sin embargo, al compartir archivos originales por correo, blogs o mercados de segunda mano, la ubicación se conserva y expone por completo."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -177,6 +202,22 @@
                         <li>Sus imágenes limpias se descargarán automáticamente, libres de datos de seguimiento.</li>
                     </ol>
                     <p>※ Nota: Este proceso no altera los píxeles reales ni degrada la calidad de la foto. Simplemente elimina el segmento de encabezado de texto del archivo, dejando la imagen en sí intacta.</p>
+                
+                    <h2>Preguntas Frecuentes (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Eliminar los metadatos EXIF reduce la calidad de la foto?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. No. Eliminar los datos EXIF solo elimina el segmento de encabezado de texto (segmento APP1) del archivo. Los píxeles de la imagen no se alteran, por lo que la pérdida de calidad es cero.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. ¿Las aplicaciones de mensajería eliminan automáticamente la ubicación?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Algunas plataformas comprimen imágenes y eliminan metadatos por defecto. Sin embargo, al compartir archivos originales por correo, blogs o mercados de segunda mano, la ubicación se conserva y expone por completo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

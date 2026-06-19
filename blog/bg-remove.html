@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a resolution limit for downloading cutouts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unlike most background removal sites, 2Convert.org utilizes local neural networks (TensorFlow.js), allowing you to download the full HD resolution of your original file with no limits or watermarks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How well does the AI handle fine details like hair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The embedded deep learning segmentation model segments foreground subjects at a high pixel-level resolution, capturing fine boundaries like hair very cleanly in standard lighting."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -170,6 +195,22 @@
                         <li><strong>Simple Backgrounds:</strong> Plain studio backdrops (white, gray, or solid colors) are easier for AI networks to segment.</li>
                         <li><strong>Sharp Focus:</strong> Blur-free edges allow the AI to delineate borders with maximum precision.</li>
                     </ul>
+                
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Is there a resolution limit for downloading cutouts?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Unlike most background removal sites, 2Convert.org utilizes local neural networks (TensorFlow.js), allowing you to download the full HD resolution of your original file with no limits or watermarks.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. How well does the AI handle fine details like hair?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. The embedded deep learning segmentation model segments foreground subjects at a high pixel-level resolution, capturing fine boundaries like hair very cleanly in standard lighting.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

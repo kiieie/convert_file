@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will the layout of the generated PDF break?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The images are aligned to standard page dimensions (like A4 or US Letter) according to your margin settings, ensuring the document displays identically on any device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to merge photos containing sensitive personal info?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The entire file compilation happens locally inside your browser memory using pdf-lib. Your confidential documents are never sent over the network, making it completely secure."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -171,6 +196,22 @@
                         <li><strong>Avoid Shadows:</strong> Ensure light sources don't cast shadows of your hand or phone onto the paper.</li>
                         <li><strong>Crop Edges First:</strong> Use 2Convert's [Crop Tool](/tools/crop.html) to trim away table surfaces or background clutter before merging.</li>
                     </ul>
+                
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Will the layout of the generated PDF break?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. No. The images are aligned to standard page dimensions (like A4 or US Letter) according to your margin settings, ensuring the document displays identically on any device.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Is it safe to merge photos containing sensitive personal info?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Yes. The entire file compilation happens locally inside your browser memory using pdf-lib. Your confidential documents are never sent over the network, making it completely secure.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>

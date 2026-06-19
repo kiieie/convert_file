@@ -115,6 +115,31 @@
         });
       }
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does compressing a GIF ruin the visual quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. 2Convert's Lossy LZW compression targets noise and optimizes color palettes. The file size drops by 30-50% while the visual quality remains almost identical to the human eye."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the GIF optimization process secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The entire compression runs inside your web browser sandbox locally. Your GIF files are never uploaded to any servers, ensuring absolute privacy."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -167,6 +192,22 @@
                         <li>Adjust the Lossy Compression slider, specify a target Width, or choose to Skip Frames.</li>
                         <li>Click **'Optimize'** to run the local algorithm. Your optimized GIF will download immediately.</li>
                     </ol>
+                
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                    <div class="faq-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Does compressing a GIF ruin the visual quality?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. No. 2Convert's Lossy LZW compression targets noise and optimizes color palettes. The file size drops by 30-50% while the visual quality remains almost identical to the human eye.</p>
+                            </div>
+                        </div>
+                        <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" style="border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                            <h4 itemprop="name" style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin: 0 0 6px 0;">Q. Is the GIF optimization process secure?</h4>
+                            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <p itemprop="text" style="font-size: 13.5px; line-height: 1.6; color: var(--slate-600); margin: 0;">A. Yes. The entire compression runs inside your web browser sandbox locally. Your GIF files are never uploaded to any servers, ensuring absolute privacy.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </main>
