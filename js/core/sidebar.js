@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             privacy:    "Privacy",
             terms:      "Terms",
             contact:    "Contact",
+            blog:       "Blog",
         },
         ko: {
             imageTools: "이미지 도구",
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             privacy:    "개인정보",
             terms:      "이용약관",
             contact:    "문의",
+            blog:       "블로그",
         },
         es: {
             imageTools: "Imagen",
@@ -117,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             privacy:    "Privacidad",
             terms:      "Términos",
             contact:    "Contacto",
+            blog:       "Blog",
         },
         zh: {
             imageTools: "图像工具",
@@ -151,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             privacy:    "隐私政策",
             terms:      "使用条款",
             contact:    "联系我们",
+            blog:       "博客",
         }
     }[currentLang];
 
@@ -210,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div style="padding:10px 8px 4px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="${langPrefix}/blog/" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.blog}</a>
             <a href="${langPrefix}/pages/privacy.html" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.privacy}</a>
             <a href="${langPrefix}/pages/terms.html"   style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.terms}</a>
             <a href="${langPrefix}/pages/contact.html" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.contact}</a>

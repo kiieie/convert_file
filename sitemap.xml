@@ -1122,5 +1122,37 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/webp-convert.html"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/webp-convert.html"/>
   </url>
+  <url>
+    <loc>https://2convert.org/blog/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/blog/heic-to-jpg.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/heic-to-jpg.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/heic-to-jpg.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/heic-to-jpg.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/heic-to-jpg.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/heic-to-jpg.html"/>
+  </url>
 
 </urlset>

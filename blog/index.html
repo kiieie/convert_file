@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S87614V8Y9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .blog-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.15s ease;
+        }
+        .blog-card:hover {
+            border-color: var(--blue-500);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            transform: translateY(-2px);
+        }
+        .blog-card__image {
+            height: 160px;
+            background-color: var(--slate-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 32px;
+            position: relative;
+        }
+        .blog-card__content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .blog-card__date {
+            font-size: 11px;
+            color: var(--slate-400);
+            margin-bottom: 8px;
+        }
+        .blog-card__title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+        .blog-card__desc {
+            font-size: 13px;
+            color: var(--slate-500);
+            margin: 0;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+    </style>
+
+    <title>Tech Blog - ConvertFile</title>
+    <meta name="description" content="Discover useful web tips, image compression tutorials, and file conversion guidelines on the official ConvertFile blog.">
+    <meta name="keywords" content="file converter, convert image, convert HEIC to JPG, pdf merge tips">
+    <link rel="canonical" href="https://2convert.org/blog/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/blog/">
+    <meta property="og:title" content="Tech Blog - ConvertFile">
+    <meta property="og:description" content="Discover useful web tips, image compression tutorials, and file conversion guidelines on the official ConvertFile blog.">
+    <meta property="og:image" content="https://2convert.org/assets/og/index.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/blog/">
+    <meta property="twitter:title" content="Tech Blog - ConvertFile">
+    <meta property="twitter:description" content="Discover useful web tips, image compression tutorials, and file conversion guidelines on the official ConvertFile blog.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og/index.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. Left Fixed Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. Right Work Area -->
+        <main class="modern-content">
+            <div class="blog-container">
+                <header class="modern-content__header">
+                    <h1 class="modern-content__title">⚡ Tech Blog</h1>
+                    <p class="modern-content__desc">Guides on image processing, performance optimization, and file formats.</p>
+                </header>
+
+                <div class="blog-grid">
+                    <!-- Post 1: HEIC to JPG -->
+                    <a href="/blog/heic-to-jpg.html" class="blog-card">
+                        <div class="blog-card__image">📱</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">How to Convert HEIC to JPG Without Installing Software</h2>
+                            <p class="blog-card__desc">Resolve compatibility issues with iPhone HEIC images and convert them to JPG directly in your browser memory.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Core & Tool scripts -->
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/core/file-utils.js?v=4" defer></script>
+    <script src="/js/core/ui-components.js?v=4" defer></script>
+</body>
+</html>
