@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S87614V8Y9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+        }
+        .blog-article__title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--slate-900);
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .blog-article__meta {
+            font-size: 13px;
+            color: var(--slate-400);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--slate-100);
+            padding-bottom: 16px;
+            display: flex;
+            gap: 16px;
+        }
+        .blog-article__content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--slate-700);
+        }
+        .blog-article__content h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--blue-500);
+            padding-left: 12px;
+        }
+        .blog-article__content p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .blog-article__content ul, .blog-article__content ol {
+            margin-top: 0;
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .blog-article__content li {
+            margin-bottom: 8px;
+        }
+        .highlight-box {
+            background-color: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-bottom: 20px;
+            font-size: 14.5px;
+            color: #1E3A8A;
+        }
+    </style>
+
+    <title>여러 영수증·문서 사진을 하나의 PDF 파일로 묶어 변환하는 법 - ConvertFile</title>
+    <meta name="description" content="스마트폰으로 촬영한 과제, 영수증, 계약서 등 수많은 JPG/PNG 이미지 파일들을 별도 프로그램 없이 브라우저에서 즉시 깔끔한 하나의 PDF 문서로 병합하여 저장하는 가이드를 소개합니다.">
+    <meta name="keywords" content="이미지 PDF 변환, JPG PDF 합치기, 사진 PDF 병합, 무료 PDF 만들기, 여러 이미지 PDF 묶기">
+    <link rel="canonical" href="https://2convert.org/ko/blog/img-pdf.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://2convert.org/ko/blog/img-pdf.html">
+    <meta property="og:title" content="여러 영수증·문서 사진을 하나의 PDF 파일로 묶어 변환하는 법 - ConvertFile">
+    <meta property="og:description" content="스마트폰으로 촬영한 과제, 영수증, 계약서 등 수많은 JPG/PNG 이미지 파일들을 별도 프로그램 없이 브라우저에서 즉시 깔끔한 하나의 PDF 문서로 병합하여 저장하는 가이드를 소개합니다.">
+    <meta property="og:image" content="https://2convert.org/assets/og/ko_img-pdf.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/ko/blog/img-pdf.html">
+    <meta property="twitter:title" content="여러 영수증·문서 사진을 하나의 PDF 파일로 묶어 변환하는 법 - ConvertFile">
+    <meta property="twitter:description" content="스마트폰으로 촬영한 과제, 영수증, 계약서 등 수많은 JPG/PNG 이미지 파일들을 별도 프로그램 없이 브라우저에서 즉시 깔끔한 하나의 PDF 문서로 병합하여 저장하는 가이드를 소개합니다.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og/ko_img-pdf.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <article class="blog-article">
+                <header>
+                    <h1 class="blog-article__title">스마트폰으로 찍은 영수증·문서 사진들을 하나의 PDF 파일로 묶어 제출하는 방법</h1>
+                    <div class="blog-article__meta">
+                        <span>📅 작성일: 2026-06-20</span>
+                        <span>✍️ 작성자: ConvertFile 기술 블로그</span>
+                    </div>
+                </header>
+
+                <div class="blog-article__content">
+                    <p>회사에서 업무 지출 증빙을 위해 영수증 사진을 여러 장 청구해야 하거나, 학교 과제로 여러 장의 필기 스캔 사진을 제출해야 할 때, 각각의 개별 이미지 파일(JPG, PNG)을 따로따로 올리면 수집하는 사람 입장에서도 누락이 잦고 보기가 매우 번거롭습니다.</p>
+                    
+                    <p>특히 관공서나 학사 관리 시스템은 <strong>"하나의 PDF 파일로 병합하여 업로드하십시오"</strong>라는 규정을 두는 경우가 많습니다. 이번 글에서는 스마트폰 카메라로 촬영한 수많은 종이 문서 사진들을 별도의 어플이나 프로그램 설치 없이 <strong>A4 규격의 하나의 깔끔한 PDF 파일로 변환하여 병합하는 방법</strong>을 알아보겠습니다.</p>
+
+                    <div class="highlight-box">
+                        <strong>📑 PDF 병합 요약:</strong> 수십 장의 영수증 사진을 묶으려면 브라우저 기반의 로컬 병합기인 <a href="/ko/tools/img-pdf.html" style="font-weight:700; color:#1D4ED8; text-decoration:underline;">2Convert.org 이미지 → PDF 변환기</a>를 활용해보세요. 개인 계약서나 경비 결재 영수증처럼 예민한 문서를 서버로 업로드하지 않고 브라우저 내에서 직접 변환하므로 정보 보안에 완벽합니다.
+                    </div>
+
+                    <h2>1. 왜 이미지 묶음 전송 시 PDF 파일이 유리할까요?</h2>
+                    <p>사진 묶음을 JPG 포맷 여러 개로 전송하는 것보다 단일 PDF 문서로 합쳐서 보내는 것은 다음과 같은 뚜렷한 장점이 있습니다.</p>
+                    <ul>
+                        <li><strong>포맷의 레이아웃 유지:</strong> 상대방이 스마트폰, 맥북, 윈도우 PC 등 어떤 기기에서 열어도 서체나 이미지 배치 배율이 깨지지 않고 동일하게 보입니다.</li>
+                        <li><strong>누락 원천 차단:</strong> 파일 1개만 관리하므로 여러 파일 전송 시 발생할 수 있는 일부 사진 전송 누락 문제가 발생하지 않습니다.</li>
+                        <li><strong>인쇄(출력) 편의성:</strong> PDF 뷰어 내에서 인쇄 버튼 한 번만 누르면 모든 페이지가 A4 용지 규격에 정확히 맞춤 설정되어 출력됩니다.</li>
+                    </ul>
+
+                    <h2>2. 기존 무료 사이트 이용 시 개인정보 유출 문제</h2>
+                    <p>온라인 무료 이미지 PDF 변환 사이트의 대다수는 사용자가 보낸 문서를 **자기네 웹 서버로 업로드하여 원격 처리**합니다. 
+                    주민등록증 사본, 은행 통장 사본, 사적 대화가 있는 캡처화면, 계약서나 영수증 등 **금융/개인 신상 정보가 포함된 파일이 중국이나 해외 불법 서버에 저장될 위험성**이 매우 높으므로 극도로 주의해야 합니다.</p>
+
+                    <h2>3. 프로그램 없이 브라우저에서 안전하게 변환하는 법</h2>
+                    <p><strong>2Convert.org</strong>는 Mozilla의 신뢰도 높은 PDF 처리 엔진(pdf-lib)을 웹어셈블리 방식으로 브라우저에 임포트하여 돌립니다. 파일이 외부 네트워크를 타지 않고 로컬에서만 변환되므로 보안에 절대적으로 안전합니다.</p>
+                    
+                    <ol>
+                        <li><a href="/ko/tools/img-pdf.html" style="font-weight:600; color:#3B82F6; text-decoration:none;">이미지 to PDF 변환 도구</a>로 접속합니다.</li>
+                        <li>카메라로 찍은 JPG, PNG, WebP 등 모든 이미지 파일들을 다중 선택하여 마우스로 끌어다 놓습니다.</li>
+                        <li>드래그하여 페이지 순서를 변경하거나 불필요한 사진을 삭제 정돈합니다.</li>
+                        <li>용지 방향(가로/세로), 여백 크기, 페이지 크기(A4 또는 Letter)를 설정합니다.</li>
+                        <li>**'PDF 생성 및 다운로드'**를 누르면 1초 만에 하나의 멋진 PDF 파일이 다운로드됩니다.</li>
+                    </ol>
+
+                    <h2>4. 깔끔한 문서 스캔본 같은 사진 촬영 팁</h2>
+                    <p>스마트폰 카메라로 문서를 찍어 PDF로 만들 때, 다음 팁을 적용하면 실제 스캐너로 스캔한 듯한 고품질 결과물을 만들 수 있습니다.</p>
+                    <ul>
+                        <li><strong>직각 촬영:</strong> 문서의 수직 위에서 수평을 맞춰 정면으로 찍어야 테두리 왜곡이 적습니다.</li>
+                        <li><strong>그림자 방지:</strong> 방의 불빛이 사진에 손 그림자를 만들지 않도록 불빛을 등지지 말고 측면에서 촬영하는 것이 좋습니다.</li>
+                        <li><strong>문서 자르기 도구 활용:</strong> 2Convert.org의 [이미지 자르기(Crop)](/ko/tools/crop.html) 도구를 먼저 거쳐 문서 주변의 불필요한 책상 배경을 잘라낸 뒤 병합하면 한층 더 깔끔해집니다.</li>
+                    </ul>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Core & Tool scripts -->
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/core/file-utils.js?v=4" defer></script>
+    <script src="/js/core/ui-components.js?v=4" defer></script>
+</body>
+</html>

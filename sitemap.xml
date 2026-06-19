@@ -1186,5 +1186,53 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/exif-remove.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/exif-remove.html"/>
   </url>
+  <url>
+    <loc>https://2convert.org/blog/bg-remove.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/bg-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/bg-remove.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/bg-remove.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/bg-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/bg-remove.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/blog/img-pdf.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/img-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/img-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/img-pdf.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/img-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/img-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/blog/webp-convert.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/webp-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/webp-convert.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/webp-convert.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/webp-convert.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/webp-convert.html"/>
+  </url>
 
 </urlset>
