@@ -1,0 +1,24 @@
+{
+  "name": "2Convert - Free Online Client-Side Tools",
+  "short_name": "2Convert",
+  "description": "Secure, free online image conversion and editing tools that run 100% in your browser without uploading to servers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

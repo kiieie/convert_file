@@ -13,7 +13,7 @@
 <meta content="0307293898ffe82846cf8a63159e33472fa2a9d8" name="naver-site-verification"/>
 <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"></script>
 <!-- Auto Language Detector Redirector -->
-<script src="/js/core/lang-detector.js"></script>
+<script src="/js/core/lang-detector.js" defer></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- Modern Minimalist Stylesheet -->
@@ -121,6 +121,19 @@
     "query-input": "required name=search_term_string"
   }
 }
+    </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
     </script>
 </head>
 <body>
@@ -256,6 +269,6 @@
 </main>
 </div>
 <!-- Sidebar Dynamic Loader -->
-<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/core/sidebar.js?v=4" defer></script>
 </body>
 </html>

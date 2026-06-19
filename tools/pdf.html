@@ -14,7 +14,7 @@
   gtag('config', 'G-S87614V8Y9');
 </script>
     <!-- Auto Language Detector Redirector -->
-    <script src="/js/core/lang-detector.js"></script>
+    <script src="/js/core/lang-detector.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,6 +152,19 @@
     }
   ]
 }
+    </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
     </script>
 </head>
 <body>
@@ -461,15 +474,15 @@
             </div>
 
     <!-- pdf-lib & pdf.js & JSZip Load -->
-    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
 
     <!-- Core & Tool scripts -->
-    <script src="/js/core/sidebar.js?v=4"></script>
-    <script src="/js/core/file-utils.js?v=3"></script>
-    <script src="/js/core/ui-components.js?v=3"></script>
-    <script src="/js/tools/pdf.js?v=3"></script>
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/core/file-utils.js?v=3" defer></script>
+    <script src="/js/core/ui-components.js?v=3" defer></script>
+    <script src="/js/tools/pdf.js?v=3" defer></script>
 
     <script>
         // Set pdf.js Global worker URL

@@ -13,7 +13,7 @@
   gtag('config', 'G-S87614V8Y9');
 </script>
 <!-- Auto Language Detector Redirector -->
-<script src="/js/core/lang-detector.js"></script>
+<script src="/js/core/lang-detector.js" defer></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="/css/modern-theme.css" rel="stylesheet"/>
@@ -230,6 +230,19 @@
   ]
 }
     </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
 </head>
 <body>
 <div class="modern-layout">
@@ -395,12 +408,12 @@
 </main>
 </div>
 <!-- jsPDF CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 <!-- Core scripts -->
-<script src="/js/core/file-utils.js?v=3"></script>
-<script src="/js/core/ui-components.js?v=3"></script>
-<script src="/js/core/sidebar.js?v=4"></script>
+<script src="/js/core/file-utils.js?v=3" defer></script>
+<script src="/js/core/ui-components.js?v=3" defer></script>
+<script src="/js/core/sidebar.js?v=4" defer></script>
 <!-- Tool script -->
-<script src="/js/tools/img-pdf.js?v=1"></script>
+<script src="/js/tools/img-pdf.js?v=1" defer></script>
 </body>
 </html>

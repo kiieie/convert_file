@@ -62,3 +62,6 @@ deploy.zip
 # Test results
 test-results/
 test/test-results/
+
+# GCP Service Account key
+service_account.json

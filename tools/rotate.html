@@ -107,6 +107,19 @@
   ]
 }
     </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
 </head>
 <body>
 
@@ -270,11 +283,11 @@
     </div>
 
     <!-- 스크립트 결합 -->
-    <script src="/js/core/image-loader.js?v=3"></script>
-    <script src="/js/core/canvas-utils.js?v=3"></script>
-    <script src="/js/core/file-utils.js?v=3"></script>
-    <script src="/js/core/ui-components.js?v=3"></script>
-    <script src="/js/core/sidebar.js?v=4"></script>
-    <script src="/js/tools/rotate.js?v=3"></script>
+    <script src="/js/core/image-loader.js?v=3" defer></script>
+    <script src="/js/core/canvas-utils.js?v=3" defer></script>
+    <script src="/js/core/file-utils.js?v=3" defer></script>
+    <script src="/js/core/ui-components.js?v=3" defer></script>
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/tools/rotate.js?v=3" defer></script>
 </body>
 </html>

@@ -97,6 +97,19 @@
   ]
 }
     </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
 </head>
 <body>
 <div class="modern-layout">
@@ -289,16 +302,16 @@
 </main>
 </div>
 <!-- 외부 스캔 및 렌더러 CDN -->
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js" defer></script>
 <!-- QR/바코드 디코더 라이브러리 추가 -->
-<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2@1.8.4/dist/quagga.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2@1.8.4/dist/quagga.min.js" defer></script>
 <!-- 코어 및 툴 비즈니스 스크립트 결합 -->
-<script src="/js/core/file-utils.js?v=3"></script>
-<script src="/js/core/ui-components.js?v=3"></script>
-<script src="/js/core/sidebar.js?v=4"></script>
-<script src="/js/tools/barcode.js?v=3"></script>
+<script src="/js/core/file-utils.js?v=3" defer></script>
+<script src="/js/core/ui-components.js?v=3" defer></script>
+<script src="/js/core/sidebar.js?v=4" defer></script>
+<script src="/js/tools/barcode.js?v=3" defer></script>
 <script>
         // 탭 스타일 전환 핸들러 보완
         function switchMode(mode) {
