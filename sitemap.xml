@@ -1154,5 +1154,37 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/heic-to-jpg.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/heic-to-jpg.html"/>
   </url>
+  <url>
+    <loc>https://2convert.org/blog/gif-optimize.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/gif-optimize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/gif-optimize.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/gif-optimize.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/gif-optimize.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/gif-optimize.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/blog/exif-remove.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/exif-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/exif-remove.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/blog/exif-remove.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/blog/exif-remove.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/blog/exif-remove.html"/>
+  </url>
 
 </urlset>

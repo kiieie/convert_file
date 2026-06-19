@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S87614V8Y9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+        }
+        .blog-article__title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--slate-900);
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .blog-article__meta {
+            font-size: 13px;
+            color: var(--slate-400);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--slate-100);
+            padding-bottom: 16px;
+            display: flex;
+            gap: 16px;
+        }
+        .blog-article__content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--slate-700);
+        }
+        .blog-article__content h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--blue-500);
+            padding-left: 12px;
+        }
+        .blog-article__content p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .blog-article__content ul, .blog-article__content ol {
+            margin-top: 0;
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .blog-article__content li {
+            margin-bottom: 8px;
+        }
+        .highlight-box {
+            background-color: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-bottom: 20px;
+            font-size: 14.5px;
+            color: #1E3A8A;
+        }
+    </style>
+
+    <title>당근마켓·SNS 필독! 사진 속 위치 정보(GPS)와 개인정보 지우기 - ConvertFile</title>
+    <meta name="description" content="중고거래 업로드나 SNS 사진 공유 전, 사진 파일 내부의 EXIF 메타데이터와 민감한 GPS 위치 정보를 쉽고 안전하게 삭제하는 방법을 공유합니다.">
+    <meta name="keywords" content="사진 위치 정보 지우기, EXIF 삭제, 사진 개인정보 보호, 아이폰 사진 GPS 삭제, 메타데이터 삭제">
+    <link rel="canonical" href="https://2convert.org/ko/blog/exif-remove.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://2convert.org/ko/blog/exif-remove.html">
+    <meta property="og:title" content="당근마켓·SNS 필독! 사진 속 위치 정보(GPS)와 개인정보 지우기 - ConvertFile">
+    <meta property="og:description" content="중고거래 업로드나 SNS 사진 공유 전, 사진 파일 내부의 EXIF 메타데이터와 민감한 GPS 위치 정보를 쉽고 안전하게 삭제하는 방법을 공유합니다.">
+    <meta property="og:image" content="https://2convert.org/assets/og/ko_metadata.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/ko/blog/exif-remove.html">
+    <meta property="twitter:title" content="당근마켓·SNS 필독! 사진 속 위치 정보(GPS)와 개인정보 지우기 - ConvertFile">
+    <meta property="twitter:description" content="중고거래 업로드나 SNS 사진 공유 전, 사진 파일 내부의 EXIF 메타데이터와 민감한 GPS 위치 정보를 쉽고 안전하게 삭제하는 방법을 공유합니다.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og/ko_metadata.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. 좌측 공통 고정 사이드바 -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. 우측 메인 워크스페이스 -->
+        <main class="modern-content">
+            <article class="blog-article">
+                <header>
+                    <h1 class="blog-article__title">당근마켓·SNS 필독! 사진 속 위치 정보(GPS)와 개인정보 지우기</h1>
+                    <div class="blog-article__meta">
+                        <span>📅 작성일: 2026-06-20</span>
+                        <span>✍️ 작성자: ConvertFile 기술 블로그</span>
+                    </div>
+                </header>
+
+                <div class="blog-article__content">
+                    <p>당근마켓이나 번개장터 같은 중고거래 앱에 집 안에서 촬영한 물건 사진을 그대로 올리시나요? 혹은 SNS나 블로그에 일상 사진을 무심코 공유하시나요? 
+                    그렇다면 본인도 모르는 사이에 <strong>집 주소나 회사 위치 같은 사생활 정보가 타인에게 유출되고 있을 가능성</strong>이 매우 높습니다.</p>
+                    
+                    <p>스마트폰으로 촬영한 디지털 사진 파일에는 사진의 픽셀 데이터 외에도 촬영 장소, 시간, 카메라 정보 등이 고스란히 담겨 있기 때문입니다. 이번 글에서는 사생활을 보호하기 위해 사진 파일에서 위치 정보(GPS)를 완벽히 제거하는 원리와 간편한 지우기 방법을 알아보겠습니다.</p>
+
+                    <div class="highlight-box">
+                        <strong>🛡️ 프라이버시 요약:</strong> 사진 메타데이터를 가장 안전하게 삭제하는 방법은 외부 서버로 전송 없이 오직 기기 자체 브라우저 메모리 안에서만 가공하는 <a href="/ko/tools/metadata.html" style="font-weight:700; color:#1D4ED8; text-decoration:underline;">2Convert.org EXIF 삭제 도구</a>를 사용하는 것입니다. 완전한 오프라인 방식으로 동작하여 정보 유출 가능성이 0%입니다.
+                    </div>
+
+                    <h2>사진 속에 숨은 개인정보: EXIF 메타데이터란?</h2>
+                    <p>EXIF(Exchangeable Image File Format)는 디지털카메라나 스마트폰이 사진을 찍을 때 이미지 파일에 기록하는 데이터 표준 포맷입니다. 여기에는 다음과 같은 민감한 정보들이 저장됩니다.</p>
+                    <ul>
+                        <li><strong>위치 정보(GPS Coordinates):</strong> 사진이 찍힌 곳의 정확한 위도와 경도 (구글 지도에 치면 1미터 오차로 집 위치 파악 가능).</li>
+                        <li><strong>촬영 일시:</strong> 정확히 몇 년 몇 월 몇 일 몇 시 몇 분에 촬영되었는지 기록.</li>
+                        <li><strong>기기 사양:</strong> 아이폰/갤럭시 모델명, 렌즈 종류, 조리개 값, 셔터 스피드 등.</li>
+                    </ul>
+                    <p>일부 대형 SNS 플랫폼(예: 인스타그램, 카카오톡 일반 전송)은 이미지 업로드 시 자체적으로 메타데이터를 삭제해주기도 하지만, <strong>블로그, 인터넷 카페, 이메일 첨부, 또는 원본 이미지 파일 공유 시에는 데이터가 그대로 유지</strong>되어 노출됩니다.</p>
+
+                    <h2>아이폰/갤럭시에서 수동으로 위치 정보 끄기</h2>
+                    <p>앞으로 촬영할 사진들에 위치 정보가 아예 저장되지 않도록 카메라 설정을 변경할 수 있습니다.</p>
+                    
+                    <h3>아이폰(iOS) 설정 방법</h3>
+                    <ol>
+                        <li><strong>설정</strong> -> **개인정보 보호 및 보안**으로 들어갑니다.</li>
+                        <li>**위치 서비스**를 선택합니다.</li>
+                        <li>**카메라** 앱을 찾아서 클릭한 뒤, 위치 권한을 **'안 함'**으로 변경합니다.</li>
+                    </ol>
+
+                    <h3>갤럭시(Android) 설정 방법</h3>
+                    <ol>
+                        <li>**카메라** 앱을 실행합니다.</li>
+                        <li>좌측 상단 또는 우측 상단의 **톱니바퀴 아이콘(설정)**을 누릅니다.</li>
+                        <li>**위치 태그** 토글 버튼을 **비활성화(끔)**로 설정합니다.</li>
+                    </ol>
+
+                    <h2>이미 찍은 사진에서 EXIF 메타데이터 일괄 삭제하는 법</h2>
+                    <p>이미 촬영된 소장 사진들의 개인정보를 지워 웹에 올릴 때는 2Convert.org 도구를 사용하여 단 1초 만에 흔적을 지울 수 있습니다.</p>
+                    <ol>
+                        <li><a href="/ko/tools/metadata.html" style="font-weight:600; color:#3B82F6; text-decoration:none;">EXIF 제거 도구</a> 페이지에 접속합니다.</li>
+                        <li>개인정보를 삭제하고 싶은 이미지 파일을 드래그 앤 드롭으로 업로드 영역에 넣습니다.</li>
+                        <li>도구가 즉시 이미지 구조에서 바이너리 헤더 세그먼트(APP1 EXIF 블록)를 찾아 안전하게 도려냅니다.</li>
+                        <li>위치 태그와 카메라 스펙이 모두 완벽히 소멸된 순수 이미지 파일이 자동으로 즉시 다운로드됩니다.</li>
+                    </ol>
+                    <p>※ 이 작업은 원본 이미지의 픽셀(화질)을 손상시키지 않고 파일 맨 앞부분의 텍스트 메타데이터 영역만 골라서 잘라내는 방식으로 동작하므로 화질 저하가 전혀 발생하지 않습니다.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Core & Tool scripts -->
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/core/file-utils.js?v=4" defer></script>
+    <script src="/js/core/ui-components.js?v=4" defer></script>
+</body>
+</html>
