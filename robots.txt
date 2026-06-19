@@ -34,4 +34,4 @@ Allow: /
 
 # Sitemap & LLMs
 Sitemap: https://2convert.org/sitemap.xml
-LLMs: https://2convert.org/llms.txt
+# LLMs: https://2convert.org/llms.txt
