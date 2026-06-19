@@ -1,10 +1,37 @@
-﻿# robots.txt for ConvertFile
-# 모든 크롤러에게 사이트 크롤링 허용
+# robots.txt for 2Convert
+# General crawlers
 User-agent: *
 Allow: /
-
-# 비공개 처리 또는 제외할 디렉토리 (현재 없음)
 Disallow: /js/vendors/
 
-# 사이트맵 연결 (본인의 도메인 명칭으로 배포 시 도메인을 대체하십시오)
+# AI Crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Sitemap & LLMs
 Sitemap: https://2convert.org/sitemap.xml
+LLMs: https://2convert.org/llms.txt

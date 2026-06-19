@@ -1,0 +1,79 @@
+﻿# 2Convert — Free Online File Conversion & Image Tools
+
+> 2Convert (https://2convert.org) is a free, privacy-safe, browser-based toolkit for converting, editing, and processing images, GIFs, PDFs, and videos entirely on the client side. No files are ever uploaded to any server. All processing happens locally in the user's browser using JavaScript, Canvas API, Web Workers, and WebAssembly.
+
+## Key Facts
+
+- URL: https://2convert.org
+- Languages: English, Korean (ko), Spanish (es), Chinese Simplified (zh)
+- License: Free, no account required
+- Privacy: 100% client-side processing — zero server uploads, GDPR-compliant
+- Technology: HTML5, JavaScript, Canvas API, Web Workers, pdf.js, ffmpeg.wasm, JsBarcode, heic2any
+
+## Tool Categories
+
+### Image Editing Tools
+
+- [Image Resize](https://2convert.org/tools/resize.html): Resize images by pixel dimensions or percentage. Supports JPG, PNG, WebP, GIF. Uses bilinear interpolation via Canvas API. Preserves aspect ratio option available.
+- [Image Crop](https://2convert.org/tools/crop.html): Crop images with freeform or fixed-ratio selection. Outputs JPG or PNG. No quality loss beyond the crop region.
+- [Image Rotate & Flip](https://2convert.org/tools/rotate.html): Rotate images 90/180/270 degrees or flip horizontally/vertically.
+- [JPG to PNG Converter](https://2convert.org/tools/jpg-png.html): Convert JPG/JPEG images to PNG format or PNG to JPG in the browser. Supports transparency for PNG output.
+- [WebP Converter](https://2convert.org/tools/webp-convert.html): Convert images to and from WebP format. Supports JPG, PNG, GIF input. Quality slider for lossy compression control.
+- [HEIC to JPG Converter](https://2convert.org/tools/heic2jpg.html): Convert iPhone HEIC/HEIF photos to JPG or PNG using heic2any library. No Apple software required.
+- [Image Compress](https://2convert.org/tools/compress.html): Compress JPG and PNG images with adjustable quality slider. Shows file size reduction percentage before download.
+- [Background Remover](https://2convert.org/tools/bg-remove.html): Remove image backgrounds using AI segmentation running in-browser via TensorFlow.js/ONNX. Outputs transparent PNG.
+- [SVG Converter](https://2convert.org/tools/svg-convert.html): Convert SVG vector files to PNG or JPG raster images at custom resolution/DPI.
+- [Image Watermark](https://2convert.org/tools/watermark.html): Add text or image watermarks to photos. Customizable font, size, opacity, position, and color.
+- [Color Palette Extractor](https://2convert.org/tools/color-extractor.html): Extract dominant color palette from any image. Returns HEX and RGB values using k-means clustering.
+- [Meme Generator](https://2convert.org/tools/meme-generator.html): Create memes by adding top/bottom text to images. Custom font size, color, and stroke. Download as JPG.
+- [Image to Base64](https://2convert.org/tools/base64.html): Convert images to Base64-encoded strings and decode Base64 strings back to images.
+- [Image to PDF](https://2convert.org/tools/img-pdf.html): Convert one or multiple images to a single PDF file. Supports JPG, PNG, WebP. Custom page size options.
+
+### GIF Tools
+
+- [GIF Maker](https://2convert.org/tools/gif-maker.html): Create animated GIFs from multiple image files. Control frame delay, loop count, and output size.
+- [GIF Splitter](https://2convert.org/tools/gif-splitter.html): Split an animated GIF into individual frames. Download all frames as a ZIP or individual PNGs.
+- [GIF Optimizer](https://2convert.org/tools/gif-optimize.html): Reduce GIF file size using LZW compression tuning and frame deduplication.
+- [GIF Speed Changer](https://2convert.org/tools/gif-speed.html): Speed up or slow down animated GIFs by adjusting inter-frame delay. Supports 0.1x to 10x speed.
+- [GIF Effects](https://2convert.org/tools/gif-effects.html): Apply visual effects to animated GIFs: grayscale, sepia, invert, blur, brightness, contrast, hue rotation.
+
+### Video Tools
+
+- [Video to GIF Converter](https://2convert.org/tools/video-gif.html): Convert MP4, WebM, MOV video clips to animated GIF. Select time range, frame rate, and output dimensions. Uses ffmpeg.wasm.
+
+### PDF Tools
+
+- [PDF Tools](https://2convert.org/tools/pdf.html): Merge multiple PDFs, split by page range, extract pages, reorder pages. Powered by pdf-lib and pdf.js.
+
+### Utility Tools
+
+- [Barcode Generator](https://2convert.org/tools/barcode.html): Generate barcodes and QR codes. Supports QR Code, Code128, EAN-13, EAN-8, UPC-A, Code39, ITF-14. Download as SVG or PNG.
+- [Image Metadata Viewer](https://2convert.org/tools/metadata.html): Read EXIF metadata from JPG/TIFF images — camera model, GPS coordinates, exposure settings, ISO, focal length.
+
+## Information Pages
+
+- [About](https://2convert.org/pages/about.html): Mission, privacy philosophy, and technology overview.
+- [Privacy Policy](https://2convert.org/pages/privacy.html): Zero server-side file processing, no data collection, AdSense cookie usage.
+- [Terms of Service](https://2convert.org/pages/terms.html): Terms of use for the 2Convert platform.
+- [Contact](https://2convert.org/pages/contact.html): Contact form and email for support inquiries.
+
+## Multilingual URLs
+
+Each tool is available in four languages:
+- English: https://2convert.org/tools/[tool].html
+- Korean: https://2convert.org/ko/tools/[tool].html
+- Spanish: https://2convert.org/es/tools/[tool].html
+- Chinese (Simplified): https://2convert.org/zh/tools/[tool].html
+
+## Common Use Cases (Q&A)
+
+- "How do I convert HEIC to JPG without software?" -> https://2convert.org/tools/heic2jpg.html
+- "How do I remove image background online for free?" -> https://2convert.org/tools/bg-remove.html
+- "How do I convert video to GIF?" -> https://2convert.org/tools/video-gif.html
+- "How do I compress a JPG image?" -> https://2convert.org/tools/compress.html
+- "How do I merge PDF files online?" -> https://2convert.org/tools/pdf.html
+- "How do I make a GIF from images?" -> https://2convert.org/tools/gif-maker.html
+- "How do I generate a QR code online?" -> https://2convert.org/tools/barcode.html
+- "How do I resize an image without uploading it?" -> https://2convert.org/tools/resize.html
+- "How do I read EXIF data from a photo?" -> https://2convert.org/tools/metadata.html
+- "How do I convert PNG to WebP?" -> https://2convert.org/tools/webp-convert.html
