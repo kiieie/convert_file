@@ -96,16 +96,27 @@
 <meta content="在浏览器中将 iPhone HEIC/HEIF 照片转换为 JPG。无需上传，100% 私密。" property="twitter:description"/>
 <meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
 <!-- Structured Data -->
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "HEIC 到 JPG 转换器 - 2Convert",
+  "@type": "SoftwareApplication",
+  "name": "HEIC to JPG Converter",
   "url": "https://2convert.org/zh/tools/heic2jpg.html",
-  "description": "直接在浏览器中将 HEIC 和 HEIF 图像转换为 JPG，无需服务器上传。",
+  "description": "Convert iPhone HEIC and HEIF photos to JPG or PNG using heic2any library. No Apple software required.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-}</script>
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "HEIC to JPG,HEIC to PNG,No Apple software needed,No upload required",
+  "inLanguage": "zh",
+  "isAccessibleForFree": true,
+  "keywords": "heic to jpg, heif converter, iphone photo converter"
+}
+    </script>
 <!-- heic2any library for HEIC/HEIF decoding -->
 <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
 </head>

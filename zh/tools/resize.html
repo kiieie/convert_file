@@ -47,16 +47,27 @@
 <meta content="按像素或百分比调整图像大小。保持纵横比并在本地选择插值滤波器。" property="twitter:description"/>
 <meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
 <!-- Structured Data -->
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "在线图像调整器 - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "Online Image Resizer",
   "url": "https://2convert.org/zh/tools/resize.html",
-  "description": "按像素或百分比调整图像大小。保持纵横比并在本地选择插值滤波器。",
+  "description": "Resize images by pixel dimensions or percentage. Supports JPG, PNG, WebP, GIF. Aspect ratio lock. 100% client-side.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-}</script>
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "Pixel resize,Percentage scale,Aspect ratio lock,No upload required",
+  "inLanguage": "zh",
+  "isAccessibleForFree": true,
+  "keywords": "image resizer, resize image online"
+}
+    </script>
 </head>
 <body>
 <div class="modern-layout">

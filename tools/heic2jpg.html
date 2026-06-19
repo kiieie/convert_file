@@ -103,16 +103,25 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "HEIC to JPG Converter - 2Convert",
-      "url": "https://2convert.org/tools/heic2jpg.html",
-      "description": "Convert HEIC and HEIF images to JPG directly in the browser with no server upload.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HEIC to JPG Converter",
+  "url": "https://2convert.org/tools/heic2jpg.html",
+  "description": "Convert iPhone HEIC and HEIF photos to JPG or PNG using heic2any library. No Apple software required.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "HEIC to JPG,HEIC to PNG,No Apple software needed,No upload required",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "keywords": "heic to jpg, heif converter, iphone photo converter"
+}
     </script>
 
     <!-- heic2any library for HEIC/HEIF decoding -->

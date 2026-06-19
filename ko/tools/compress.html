@@ -138,16 +138,25 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "이미지 압축기 - 2Convert",
-      "url": "https://2convert.org/ko/tools/compress.html",
-      "description": "JPG, PNG, WebP 이미지를 브라우저 내에서 안전하게 압축하여 용량을 최적화합니다.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Image Compressor",
+  "url": "https://2convert.org/ko/tools/compress.html",
+  "description": "Compress JPG and PNG images with adjustable quality slider. Shows file size reduction before download. Fully client-side.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "JPG compression,PNG compression,Quality slider,File size preview",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "keywords": "image compressor, compress jpg, reduce image size"
+}
     </script>
 </head>
 <body>

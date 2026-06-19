@@ -125,16 +125,25 @@
     <meta property="og:description" content="AI를 이용하여 브라우저 내에서 즉각적으로 사진 배경을 투명하게 만드십시오. 100% 개인정보 보호.">
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "배경 제거 AI",
-      "url": "https://2convert.org/ko/tools/bg-remove.html",
-      "description": "AI 이미지 세그멘테이션 모델을 활용하여 브라우저 내에서 즉석으로 이미지 배경을 분리 및 제거합니다.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Requires WebAssembly support."
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Background Remover",
+  "url": "https://2convert.org/ko/tools/bg-remove.html",
+  "description": "Remove image backgrounds using AI segmentation running locally in browser via TensorFlow.js. Outputs transparent PNG.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "AI background removal,Transparent PNG output,No cloud upload,Privacy safe",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "keywords": "background remover, remove background online"
+}
     </script>
 </head>
 <body>

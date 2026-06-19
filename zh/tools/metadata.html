@@ -68,16 +68,27 @@
 <meta content="从 JPG/JPEG 照片中删除敏感的 EXIF 元数据（GPS 位置、日期、相机信息）以保护隐私。" property="twitter:description"/>
 <meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
 <!-- Structured Data -->
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "在线照片 EXIF 编辑器和元数据删除器 - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "Image Metadata Viewer",
   "url": "https://2convert.org/zh/tools/metadata.html",
-  "description": "从 JPG/JPEG 照片中删除敏感的 EXIF 元数据（GPS 位置、日期、相机信息）以保护隐私。",
+  "description": "Read EXIF metadata from JPG and TIFF images: camera model GPS coordinates exposure settings ISO and focal length.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-}</script>
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "EXIF data viewer,GPS coordinates,Camera settings,ISO and focal length",
+  "inLanguage": "zh",
+  "isAccessibleForFree": true,
+  "keywords": "exif viewer, image metadata, read exif data"
+}
+    </script>
 </head>
 <body>
 <div class="modern-layout">

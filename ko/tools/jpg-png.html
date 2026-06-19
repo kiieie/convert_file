@@ -104,15 +104,24 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "이미지 포맷 변환기 - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "JPG to PNG Converter",
   "url": "https://2convert.org/ko/tools/jpg-png.html",
-  "description": "여러 JPG, PNG, WebP, BMP 이미지를 한 번에 변환합니다.",
+  "description": "Convert JPG to PNG or PNG to JPG in the browser. Supports transparency for PNG output. No server upload.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "JPG to PNG,PNG to JPG,Transparency support,No upload required",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "keywords": "jpg to png, png to jpg, convert image format"
 }
     </script>
 </head>

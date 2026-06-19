@@ -47,16 +47,27 @@
 <meta content="将图像精确裁剪为所需的宽高比（1:1、16:9 等）。 100% 私有图像裁剪器，具有本地浏览器处理功能。" property="twitter:description"/>
 <meta content="https://2convert.org/assets/og-image.png" property="twitter:image"/>
 <!-- Structured Data -->
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "在线图像裁剪器 - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "Online Image Cropper",
   "url": "https://2convert.org/zh/tools/crop.html",
-  "description": "将图像精确裁剪为所需的宽高比（1:1、16:9 等）。 100% 私有图像裁剪器，具有本地浏览器处理功能。",
+  "description": "Crop images with freeform or fixed-ratio selection. Outputs JPG or PNG. All processing done locally in browser.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-}</script>
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "Freeform crop,Fixed ratio crop,JPG and PNG output,No upload required",
+  "inLanguage": "zh",
+  "isAccessibleForFree": true,
+  "keywords": "image cropper, crop image online"
+}
+    </script>
 </head>
 <body>
 <div class="modern-layout">

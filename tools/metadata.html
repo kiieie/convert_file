@@ -76,15 +76,24 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Online Photo EXIF Editor & Metadata Remover - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "Image Metadata Viewer",
   "url": "https://2convert.org/tools/metadata.html",
-  "description": "Remove sensitive EXIF metadata (GPS location, date, camera info) from JPG/JPEG photos to protect privacy.",
+  "description": "Read EXIF metadata from JPG and TIFF images: camera model GPS coordinates exposure settings ISO and focal length.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "EXIF data viewer,GPS coordinates,Camera settings,ISO and focal length",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "keywords": "exif viewer, image metadata, read exif data"
 }
     </script>
 </head>

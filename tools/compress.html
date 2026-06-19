@@ -153,16 +153,25 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Compressor - Reduce JPG, PNG, WebP File Size",
-      "url": "https://2convert.org/tools/compress.html",
-      "description": "Compress JPG, PNG, and WebP images online for free. Adjust quality, see before/after file size comparison, and download the compressed image instantly.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Image Compressor",
+  "url": "https://2convert.org/tools/compress.html",
+  "description": "Compress JPG and PNG images with adjustable quality slider. Shows file size reduction before download. Fully client-side.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "JPG compression,PNG compression,Quality slider,File size preview",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "keywords": "image compressor, compress jpg, reduce image size"
+}
     </script>
 </head>
 <body>

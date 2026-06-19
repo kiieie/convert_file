@@ -55,15 +55,24 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Online Image Resizer - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "Online Image Resizer",
   "url": "https://2convert.org/tools/resize.html",
-  "description": "Resize images by pixels or percentages. Maintain aspect ratio and choose interpolation filters locally.",
+  "description": "Resize images by pixel dimensions or percentage. Supports JPG, PNG, WebP, GIF. Aspect ratio lock. 100% client-side.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "Pixel resize,Percentage scale,Aspect ratio lock,No upload required",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "keywords": "image resizer, resize image online"
 }
     </script>
 </head>

@@ -55,15 +55,24 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
+{
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Online GIF Optimizer & Compressor - ConvertFile",
+  "@type": "SoftwareApplication",
+  "name": "GIF Optimizer",
   "url": "https://2convert.org/tools/gif-optimize.html",
-  "description": "Reduce animated GIF file sizes by dropping frames or scaling dimensions with minimal quality loss.",
+  "description": "Reduce GIF file size using LZW compression tuning and frame deduplication. Adjustable quality level.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas."
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "GIF compression,LZW optimization,Frame deduplication,No upload required",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "keywords": "gif optimizer, compress gif, reduce gif size"
 }
     </script>
 </head>
