@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S87614V8Y9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .blog-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.15s ease;
+        }
+        .blog-card:hover {
+            border-color: var(--blue-500);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            transform: translateY(-2px);
+        }
+        .blog-card__image {
+            height: 160px;
+            background-color: var(--slate-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 32px;
+            position: relative;
+        }
+        .blog-card__content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .blog-card__date {
+            font-size: 11px;
+            color: var(--slate-400);
+            margin-bottom: 8px;
+        }
+        .blog-card__title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+        .blog-card__desc {
+            font-size: 13px;
+            color: var(--slate-500);
+            margin: 0;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+    </style>
+
+    <title>Blog de Tecnología - ConvertFile</title>
+    <meta name="description" content="Descubra consejos web útiles, tutoriales de compresión de imágenes y pautas de conversión de archivos en el blog oficial de ConvertFile.">
+    <meta name="keywords" content="conversor de archivos, convertir imagen, convertir HEIC a JPG, consejos combinar pdf">
+    <link rel="canonical" href="https://2convert.org/es/blog/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/es/blog/">
+    <meta property="og:title" content="Blog de Tecnología - ConvertFile">
+    <meta property="og:description" content="Descubra consejos web útiles, tutoriales de compresión de imágenes y pautas de conversión de archivos en el blog oficial de ConvertFile.">
+    <meta property="og:image" content="https://2convert.org/assets/og/es_index.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/es/blog/">
+    <meta property="twitter:title" content="Blog de Tecnología - ConvertFile">
+    <meta property="twitter:description" content="Descubra consejos web útiles, tutoriales de compresión de imágenes y pautas de conversión de archivos en el blog oficial de ConvertFile.">
+    <meta property="twitter:image" content="https://2convert.org/assets/og/es_index.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- 1. Left Fixed Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- 2. Right Work Area -->
+        <main class="modern-content">
+            <div class="blog-container">
+                <header class="modern-content__header">
+                    <h1 class="modern-content__title">⚡ Blog de Tecnología</h1>
+                    <p class="modern-content__desc">Guías sobre procesamiento de imágenes, optimización de rendimiento y formatos de archivos.</p>
+                </header>
+
+                <div class="blog-grid">
+                    <!-- Post 1: HEIC to JPG -->
+                    <a href="/es/blog/heic-to-jpg.html" class="blog-card">
+                        <div class="blog-card__image">📱</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">Cómo convertir HEIC a JPG sin instalar software</h2>
+                            <p class="blog-card__desc">Resuelva problemas de compatibilidad con las imágenes HEIC de iPhone y conviértalas a JPG directamente en la memoria del navegador.</p>
+                        </div>
+                    </a>
+
+                    <!-- Post 2: GIF Optimize -->
+                    <a href="/es/blog/gif-optimize.html" class="blog-card">
+                        <div class="blog-card__image">📉</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">3 formas de reducir el tamaño de archivo GIF sin perder calidad</h2>
+                            <p class="blog-card__desc">Una guía técnica sobre cómo optimizar y comprimir imágenes GIF animadas para Discord o plataformas web sin perder calidad visual.</p>
+                        </div>
+                    </a>
+                    <!-- Post 3: EXIF Remove -->
+                    <a href="/es/blog/exif-remove.html" class="blog-card">
+                        <div class="blog-card__image">🛡️</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">Cómo eliminar los datos de ubicación (GPS) e información personal de las fotos</h2>
+                            <p class="blog-card__desc">Una guía sobre cómo proteger su privacidad eliminando los metadatos EXIF y las coordenadas de ubicación GPS de los archivos de imagen antes de compartirlos en línea.</p>
+                        </div>
+                    </a>
+                    <!-- Post 4: Background Remover -->
+                    <a href="/es/blog/bg-remove.html" class="blog-card">
+                        <div class="blog-card__image">✨</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">Cómo eliminar el fondo de una imagen en línea gratis (con IA)</h2>
+                            <p class="blog-card__desc">Aprenda a eliminar instantáneamente los fondos de sus fotos y crear archivos PNG transparentes en línea utilizando modelos de IA locales en el navegador. Sin necesidad de software.</p>
+                        </div>
+                    </a>
+                    <!-- Post 5: Image to PDF -->
+                    <a href="/es/blog/img-pdf.html" class="blog-card">
+                        <div class="blog-card__image">📑</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">Cómo convertir y combinar múltiples imágenes en un solo archivo PDF</h2>
+                            <p class="blog-card__desc">Aprenda a combinar y convertir imágenes JPG, PNG y WebP en un solo documento PDF en línea. 100% local, seguro y sin necesidad de software.</p>
+                        </div>
+                    </a>
+                    <!-- Post 6: WebP Converter -->
+                    <a href="/es/blog/webp-convert.html" class="blog-card">
+                        <div class="blog-card__image">⚡</div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__date">2026-06-20</div>
+                            <h2 class="blog-card__title">Cómo convertir imágenes al formato WebP para optimizar el rendimiento web</h2>
+                            <p class="blog-card__desc">Una guía sobre los beneficios del formato de imagen Google WebP, mejoras de velocidad SEO y cómo convertir JPG/PNG a WebP en línea gratis.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Core & Tool scripts -->
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/core/file-utils.js?v=4" defer></script>
+    <script src="/js/core/ui-components.js?v=4" defer></script>
+</body>
+</html>
