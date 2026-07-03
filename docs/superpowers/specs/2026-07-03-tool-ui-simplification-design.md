@@ -65,10 +65,15 @@
 ## 스마트 기본값 규칙
 
 1. 업로드 시 기존 매직바이트 검사(`js/core/file-utils.js`)로 입력 포맷 감지.
-2. 출력 포맷 자동 선택:
-   - WebP 입력 → JPG
-   - JPG/PNG 입력 → WebP
-   - 그 외(GIF/BMP) → PNG
+2. 출력 포맷 자동 선택 (도구 목적별 매핑):
+
+   | 도구 | 입력 | 자동 선택 출력 |
+   |---|---|---|
+   | webp-convert | WebP | JPG |
+   | webp-convert | JPG/PNG/GIF/BMP | WebP |
+   | jpg-png | JPG | PNG |
+   | jpg-png | PNG/WebP/GIF/BMP | JPG |
+   | compress | 전체 | 입력 포맷 유지 (선택 없음) |
 3. 품질 기본값 85%.
 4. 배경색 카드: "JPG 출력 선택 + 투명 채널 있는 입력"일 때만 고급 설정 내부에 표시. 그 외 숨김.
 5. 변환 완료 후 포맷 토글 또는 고급 설정 변경 시:
