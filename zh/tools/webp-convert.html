@@ -88,17 +88,6 @@
         .stats-bar__item strong { font-size: 13px; color: var(--slate-800); }
         .stats-bar__savings { color: #16a34a; font-weight: 700; }
         .stats-bar__bigger { color: #dc2626; font-weight: 700; }
-
-        /* Convert buttons row */
-        .convert-btn-row {
-            display: flex;
-            gap: 8px;
-        }
-        .convert-btn-row .modern-btn {
-            flex: 1;
-            font-size: 13px;
-            font-weight: 600;
-        }
     </style>
 <title>WebP Converter — 在线将图像与 WebP 相互转换 | 2convert.org</title>
 <meta content="免费在线 WebP 转换器。将 JPG、PNG、BMP、GIF 转换为 WebP 以获取较小的文件大小，或将 WebP 转换回 JPG/PNG。所有处理都在您的浏览器本地完成。" name="description"/>
@@ -195,15 +184,13 @@
 <div class="modern-ad-zone">
 <span>[广告位] Google AdSense 横幅 (728x90)</span>
 </div>
-<div class="modern-tool-grid">
-<!-- Column 1: Upload + Preview -->
-<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="tool-flow">
 <!-- Upload dropzone -->
 <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
 <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
 <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">将图像拖放到此处</div>
 <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">支持 JPG、PNG、WebP、GIF、BMP（最大 25 MB）</div>
-<button class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor:pointer; pointer-events:auto;" type="button">📂 选择图像</button>
+<button class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor:pointer; pointer-events:auto;" type="button">&#128194; 选择图像</button>
 <input accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" id="file-input" style="display:none;" type="file"/>
 </div>
 <!-- Side-by-side preview -->
@@ -223,30 +210,28 @@
 </div>
 <!-- Stats bar -->
 <div class="stats-bar" id="stats-bar">
-<div class="stats-bar__item">
-<span>原始格式</span>
-<strong id="stat-original-fmt">—</strong>
+<div class="stats-bar__item"><span>原始格式</span><strong id="stat-original-fmt">—</strong></div>
+<div class="stats-bar__item"><span>原始尺寸</span><strong id="stat-original-size">—</strong></div>
+<div class="stats-bar__item"><span>输出尺寸</span><strong id="stat-output-size">—</strong></div>
+<div class="stats-bar__item"><span>储蓄</span><strong id="stat-savings">—</strong></div>
 </div>
-<div class="stats-bar__item">
-<span>原始尺寸</span>
-<strong id="stat-original-size">—</strong>
+<!-- Format segment toggle -->
+<div class="segment-toggle" id="format-toggle" role="radiogroup" aria-label="输出格式">
+<input type="radio" name="out-format" id="fmt-webp" value="image/webp" checked>
+<label for="fmt-webp">WebP</label>
+<input type="radio" name="out-format" id="fmt-jpg" value="image/jpeg">
+<label for="fmt-jpg">JPG</label>
+<input type="radio" name="out-format" id="fmt-png" value="image/png">
+<label for="fmt-png">PNG</label>
 </div>
-<div class="stats-bar__item">
-<span>输出尺寸</span>
-<strong id="stat-output-size">—</strong>
-</div>
-<div class="stats-bar__item">
-<span>储蓄</span>
-<strong id="stat-savings">—</strong>
-</div>
-</div>
-</div>
-<!-- Column 2: Controls -->
-<div style="display:flex; flex-direction:column; gap:12px;">
-<div class="modern-card">
-<h3 class="modern-card__title">图像信息</h3>
-<div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.8;">没有加载图像。上传图像即可开始。</div>
-</div>
+<!-- Hero actions -->
+<button class="btn-convert-hero" id="btn-convert" disabled>&#10024; 转换</button>
+<button class="btn-convert-hero btn-download-hero" id="btn-download" style="display:none;">&#8595; 下载</button>
+<div id="status-msg" style="font-size:12px; font-weight:600; color:var(--slate-600); text-align:center; min-height:18px;"></div>
+<!-- Advanced settings (collapsed) -->
+<details class="advanced-settings" id="advanced-settings">
+<summary>高级设置</summary>
+<div class="advanced-settings__body">
 <div class="modern-card">
 <h3 class="modern-card__title">质量（WebP / JPG）</h3>
 <div class="modern-form-group">
@@ -265,17 +250,12 @@
 </div>
 </div>
 </div>
-<!-- Convert buttons -->
-<div class="convert-btn-row">
-<button class="modern-btn modern-btn--primary" disabled="" id="btn-to-webp">✨ 转至 WebP</button>
-<button class="modern-btn" disabled="" id="btn-to-jpg" style="background:var(--slate-700); color:#fff;">🖼 转为 JPG</button>
+<div class="modern-card">
+<h3 class="modern-card__title">图像信息</h3>
+<div id="image-info-block" style="font-size:12px; color:var(--slate-500); line-height:1.8;">没有加载图像。上传图像即可开始。</div>
 </div>
-<div class="convert-btn-row" style="margin-top:-4px;">
-<button class="modern-btn" disabled="" id="btn-to-png" style="background:var(--slate-100); color:var(--slate-700); border:1px solid var(--slate-300);">🖼 转 PNG</button>
-<button class="modern-btn" id="btn-download" style="background:#16a34a; color:#fff; display:none;">↓ 下载</button>
 </div>
-<div id="status-msg" style="font-size:12px; font-weight:600; color:var(--slate-600); text-align:center; min-height:18px;"></div>
-</div>
+</details>
 </div>
 <!-- Instructions -->
 <!-- 하단 안내 정보 가이드 -->
@@ -351,6 +331,6 @@
 <script src="/js/core/file-utils.js?v=4" defer></script>
 <script src="/js/core/ui-components.js?v=4" defer></script>
 <script src="/js/core/sidebar.js?v=4" defer></script>
-<script src="/js/tools/webp-convert.js?v=1" defer></script>
+<script src="/js/tools/webp-convert.js?v=2" defer></script>
 </body>
 </html>
