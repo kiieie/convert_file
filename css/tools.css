@@ -161,3 +161,99 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   Simplified tool flow — 2026-07 UI simplification (spec: docs/superpowers/
+   specs/2026-07-03-tool-ui-simplification-design.md)
+   ========================================================================== */
+
+/* Single-column vertical flow */
+.tool-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Segmented format toggle (pure radio + label, no JS needed for visuals) */
+.segment-toggle {
+    display: flex;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #fff;
+}
+.segment-toggle input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.segment-toggle label {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate-600);
+    cursor: pointer;
+    border-right: 1px solid var(--slate-200);
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+}
+.segment-toggle label:last-of-type { border-right: none; }
+.segment-toggle input:checked + label {
+    background: var(--blue-600);
+    color: #fff;
+}
+.segment-toggle input:focus-visible + label {
+    outline: 2px solid var(--blue-600);
+    outline-offset: -2px;
+}
+
+/* Hero action buttons */
+.btn-convert-hero {
+    width: 100%;
+    min-height: 48px;
+    font-size: 15px;
+    font-weight: 700;
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+.btn-convert-hero:hover:not(:disabled) { filter: brightness(1.08); }
+.btn-convert-hero:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-download-hero { background: #16a34a; }
+.btn-download-hero.is-stale { opacity: 0.45; pointer-events: none; }
+
+/* Collapsible advanced settings */
+.advanced-settings {
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-sm);
+    background: #fff;
+}
+.advanced-settings > summary {
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate-600);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+.advanced-settings > summary::-webkit-details-marker { display: none; }
+.advanced-settings > summary::before { content: "\25B8  "; color: var(--slate-400); }
+.advanced-settings[open] > summary::before { content: "\25BE  "; }
+.advanced-settings__body {
+    padding: 0 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.advanced-settings__body .modern-card {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
