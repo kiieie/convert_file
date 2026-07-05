@@ -36,9 +36,8 @@
     const bgColorCard       = document.getElementById('bg-color-card');
     const bgColor           = document.getElementById('bg-color');
 
-    const btnToWebp         = document.getElementById('btn-to-webp');
-    const btnToJpg          = document.getElementById('btn-to-jpg');
-    const btnToPng          = document.getElementById('btn-to-png');
+    const btnConvert        = document.getElementById('btn-convert');
+    const formatRadios      = document.querySelectorAll('input[name="out-format"]');
     const btnDownload       = document.getElementById('btn-download');
     const statusMsg         = document.getElementById('status-msg');
 
@@ -136,14 +135,13 @@
                 <div><b>File size:</b> ${formatBytes(file.size)}</div>
             `;
 
-            // Enable buttons
-            btnToWebp.removeAttribute('disabled');
-            btnToJpg.removeAttribute('disabled');
-            btnToPng.removeAttribute('disabled');
-            setStatus('Image loaded. Choose a conversion below.');
+            // Smart default: WebP in → JPG out, everything else → WebP (spec mapping)
+            const autoFormat = (file.type === 'image/webp') ? 'image/jpeg' : 'image/webp';
+            document.querySelector(`input[name="out-format"][value="${autoFormat}"]`).checked = true;
+            updateBgCardVisibility();
 
-            // Show bg-color card hint (always potentially needed for JPG)
-            bgColorCard.style.display = 'block';
+            btnConvert.removeAttribute('disabled');
+            setStatus('Image loaded. Click Convert.');
         };
 
         img.onerror = () => {
@@ -172,9 +170,28 @@
     // -------------------------------------------------------------------------
     // Convert buttons
     // -------------------------------------------------------------------------
-    btnToWebp.addEventListener('click', () => doConvert('image/webp', 'webp'));
-    btnToJpg.addEventListener('click',  () => doConvert('image/jpeg', 'jpg'));
-    btnToPng.addEventListener('click',  () => doConvert('image/png',  'png'));
+    btnConvert.addEventListener('click', () => {
+        const mime = document.querySelector('input[name="out-format"]:checked').value;
+        const ext  = mime === 'image/jpeg' ? 'jpg' : (mime === 'image/webp' ? 'webp' : 'png');
+        doConvert(mime, ext);
+    });
+
+    // Settings changed after a conversion → require re-convert
+    function markStale() {
+        if (!lastBlob) { updateBgCardVisibility(); return; }
+        btnDownload.classList.add('is-stale');
+        setStatus('Settings changed — click Convert again.');
+        updateBgCardVisibility();
+    }
+    formatRadios.forEach(r => r.addEventListener('change', markStale));
+    qualitySlider.addEventListener('change', markStale);
+    bgColor.addEventListener('change', markStale);
+
+    // Show bg-color card only when JPG output selected
+    function updateBgCardVisibility() {
+        const mime = document.querySelector('input[name="out-format"]:checked').value;
+        bgColorCard.style.display = (mime === 'image/jpeg') ? 'block' : 'none';
+    }
 
     function doConvert(mimeType, ext) {
         if (!currentImage || !currentMeta) return;
@@ -225,6 +242,7 @@
 
                     // Show download button
                     btnDownload.style.display = '';
+                    btnDownload.classList.remove('is-stale');
                     btnDownload.removeAttribute('disabled');
 
                     setStatus(`\u2705 Converted to ${mimeToLabel(mimeType)}. Click Download to save.`);
@@ -283,16 +301,12 @@
     }
 
     function disableButtons() {
-        btnToWebp.setAttribute('disabled', true);
-        btnToJpg.setAttribute('disabled', true);
-        btnToPng.setAttribute('disabled', true);
+        btnConvert.setAttribute('disabled', true);
     }
 
     function enableButtons() {
         if (!currentImage) return;
-        btnToWebp.removeAttribute('disabled');
-        btnToJpg.removeAttribute('disabled');
-        btnToPng.removeAttribute('disabled');
+        btnConvert.removeAttribute('disabled');
     }
 
     function mimeToLabel(mime) {

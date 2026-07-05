@@ -289,3 +289,40 @@ test('PDF Edit (pdf.html) - PDF Metadata Compress, Watermark & Password Encrypti
         }
     }
 });
+
+test('WebP Converter (webp-convert.html) - Simplified One-Click Flow', async ({ page }) => {
+    const mockImage = path.join(__dirname, 'mock-image.png');
+    const mockPngBuffer = Buffer.from(
+        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+        'base64'
+    );
+    fs.writeFileSync(mockImage, mockPngBuffer);
+
+    try {
+        await page.goto('http://127.0.0.1:8080/tools/webp-convert.html');
+
+        // 업로드
+        const fileChooserPromise = page.waitForEvent('filechooser');
+        await page.click('#btn-select-file');
+        const fileChooser = await fileChooserPromise;
+        await fileChooser.setFiles(mockImage);
+
+        // 스마트 기본값: PNG 입력 → WebP 자동 선택
+        await expect(page.locator('#fmt-webp')).toBeChecked();
+
+        // 고급 설정은 접힌 상태
+        await expect(page.locator('#advanced-settings')).not.toHaveAttribute('open', '');
+
+        // 변환 버튼 1번 클릭
+        await page.click('#btn-convert');
+
+        // 다운로드 버튼 노출 → 클릭 → 파일명 검증
+        await expect(page.locator('#btn-download')).toBeVisible();
+        const downloadPromise = page.waitForEvent('download');
+        await page.click('#btn-download');
+        const download = await downloadPromise;
+        expect(download.suggestedFilename()).toContain('mock-image_converted.webp');
+    } finally {
+        if (fs.existsSync(mockImage)) fs.unlinkSync(mockImage);
+    }
+});
