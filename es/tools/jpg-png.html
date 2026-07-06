@@ -192,77 +192,71 @@
                 <span>[Zona de publicidad] Banner de Google AdSense (728x90)</span>
             </div>
 
-            <div class="modern-tool-grid">
-                <!-- Column 1: Upload zone + file list -->
-                <div style="display:flex; flex-direction:column; gap:12px;">
-                    <!-- Upload dropzone (multiple files) -->
-                    <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
-                        <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
-                        <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">Arrastre varios archivos de imagen aquí</div>
-                        <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">Formatos PNG, JPG, WebP, BMP, AVIF compatibles (hasta 25 MB cada uno)</div>
-                        <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 Seleccionar archivos</button>
-                        <!-- multiple attribute allows selecting multiple files -->
-                        <input type="file" id="file-input" style="display:none;" accept="image/*" multiple>
-                    </div>
-
-                    <!-- Batch file list -->
-                    <div id="batch-container" style="display:none;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                            <span style="font-size:13px; font-weight:700; color:var(--slate-700);" id="batch-count">0 archivos seleccionados</span>
-                            <button class="modern-btn" style="font-size:11px; padding:4px 10px; height:auto; background:var(--slate-100); color:var(--slate-700);" id="btn-clear-batch">🗑 Borrar todo</button>
-                        </div>
-                        <div class="batch-file-list" id="batch-file-list"></div>
-                        <div class="batch-summary" id="batch-summary"></div>
-                    </div>
-
-                    <!-- Status text -->
-                    <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
-                        <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
-                        <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
-                    </div>
+            <div class="tool-flow">
+                <!-- Upload dropzone (multiple files) -->
+                <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
+                    <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
+                    <div class="modern-upload-zone__title" style="font-size: 15px; color: var(--slate-800);">Arrastre varios archivos de imagen aquí</div>
+                    <div class="modern-upload-zone__desc" style="margin-bottom: 12px; color: var(--slate-500);">Formatos PNG, JPG, WebP, BMP, AVIF compatibles (hasta 25 MB cada uno)</div>
+                    <button type="button" class="modern-btn modern-btn--primary" id="btn-select-file" style="cursor: pointer; pointer-events: auto;">📂 Seleccionar archivos</button>
+                    <!-- multiple attribute allows selecting multiple files -->
+                    <input type="file" id="file-input" style="display:none;" accept="image/*" multiple>
                 </div>
 
-                <!-- Column 2: Settings panel -->
-                <div style="display:flex; flex-direction:column; gap:12px;">
-                    <div class="modern-card">
-                        <h3 class="modern-card__title">Formato de salida</h3>
-                        <div class="modern-form-group">
-                            <span class="modern-label">Seleccione el formato de destino</span>
-                            <select class="modern-select" id="target-format">
-                                <option value="image/png">PNG (sin pérdidas, transparente)</option>
-                                <option value="image/jpeg">JPEG/JPG (con pérdidas, tamaño pequeño)</option>
-                                <option value="image/webp">WebP (formato de próxima generación de Google)</option>
-                            </select>
-                        </div>
+                <!-- Batch file list -->
+                <div id="batch-container" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="font-size:13px; font-weight:700; color:var(--slate-700);" id="batch-count">0 archivos seleccionados</span>
+                        <button class="modern-btn" style="font-size:11px; padding:4px 10px; height:auto; background:var(--slate-100); color:var(--slate-700);" id="btn-clear-batch">🗑 Borrar todo</button>
                     </div>
+                    <div class="batch-file-list" id="batch-file-list"></div>
+                    <div class="batch-summary" id="batch-summary"></div>
+                </div>
 
-                    <div class="modern-card">
-                        <h3 class="modern-card__title">Configuración de calidad</h3>
-                        
-                        <!-- Quality slider for JPG/WebP -->
-                        <div class="modern-form-group" id="quality-panel">
-                            <span class="modern-label">Calidad de compresión: <strong id="quality-val" style="color:var(--blue-600);">90</strong>%</span>
-                            <input type="range" min="10" max="100" value="90" style="width:100%; cursor:pointer;" id="compress-quality">
-                        </div>
+                <!-- Status text -->
+                <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 12px; padding: 0 5px;">
+                    <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
+                    <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
+                </div>
 
-                        <!-- Background fill color for PNG->JPG -->
-                        <div class="modern-form-group" id="alpha-panel" style="display:none;">
-                            <span class="modern-label">Color de relleno de fondo transparente</span>
-                            <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
-                                <input type="color" id="bg-filler-color" value="#FFFFFF" style="border:1px solid var(--slate-200); border-radius:4px; width:45px; height:28px; padding:0; cursor:pointer;">
-                                <span style="font-size:11px; color:var(--slate-400);">(JPG no admite transparencia alfa)</span>
+                <!-- Format segment toggle -->
+                <div class="segment-toggle" id="format-toggle" role="radiogroup" aria-label="Formato de salida">
+                    <input type="radio" name="out-format" id="fmt-jpg" value="image/jpeg">
+                    <label for="fmt-jpg">JPG</label>
+                    <input type="radio" name="out-format" id="fmt-png" value="image/png" checked>
+                    <label for="fmt-png">PNG</label>
+                    <input type="radio" name="out-format" id="fmt-webp" value="image/webp">
+                    <label for="fmt-webp">WebP</label>
+                </div>
+
+                <button class="btn-convert-hero" id="btn-convert" disabled>🔄 Convertir todos los archivos</button>
+                <div style="font-size:11px; color:var(--slate-500); text-align:center;">
+                    Los archivos se descargarán individualmente a medida que se complete cada conversión.
+                </div>
+
+                <details class="advanced-settings" id="advanced-settings">
+                    <summary>Configuración avanzada</summary>
+                    <div class="advanced-settings__body">
+                        <div class="modern-card">
+                            <h3 class="modern-card__title">Configuración de calidad</h3>
+
+                            <!-- Quality slider for JPG/WebP -->
+                            <div class="modern-form-group" id="quality-panel">
+                                <span class="modern-label">Calidad de compresión: <strong id="quality-val" style="color:var(--blue-600);">90</strong>%</span>
+                                <input type="range" min="10" max="100" value="90" style="width:100%; cursor:pointer;" id="compress-quality">
+                            </div>
+
+                            <!-- Background fill color for PNG->JPG -->
+                            <div class="modern-form-group" id="alpha-panel" style="display:none;">
+                                <span class="modern-label">Color de relleno de fondo transparente</span>
+                                <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                                    <input type="color" id="bg-filler-color" value="#FFFFFF" style="border:1px solid var(--slate-200); border-radius:4px; width:45px; height:28px; padding:0; cursor:pointer;">
+                                    <span style="font-size:11px; color:var(--slate-400);">(JPG no admite transparencia alfa)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <button class="modern-btn modern-btn--primary" id="btn-convert" disabled style="height:38px; font-size:14px; font-weight:600;">
-                        🔄 Convertir todos los archivos
-                    </button>
-
-                    <div style="font-size:11px; color:var(--slate-500); text-align:center;">
-                        Los archivos se descargarán individualmente a medida que se complete cada conversión.
-                    </div>
-                </div>
+                </details>
             </div>
 
             <!-- Guide -->
@@ -350,6 +344,6 @@
     <script src="/js/core/file-utils.js?v=4" defer></script>
     <script src="/js/core/ui-components.js?v=4" defer></script>
     <script src="/js/core/sidebar.js?v=4" defer></script>
-    <script src="/js/tools/jpg-png.js?v=4" defer></script>
+    <script src="/js/tools/jpg-png.js?v=5" defer></script>
 </body>
 </html>

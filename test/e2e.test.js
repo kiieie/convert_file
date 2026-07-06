@@ -91,8 +91,8 @@ test('Image Format Converter (jpg-png.html) - Browser Operation Test', async ({ 
         await expect(page.locator('#status-text')).toContainText('불러온 파일: mock-image.png');
         await expect(page.locator('#status-info')).toContainText('1 x 1');
 
-        // 타겟 포맷을 JPG로 선택
-        await page.selectOption('#target-format', 'image/jpeg');
+        // 스마트 기본값 검증: PNG 입력 → JPG 자동 선택 (스펙 매핑)
+        await expect(page.locator('#fmt-jpg')).toBeChecked();
 
         // 변환 버튼 클릭 후 브라우저 파일 다운로드 이벤트 획득
         const downloadPromise = page.waitForEvent('download');

@@ -184,9 +184,7 @@
 <div class="modern-ad-zone">
 <span>[广告位] Google AdSense 横幅 (728x90)</span>
 </div>
-<div class="modern-tool-grid">
-<!-- Column 1: Upload zone + file list -->
-<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="tool-flow">
 <!-- Upload dropzone (multiple files) -->
 <div class="modern-upload-zone" id="drop-zone" style="border: 2px dashed var(--blue-500); background-color: var(--slate-50); transition: all 0.2s ease;">
 <div class="modern-upload-zone__icon" style="width: 48px; height: 48px; margin-bottom: 8px;"></div>
@@ -210,20 +208,20 @@
 <span id="status-text" style="font-weight: 600; color: var(--slate-700);"></span>
 <span id="status-info" style="color: var(--slate-500); font-weight: 500;"></span>
 </div>
+<!-- Format segment toggle -->
+<div class="segment-toggle" id="format-toggle" role="radiogroup" aria-label="输出格式">
+<input type="radio" name="out-format" id="fmt-jpg" value="image/jpeg">
+<label for="fmt-jpg">JPG</label>
+<input type="radio" name="out-format" id="fmt-png" value="image/png" checked>
+<label for="fmt-png">PNG</label>
+<input type="radio" name="out-format" id="fmt-webp" value="image/webp">
+<label for="fmt-webp">WebP</label>
 </div>
-<!-- Column 2: Settings panel -->
-<div style="display:flex; flex-direction:column; gap:12px;">
-<div class="modern-card">
-<h3 class="modern-card__title">输出格式</h3>
-<div class="modern-form-group">
-<span class="modern-label">选择目标格式</span>
-<select class="modern-select" id="target-format">
-<option value="image/png">PNG（无损、透明）</option>
-<option value="image/jpeg">JPEG/JPG（有损，小尺寸）</option>
-<option value="image/webp">WebP（Google 下一代格式）</option>
-</select>
-</div>
-</div>
+<button class="btn-convert-hero" id="btn-convert" disabled>🔄 转换所有文件</button>
+<div style="font-size:11px; color:var(--slate-500); text-align:center;">每次转换完成后，文件将被单独下载。</div>
+<details class="advanced-settings" id="advanced-settings">
+<summary>高级设置</summary>
+<div class="advanced-settings__body">
 <div class="modern-card">
 <h3 class="modern-card__title">质量设置</h3>
 <!-- Quality slider for JPG/WebP -->
@@ -240,9 +238,8 @@
 </div>
 </div>
 </div>
-<button class="modern-btn modern-btn--primary" disabled="" id="btn-convert" style="height:38px; font-size:14px; font-weight:600;">🔄 转换所有文件</button>
-<div style="font-size:11px; color:var(--slate-500); text-align:center;">每次转换完成后，文件将被单独下载。</div>
 </div>
+</details>
 </div>
 <!-- Guide -->
 <!-- 하단 안내 정보 가이드 -->
@@ -318,6 +315,6 @@
 <script src="/js/core/file-utils.js?v=4" defer></script>
 <script src="/js/core/ui-components.js?v=4" defer></script>
 <script src="/js/core/sidebar.js?v=4" defer></script>
-<script src="/js/tools/jpg-png.js?v=4" defer></script>
+<script src="/js/tools/jpg-png.js?v=5" defer></script>
 </body>
 </html>

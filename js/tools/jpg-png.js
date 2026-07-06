@@ -15,7 +15,7 @@
     const batchSummary = document.getElementById('batch-summary');
     const btnClearBatch = document.getElementById('btn-clear-batch');
 
-    const targetFormatSelect = document.getElementById('target-format');
+    const formatRadios = document.querySelectorAll('input[name="out-format"]');
     const qualityPanel = document.getElementById('quality-panel');
     const compressQuality = document.getElementById('compress-quality');
     const qualityVal = document.getElementById('quality-val');
@@ -25,6 +25,10 @@
     const btnConvert = document.getElementById('btn-convert');
     const statusText = document.getElementById('status-text');
     const statusInfo = document.getElementById('status-info');
+
+    function getTargetFormat() {
+        return document.querySelector('input[name="out-format"]:checked').value;
+    }
 
     // 파일 선택 버튼
     const btnSelectFile = document.getElementById('btn-select-file');
@@ -84,6 +88,14 @@
             if (!isDuplicate) fileQueue.push(file);
         });
         renderBatchList();
+
+        // Smart default from first file: JPG in → PNG out, everything else → JPG (spec mapping)
+        if (fileQueue.length > 0) {
+            const autoFormat = (fileQueue[0].type === 'image/jpeg') ? 'image/png' : 'image/jpeg';
+            document.querySelector(`input[name="out-format"][value="${autoFormat}"]`).checked = true;
+            toggleFormatSettings();
+        }
+
         if (fileQueue.length > 0) {
             btnConvert.removeAttribute('disabled');
             batchContainer.style.display = 'block';
@@ -155,11 +167,11 @@
     // -------------------------
     // 포맷 설정 토글
     // -------------------------
-    targetFormatSelect.addEventListener('change', toggleFormatSettings);
+    formatRadios.forEach(r => r.addEventListener('change', toggleFormatSettings));
     compressQuality.addEventListener('input', (e) => { qualityVal.textContent = e.target.value; });
 
     function toggleFormatSettings() {
-        const fmt = targetFormatSelect.value;
+        const fmt = getTargetFormat();
         qualityPanel.style.display = (fmt === 'image/jpeg' || fmt === 'image/webp') ? 'block' : 'none';
         alphaPanel.style.display = (fmt === 'image/jpeg') ? 'block' : 'none';
     }
@@ -171,7 +183,7 @@
     btnConvert.addEventListener('click', async () => {
         if (fileQueue.length === 0) return;
 
-        const targetFormat = targetFormatSelect.value;
+        const targetFormat = getTargetFormat();
         const quality = parseInt(compressQuality.value) / 100;
         const bgColor = bgFillerColor.value;
 
