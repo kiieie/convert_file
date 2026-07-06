@@ -326,3 +326,35 @@ test('WebP Converter (webp-convert.html) - Simplified One-Click Flow', async ({ 
         if (fs.existsSync(mockImage)) fs.unlinkSync(mockImage);
     }
 });
+
+test('Image Compressor (compress.html) - Auto Compress One-Click Download', async ({ page }) => {
+    const mockImage = path.join(__dirname, 'mock-image.png');
+    const mockPngBuffer = Buffer.from(
+        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+        'base64'
+    );
+    fs.writeFileSync(mockImage, mockPngBuffer);
+
+    try {
+        await page.goto('http://127.0.0.1:8080/tools/compress.html');
+
+        const fileChooserPromise = page.waitForEvent('filechooser');
+        await page.click('#drop-zone');
+        const fileChooser = await fileChooserPromise;
+        await fileChooser.setFiles(mockImage);
+
+        // 라이브 자동 압축 완료 → 고급 설정은 접힘, 다운로드 활성화
+        await expect(page.locator('#advanced-settings')).not.toHaveAttribute('open', '');
+        await expect(page.locator('#btn-download')).toBeEnabled();
+        // 다운로드 버튼은 업로드 즉시 활성화되지만 실제 압축(blob)은 디바운스 후 완료됨 →
+        // 압축 통계 패널이 보일 때까지 기다려 클릭이 no-op 되지 않도록 함
+        await expect(page.locator('#compress-stats')).toHaveClass(/visible/);
+
+        const downloadPromise = page.waitForEvent('download');
+        await page.click('#btn-download');
+        const download = await downloadPromise;
+        expect(download.suggestedFilename()).toContain('_compressed_q');
+    } finally {
+        if (fs.existsSync(mockImage)) fs.unlinkSync(mockImage);
+    }
+});
