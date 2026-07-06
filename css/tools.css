@@ -192,7 +192,7 @@
 .segment-toggle label {
     flex: 1;
     text-align: center;
-    padding: 10px 0;
+    padding: 13px 0;
     font-size: 13px;
     font-weight: 600;
     color: var(--slate-600);
