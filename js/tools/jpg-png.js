@@ -39,6 +39,8 @@
 
     // 변환 대기 파일 큐
     let fileQueue = [];
+    // 사용자가 포맷을 수동으로 선택했는지 여부 (스마트 기본값 재적용 방지)
+    let userHasSetFormat = false;
 
     // -------------------------
     // Drag & Drop 핸들러
@@ -70,6 +72,7 @@
     // 전체 초기화
     btnClearBatch.addEventListener('click', () => {
         fileQueue = [];
+        userHasSetFormat = false;
         renderBatchList();
         btnConvert.setAttribute('disabled', true);
         batchContainer.style.display = 'none';
@@ -89,14 +92,14 @@
         });
         renderBatchList();
 
-        // Smart default from first file: JPG in → PNG out, everything else → JPG (spec mapping)
         if (fileQueue.length > 0) {
-            const autoFormat = (fileQueue[0].type === 'image/jpeg') ? 'image/png' : 'image/jpeg';
-            document.querySelector(`input[name="out-format"][value="${autoFormat}"]`).checked = true;
-            toggleFormatSettings();
-        }
-
-        if (fileQueue.length > 0) {
+            // Smart default from first file: JPG in → PNG out, everything else → JPG (spec mapping)
+            // 단, 사용자가 이미 포맷을 수동으로 선택했다면 재적용하지 않음 (한 번만 적용)
+            if (!userHasSetFormat) {
+                const autoFormat = (fileQueue[0].type === 'image/jpeg') ? 'image/png' : 'image/jpeg';
+                document.querySelector(`input[name="out-format"][value="${autoFormat}"]`).checked = true;
+                toggleFormatSettings();
+            }
             btnConvert.removeAttribute('disabled');
             batchContainer.style.display = 'block';
         }
@@ -145,6 +148,7 @@
                 fileQueue.splice(index, 1);
                 renderBatchList();
                 if (fileQueue.length === 0) {
+                    userHasSetFormat = false;
                     btnConvert.setAttribute('disabled', true);
                     batchContainer.style.display = 'none';
                 }
@@ -167,7 +171,10 @@
     // -------------------------
     // 포맷 설정 토글
     // -------------------------
-    formatRadios.forEach(r => r.addEventListener('change', toggleFormatSettings));
+    formatRadios.forEach(r => r.addEventListener('change', () => {
+        userHasSetFormat = true;
+        toggleFormatSettings();
+    }));
     compressQuality.addEventListener('input', (e) => { qualityVal.textContent = e.target.value; });
 
     function toggleFormatSettings() {

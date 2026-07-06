@@ -110,6 +110,43 @@ test('Image Format Converter (jpg-png.html) - Browser Operation Test', async ({ 
     }
 });
 
+test('Image Format Converter (jpg-png.html) - Smart Default Does Not Override Manual Format Choice', async ({ page }) => {
+    // 1x1 임시 PNG 이미지 작성 (2개 파일로 사용하기 위해 다른 이름으로 복제)
+    const mockImageA = path.join(__dirname, 'mock-image-a.png');
+    const mockImageB = path.join(__dirname, 'mock-image-b.png');
+    const mockPngBuffer = Buffer.from(
+        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+        'base64'
+    );
+    fs.writeFileSync(mockImageA, mockPngBuffer);
+    fs.writeFileSync(mockImageB, mockPngBuffer);
+
+    try {
+        await page.goto('http://127.0.0.1:8080/tools/jpg-png.html');
+
+        // 첫 번째 파일(PNG) 업로드 → 스마트 기본값(JPG)이 자동 선택되어야 함
+        const fileChooserPromise1 = page.waitForEvent('filechooser');
+        await page.click('#btn-select-file');
+        const fileChooser1 = await fileChooserPromise1;
+        await fileChooser1.setFiles(mockImageA);
+        await expect(page.locator('#fmt-jpg')).toBeChecked();
+
+        // 사용자가 수동으로 PNG로 변경 (오버라이드)
+        await page.click('label[for="fmt-png"]');
+        await expect(page.locator('#fmt-png')).toBeChecked();
+
+        // 두 번째 파일 업로드 → 스마트 기본값 재적용되면 안 됨 (PNG 선택 유지)
+        const fileChooserPromise2 = page.waitForEvent('filechooser');
+        await page.click('#btn-select-file');
+        const fileChooser2 = await fileChooserPromise2;
+        await fileChooser2.setFiles(mockImageB);
+        await expect(page.locator('#fmt-png')).toBeChecked();
+    } finally {
+        if (fs.existsSync(mockImageA)) fs.unlinkSync(mockImageA);
+        if (fs.existsSync(mockImageB)) fs.unlinkSync(mockImageB);
+    }
+});
+
 test('Image Resizer (resize.html) - Browser Operation Test', async ({ page }) => {
     const mockImage = path.join(__dirname, 'mock-image.png');
     const mockPngBuffer = Buffer.from(
