@@ -29,6 +29,7 @@
 
 | 도구 | 액션 버튼 | 설정 카드 수 | 비고 |
 |---|---|---|---|
+| gif-maker | 1 (`btn-render`) | 4 | 프레임 목록은 본질 — 비접힘 |
 | gif-optimize | 1 (`btn-optimize`) | 2 | |
 | gif-speed | 1 (`btn-apply`) | 2 | |
 | gif-splitter | 1 (`btn-split`) | 2 | |
@@ -77,7 +78,7 @@
 
 | Task | 대상 도구 | 근거 |
 |---|---|---|
-| A | gif-optimize, gif-speed, gif-splitter, video-gif | 카드 2개, GIF 계열 — video-gif만 예외 처리 포함 |
+| A | gif-maker, gif-optimize, gif-speed, gif-splitter, video-gif | GIF 계열 — video-gif만 예외 처리 포함 |
 | B | crop, resize, heic2jpg, img-pdf, bg-remove | 카드 4개, 순수 카드 접기 |
 | C | base64, svg-convert, metadata | base64는 2섹션 예외 처리 |
 | D | gif-effects, watermark, color-extractor | 카드 6개, 옵션 많음 |
