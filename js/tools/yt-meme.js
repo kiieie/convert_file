@@ -144,6 +144,72 @@
         }, 200);
     });
 
-    // Task 5에서 실제 구현으로 교체되기 전 임시 no-op
-    function updateShareState() {}
+    // --- meme text bars (player 밖 위/아래 — 플레이어 위 오버레이 금지 정책 준수) ---
+    const topTextInput = document.getElementById('top-text');
+    const bottomTextInput = document.getElementById('bottom-text');
+    const uppercaseCheckbox = document.getElementById('uppercase-text');
+    const barTop = document.getElementById('bar-top');
+    const barBottom = document.getElementById('bar-bottom');
+    const btnCopyLink = document.getElementById('btn-copy-link');
+    const btnCopyEmbed = document.getElementById('btn-copy-embed');
+    const clipUrlOutput = document.getElementById('clip-url-output');
+
+    function displayText(raw) {
+        const v = (raw || '').trim();
+        return uppercaseCheckbox.checked ? v.toUpperCase() : v;
+    }
+
+    function updateBars() {
+        const t = displayText(topTextInput.value);
+        const b = displayText(bottomTextInput.value);
+        barTop.textContent = t;
+        barTop.hidden = t.length === 0;
+        barBottom.textContent = b;
+        barBottom.hidden = b.length === 0;
+    }
+
+    function updateShareState() {
+        updateBars();
+        btnCopyLink.disabled = !(videoId && segmentValid());
+    }
+
+    topTextInput.addEventListener('input', updateShareState);
+    bottomTextInput.addEventListener('input', updateShareState);
+    uppercaseCheckbox.addEventListener('change', updateShareState);
+
+    function currentClipUrl() {
+        const seg = getSegment();
+        return YTUtils.buildClipUrl(location.origin + '/tools/clip-view.html', {
+            v: videoId,
+            s: Math.round(seg.s * 10) / 10,
+            e: Math.round(seg.e * 10) / 10,
+            t: displayText(topTextInput.value),
+            b: displayText(bottomTextInput.value)
+        });
+    }
+
+    function copyWithFeedback(btn, text, doneLabel) {
+        const original = btn.textContent;
+        navigator.clipboard.writeText(text).then(function () {
+            btn.textContent = doneLabel;
+            setTimeout(function () { btn.textContent = original; }, 1500);
+        }).catch(function () {
+            UIComponents.showErrorDialog('Clipboard Error', 'Copy failed. The link is shown in the box below — copy it manually.');
+        });
+    }
+
+    btnCopyLink.addEventListener('click', function () {
+        if (btnCopyLink.disabled) return;
+        const url = currentClipUrl();
+        clipUrlOutput.value = url;
+        copyWithFeedback(btnCopyLink, url, '✅ Copied!');
+    });
+
+    btnCopyEmbed.addEventListener('click', function () {
+        if (!videoId || !segmentValid()) return;
+        const url = currentClipUrl();
+        clipUrlOutput.value = url;
+        const embed = '<iframe src="' + url + '" width="560" height="420" frameborder="0" allowfullscreen loading="lazy"></iframe>';
+        copyWithFeedback(btnCopyEmbed, embed, '✅ Copied!');
+    });
 })();
