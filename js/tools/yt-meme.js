@@ -69,6 +69,7 @@
     }
 
     btnLoad.addEventListener('click', function () {
+        stopPreviewLoop();
         const parsed = YTUtils.parseYouTubeUrl(urlInput.value);
         if (!parsed) {
             showUrlError('Invalid YouTube URL. Supported: youtube.com/watch, youtu.be, shorts, embed links.');
