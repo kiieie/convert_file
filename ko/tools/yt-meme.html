@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4754586105413913"
+     crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S87614V8Y9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S87614V8Y9');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/modern-theme.css">
+    <link rel="stylesheet" href="/css/modern-components.css">
+    <link rel="stylesheet" href="/css/tools.css">
+
+    <style>
+        .yt-player-box { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+        .yt-player-box iframe, .yt-player-box > div { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .meme-bar {
+            background: #FFFFFF; color: #000000; text-align: center;
+            font-family: Impact, "Arial Black", sans-serif; font-size: clamp(18px, 4vw, 32px);
+            padding: 10px 14px; line-height: 1.15; word-break: break-word;
+            border: 1px solid var(--slate-200);
+        }
+        #meme-frame { border-radius: var(--radius-md); overflow: hidden; }
+        .yt-url-row, .seg-row, .share-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .yt-url-row input[type="url"], .share-row input { flex: 1; min-width: 200px; }
+        .input-error { color: var(--error); font-size: 13px; }
+        .gif-note { font-size: 13px; color: var(--slate-500); }
+        #gif-preview { max-width: 100%; border-radius: var(--radius-sm); }
+    </style>
+
+    <title>유튜브 클립 밈 메이커 - ConvertFile</title>
+    <meta name="description" content="유튜브 영상에서 구간을 선택하고 밈 텍스트를 추가해 클립 링크를 공유하거나, 직접 업로드한 영상 파일로 실제 GIF를 만들어보세요. 100% 클라이언트 사이드로 동작합니다.">
+    <meta name="keywords" content="유튜브 밈, 유튜브 클립, 영상 밈 메이커, gif 밈">
+    <link rel="canonical" href="https://2convert.org/ko/tools/yt-meme.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2convert.org/ko/tools/yt-meme.html">
+    <meta property="og:title" content="유튜브 클립 밈 메이커 - ConvertFile">
+    <meta property="og:description" content="유튜브 영상에서 구간을 선택하고 밈 텍스트를 추가해 클립 링크를 공유하거나, 직접 업로드한 영상 파일로 실제 GIF를 만들어보세요. 100% 클라이언트 사이드로 동작합니다.">
+    <meta property="og:image" content="https://2convert.org/assets/icon-512.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2convert.org/ko/tools/yt-meme.html">
+    <meta property="twitter:title" content="유튜브 클립 밈 메이커 - ConvertFile">
+    <meta property="twitter:description" content="유튜브 영상에서 구간을 선택하고 밈 텍스트를 추가해 클립 링크를 공유하거나, 직접 업로드한 영상 파일로 실제 GIF를 만들어보세요. 100% 클라이언트 사이드로 동작합니다.">
+    <meta property="twitter:image" content="https://2convert.org/assets/icon-512.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "YouTube Clip Meme Maker",
+  "url": "https://2convert.org/ko/tools/yt-meme.html",
+  "description": "Pick a segment from a YouTube video, add meme text, share a clip link or export a real GIF from your own video file. 100% client-side.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": "YouTube segment selection,Shareable clip link,Meme text bars,GIF export",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "keywords": "youtube meme, youtube clip, video meme maker, gif meme"
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://2convert.org/ko/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "도구",
+      "item": "https://2convert.org/ko/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "유튜브 클립 밈 메이커 - ConvertFile",
+      "item": "https://2convert.org/ko/tools/yt-meme.html"
+    }
+  ]
+}
+    </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/assets/icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+        });
+      }
+    </script>
+</head>
+<body>
+
+    <div class="modern-layout">
+        <!-- Sidebar -->
+        <aside class="modern-sidebar"></aside>
+
+        <!-- Main workspace -->
+        <main class="modern-content">
+            <h1>😂 유튜브 클립 밈 메이커</h1>
+            <p class="tool-subtitle">구간을 선택하고 밈 텍스트를 추가해 공유하세요 — 또는 진짜 GIF로 만들어보세요.</p>
+
+            <div class="tool-flow">
+
+                <!-- Step 1: URL -->
+                <div class="modern-card" id="url-card">
+                    <label for="yt-url"><strong>유튜브 URL</strong></label>
+                    <div class="yt-url-row">
+                        <input type="url" id="yt-url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off">
+                        <button class="modern-btn" id="btn-load-video">불러오기</button>
+                    </div>
+                    <p class="input-error" id="url-error" hidden></p>
+                </div>
+
+                <!-- Step 2: player + meme bars (bars sit OUTSIDE the player, never over it) -->
+                <div id="meme-frame" hidden>
+                    <div class="meme-bar" id="bar-top" hidden></div>
+                    <div class="yt-player-box"><div id="yt-player"></div></div>
+                    <div class="meme-bar" id="bar-bottom" hidden></div>
+                </div>
+
+                <!-- Step 3: segment -->
+                <div class="modern-card" id="segment-card" hidden>
+                    <strong>클립 구간</strong>
+                    <div class="seg-row">
+                        <button class="modern-btn" id="btn-set-start">⏱ 시작점 설정</button>
+                        <input type="number" id="seg-start" min="0" step="0.1" value="0"> s
+                        <button class="modern-btn" id="btn-set-end">⏱ 끝점 설정</button>
+                        <input type="number" id="seg-end" min="0.5" step="0.1" value="5"> s
+                        <button class="modern-btn" id="btn-preview-loop">🔁 구간 미리보기</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: text -->
+                <div class="modern-card" id="text-card" hidden>
+                    <strong>밈 텍스트</strong>
+                    <input type="text" id="top-text" placeholder="상단 텍스트" maxlength="200">
+                    <input type="text" id="bottom-text" placeholder="하단 텍스트" maxlength="200">
+                    <label><input type="checkbox" id="uppercase-text" checked> 대문자</label>
+                </div>
+
+                <!-- B output: share -->
+                <div id="share-card" hidden>
+                    <button class="btn-convert-hero" id="btn-copy-link" disabled>🔗 클립 링크 복사</button>
+                    <div class="share-row">
+                        <input type="text" id="clip-url-output" readonly placeholder="클립 링크가 여기에 표시됩니다">
+                        <button class="modern-btn" id="btn-copy-embed">임베드 코드 복사</button>
+                    </div>
+                </div>
+
+                <!-- A output: real GIF (collapsed) -->
+                <details class="advanced-settings" id="gif-section">
+                    <summary>🎞️ 진짜 GIF 파일이 필요하면 영상 파일을 업로드하세요</summary>
+                    <div class="advanced-settings__body">
+                        <p class="gif-note">브라우저는 유튜브 영상의 픽셀을 읽을 수 없습니다. 이 구간이 포함된 영상 파일(직접 녹화하거나 원본 파일)을 업로드하면
+                           로컬에서 GIF를 만들어 드립니다 — 서버로는 아무것도 업로드되지 않습니다.</p>
+                        <input type="file" id="gif-file-input" accept="video/*">
+                        <video id="gif-source-video" class="modern-video-player" controls hidden></video>
+                        <p class="input-error" id="gif-clamp-warning" hidden></p>
+                        <div class="seg-row">
+                            <label>시작 <input type="number" id="gif-start" min="0" step="0.1" value="0"> s</label>
+                            <label>종료 <input type="number" id="gif-end" min="0.5" step="0.1" value="5"> s</label>
+                            <label>너비 <input type="number" id="gif-width" min="80" max="720" value="320"> px</label>
+                            <label>FPS <select id="gif-fps"><option>5</option><option selected>10</option><option>15</option></select></label>
+                        </div>
+                        <div class="seg-row">
+                            <label>글자 크기 <input type="number" id="gif-font-size" min="10" max="80" value="28"> px</label>
+                            <label>텍스트 <input type="color" id="gif-text-color" value="#FFFFFF"></label>
+                            <label>테두리 <input type="color" id="gif-stroke-color" value="#000000"></label>
+                            <label>테두리 두께 <input type="number" id="gif-stroke-width" min="0" max="10" value="2"> px</label>
+                        </div>
+                        <button class="btn-convert-hero" id="btn-make-gif" disabled>🎞️ GIF 만들기</button>
+                        <img id="gif-preview" alt="GIF 미리보기" hidden>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Instructions -->
+            <div class="modern-instructions-box" style="margin-top: 40px; border-top: 1px solid var(--slate-200); padding-top: 24px;">
+                <h2 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin-top: 0; margin-bottom: 16px;">💡 유튜브 클립 밈 메이커</h2>
+                <div style="font-size: 13px; line-height: 1.7; color: var(--slate-600); margin-bottom: 24px;">
+                    <p style="margin-bottom: 12px;">유튜브 링크를 붙여넣고 원하는 순간의 시작과 끝 초를 정확히 선택한 다음, 클립 위아래에 밈 스타일 텍스트 바를 추가하세요. 그 결과로 해당 구간만 재생되고 캡션이 페이지에 그대로 표시되는 공유 가능한 클립 링크(및 임베드 코드)가 만들어집니다 — 별도의 편집 소프트웨어는 필요 없습니다.</p>
+                    <p style="margin-bottom: 12px;">유튜브 플레이어는 외부에서 불러오는 임베드이기 때문에 브라우저가 영상 프레임을 픽셀 단위로 읽을 수 없어, 스트림에서 직접 진짜 애니메이션 GIF를 만들 수는 없습니다. 실제 GIF 파일이 필요하다면 같은 구간이 담긴 영상의 로컬 사본(직접 녹화본 또는 원본 파일)을 업로드하세요. 그러면 밈 텍스트가 프레임에 합성된 GIF를 기기에서 직접 만들어 드립니다.</p>
+                    <p style="margin-bottom: 12px;">구간 선택부터 GIF 렌더링까지 모든 과정이 100% 클라이언트 사이드에서 실행됩니다. 서버로 파일이 업로드되지 않으므로 클립과 캡션은 안전하게 비공개로 유지됩니다.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/vendors/gifshot.min.js?v=4" defer></script>
+    <script src="/js/core/file-utils.js?v=3" defer></script>
+    <script src="/js/core/ui-components.js?v=3" defer></script>
+    <script src="/js/core/sidebar.js?v=4" defer></script>
+    <script src="/js/core/yt-utils.js?v=1" defer></script>
+    <script src="/js/core/meme-text.js?v=1" defer></script>
+    <script src="/js/tools/yt-meme.js?v=1" defer></script>
+</body>
+</html>

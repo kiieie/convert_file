@@ -1123,6 +1123,46 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/webp-convert.html"/>
   </url>
   <url>
+    <loc>https://2convert.org/tools/yt-meme.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/yt-meme.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/ko/tools/yt-meme.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/yt-meme.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/es/tools/yt-meme.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/yt-meme.html"/>
+  </url>
+  <url>
+    <loc>https://2convert.org/zh/tools/yt-meme.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://2convert.org/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://2convert.org/ko/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://2convert.org/es/tools/yt-meme.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://2convert.org/zh/tools/yt-meme.html"/>
+  </url>
+  <url>
     <loc>https://2convert.org/blog/</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
