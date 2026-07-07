@@ -163,13 +163,53 @@
                     0xAA, 0xBB, // payload
                     0xFF, 0xD9  // EOI
                 ]);
-                
+
                 const cleanBytes = MetadataParser.stripExifBytes(fakeJpeg.buffer);
-                
+
                 // APP1 영역(FF E1 00 04 AA BB = 6바이트)이 빠지고 SOI(FF D8) + EOI(FF D9)만 남아야 함 (총 4바이트)
                 assert(cleanBytes.length === 4, `바이트 제거 후 크기 오류: ${cleanBytes.length}`);
                 assert(cleanBytes[0] === 0xFF && cleanBytes[1] === 0xD8, "SOI 손실됨");
                 assert(cleanBytes[2] === 0xFF && cleanBytes[3] === 0xD9, "EOI 손실됨");
+            }
+        },
+        {
+            name: "YTUtils.parseYouTubeUrl() - YouTube URL 형식별 파싱 검증",
+            run: function() {
+                const r1 = YTUtils.parseYouTubeUrl("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                const r2 = YTUtils.parseYouTubeUrl("https://youtu.be/dQw4w9WgXcQ?t=42");
+                const r3 = YTUtils.parseYouTubeUrl("https://www.youtube.com/shorts/dQw4w9WgXcQ");
+                const r4 = YTUtils.parseYouTubeUrl("https://www.youtube.com/embed/dQw4w9WgXcQ");
+                assert(r1 && r1.id === "dQw4w9WgXcQ", `watch 파싱 실패: ${JSON.stringify(r1)}`);
+                assert(r2 && r2.id === "dQw4w9WgXcQ" && r2.start === 42, `youtu.be+t 파싱 실패: ${JSON.stringify(r2)}`);
+                assert(r3 && r3.id === "dQw4w9WgXcQ", `shorts 파싱 실패: ${JSON.stringify(r3)}`);
+                assert(r4 && r4.id === "dQw4w9WgXcQ", `embed 파싱 실패: ${JSON.stringify(r4)}`);
+                assert(YTUtils.parseYouTubeUrl("https://example.com/watch?v=dQw4w9WgXcQ") === null, "타 도메인 거부 실패");
+                assert(YTUtils.parseYouTubeUrl("not a url") === null, "불량 문자열 거부 실패");
+                assert(YTUtils.parseYouTubeUrl("https://www.youtube.com/watch?v=short") === null, "11자 미만 ID 거부 실패");
+            }
+        },
+        {
+            name: "YTUtils.parseTimeParam() - 타임스탬프 표기 변환 검증",
+            run: function() {
+                assert(YTUtils.parseTimeParam("90") === 90, "정수초 파싱 실패");
+                assert(YTUtils.parseTimeParam("1m30s") === 90, "1m30s 파싱 실패");
+                assert(YTUtils.parseTimeParam("1h2m3s") === 3723, "1h2m3s 파싱 실패");
+                assert(YTUtils.parseTimeParam(null) === null, "null 처리 실패");
+                assert(YTUtils.parseTimeParam("abc") === null, "불량 값 거부 실패");
+            }
+        },
+        {
+            name: "YTUtils 클립 파라미터 - 생성/검증 라운드트립 (한글 텍스트)",
+            run: function() {
+                const url = YTUtils.buildClipUrl("https://2convert.org/tools/clip-view.html",
+                    { v: "dQw4w9WgXcQ", s: 10.5, e: 15, t: "상단 텍스트", b: "BOTTOM 😂" });
+                const sp = new URLSearchParams(url.split("?")[1]);
+                const p = YTUtils.validateClipParams(sp);
+                assert(p !== null, "라운드트립 검증 실패(null)");
+                assert(p.v === "dQw4w9WgXcQ" && p.s === 10.5 && p.e === 15, `v/s/e 불일치: ${JSON.stringify(p)}`);
+                assert(p.t === "상단 텍스트" && p.b === "BOTTOM 😂", `텍스트 인코딩 라운드트립 실패: ${JSON.stringify(p)}`);
+                assert(YTUtils.validateClipParams(new URLSearchParams("v=bad&s=0&e=5")) === null, "불량 ID 거부 실패");
+                assert(YTUtils.validateClipParams(new URLSearchParams("v=dQw4w9WgXcQ&s=10&e=5")) === null, "e<=s 거부 실패");
             }
         }
     ];
