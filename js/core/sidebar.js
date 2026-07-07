@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             colorExtractor: "Color Palette Extractor",
             watermark:   "Image Watermark",
             memeGen:     "Meme Generator",
+            ytMeme:      "YouTube Meme",
             svgConvert:  "SVG to PNG/JPG",
             gifTools:   "GIF Tools",
             gifMaker:   "GIF Maker",
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             colorExtractor: "색상 팔레트 추출기",
             watermark:   "이미지 워터마크",
             memeGen:     "밈 생성기",
+            ytMeme:      "유튜브 밈",
             svgConvert:  "SVG to PNG/JPG",
             gifTools:   "GIF 도구",
             gifMaker:   "GIF 메이커",
@@ -98,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             colorExtractor: "Paleta de Colores",
             watermark:   "Marca de Agua",
             memeGen:     "Generador de Memes",
+            ytMeme:      "Meme de YouTube",
             svgConvert:  "Convertir SVG",
             gifTools:   "GIF",
             gifMaker:   "Crear GIF",
@@ -133,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             colorExtractor: "调色板提取",
             watermark:   "图像水印",
             memeGen:     "表情包生成器",
+            ytMeme:      "YouTube表情包",
             svgConvert:  "SVG 转 PNG/JPG",
             gifTools:   "GIF 工具",
             gifMaker:   "制作 GIF",
@@ -175,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${langPrefix}/tools/color-extractor.html"       class="modern-sidebar__item" id="menu-color-extractor">🎨 ${t.colorExtractor}</a>
             <a href="${langPrefix}/tools/watermark.html"             class="modern-sidebar__item" id="menu-watermark">✍️ ${t.watermark}</a>
             <a href="${langPrefix}/tools/meme-generator.html"         class="modern-sidebar__item" id="menu-meme-gen">😂 ${t.memeGen}</a>
+            <a href="${langPrefix}/tools/yt-meme.html"            class="modern-sidebar__item" id="menu-yt-meme">🎬 ${t.ytMeme}</a>
             <a href="${langPrefix}/tools/svg-convert.html"           class="modern-sidebar__item" id="menu-svg-convert">📐 ${t.svgConvert}</a>
         </div>
 
