@@ -395,3 +395,37 @@ test('Image Compressor (compress.html) - Auto Compress One-Click Download', asyn
         if (fs.existsSync(mockImage)) fs.unlinkSync(mockImage);
     }
 });
+
+// ==========================================================================
+// yt-meme / clip-view E2E
+// ==========================================================================
+test('YT Meme - page loads with all controls and no JS errors', async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    await page.goto('http://127.0.0.1:8080/tools/yt-meme.html');
+    await expect(page.locator('#yt-url')).toBeVisible();
+    await expect(page.locator('#btn-load-video')).toBeVisible();
+    await expect(page.locator('#gif-section')).toBeAttached();
+    await expect(page.locator('#menu-yt-meme')).toBeVisible();
+    expect(errors).toEqual([]);
+});
+
+test('YT Meme - invalid URL shows inline error', async ({ page }) => {
+    await page.goto('http://127.0.0.1:8080/tools/yt-meme.html');
+    await page.fill('#yt-url', 'https://example.com/watch?v=dQw4w9WgXcQ');
+    await page.click('#btn-load-video');
+    await expect(page.locator('#url-error')).toBeVisible();
+});
+
+test('Clip View - renders text bars from params (Korean roundtrip)', async ({ page }) => {
+    await page.goto('http://127.0.0.1:8080/tools/clip-view.html?v=jNQXAC9IVRw&s=3&e=8&t=%EC%83%81%EB%8B%A8%20%ED%85%8D%EC%8A%A4%ED%8A%B8&b=BOTTOM');
+    await expect(page.locator('#bar-top')).toHaveText('상단 텍스트');
+    await expect(page.locator('#bar-bottom')).toHaveText('BOTTOM');
+    await expect(page.locator('#clip-error')).toBeHidden();
+});
+
+test('Clip View - rejects malformed params', async ({ page }) => {
+    await page.goto('http://127.0.0.1:8080/tools/clip-view.html?v=bad&s=10&e=5');
+    await expect(page.locator('#clip-error')).toBeVisible();
+    await expect(page.locator('#clip-frame')).toBeHidden();
+});
