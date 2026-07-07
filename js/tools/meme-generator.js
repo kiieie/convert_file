@@ -91,39 +91,6 @@
         btnDownload.disabled = !enable;
     }
 
-    // Wrap text helper to draw text on multiple lines if it's too long
-    function drawWrappedText(text, x, y, maxWidth, lineHeight, isTop) {
-        const words = text.split(' ');
-        let lines = [];
-        let currentLine = words[0] || '';
-
-        for (let i = 1; i < words.length; i++) {
-            const word = words[i];
-            const width = ctx.measureText(currentLine + ' ' + word).width;
-            if (width < maxWidth) {
-                currentLine += ' ' + word;
-            } else {
-                lines.push(currentLine);
-                currentLine = word;
-            }
-        }
-        lines.push(currentLine);
-
-        // Render lines
-        if (isTop) {
-            lines.forEach((line, index) => {
-                ctx.fillText(line, x, y + (index * lineHeight));
-                ctx.strokeText(line, x, y + (index * lineHeight));
-            });
-        } else {
-            // Render from bottom up
-            const totalH = (lines.length - 1) * lineHeight;
-            lines.forEach((line, index) => {
-                ctx.fillText(line, x, y - totalH + (index * lineHeight));
-                ctx.strokeText(line, x, y - totalH + (index * lineHeight));
-            });
-        }
-    }
 
     function drawMeme() {
         if (!mainImage) return;
@@ -164,7 +131,7 @@
         if (uppercaseCheckbox.checked) topVal = topVal.toUpperCase();
         if (topVal.trim().length > 0) {
             ctx.textBaseline = 'top';
-            drawWrappedText(topVal, canvas.width / 2, padding, maxWidth, lineHeight, true);
+            MemeText.drawWrappedText(ctx, topVal, canvas.width / 2, padding, maxWidth, lineHeight, true);
         }
 
         // Bottom Text
@@ -172,7 +139,7 @@
         if (uppercaseCheckbox.checked) bottomVal = bottomVal.toUpperCase();
         if (bottomVal.trim().length > 0) {
             ctx.textBaseline = 'bottom';
-            drawWrappedText(bottomVal, canvas.width / 2, canvas.height - padding, maxWidth, lineHeight, false);
+            MemeText.drawWrappedText(ctx, bottomVal, canvas.width / 2, canvas.height - padding, maxWidth, lineHeight, false);
         }
     }
 

@@ -113,6 +113,7 @@ const loadScript = (relPath) => {
 loadScript('../js/core/canvas-utils.js');
 loadScript('../js/core/file-utils.js');
 loadScript('../js/core/yt-utils.js');
+loadScript('../js/core/meme-text.js');
 
 // 개별 도구 비즈니스 로직 로드 (전역 변수 노출 유도)
 loadScript('../js/tools/barcode.js');
@@ -270,6 +271,16 @@ addTestCase("YTUtils 클립 파라미터 - 생성/검증 라운드트립 (한글
     assert(p.t === "상단 텍스트" && p.b === "BOTTOM 😂", `텍스트 인코딩 라운드트립 실패: ${JSON.stringify(p)}`);
     assert(YTUtils.validateClipParams(new URLSearchParams("v=bad&s=0&e=5")) === null, "불량 ID 거부 실패");
     assert(YTUtils.validateClipParams(new URLSearchParams("v=dQw4w9WgXcQ&s=10&e=5")) === null, "e<=s 거부 실패");
+});
+
+addTestCase("MemeText.wrapLines() - 밈 텍스트 줄바꿈 계산 검증", () => {
+    const measure = (s) => s.length * 10; // 글자당 10px 모의 측정
+    const r1 = MemeText.wrapLines(measure, "AAA BBB CCC", 80);
+    const r2 = MemeText.wrapLines(measure, "SHORT", 200);
+    const r3 = MemeText.wrapLines(measure, "", 100);
+    assert(r1.length === 2 && r1[0] === "AAA BBB" && r1[1] === "CCC", `줄바꿈 분할 오류: ${JSON.stringify(r1)}`);
+    assert(r2.length === 1 && r2[0] === "SHORT", `단일 줄 오류: ${JSON.stringify(r2)}`);
+    assert(r3.length === 1 && r3[0] === "", `빈 문자열 오류: ${JSON.stringify(r3)}`);
 });
 
 // ==========================================================================

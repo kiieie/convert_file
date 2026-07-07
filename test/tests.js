@@ -211,6 +211,18 @@
                 assert(YTUtils.validateClipParams(new URLSearchParams("v=bad&s=0&e=5")) === null, "불량 ID 거부 실패");
                 assert(YTUtils.validateClipParams(new URLSearchParams("v=dQw4w9WgXcQ&s=10&e=5")) === null, "e<=s 거부 실패");
             }
+        },
+        {
+            name: "MemeText.wrapLines() - 밈 텍스트 줄바꿈 계산 검증",
+            run: function() {
+                const measure = (s) => s.length * 10; // 글자당 10px 모의 측정
+                const r1 = MemeText.wrapLines(measure, "AAA BBB CCC", 80);
+                const r2 = MemeText.wrapLines(measure, "SHORT", 200);
+                const r3 = MemeText.wrapLines(measure, "", 100);
+                assert(r1.length === 2 && r1[0] === "AAA BBB" && r1[1] === "CCC", `줄바꿈 분할 오류: ${JSON.stringify(r1)}`);
+                assert(r2.length === 1 && r2[0] === "SHORT", `단일 줄 오류: ${JSON.stringify(r2)}`);
+                assert(r3.length === 1 && r3[0] === "", `빈 문자열 오류: ${JSON.stringify(r3)}`);
+            }
         }
     ];
 
