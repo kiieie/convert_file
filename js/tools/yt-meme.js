@@ -1,0 +1,148 @@
+/**
+ * ==========================================================================
+ * ConvertFile - YouTube Clip Meme Maker (yt-meme.js)
+ * ==========================================================================
+ * 구간 선택은 YouTube IFrame Player API(재생 제어 전용). 플레이어 픽셀은 읽지
+ * 않으며, GIF 픽셀은 사용자가 업로드한 파일에서만 추출한다.
+ */
+
+(function () {
+    'use strict';
+
+    // --- DOM refs ---
+    const urlInput = document.getElementById('yt-url');
+    const btnLoad = document.getElementById('btn-load-video');
+    const urlError = document.getElementById('url-error');
+    const memeFrame = document.getElementById('meme-frame');
+    const segmentCard = document.getElementById('segment-card');
+    const textCard = document.getElementById('text-card');
+    const shareCard = document.getElementById('share-card');
+    const btnSetStart = document.getElementById('btn-set-start');
+    const btnSetEnd = document.getElementById('btn-set-end');
+    const segStartInput = document.getElementById('seg-start');
+    const segEndInput = document.getElementById('seg-end');
+    const btnPreviewLoop = document.getElementById('btn-preview-loop');
+
+    // --- state ---
+    let player = null;
+    let videoId = null;
+    let apiRequested = false;
+    let previewTimer = null;
+
+    function getSegment() {
+        return { s: parseFloat(segStartInput.value) || 0, e: parseFloat(segEndInput.value) || 0 };
+    }
+
+    function segmentValid() {
+        const seg = getSegment();
+        return seg.s >= 0 && seg.e - seg.s >= 0.5;
+    }
+
+    function loadIframeApi() {
+        return new Promise(function (resolve) {
+            if (window.YT && window.YT.Player) { resolve(); return; }
+            const prev = window.onYouTubeIframeAPIReady;
+            window.onYouTubeIframeAPIReady = function () {
+                if (prev) prev();
+                resolve();
+            };
+            if (!apiRequested) {
+                apiRequested = true;
+                const s = document.createElement('script');
+                s.src = 'https://www.youtube.com/iframe_api';
+                document.head.appendChild(s);
+            }
+        });
+    }
+
+    function showUrlError(msg) {
+        urlError.textContent = msg;
+        urlError.hidden = false;
+    }
+
+    function onPlayerError(e) {
+        let msg = 'This video cannot be played.';
+        if (e.data === 101 || e.data === 150) msg = 'The owner of this video has disabled embedding. Try another video.';
+        if (e.data === 100) msg = 'Video not found or private.';
+        if (e.data === 2) msg = 'Invalid video id.';
+        showUrlError(msg);
+    }
+
+    btnLoad.addEventListener('click', function () {
+        const parsed = YTUtils.parseYouTubeUrl(urlInput.value);
+        if (!parsed) {
+            showUrlError('Invalid YouTube URL. Supported: youtube.com/watch, youtu.be, shorts, embed links.');
+            return;
+        }
+        urlError.hidden = true;
+        videoId = parsed.id;
+        if (parsed.start !== null) {
+            segStartInput.value = parsed.start;
+            segEndInput.value = parsed.start + 5;
+        }
+        loadIframeApi().then(function () {
+            if (player) {
+                player.loadVideoById(videoId);
+            } else {
+                player = new YT.Player('yt-player', {
+                    videoId: videoId,
+                    playerVars: { rel: 0 },
+                    events: { onError: onPlayerError }
+                });
+            }
+            memeFrame.hidden = false;
+            segmentCard.hidden = false;
+            textCard.hidden = false;
+            shareCard.hidden = false;
+            updateShareState(); // Task 5에서 정의
+        });
+    });
+
+    urlInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') btnLoad.click();
+    });
+
+    // --- segment selection ---
+    btnSetStart.addEventListener('click', function () {
+        if (!player || !player.getCurrentTime) return;
+        segStartInput.value = (Math.round(player.getCurrentTime() * 10) / 10).toFixed(1);
+        if (parseFloat(segEndInput.value) <= parseFloat(segStartInput.value)) {
+            segEndInput.value = (parseFloat(segStartInput.value) + 5).toFixed(1);
+        }
+        updateShareState();
+    });
+
+    btnSetEnd.addEventListener('click', function () {
+        if (!player || !player.getCurrentTime) return;
+        segEndInput.value = (Math.round(player.getCurrentTime() * 10) / 10).toFixed(1);
+        updateShareState();
+    });
+
+    segStartInput.addEventListener('input', updateShareState);
+    segEndInput.addEventListener('input', updateShareState);
+
+    function stopPreviewLoop() {
+        if (previewTimer) {
+            clearInterval(previewTimer);
+            previewTimer = null;
+            btnPreviewLoop.textContent = '🔁 Preview loop';
+            if (player && player.pauseVideo) player.pauseVideo();
+        }
+    }
+
+    btnPreviewLoop.addEventListener('click', function () {
+        if (!player || !segmentValid()) return;
+        if (previewTimer) { stopPreviewLoop(); return; }
+        const seg = getSegment();
+        player.seekTo(seg.s, true);
+        player.playVideo();
+        btnPreviewLoop.textContent = '⏹ Stop preview';
+        previewTimer = setInterval(function () {
+            const cur = getSegment(); // 입력 변경 실시간 반영
+            if (player.getCurrentTime() >= cur.e) player.seekTo(cur.s, true);
+        }, 200);
+    });
+
+    // Task 5에서 실제 구현으로 교체되기 전 임시 no-op
+    function updateShareState() {}
+})();
