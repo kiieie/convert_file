@@ -408,6 +408,12 @@ test('YT Meme - page loads with all controls and no JS errors', async ({ page })
     await expect(page.locator('#gif-section')).toBeAttached();
     await expect(page.locator('#menu-yt-meme')).toBeVisible();
     expect(errors).toEqual([]);
+
+    await page.fill('#yt-url', 'https://www.youtube.com/watch?v=jNQXAC9IVRw');
+    await page.click('#btn-load-video');
+    // YT IFrame API replaces the #yt-player div in-place with an <iframe id="yt-player">,
+    // so the loaded player shows up as iframe#yt-player rather than a nested iframe.
+    await expect(page.locator('iframe#yt-player')).toBeAttached({ timeout: 5000 });
 });
 
 test('YT Meme - invalid URL shows inline error', async ({ page }) => {

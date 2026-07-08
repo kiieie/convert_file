@@ -1,6 +1,6 @@
 # 🌐 ConvertFile Core Engine - Browser E2E Test Report
 
-* **Test Date/Time:** 2026-06-07T13:14:47.410Z
+* **Test Date/Time:** 2026-07-08T01:21:16.490Z
 * **Environment:** Headless Chromium Browser (Playwright E2E)
 * **Target URL:** [http://127.0.0.1:8080/test/index.html](http://127.0.0.1:8080/test/index.html)
 
@@ -17,10 +17,14 @@
 | BarcodeValidator.validateEAN13() - EAN-13 포맷 규격 정규식 검증 | **PASS 🟢** | 검증 완료: 정상 동작 |
 | BarcodeValidator.validateUPCA() - UPC-A 포맷 규격 정규식 검증 | **PASS 🟢** | 검증 완료: 정상 동작 |
 | MetadataParser.stripExifBytes() - JPEG APP1(EXIF) 세그먼트 제거 검증 | **PASS 🟢** | 검증 완료: 정상 동작 |
+| YTUtils.parseYouTubeUrl() - YouTube URL 형식별 파싱 검증 | **PASS 🟢** | 검증 완료: 정상 동작 |
+| YTUtils.parseTimeParam() - 타임스탬프 표기 변환 검증 | **PASS 🟢** | 검증 완료: 정상 동작 |
+| YTUtils 클립 파라미터 - 생성/검증 라운드트립 (한글 텍스트) | **PASS 🟢** | 검증 완료: 정상 동작 |
+| MemeText.wrapLines() - 밈 텍스트 줄바꿈 계산 검증 | **PASS 🟢** | 검증 완료: 정상 동작 |
 
 ## E2E Test Summary
-* **Total Executed:** 11
-* **Passed:** 11 🟢
+* **Total Executed:** 15
+* **Passed:** 15 🟢
 * **Failed:** 0 🔴
 
 > 🎉 **All tests have successfully passed under real Chromium browser context!**

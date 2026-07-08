@@ -1,6 +1,6 @@
 # 🧪 ConvertFile Core Engine - Automated Test Report
 
-* **Test Date/Time:** 2026-06-19T05:46:15.101Z
+* **Test Date/Time:** 2026-07-08T01:21:10.219Z
 * **Environment:** Node.js (Mock Browser Context)
 
 | Test Case Name | Status | Error Details |
@@ -16,10 +16,14 @@
 | BarcodeValidator.validateEAN13() - EAN-13 포맷 규격 정규식 검증 | **PASS** 🟢 | - |
 | BarcodeValidator.validateUPCA() - UPC-A 포맷 규격 정규식 검증 | **PASS** 🟢 | - |
 | MetadataParser.stripExifBytes() - JPEG APP1(EXIF) 세그먼트 제거 검증 | **PASS** 🟢 | - |
+| YTUtils.parseYouTubeUrl() - YouTube URL 형식별 파싱 검증 | **PASS** 🟢 | - |
+| YTUtils.parseTimeParam() - 타임스탬프 표기 변환 검증 | **PASS** 🟢 | - |
+| YTUtils 클립 파라미터 - 생성/검증 라운드트립 (한글 텍스트) | **PASS** 🟢 | - |
+| MemeText.wrapLines() - 밈 텍스트 줄바꿈 계산 검증 | **PASS** 🟢 | - |
 
 ## Test Summary
-* **Total Tests:** 11
-* **Passed:** 10 🟢
+* **Total Tests:** 15
+* **Passed:** 14 🟢
 * **Failed:** 1 🔴
 
 > ⚠️ **Warning: Some tests failed. Please review the table above for details.**

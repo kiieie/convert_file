@@ -357,6 +357,12 @@
         }
 
         gifSourceVideo.pause();
+        // 일부 브라우저는 currentTime을 동일 값으로 재설정하면 'seeked'를 발화하지 않음.
+        // 첫 프레임(특히 start=0 기본값)에서 캡처가 영원히 멈추는 것을 막기 위해
+        // 목표 시각과 다른 값으로 살짝 옮겨둔 뒤 captureNextFrame()이 실제 seek을 수행하게 한다.
+        const firstTarget = captureTimes[0];
+        const nudged = firstTarget > 0.001 ? Math.max(0, firstTarget - 0.05) : firstTarget + 0.05;
+        gifSourceVideo.currentTime = nudged;
         captureNextFrame();
     });
 })();

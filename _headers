@@ -35,3 +35,21 @@
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
 
+# yt-meme needs COEP unsafe-none to embed the YouTube IFrame Player
+/tools/yt-meme.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+
+/ko/tools/yt-meme.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+
+/es/tools/yt-meme.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+
+/zh/tools/yt-meme.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+
+# clip-view는 외부 사이트에 임베드되는 페이지라 COEP 완화 + X-Frame-Options 해제 필요
+/tools/clip-view.html
+  Cross-Origin-Embedder-Policy: unsafe-none
+  X-Frame-Options:
+
