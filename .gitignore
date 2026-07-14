@@ -65,3 +65,9 @@ test/test-results/
 
 # GCP Service Account key
 service_account.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
