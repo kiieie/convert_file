@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebarEl = document.querySelector('.modern-sidebar');
     if (!sidebarEl) return;
 
-    const currentPath = window.location.pathname;
+    // Cloudflare serves /tools/x.html at /tools/x, so drop .html and index too
+    const currentPath = window.location.pathname.replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '');
     const isKorean = currentPath.startsWith('/ko/');
     const isSpanish = currentPath.startsWith('/es/');
     const isChinese = currentPath.startsWith('/zh/');
@@ -169,46 +170,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="modern-sidebar__group">
             <div class="modern-sidebar__group-title">${t.imageTools}</div>
-            <a href="${langPrefix}/tools/resize.html"   class="modern-sidebar__item" id="menu-resize">📐 ${t.resize}</a>
-            <a href="${langPrefix}/tools/crop.html"     class="modern-sidebar__item" id="menu-crop">✂️ ${t.crop}</a>
-            <a href="${langPrefix}/tools/rotate.html"   class="modern-sidebar__item" id="menu-rotate">🔄 ${t.rotate}</a>
-            <a href="${langPrefix}/tools/compress.html"              class="modern-sidebar__item" id="menu-compress">🗜️ ${t.compress}</a>
-            <a href="${langPrefix}/tools/heic2jpg.html"              class="modern-sidebar__item" id="menu-heic">📱 ${t.heic}</a>
-            <a href="${langPrefix}/tools/webp-convert.html"          class="modern-sidebar__item" id="menu-webp">⚡ ${t.webp}</a>
-            <a href="${langPrefix}/tools/bg-remove.html"             class="modern-sidebar__item" id="menu-bg-remove">✨ ${t.bgRemove}</a>
-            <a href="${langPrefix}/tools/color-extractor.html"       class="modern-sidebar__item" id="menu-color-extractor">🎨 ${t.colorExtractor}</a>
-            <a href="${langPrefix}/tools/watermark.html"             class="modern-sidebar__item" id="menu-watermark">✍️ ${t.watermark}</a>
-            <a href="${langPrefix}/tools/meme-generator.html"         class="modern-sidebar__item" id="menu-meme-gen">😂 ${t.memeGen}</a>
-            <a href="${langPrefix}/tools/svg-convert.html"           class="modern-sidebar__item" id="menu-svg-convert">📐 ${t.svgConvert}</a>
+            <a href="${langPrefix}/tools/resize"   class="modern-sidebar__item" id="menu-resize">📐 ${t.resize}</a>
+            <a href="${langPrefix}/tools/crop"     class="modern-sidebar__item" id="menu-crop">✂️ ${t.crop}</a>
+            <a href="${langPrefix}/tools/rotate"   class="modern-sidebar__item" id="menu-rotate">🔄 ${t.rotate}</a>
+            <a href="${langPrefix}/tools/compress"              class="modern-sidebar__item" id="menu-compress">🗜️ ${t.compress}</a>
+            <a href="${langPrefix}/tools/heic2jpg"              class="modern-sidebar__item" id="menu-heic">📱 ${t.heic}</a>
+            <a href="${langPrefix}/tools/webp-convert"          class="modern-sidebar__item" id="menu-webp">⚡ ${t.webp}</a>
+            <a href="${langPrefix}/tools/bg-remove"             class="modern-sidebar__item" id="menu-bg-remove">✨ ${t.bgRemove}</a>
+            <a href="${langPrefix}/tools/color-extractor"       class="modern-sidebar__item" id="menu-color-extractor">🎨 ${t.colorExtractor}</a>
+            <a href="${langPrefix}/tools/watermark"             class="modern-sidebar__item" id="menu-watermark">✍️ ${t.watermark}</a>
+            <a href="${langPrefix}/tools/meme-generator"         class="modern-sidebar__item" id="menu-meme-gen">😂 ${t.memeGen}</a>
+            <a href="${langPrefix}/tools/svg-convert"           class="modern-sidebar__item" id="menu-svg-convert">📐 ${t.svgConvert}</a>
         </div>
 
         <div class="modern-sidebar__group">
             <div class="modern-sidebar__group-title">${t.gifTools}</div>
-            <a href="${langPrefix}/tools/gif-maker.html"    class="modern-sidebar__item" id="menu-gif-maker">🎞️ ${t.gifMaker}</a>
-            <a href="${langPrefix}/tools/gif-splitter.html" class="modern-sidebar__item" id="menu-gif-splitter">✂️ ${t.gifSplit}</a>
-            <a href="${langPrefix}/tools/gif-optimize.html" class="modern-sidebar__item" id="menu-gif-optimize">📉 ${t.gifOpt}</a>
-            <a href="${langPrefix}/tools/gif-speed.html"    class="modern-sidebar__item" id="menu-gif-speed">⏩ ${t.gifSpeed}</a>
-            <a href="${langPrefix}/tools/gif-effects.html"  class="modern-sidebar__item" id="menu-gif-effects">🎨 ${t.gifEffects}</a>
+            <a href="${langPrefix}/tools/gif-maker"    class="modern-sidebar__item" id="menu-gif-maker">🎞️ ${t.gifMaker}</a>
+            <a href="${langPrefix}/tools/gif-splitter" class="modern-sidebar__item" id="menu-gif-splitter">✂️ ${t.gifSplit}</a>
+            <a href="${langPrefix}/tools/gif-optimize" class="modern-sidebar__item" id="menu-gif-optimize">📉 ${t.gifOpt}</a>
+            <a href="${langPrefix}/tools/gif-speed"    class="modern-sidebar__item" id="menu-gif-speed">⏩ ${t.gifSpeed}</a>
+            <a href="${langPrefix}/tools/gif-effects"  class="modern-sidebar__item" id="menu-gif-effects">🎨 ${t.gifEffects}</a>
         </div>
 
         <div class="modern-sidebar__group">
             <div class="modern-sidebar__group-title">${t.videoTools}</div>
-            <a href="${langPrefix}/tools/video-gif.html" class="modern-sidebar__item" id="menu-video-gif">🎬 ${t.videoGif}</a>
-            <a href="${langPrefix}/tools/img-pdf.html"                class="modern-sidebar__item" id="menu-img-pdf">📑 ${t.imgPdf}</a>
-            <a href="${langPrefix}/tools/pdf.html"       class="modern-sidebar__item" id="menu-pdf">📄 ${t.pdfTools}</a>
+            <a href="${langPrefix}/tools/video-gif" class="modern-sidebar__item" id="menu-video-gif">🎬 ${t.videoGif}</a>
+            <a href="${langPrefix}/tools/img-pdf"                class="modern-sidebar__item" id="menu-img-pdf">📑 ${t.imgPdf}</a>
+            <a href="${langPrefix}/tools/pdf"       class="modern-sidebar__item" id="menu-pdf">📄 ${t.pdfTools}</a>
         </div>
 
         <div class="modern-sidebar__group">
             <div class="modern-sidebar__group-title">${t.utils}</div>
-            <a href="${langPrefix}/tools/jpg-png.html"  class="modern-sidebar__item" id="menu-jpg-png">🔁 ${t.convert}</a>
-            <a href="${langPrefix}/tools/barcode.html"  class="modern-sidebar__item" id="menu-barcode">📊 ${t.barcode}</a>
-            <a href="${langPrefix}/tools/metadata.html" class="modern-sidebar__item" id="menu-metadata">🛡️ ${t.metadata}</a>
-            <a href="${langPrefix}/tools/base64.html"   class="modern-sidebar__item" id="menu-base64">🔗 ${t.base64}</a>
+            <a href="${langPrefix}/tools/jpg-png"  class="modern-sidebar__item" id="menu-jpg-png">🔁 ${t.convert}</a>
+            <a href="${langPrefix}/tools/barcode"  class="modern-sidebar__item" id="menu-barcode">📊 ${t.barcode}</a>
+            <a href="${langPrefix}/tools/metadata" class="modern-sidebar__item" id="menu-metadata">🛡️ ${t.metadata}</a>
+            <a href="${langPrefix}/tools/base64"   class="modern-sidebar__item" id="menu-base64">🔗 ${t.base64}</a>
         </div>
 
         <div class="modern-sidebar__group" style="margin-top:auto; border-top:1px solid var(--slate-100); padding-top:10px;">
             <div class="modern-sidebar__group-title">🌐 ${t.lang}</div>
-            <select class="modern-select" onchange="window.changeLanguage ? window.changeLanguage(this.value) : null"
+            <select class="modern-select" id="sidebar-lang-select"
                     style="width:100%; height:28px; font-size:11px; padding:2px 6px;">
                 <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
                 <option value="ko" ${currentLang === 'ko' ? 'selected' : ''}>한국어</option>
@@ -219,10 +220,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div style="padding:10px 8px 4px; display:flex; gap:10px; flex-wrap:wrap;">
             <a href="${langPrefix}/blog/" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.blog}</a>
-            <a href="${langPrefix}/pages/privacy.html" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.privacy}</a>
-            <a href="${langPrefix}/pages/terms.html"   style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.terms}</a>
-            <a href="${langPrefix}/pages/contact.html" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.contact}</a>
-            <a href="${langPrefix}/pages/about.html"   style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.about}</a>
+            <a href="${langPrefix}/pages/privacy" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.privacy}</a>
+            <a href="${langPrefix}/pages/terms"   style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.terms}</a>
+            <a href="${langPrefix}/pages/contact" style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.contact}</a>
+            <a href="${langPrefix}/pages/about"   style="font-size:10px; color:var(--slate-400); text-decoration:none;">${t.about}</a>
         </div>
     `;
 
@@ -238,6 +239,17 @@ document.addEventListener("DOMContentLoaded", () => {
             ? currentFull === href
             : currentPath === href;
         if (isActive) item.classList.add('modern-sidebar__item--active');
+    });
+
+    // Language switch. lang-detector.js (when loaded) owns the routing;
+    // otherwise save the choice and swap the /ko|/es|/zh prefix here.
+    sidebarEl.querySelector('#sidebar-lang-select').addEventListener('change', (e) => {
+        const lang = e.target.value;
+        if (window.changeLanguage) return window.changeLanguage(lang);
+        try { localStorage.setItem('convertfile-user-lang', lang); } catch (err) {}
+        const basePath = currentPath.replace(/^\/(ko|es|zh)(?=\/|$)/, '') || '/';
+        const target = (lang === 'en' ? '' : '/' + lang) + basePath;
+        window.location.href = target + window.location.search + window.location.hash;
     });
 
     // Mobile: top bar with menu button that opens the sidebar as a drawer

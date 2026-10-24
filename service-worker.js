@@ -1,7 +1,6 @@
-const CACHE_NAME = '2convert-cache-v3';
+const CACHE_NAME = '2convert-cache-v4';
 const ASSETS_TO_CACHE = [
   '/',
-  '/index.html',
   '/css/modern-theme.css',
   '/css/modern-components.css',
   '/css/tools.css',
