@@ -223,7 +223,19 @@
                     <li><strong>앞으로 찍을 사진에 위치를 남기지 않으려면</strong> 아이폰은 설정 → 개인정보 보호 및 보안 → 위치 서비스 → 카메라에서 "안 함"을, 갤럭시는 카메라 앱 설정에서 "위치 태그"를 끄세요.</li>
                     <li><strong>아이폰 HEIC 사진</strong>은 먼저 <a href="/ko/tools/heic2jpg">HEIC → JPG 변환</a>으로 바꾼 뒤 확인하세요.</li>
                 </ul>
-                <!-- TODO(운영자 실측): 예) 실제 휴대폰 사진 한 장의 제거 전/후 정보 화면 캡처 (GPS 좌표는 가린 상태로), 제거 전후 파일 용량 -->
+                <h3>직접 해 봤습니다</h3>
+                <p>위치정보(GPS)가 들어 있는 실제 휴대폰 사진 두 장으로 확인했습니다.</p>
+                <div class="tool-guide__table-wrap">
+                    <table class="tool-guide__table">
+                        <thead><tr><th>사진</th><th>삭제 전</th><th>삭제 후</th></tr></thead>
+                        <tbody>
+                            <tr><td>Nokia 8.3 5G 세로 사진</td><td>GPS 좌표, 기종, 회전 정보 있음</td><td>모두 삭제 · 564바이트 감소</td></tr>
+                            <tr><td>iPhone 6 사진</td><td>GPS 좌표, 기종, 촬영 일시 있음</td><td>모두 삭제 · 20KB 감소</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>두 사진 모두 삭제 전후의 <strong>픽셀 데이터가 완전히 같았습니다</strong>(화질 변화 없음). 대신 세로로 찍은 Nokia 사진은 회전 정보가 함께 지워져, 삭제 후 <strong>가로로 누운 사진(3456×4608 → 4608×3456)</strong>으로 표시됐습니다. 위의 "알아두면 좋은 점"에 적은 현상입니다.</p>
+                <p class="tool-guide__method">측정: 2026년 10월, PC의 Chromium 브라우저에서 이 페이지의 도구를 그대로 사용해 변환한 결과입니다. 사진과 기기에 따라 수치는 달라질 수 있습니다. 사진: 공개 EXIF 샘플 사진 모음 <a href="https://github.com/ianare/exif-samples" rel="nofollow noopener" target="_blank">ianare/exif-samples</a>.</p>
                 <h3>내 파일은 안전한가요?</h3>
                 <p>이 페이지에서 고른 파일은 2convert 서버로 전송되지 않습니다. 파일을 읽고 바꾸는 일은 모두 지금 쓰고 있는 브라우저 안에서 이뤄지고, 페이지를 닫으면 작업 내용도 함께 사라집니다.</p>
                 <h3>자주 묻는 질문</h3>

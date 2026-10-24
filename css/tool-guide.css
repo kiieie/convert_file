@@ -94,3 +94,34 @@
     background-color: #FFFFFF;
     font-size: 14px;
 }
+
+.tool-guide__table-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+.tool-guide__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #FFFFFF;
+}
+
+.tool-guide__table th,
+.tool-guide__table td {
+    border: 1px solid var(--slate-200);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tool-guide__table th {
+    background-color: var(--slate-100);
+    font-weight: 600;
+    color: var(--slate-900);
+}
+
+.tool-guide__method {
+    font-size: 13px;
+    color: var(--slate-500);
+}

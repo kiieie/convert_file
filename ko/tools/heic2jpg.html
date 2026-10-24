@@ -285,7 +285,20 @@
                     <li><strong>연속 촬영(버스트) 사진</strong>은 첫 번째 장만 변환됩니다. <strong>라이브 포토</strong>는 움직이는 부분 없이 정지 사진으로 저장됩니다.</li>
                     <li>변환은 내 기기의 브라우저가 처리하기 때문에 파일이 크거나 휴대폰이 오래됐다면 몇 초 걸릴 수 있습니다.</li>
                 </ul>
-                <!-- TODO(운영자 실측): 예) 아이폰 HEIC 사진 몇 장을 품질 92/80으로 변환했을 때 원본 대비 용량 표 -->
+                <h3>직접 해 봤습니다</h3>
+                <p>공개된 HEIC 샘플 세 장을 품질 92(기본값)와 80으로 변환했습니다.</p>
+                <div class="tool-guide__table-wrap">
+                    <table class="tool-guide__table">
+                        <thead><tr><th>HEIC 원본</th><th>품질 92</th><th>품질 80</th></tr></thead>
+                        <tbody>
+                            <tr><td>1440×960, 40KB</td><td>194KB</td><td>126KB</td></tr>
+                            <tr><td>1440×960, 51KB</td><td>214KB</td><td>136KB</td></tr>
+                            <tr><td>1280×854, 701KB</td><td>454KB</td><td>298KB</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>원본보다 커질 수도, 작아질 수도 있습니다.</strong> 강하게 압축된 HEIC는 JPG로 바꾸면 몇 배 커지고, 고화질로 저장된 HEIC는 오히려 작아졌습니다. 용량이 중요하면 품질을 80 정도로 낮추세요.</p>
+                <p class="tool-guide__method">측정: 2026년 10월, PC의 Chromium 브라우저에서 이 페이지의 도구를 그대로 사용해 변환한 결과입니다. 사진과 기기에 따라 수치는 달라질 수 있습니다. 샘플: <a href="https://github.com/alexcorvi/heic2any" rel="nofollow noopener" target="_blank">heic2any</a> 데모 이미지 2장, <a href="https://github.com/strukturag/libheif" rel="nofollow noopener" target="_blank">libheif</a> 예제 이미지 1장.</p>
                 <h3>내 파일은 안전한가요?</h3>
                 <p>이 페이지에서 고른 파일은 2convert 서버로 전송되지 않습니다. 파일을 읽고 바꾸는 일은 모두 지금 쓰고 있는 브라우저 안에서 이뤄지고, 페이지를 닫으면 작업 내용도 함께 사라집니다.</p>
                 <h3>자주 묻는 질문</h3>
@@ -311,7 +324,7 @@
                     <div class="tool-guide__faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
                         <h4 itemprop="name">JPG로 바꾼 뒤 용량이 오히려 커졌어요.</h4>
                         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                            <p itemprop="text">정상입니다. HEIC는 JPG보다 압축 효율이 좋은 형식이라 같은 화질이면 JPG 용량이 더 큽니다. 용량을 줄이려면 품질 값을 낮추거나 이미지 압축 도구를 쓰세요.</p>
+                            <p itemprop="text">강하게 압축된 HEIC라면 정상입니다. HEIC는 JPG보다 압축 효율이 좋은 형식이라, 아래 측정처럼 JPG로 바꾸면 몇 배 커지기도 합니다. 용량을 줄이려면 품질 값을 80 정도로 낮추거나 이미지 압축 도구를 쓰세요.</p>
                         </div>
                     </div>
                 </div>

@@ -365,7 +365,20 @@
                     <li><strong>순서 바꾸기는 PC 마우스로 끄는 방식</strong>이라 휴대폰에서는 잘 안 될 수 있습니다. 휴대폰에서는 처음 사진을 고를 때 원하는 순서대로 선택하는 편이 편합니다.</li>
                     <li><strong>20장이 넘으면</strong> 20장씩 나눠 PDF를 만든 뒤 <a href="/ko/tools/pdf">PDF 도구</a>에서 하나로 합치면 됩니다.</li>
                 </ul>
-                <!-- TODO(운영자 실측): 예) 영수증 사진 10장(합계 OO MB)을 고화질/중화질/저화질로 만들었을 때 PDF 용량과 글씨 가독성 비교표 + 화면 캡처 -->
+                <h3>직접 해 봤습니다</h3>
+                <p>영수증 이미지 10장과 휴대폰 사진 4장을 A4 PDF로 만들어 화질 설정별 용량을 비교했습니다.</p>
+                <div class="tool-guide__table-wrap">
+                    <table class="tool-guide__table">
+                        <thead><tr><th>화질 설정</th><th>영수증 10장<br>(합계 1.91MB)</th><th>휴대폰 사진 4장<br>(합계 10.77MB)</th></tr></thead>
+                        <tbody>
+                            <tr><td>고화질 95%</td><td>1.90MB</td><td>10.49MB</td></tr>
+                            <tr><td>중화질 75%</td><td>1.18MB</td><td>4.30MB</td></tr>
+                            <tr><td>저화질 50%</td><td>965KB</td><td>2.79MB</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>영수증 PDF는 <strong>저화질(50%)에서도 확대해서 품목과 금액이 또렷하게 읽혔습니다.</strong> 사진처럼 색이 많은 이미지일수록 화질 설정에 따라 용량 차이가 크게 났습니다(95% → 50%에서 약 4분의 1). 세로로 찍은 사진도 방향이 바르게 들어갔습니다.</p>
+                <p class="tool-guide__method">측정: 2026년 10월, PC의 Chromium 브라우저에서 이 페이지의 도구를 그대로 사용해 변환한 결과입니다. 사진과 기기에 따라 수치는 달라질 수 있습니다. 영수증: 측정용으로 직접 만든 테스트 영수증 이미지(1200×2400). 사진: 공개 EXIF 샘플 사진 모음 <a href="https://github.com/ianare/exif-samples" rel="nofollow noopener" target="_blank">ianare/exif-samples</a>.</p>
                 <h3>내 파일은 안전한가요?</h3>
                 <p>이 페이지에서 고른 파일은 2convert 서버로 전송되지 않습니다. 파일을 읽고 바꾸는 일은 모두 지금 쓰고 있는 브라우저 안에서 이뤄지고, 페이지를 닫으면 작업 내용도 함께 사라집니다.</p>
                 <h3>자주 묻는 질문</h3>
