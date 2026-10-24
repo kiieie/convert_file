@@ -18,20 +18,53 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# bg-remove needs COEP unsafe-none to load external AI model from CDN
+# bg-remove needs COEP unsafe-none to load external AI model from CDN.
+# Cloudflare serves /tools/bg-remove.html at /tools/bg-remove, so match both.
+# "!" drops the require-corp/same-origin values set by /* above.
+/tools/bg-remove
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
 /tools/bg-remove.html
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/ko/tools/bg-remove
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
 
 /ko/tools/bg-remove.html
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/es/tools/bg-remove
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
 
 /es/tools/bg-remove.html
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/zh/tools/bg-remove
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
 
 /zh/tools/bg-remove.html
+  ! Cross-Origin-Embedder-Policy
+  ! Cross-Origin-Opener-Policy
   Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Opener-Policy: same-origin-allow-popups
-

@@ -13,32 +13,33 @@
     // 다국어 번역이 존재하는 페이지 목록 (ko/, es/ 양쪽 다 있는 것만, 없으면 404 방지를 위해 리다이렉트 생략)
     const supportedPages = [
         '/',
-        '/tools/barcode.html',
-        '/tools/crop.html',
-        '/tools/gif-effects.html',
-        '/tools/gif-maker.html',
-        '/tools/gif-optimize.html',
-        '/tools/gif-speed.html',
-        '/tools/gif-splitter.html',
-        '/tools/metadata.html',
-        '/tools/pdf.html',
-        '/tools/resize.html',
-        '/tools/rotate.html',
-        '/tools/heic2jpg.html',
-        '/tools/compress.html',
-        '/tools/webp-convert.html',
-        '/tools/bg-remove.html',
-        '/tools/img-pdf.html',
-        '/tools/video-gif.html',
-        '/tools/color-extractor.html',
-        '/tools/watermark.html',
-        '/tools/meme-generator.html',
-        '/tools/base64.html',
-        '/tools/svg-convert.html',
+        '/tools/barcode',
+        '/tools/crop',
+        '/tools/gif-effects',
+        '/tools/gif-maker',
+        '/tools/gif-optimize',
+        '/tools/gif-speed',
+        '/tools/gif-splitter',
+        '/tools/metadata',
+        '/tools/pdf',
+        '/tools/resize',
+        '/tools/rotate',
+        '/tools/heic2jpg',
+        '/tools/compress',
+        '/tools/webp-convert',
+        '/tools/bg-remove',
+        '/tools/img-pdf',
+        '/tools/video-gif',
+        '/tools/color-extractor',
+        '/tools/watermark',
+        '/tools/meme-generator',
+        '/tools/base64',
+        '/tools/svg-convert',
     ];
 
     // /index.html 과 / 를 동일하게 취급하기 위해 정규화
-    const normalizedPath = currentPath === '/index.html' ? '/' : currentPath;
+    // Cloudflare serves /tools/x.html at /tools/x, so drop .html and index too
+    const normalizedPath = currentPath.replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '');
 
     const isSupported = supportedPages.some(page => {
         return normalizedPath === page ||
