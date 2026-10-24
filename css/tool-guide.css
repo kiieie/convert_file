@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Tool page guide section (tool-guide.css)
+   Human-written how-to content below a tool: steps, use cases, tips, FAQ.
+   ========================================================================== */
+
+.tool-guide {
+    margin-top: 40px;
+    border-top: 1px solid var(--slate-200);
+    padding-top: 28px;
+    max-width: 760px;
+    color: var(--slate-700);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.tool-guide h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin: 0 0 12px;
+}
+
+.tool-guide h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--slate-900);
+    margin: 32px 0 10px;
+}
+
+.tool-guide p {
+    margin: 0 0 12px;
+}
+
+.tool-guide ol,
+.tool-guide ul {
+    margin: 0 0 12px;
+    padding-left: 22px;
+}
+
+.tool-guide li {
+    margin-bottom: 6px;
+}
+
+.tool-guide strong {
+    color: var(--slate-900);
+}
+
+.tool-guide__note {
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-left: 3px solid var(--blue-600);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    margin: 16px 0;
+}
+
+.tool-guide__faq {
+    margin-top: 8px;
+}
+
+.tool-guide__faq-item {
+    border-bottom: 1px solid var(--slate-200);
+    padding: 14px 0;
+}
+
+.tool-guide__faq-item:last-child {
+    border-bottom: none;
+}
+
+.tool-guide__faq-item h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--slate-900);
+    margin: 0 0 6px;
+}
+
+.tool-guide__faq-item p {
+    margin: 0;
+}
+
+.tool-guide .tool-guide__related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.tool-guide__related a {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    background-color: #FFFFFF;
+    font-size: 14px;
+}
