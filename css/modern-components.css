@@ -339,6 +339,8 @@
         z-index: 1000;
         width: 260px;
         max-width: 80vw;
+        height: 100vh;
+        height: 100dvh; /* iOS Safari: keep drawer bottom above the toolbar */
         transform: translateX(-100%);
         transition: transform 0.2s ease;
     }
