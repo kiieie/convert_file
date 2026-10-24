@@ -1,0 +1,21 @@
+# Files that must not be published as static assets by Cloudflare Workers
+.git
+.github
+.claude
+.clinerules
+.gitignore
+.workerignore
+.assetsignore
+.wrangler
+node_modules
+wrangler.jsonc
+AGENTS.md
+CLAUDE.md
+README.md
+skills-lock.json
+submit_indexing.py
+service_account.json
+doc
+docs
+test
+test-results
