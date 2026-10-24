@@ -1,0 +1,22 @@
+# Files in the repo root that must not be served as public assets.
+.git
+.github
+.claude
+.clinerules
+.gitignore
+.workerignore
+.assetsignore
+wrangler.jsonc
+node_modules
+.wrangler
+CLAUDE.md
+AGENTS.md
+README.md
+doc
+docs
+test
+test-results
+submit_indexing.py
+skills-lock.json
+service_account.json
+*.log

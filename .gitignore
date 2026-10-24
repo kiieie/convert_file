@@ -65,3 +65,6 @@ test/test-results/
 
 # GCP Service Account key
 service_account.json
+
+# Wrangler local state
+.wrangler/
