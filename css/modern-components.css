@@ -287,13 +287,80 @@
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* 모바일 사이드바 토글 억제 */
+/* 모바일 상단바 + 드로어 사이드바 (sidebar.js가 주입) */
+.modern-mobile-bar,
+.modern-sidebar-backdrop {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .modern-layout {
         grid-template-columns: 1fr;
     }
+    .modern-mobile-bar {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 52px;
+        padding: 0 12px;
+        background-color: var(--slate-900);
+        color: #FFFFFF;
+    }
+    .modern-mobile-bar__toggle {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid var(--slate-700);
+        border-radius: var(--radius-md);
+        color: #FFFFFF;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+    }
+    .modern-mobile-bar__logo {
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .modern-mobile-bar__logo:hover {
+        text-decoration: none;
+    }
     .modern-sidebar {
-        display: none; /* 모바일 대응 간소화 */
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        width: 260px;
+        max-width: 80vw;
+        height: 100vh;
+        height: 100dvh; /* iOS Safari: keep drawer bottom above the toolbar */
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+    }
+    .modern-sidebar--open {
+        transform: translateX(0);
+        box-shadow: 4px 0 24px rgba(15, 23, 42, 0.35);
+    }
+    .modern-sidebar__item {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+    .modern-sidebar-backdrop--open {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 950;
+        background-color: rgba(15, 23, 42, 0.5);
+    }
+    body.modern-nav-open {
+        overflow: hidden;
     }
     .modern-content {
         padding: 20px;

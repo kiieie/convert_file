@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const t = {
         en: {
+            menu:       "Menu",
             imageTools: "Image Tools",
             resize:     "Resize",
             crop:       "Crop",
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             blog:       "Blog",
         },
         ko: {
+            menu:       "메뉴",
             imageTools: "이미지 도구",
             resize:     "크기 조절",
             crop:       "자르기",
@@ -87,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             blog:       "블로그",
         },
         es: {
+            menu:       "Menú",
             imageTools: "Imagen",
             resize:     "Redimensionar",
             crop:       "Recortar",
@@ -122,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
             blog:       "Blog",
         },
         zh: {
+            menu:       "菜单",
             imageTools: "图像工具",
             resize:     "调整大小",
             crop:       "裁剪",
@@ -234,5 +238,35 @@ document.addEventListener("DOMContentLoaded", () => {
             ? currentFull === href
             : currentPath === href;
         if (isActive) item.classList.add('modern-sidebar__item--active');
+    });
+
+    // Mobile: top bar with menu button that opens the sidebar as a drawer
+    if (!sidebarEl.id) sidebarEl.id = 'modern-sidebar';
+    const bar = document.createElement('header');
+    bar.className = 'modern-mobile-bar';
+    bar.innerHTML = `
+        <button type="button" class="modern-mobile-bar__toggle" aria-label="${t.menu}"
+                aria-controls="${sidebarEl.id}" aria-expanded="false">☰</button>
+        <a href="${langPrefix}/" class="modern-mobile-bar__logo">⚡ 2convert</a>
+    `;
+    const backdrop = document.createElement('div');
+    backdrop.className = 'modern-sidebar-backdrop';
+    document.body.prepend(backdrop);
+    document.body.prepend(bar);
+
+    const toggleBtn = bar.querySelector('.modern-mobile-bar__toggle');
+    const setOpen = (open) => {
+        sidebarEl.classList.toggle('modern-sidebar--open', open);
+        backdrop.classList.toggle('modern-sidebar-backdrop--open', open);
+        document.body.classList.toggle('modern-nav-open', open);
+        toggleBtn.setAttribute('aria-expanded', String(open));
+        toggleBtn.textContent = open ? '✕' : '☰';
+    };
+    toggleBtn.addEventListener('click', () => {
+        setOpen(!sidebarEl.classList.contains('modern-sidebar--open'));
+    });
+    backdrop.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
     });
 });
